@@ -247,7 +247,7 @@ HomePage As screen:
         Height: =667
         HoverBorderColor: =FilterGallery.BorderColor
         HoverFill: =FilterGallery.Fill
-        Items: =TicketTypes
+        Items: =TableTicketTypes_Test
         Layout: =Layout.Vertical
         LoadingSpinnerColor: =FilterGallery.BorderColor
         PressedBorderColor: =FilterGallery.BorderColor
@@ -273,24 +273,17 @@ HomePage As screen:
                 HoverBorderColor: =Heading2.BorderColor
                 HoverColor: =Heading2.Color
                 HoverFill: =Heading2.Fill
-                OnSelect: |-
-                    =If(ThisItem.TicketTypes="All tickets",
+                OnSelect: |
+                    =If(ThisItem.Title="All tickets",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"All"}),
-                    If(ThisItem.TicketTypes="New tickets",
+                    If(ThisItem.Title="New tickets",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"New"}),
-                    If(ThisItem.TicketTypes="Tickets in progress",
+                    If(ThisItem.Title="Tickets in progress",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"In progress"}),
-                    If(ThisItem.TicketTypes="Tickets closed",
+                    If(ThisItem.Title="Tickets closed",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"Closed"}),
-                    If(ThisItem.TicketTypes="Tickets on hold",
+                    If(ThisItem.Title="Tickets on hold",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"On hold"}))))));
-                        
-                    If(ThisItem.TicketTypes="Tickets older than 3 days",
-                        Navigate(TicketsPage,ScreenTransition.Fade,{datetype:Text(DateAdd(DateValue(Text(Today()), "en"), -3)),type:"Tickets older than 3 days"}),
-                    If(ThisItem.TicketTypes="Tickets closed today",
-                        Navigate(TicketsPage,ScreenTransition.Fade,{datetype:Text(DateAdd(DateValue(Text(Today()), "en"), 0)),type:"Tickets closed today"}),
-                    If(ThisItem.TicketTypes="Tickets opened today",
-                        Navigate(TicketsPage,ScreenTransition.Fade,{datetype:Text(DateAdd(DateValue(Text(Today()), "en"), 0)),type:"Tickets opened today"}))))
                 PaddingBottom: =4
                 PaddingLeft: =30
                 PaddingTop: =4
@@ -298,7 +291,7 @@ HomePage As screen:
                 PressedColor: =Heading2.Color
                 PressedFill: =Heading2.Fill
                 Size: =22
-                Text: =ThisItem.TicketTypes
+                Text: =ThisItem.Title
                 Width: =640
                 Wrap: =false
                 Y: =2
@@ -318,23 +311,16 @@ HomePage As screen:
                 HoverFill: =icon11.Fill
                 Icon: =Icon.ChevronRight
                 OnSelect: |-
-                    =If(ThisItem.TicketTypes="All tickets",
+                    =If(ThisItem.Title="All tickets",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"All"}),
-                    If(ThisItem.TicketTypes="New tickets",
+                    If(ThisItem.Title="New tickets",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"New"}),
-                    If(ThisItem.TicketTypes="Tickets in progress",
+                    If(ThisItem.Title="Tickets in progress",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"In progress"}),
-                    If(ThisItem.TicketTypes="Tickets closed",
+                    If(ThisItem.Title="Tickets closed",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"Closed"}),
-                    If(ThisItem.TicketTypes="Tickets on hold",
+                    If(ThisItem.Title="Tickets on hold",
                         Navigate(TicketsPage,ScreenTransition.Fade,{type:"On hold"}))))));
-                        
-                    If(ThisItem.TicketTypes="Tickets older than 3 days",
-                        Navigate(TicketsPage,ScreenTransition.Fade,{datetype:Text(DateAdd(DateValue(Text(Today()), "en"), -3)),type:"Tickets older than 3 days"}),
-                    If(ThisItem.TicketTypes="Tickets closed today",
-                        Navigate(TicketsPage,ScreenTransition.Fade,{datetype:Text(DateAdd(DateValue(Text(Today()), "en"), 0)),type:"Tickets closed today"}),
-                    If(ThisItem.TicketTypes="Tickets opened today",
-                        Navigate(TicketsPage,ScreenTransition.Fade,{datetype:Text(DateAdd(DateValue(Text(Today()), "en"), 0)),type:"Tickets opened today"}))))
                 PressedBorderColor: =ColorFade(icon11.BorderColor, -20%)
                 PressedColor: =ColorFade(icon11.Color, -20%)
                 PressedFill: =icon11.Fill

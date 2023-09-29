@@ -28,10 +28,10 @@
       "disablecdsfileandlargeimage": false,
       "dynamicschema": false,
       "enableappembeddingux": false,
+      "enablechatbotfeature": false,
       "enablecomponentnamemaps": true,
       "enablecomponentscopeoldbehavior": true,
       "enablecopilotcontrol": false,
-      "enablechatbotfeature": false,
       "enabledataverseoffline": false,
       "enableeditcacherefreshfrequency": false,
       "enableexcelonlinebusinessv2connector": false,
@@ -84,7 +84,7 @@
       "supportcolumnnamesasidentifiers": false,
       "tabledoesntwraprecords": true,
       "untypedobject": false,
-      "usedisplaynamemetadata": false,
+      "usedisplaynamemetadata": true,
       "useenforcesavedatalimits": false,
       "useexperimentalcdsconnector": false,
       "useexperimentalsqlconnector": false,
@@ -94,7 +94,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 0,
+    "BindingErrorCount": 82,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "Phone",
@@ -125,7 +125,7 @@
     "PublishDataLocally": false,
     "PublishResourcesLocally": true,
     "PublishTarget": "player",
-    "UserLocale": "vi-VN"
+    "UserLocale": "en-US"
   },
   "ScreenOrder": [
     "HomePage",
