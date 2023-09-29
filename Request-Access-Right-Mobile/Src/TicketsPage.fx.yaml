@@ -219,7 +219,7 @@ TicketsPage As screen:
                 PressedColor: =Heading1.Color
                 PressedFill: =Heading1.Fill
                 Size: =16
-                Text: =ThisItem.Owner
+                Text: =ThisItem.Approver4.DisplayName
                 Width: =250
                 Wrap: =false
                 X: =195
@@ -244,7 +244,7 @@ TicketsPage As screen:
                 PressedColor: =Subtitle1.Color
                 PressedFill: =Subtitle1.Fill
                 Size: =22
-                Text: =ThisItem.Subject
+                Text: =ThisItem.ReqType.Value
                 Width: =571
                 Wrap: =false
                 X: =29
@@ -267,7 +267,7 @@ TicketsPage As screen:
                 PressedBorderColor: =Body1.BorderColor
                 PressedColor: =Body1.Color
                 PressedFill: =Body1.Fill
-                Text: =ThisItem.Description
+                Text: =ThisItem.ReqPermission.Value
                 VerticalAlign: =VerticalAlign.Top
                 Width: =514
                 X: =29.041666666666668
@@ -372,10 +372,10 @@ TicketsPage As screen:
                 ZIndex: =11
 
             Heading1_2 As label:
-                Align: =TextPosition.Right
+                Align: =Align.Center
                 Color: =RGBA(40, 40, 40, 1)
                 FocusedBorderColor: =Heading1_2.BorderColor
-                Height: =44.04591836734697
+                Height: =44
                 HoverBorderColor: =Heading1_2.BorderColor
                 HoverColor: =Heading1_2.Color
                 HoverFill: =Heading1_2.Fill
@@ -389,17 +389,17 @@ TicketsPage As screen:
                 PressedColor: =Heading1_2.Color
                 PressedFill: =Heading1_2.Fill
                 Size: =16
-                Text: =ThisItem.DateCreated
-                Width: =187.79365079365107
+                Text: =ThisItem.Created
+                Width: =257
                 Wrap: =false
-                X: =433.0000000000001
+                X: =363
                 Y: =3.954081632653028
                 ZIndex: =12
 
             Rectangle15 As rectangle:
                 BorderColor: =RGBA(0, 0, 255, 1)
                 DisabledFill: =Rectangle15.Fill
-                Fill: =If(ThisItem.Status="In progress",RGBA(195,179,5,1),If(ThisItem.Status="On hold",RGBA(227,48,12,1),If(ThisItem.Status="Closed",RGBA(71,185,50,1),RGBA(56,56,153,1))))
+                Fill: =If(ThisItem.Status.Value="In progress",RGBA(195,179,5,1),If(ThisItem.Status.Value="On hold",RGBA(227,48,12,1),If(ThisItem.Status.Value="Closed",RGBA(71,185,50,1),RGBA(56,56,153,1))))
                 FocusedBorderColor: =Rectangle15.BorderColor
                 Height: =222.3
                 HoverFill: =Rectangle15.Fill
