@@ -96,47 +96,6 @@ HomePage As screen:
                     Y: =111
                     ZIndex: =1
 
-                    TextBox2_5 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        FocusedBorderColor: =TextBox2_5.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_5.BorderColor
-                        HoverColor: =TextBox2_5.Color
-                        HoverFill: =TextBox2_5.Fill
-                        OnSelect: =
-                        PressedBorderColor: =TextBox2_5.BorderColor
-                        PressedColor: =TextBox2_5.Color
-                        PressedFill: =TextBox2_5.Fill
-                        Size: =30
-                        Text: =CountRows(CollectRequest)
-                        Width: =171
-                        X: =70
-                        Y: =15
-                        ZIndex: =1
-
-                    TextBox2 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        FocusedBorderColor: =TextBox2.BorderColor
-                        Height: =38
-                        HoverBorderColor: =TextBox2.BorderColor
-                        HoverColor: =TextBox2.Color
-                        HoverFill: =TextBox2.Fill
-                        OnSelect: =
-                        PressedBorderColor: =TextBox2.BorderColor
-                        PressedColor: =TextBox2.Color
-                        PressedFill: =TextBox2.Fill
-                        Size: =25
-                        Text: ="All tickets"
-                        Width: =171
-                        X: =78
-                        Y: =77
-                        ZIndex: =2
-
                 "'Group ,New Tickets' As groupContainer":
                     AlignInContainer: =AlignInContainer.SetByContainer
                     Height: =155
@@ -146,47 +105,6 @@ HomePage As screen:
                     X: =230.5
                     Y: =2
                     ZIndex: =2
-
-                    TextBox2_6 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(56, 86, 153, 1)
-                        FocusedBorderColor: =TextBox2_6.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_6.BorderColor
-                        HoverColor: =TextBox2_6.Color
-                        HoverFill: =TextBox2_6.Fill
-                        OnSelect: =
-                        PressedBorderColor: =TextBox2_6.BorderColor
-                        PressedColor: =TextBox2_6.Color
-                        PressedFill: =TextBox2_6.Fill
-                        Size: =30
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Created"))
-                        Width: =168
-                        X: =70
-                        Y: =17
-                        ZIndex: =1
-
-                    TextBox2_1 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(56, 86, 153, 1)
-                        FocusedBorderColor: =TextBox2_1.BorderColor
-                        Height: =46
-                        HoverBorderColor: =TextBox2_1.BorderColor
-                        HoverColor: =TextBox2_1.Color
-                        HoverFill: =TextBox2_1.Fill
-                        OnSelect: =
-                        PressedBorderColor: =TextBox2_1.BorderColor
-                        PressedColor: =TextBox2_1.Color
-                        PressedFill: =TextBox2_1.Fill
-                        Size: =25
-                        Text: =If(TextBox2_6.Text="1","New ticket","New tickets")
-                        Width: =197
-                        X: =55
-                        Y: =77
-                        ZIndex: =2
 
             Container5 As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
@@ -208,48 +126,6 @@ HomePage As screen:
                     Y: =275
                     ZIndex: =1
 
-                    TextBox2_9 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(227,48,12,1)
-                        FocusedBorderColor: =TextBox2_9.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_9.BorderColor
-                        HoverColor: =TextBox2_9.Color
-                        HoverFill: =TextBox2_9.Fill
-                        OnSelect: =
-                        PaddingRight: =10
-                        PressedBorderColor: =TextBox2_9.BorderColor
-                        PressedColor: =TextBox2_9.Color
-                        PressedFill: =TextBox2_9.Fill
-                        Size: =30
-                        Text: =CountRows(Filter(CollectRequest,Status.Value = "Rejected" ))
-                        Width: =167
-                        Y: =21
-                        ZIndex: =1
-
-                    TextBox2_4 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(227,48,12,1)
-                        FocusedBorderColor: =TextBox2_4.BorderColor
-                        Height: =56
-                        HoverBorderColor: =TextBox2_4.BorderColor
-                        HoverColor: =TextBox2_4.Color
-                        HoverFill: =TextBox2_4.Fill
-                        OnSelect: =
-                        PaddingRight: =10
-                        PressedBorderColor: =TextBox2_4.BorderColor
-                        PressedColor: =TextBox2_4.Color
-                        PressedFill: =TextBox2_4.Fill
-                        Size: =18
-                        Text: ="Rejected"
-                        Width: =148
-                        X: =9
-                        Y: =80
-                        ZIndex: =2
-
                 Group21 As groupContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     Height: =150
@@ -258,47 +134,6 @@ HomePage As screen:
                     Width: =199
                     Y: =275
                     ZIndex: =2
-
-                    TextBox2_7 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(195,179,5,1)
-                        FocusedBorderColor: =TextBox2_7.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_7.BorderColor
-                        HoverColor: =TextBox2_7.Color
-                        HoverFill: =TextBox2_7.Fill
-                        OnSelect: =
-                        PressedBorderColor: =TextBox2_7.BorderColor
-                        PressedColor: =TextBox2_7.Color
-                        PressedFill: =TextBox2_7.Fill
-                        Size: =30
-                        Text: =CountRows(Filter(CollectRequest,Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved"))
-                        Width: =148
-                        X: =34
-                        Y: =21
-                        ZIndex: =1
-
-                    TextBox2_2 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(195,179,5,1)
-                        FocusedBorderColor: =TextBox2_2.BorderColor
-                        Height: =56
-                        HoverBorderColor: =TextBox2_2.BorderColor
-                        HoverColor: =TextBox2_2.Color
-                        HoverFill: =TextBox2_2.Fill
-                        OnSelect: =
-                        PressedBorderColor: =TextBox2_2.BorderColor
-                        PressedColor: =TextBox2_2.Color
-                        PressedFill: =TextBox2_2.Fill
-                        Size: =18
-                        Text: ="In progress"
-                        Width: =174
-                        X: =21
-                        Y: =80
-                        ZIndex: =2
 
                 Group6 As groupContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -309,47 +144,6 @@ HomePage As screen:
                     X: =228.5
                     Y: =275
                     ZIndex: =3
-
-                    TextBox2_8 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(71,185,50,1)
-                        FocusedBorderColor: =TextBox2_8.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_8.BorderColor
-                        HoverColor: =TextBox2_8.Color
-                        HoverFill: =TextBox2_8.Fill
-                        OnSelect: =
-                        PressedBorderColor: =TextBox2_8.BorderColor
-                        PressedColor: =TextBox2_8.Color
-                        PressedFill: =TextBox2_8.Fill
-                        Size: =30
-                        Text: =CountRows(Filter(CollectRequest,Status.Value = "Done" ))
-                        Width: =117
-                        X: =33.5
-                        Y: =21
-                        ZIndex: =1
-
-                    TextBox2_3 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(71,185,50,1)
-                        FocusedBorderColor: =TextBox2_3.BorderColor
-                        Height: =56
-                        HoverBorderColor: =TextBox2_3.BorderColor
-                        HoverColor: =TextBox2_3.Color
-                        HoverFill: =TextBox2_3.Fill
-                        OnSelect: =
-                        PressedBorderColor: =TextBox2_3.BorderColor
-                        PressedColor: =TextBox2_3.Color
-                        PressedFill: =TextBox2_3.Fill
-                        Size: =18
-                        Text: ="Closed"
-                        Width: =148
-                        X: =17
-                        Y: =80
-                        ZIndex: =2
 
         Container6 As groupContainer.verticalAutoLayoutContainer:
             Height: =225

@@ -556,25 +556,3 @@ NewTicketPage As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            Button1_1 As button:
-                AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Fill: =RGBA(0, 71, 144, 1)
-                Height: =55
-                HoverColor: =RGBA(255, 255, 255, 1)
-                HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                OnSelect: =SubmitForm(Form1);
-                RadiusBottomLeft: =18
-                RadiusBottomRight: =18
-                RadiusTopLeft: =18
-                RadiusTopRight: =18
-                Size: =20
-                Text: ="Created ticket"
-                Width: =252
-                X: =590
-                Y: =664
-                ZIndex: =1
-
