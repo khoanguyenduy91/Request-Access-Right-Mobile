@@ -143,11 +143,8 @@ TicketsPage As screen:
         HoverFill: =TicketsGallery.Fill
         Items: |-
             = If(type="All",
-                 TicketsCollect,
-            If(type="Tickets older than 3 days", 
-                Filter(TicketsCollect,   DateCreated <> datetype && DateCreated <>Text(DateValue(Text(Today()), "en")), DateCreated <> Text(DateAdd(DateValue(Text(Today()), "en"), -2)),DateCreated <> Text(DateAdd(DateValue(Text(Today()), "en"), -1))|| DateClosed <> datetype && DateClosed <> Text(Today()), DateClosed <> Text(DateAdd(DateValue(Text(Today()), "en"), -2)),DateClosed <> Text(DateAdd(DateValue(Text(Today()), "en"), -1))),
-            If(type="Tickets opened today",Filter(TicketsCollect,datetype in DateCreated),
-            If(type="Tickets closed today",Filter(TicketsCollect,datetype in DateClosed),Filter(TicketsCollect,type in Status)))))
+                Request_Test
+             )
         Layout: =Layout.Vertical
         LoadingSpinnerColor: =TicketsGallery.BorderColor
         PressedBorderColor: =TicketsGallery.BorderColor

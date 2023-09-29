@@ -1,1 +1,28 @@
-{}
+{
+  "a965592d-aebd-42f7-bd1b-ab864595125d": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3429/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://pizzavietnam.sharepoint.com/sites/TESTSITE": {
+        "dataSources": {
+          "Request_Test": {
+            "tableName": "ffa622b6-fe7d-4532-a5cd-3795b29db0ae"
+          },
+          "TableTicketTypes_Test": {
+            "tableName": "742ee646-9bc4-4300-a672-c32d256e8520"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TableTicketTypes_Test",
+      "Request_Test"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "a965592d-aebd-42f7-bd1b-ab864595125d"
+  }
+}
