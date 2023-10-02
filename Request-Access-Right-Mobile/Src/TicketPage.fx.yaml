@@ -238,7 +238,7 @@ TicketPage As screen:
                     HoverColor: =ColorFade(icon8.Color, 20%)
                     HoverFill: =icon8.Fill
                     Icon: =Icon.ChevronRight
-                    OnSelect: =
+                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                     PressedBorderColor: =ColorFade(icon8.BorderColor, -20%)
                     PressedColor: =ColorFade(icon8.Color, -20%)
                     PressedFill: =icon8.Fill
