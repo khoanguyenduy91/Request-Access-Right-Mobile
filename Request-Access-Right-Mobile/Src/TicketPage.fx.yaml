@@ -1,16 +1,20 @@
 TicketPage As screen:
+    Fill: =RGBA(255, 255, 255, 1)
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(230, 229, 229, 1)
         Height: =1136
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =2
         LayoutMode: =LayoutMode.Auto
         Width: =640
         ZIndex: =1
 
         Container2_2 As groupContainer.horizontalAutoLayoutContainer:
-            Fill: =RGBA(0, 134, 208, 1)
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =80
+            Height: =90
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -20,7 +24,7 @@ TicketPage As screen:
 
             Icon1_2 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Height: =50
                 Icon: =Icon.BackArrow
                 OnSelect: =Back()
@@ -30,12 +34,12 @@ TicketPage As screen:
             Label1_2 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
-                Height: =70
+                Height: =88
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
-                Size: =25
+                Size: =28
                 Text: ="Ticket Page"
                 Width: =560
                 ZIndex: =2
@@ -50,7 +54,7 @@ TicketPage As screen:
                 ZIndex: =3
 
         Container2_4 As groupContainer.horizontalAutoLayoutContainer:
-            Fill: =RGBA(242, 242, 242, 1)
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =80
             LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -74,6 +78,7 @@ TicketPage As screen:
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
+                OnSelect: =Navigate(TicketFilterPage,ScreenTransition.None)
                 Size: =21
                 Text: =type
                 Width: =560
@@ -83,7 +88,7 @@ TicketPage As screen:
             AccessibleLabel: ="Tickets Gallery"
             DisabledBorderColor: =TicketsGallery.BorderColor
             DisabledFill: =TicketsGallery.Fill
-            Fill: =RGBA(242, 244, 249, 1)
+            Fill: =RGBA(255, 255, 255, 1)
             Height: =959.9999999999998
             HoverBorderColor: =TicketsGallery.BorderColor
             HoverFill: =TicketsGallery.Fill
@@ -181,10 +186,9 @@ TicketPage As screen:
                     ZIndex: =4
 
                 Heading1 As label:
-                    Align: =LayoutAlignItems.Center
                     Color: =RGBA(40, 40, 40, 1)
                     FocusedBorderColor: =Heading1.BorderColor
-                    Height: =44.04591836734697
+                    Height: =44
                     HoverBorderColor: =Heading1.BorderColor
                     HoverColor: =Heading1.Color
                     HoverFill: =Heading1.Fill
@@ -197,10 +201,11 @@ TicketPage As screen:
                     PressedColor: =Heading1.Color
                     PressedFill: =Heading1.Fill
                     Size: =16
-                    Text: =ThisItem.Author.DisplayName
-                    Width: =250
+                    Text: |-
+                        ="Created by: "& ThisItem.Author.DisplayName
+                    Width: =386
                     Wrap: =false
-                    X: =165
+                    X: =29
                     Y: =3.954081632653029
                     ZIndex: =5
 
@@ -221,11 +226,12 @@ TicketPage As screen:
                     PressedColor: =Subtitle1.Color
                     PressedFill: =Subtitle1.Fill
                     Size: =22
-                    Text: =ThisItem.ReqType.Value
+                    Text: |-
+                        ="Title: "& ThisItem.Title
                     Width: =571
                     Wrap: =false
                     X: =29
-                    Y: =47.76530612244899
+                    Y: =47
                     ZIndex: =6
 
                 icon8 As icon.ChevronRight:
@@ -278,7 +284,49 @@ TicketPage As screen:
                 Rectangle15 As rectangle:
                     BorderColor: =RGBA(0, 0, 255, 1)
                     DisabledFill: =Rectangle15.Fill
-                    Fill: =
+                    Fill: |-
+                        =If(
+                            ThisItem.Status.Value = "Rejected",
+                            RGBA(
+                                227,
+                                48,
+                                12,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                                RGBA(
+                                    255,
+                                    153,
+                                    51,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "Created",
+                                    RGBA(
+                                        56,
+                                        86,
+                                        153,
+                                        1
+                                    ),
+                                    If(
+                                        ThisItem.Status.Value = "Done",
+                                        RGBA(
+                                            8,
+                                            103,
+                                            26,
+                                            1
+                                        ),
+                                        RGBA(
+                                            71,
+                                            185,
+                                            50,
+                                            1
+                                        )
+                                    )
+                                )
+                            )
+                        )
                     FocusedBorderColor: =Rectangle15.BorderColor
                     Height: =222.3
                     HoverFill: =Rectangle15.Fill
@@ -288,10 +336,52 @@ TicketPage As screen:
                     ZIndex: =13
 
             Subtitle1_1 As label:
-                Color: =RGBA(29, 33, 35, 1)
+                Color: |-
+                    =If(
+                        ThisItem.Status.Value = "Rejected",
+                        RGBA(
+                            227,
+                            48,
+                            12,
+                            1
+                        ),
+                        If(
+                            ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                            RGBA(
+                                255,
+                                153,
+                                51,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "Created",
+                                RGBA(
+                                    56,
+                                    86,
+                                    153,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "Done",
+                                    RGBA(
+                                        8,
+                                        103,
+                                        26,
+                                        1
+                                    ),
+                                    RGBA(
+                                        71,
+                                        185,
+                                        50,
+                                        1
+                                    )
+                                )
+                            )
+                        )
+                    )
                 FocusedBorderColor: =Subtitle1_1.BorderColor
-                FontWeight: =FontWeight.Semibold
-                Height: =58
+                FontWeight: =FontWeight.Bold
+                Height: =68
                 HoverBorderColor: =Subtitle1_1.BorderColor
                 HoverColor: =Subtitle1_1.Color
                 HoverFill: =Subtitle1_1.Fill
@@ -303,11 +393,60 @@ TicketPage As screen:
                 PressedBorderColor: =Subtitle1_1.BorderColor
                 PressedColor: =Subtitle1_1.Color
                 PressedFill: =Subtitle1_1.Fill
-                Size: =22
+                Size: =18
                 Text: =ThisItem.Status.Value
+                Width: =408
+                Wrap: =false
+                X: =123
+                Y: =155.0699504854464
+                ZIndex: =14
+
+            Subtitle1_6 As label:
+                Color: =RGBA(29, 33, 35, 1)
+                FocusedBorderColor: =Subtitle1_6.BorderColor
+                Height: =68
+                HoverBorderColor: =Subtitle1_6.BorderColor
+                HoverColor: =Subtitle1_6.Color
+                HoverFill: =Subtitle1_6.Fill
+                OnSelect: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =Subtitle1_6.BorderColor
+                PressedColor: =Subtitle1_6.Color
+                PressedFill: =Subtitle1_6.Fill
+                Size: =18
+                Text: |-
+                    ="Status: "
+                Width: =92
+                Wrap: =false
+                X: =29
+                Y: =155.0699504854464
+                ZIndex: =15
+
+            Subtitle1_7 As label:
+                Color: =RGBA(29, 33, 35, 1)
+                FocusedBorderColor: =Subtitle1_7.BorderColor
+                FontWeight: =FontWeight.Semibold
+                Height: =58
+                HoverBorderColor: =Subtitle1_7.BorderColor
+                HoverColor: =Subtitle1_7.Color
+                HoverFill: =Subtitle1_7.Fill
+                OnSelect: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =Subtitle1_7.BorderColor
+                PressedColor: =Subtitle1_7.Color
+                PressedFill: =Subtitle1_7.Fill
+                Size: =18
+                Text: |-
+                    ="Request Type: "& ThisItem.ReqType.Value
                 Width: =571
                 Wrap: =false
                 X: =29
                 Y: =105
-                ZIndex: =14
+                ZIndex: =16
 

@@ -1,16 +1,19 @@
 NewTicketPage As screen:
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(230, 229, 229, 1)
         Height: =1136
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =2
         LayoutMode: =LayoutMode.Auto
         Width: =640
         ZIndex: =1
 
         Container2_1 As groupContainer.horizontalAutoLayoutContainer:
-            Fill: =RGBA(0, 134, 208, 1)
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =80
+            Height: =90
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -20,7 +23,7 @@ NewTicketPage As screen:
 
             Icon1_1 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Height: =50
                 Icon: =Icon.BackArrow
                 OnSelect: =Back()
@@ -30,12 +33,12 @@ NewTicketPage As screen:
             Label1_1 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
-                Size: =25
+                Size: =28
                 Text: ="New Ticket"
                 Width: =560
                 ZIndex: =2
@@ -51,6 +54,7 @@ NewTicketPage As screen:
 
         Form1 As form:
             DataSource: =Request_Test
+            Fill: =RGBA(255, 255, 255, 1)
             Item: =TicketsGallery.Selected
             LayoutMinHeight: =250
             LayoutMinWidth: =320
@@ -89,7 +93,7 @@ NewTicketPage As screen:
 
                 DataCardValue12 As combobox:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    ChevronBackground: =RGBA(62, 96, 170, 1)
+                    ChevronBackground: =RGBA(10, 128, 32, 1)
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
@@ -99,6 +103,7 @@ NewTicketPage As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
                     SearchItems: =[]
+                    SelectionFill: =RGBA(11, 128, 32, 0.85)
                     SelectMultiple: =false
                     Size: =21
                     Tooltip: =Parent.DisplayName
@@ -170,7 +175,7 @@ NewTicketPage As screen:
 
                 DataCardValue8 As combobox:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    ChevronBackground: =RGBA(62, 96, 170, 1)
+                    ChevronBackground: =RGBA(10, 128, 32, 1)
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
@@ -180,6 +185,7 @@ NewTicketPage As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
                     SearchItems: =[]
+                    SelectionFill: =RGBA(11, 128, 32, 0.85)
                     SelectMultiple: =false
                     Size: =21
                     Tooltip: =Parent.DisplayName
@@ -416,7 +422,7 @@ NewTicketPage As screen:
                 DataCardValue11 As attachments:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     DisplayMode: =Parent.DisplayMode
-                    Height: =520
+                    Height: =295
                     IsInDataCard: =true
                     Items: =Parent.Default
                     PaddingBottom: =5
@@ -544,14 +550,13 @@ NewTicketPage As screen:
 
         Container11 As groupContainer.verticalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =70
+            Height: =80
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
             LayoutMinWidth: =200
             LayoutMode: =LayoutMode.Auto
-            PaddingBottom: =5
-            PaddingTop: =5
             RadiusBottomLeft: =4
             RadiusBottomRight: =4
             RadiusTopLeft: =4
@@ -565,14 +570,18 @@ NewTicketPage As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                Fill: =RGBA(0, 71, 144, 1)
-                Height: =55
+                Fill: =RGBA(11, 128, 32, 1)
+                Height: =80
                 HoverColor: =RGBA(255, 255, 255, 1)
-                HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: =SubmitForm(Form1);
-                Size: =20
-                Text: ="Save"
-                Width: =252
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Size: =24
+                Text: ="Create ticket"
+                Width: =Parent.Width
                 X: =590
                 Y: =664
                 ZIndex: =1

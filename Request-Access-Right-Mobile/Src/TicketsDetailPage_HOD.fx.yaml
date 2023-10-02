@@ -1,8 +1,7 @@
-TicketsDetailPage_User As screen:
+TicketsDetailPage_HOD As screen:
+    Fill: =RGBA(230, 229, 229, 1)
 
-    Container10 As groupContainer.verticalAutoLayoutContainer:
-        DropShadow: =DropShadow.ExtraBold
-        Fill: =RGBA(230, 229, 229, 1)
+    Container10_2 As groupContainer.verticalAutoLayoutContainer:
         Height: =1136
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =2
@@ -10,7 +9,7 @@ TicketsDetailPage_User As screen:
         Width: =640
         ZIndex: =1
 
-        Container2_3 As groupContainer.horizontalAutoLayoutContainer:
+        Container2_9 As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -23,7 +22,7 @@ TicketsDetailPage_User As screen:
             PaddingRight: =10
             ZIndex: =1
 
-            Icon1_3 As icon.Add:
+            Icon1_13 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =50
@@ -32,59 +31,39 @@ TicketsDetailPage_User As screen:
                 Width: =50
                 ZIndex: =1
 
-            Label1_3 As label:
+            Label1_8 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =1
-                Height: =70
+                Height: =88
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Ticket Detail"
+                Text: ="Ticket Detail HOD"
                 Width: =560
                 ZIndex: =2
 
-            Icon1_5 As icon.Add:
+            Image1_6 As image:
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(0, 0, 0, 1)
                 Height: =50
-                Icon: =Icon.Edit
-                OnSelect: =EditForm(Form1);Navigate(NewTicketPage, ScreenTransition.None)
-                Visible: |-
-                    =If(
-                        DataCardValue16.Selected.Value = "Created",
-                        true,
-                        false
-                    )
+                Image: ='Logo - PizzaHut'
+                LayoutMinHeight: =320
+                LayoutMinWidth: =320
                 Width: =50
                 ZIndex: =3
 
-            Icon1_6 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(0, 0, 0, 1)
-                Height: =50
-                Icon: =Icon.Trash
-                OnSelect: =Set(Dialogdelete,true)
-                Visible: |-
-                    =If(
-                        DataCardValue16.Selected.Value = "Created",
-                        true,
-                        false
-                    )
-                Width: =50
-                ZIndex: =4
-
-        FormDetail_user As formViewer:
+        FormDetail_user_2 As formViewer:
             DataSource: =Request_Test
             Fill: =RGBA(255, 255, 255, 1)
-            Item: =TicketsGallery.Selected
+            Item: =TicketsGallery_HOD.Selected
             LayoutMinHeight: =250
             LayoutMinWidth: =320
             Width: =640
             ZIndex: =2
 
-            Created_DataCard1 As typedDataCard.textualViewCard:
+            Created_DataCard1_2 As typedDataCard.textualViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Created"
                 Default: =ThisItem.Created
@@ -98,7 +77,7 @@ TicketsDetailPage_User As screen:
                 Y: =0
                 ZIndex: =1
 
-                DataCardKey26 As label:
+                DataCardKey26_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -113,7 +92,7 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue25 As label:
+                DataCardValue25_2 As label:
                     AutoHeight: =true
                     DisplayMode: =Parent.DisplayMode
                     PaddingLeft: =0
@@ -123,10 +102,10 @@ TicketsDetailPage_User As screen:
                     Text: =Parent.Default
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey26.Y + DataCardKey26.Height + 5
+                    Y: =DataCardKey26_2.Y + DataCardKey26_2.Height + 5
                     ZIndex: =2
 
-            "'Created By_DataCard1' As typedDataCard.comboBoxViewCard":
+            "'Created By_DataCard1_2' As typedDataCard.comboBoxViewCard":
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Author"
                 Default: =ThisItem.Author
@@ -135,13 +114,13 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Update: =DataCardValue26.Selected
+                Update: =DataCardValue26_2.Selected
                 Width: =640
                 X: =0
                 Y: =1
                 ZIndex: =1
 
-                DataCardKey27 As label:
+                DataCardKey27_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -156,7 +135,7 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue26 As combobox:
+                DataCardValue26_2 As combobox:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["DisplayName","Email","Picture"]
@@ -165,16 +144,16 @@ TicketsDetailPage_User As screen:
                     Items: =Choices([@Request_Test].Author)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["DisplayName"]
-                    SearchItems: =Choices(Request_Test.Author,DataCardValue26.SearchText)
+                    SearchItems: =Choices(Request_Test.Author,DataCardValue26_2.SearchText)
                     SelectMultiple: =false
                     Size: =20
                     Template: =ListItemTemplate.Person
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey27.Y + DataCardKey27.Height + 5
+                    Y: =DataCardKey27_2.Y + DataCardKey27_2.Height + 5
                     ZIndex: =2
 
-                ErrorMessage22 As label:
+                ErrorMessage22_2 As label:
                     AutoHeight: =true
                     Height: =10
                     Live: =Live.Assertive
@@ -187,25 +166,25 @@ TicketsDetailPage_User As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue26.Y + DataCardValue26.Height
+                    Y: =DataCardValue26_2.Y + DataCardValue26_2.Height
                     ZIndex: =3
 
-                StarVisible22 As label:
+                StarVisible22_2 As label:
                     Align: =Align.Center
-                    Height: =DataCardKey27.Height
-                    PaddingBottom: =DataCardKey27.PaddingBottom
-                    PaddingLeft: =DataCardKey27.PaddingLeft
-                    PaddingRight: =DataCardKey27.PaddingRight
-                    PaddingTop: =DataCardKey27.PaddingTop
+                    Height: =DataCardKey27_2.Height
+                    PaddingBottom: =DataCardKey27_2.PaddingBottom
+                    PaddingLeft: =DataCardKey27_2.PaddingLeft
+                    PaddingRight: =DataCardKey27_2.PaddingRight
+                    PaddingTop: =DataCardKey27_2.PaddingTop
                     Size: =21
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey27.Y
+                    Y: =DataCardKey27_2.Y
                     ZIndex: =4
 
-            ReqReason_DataCard2 As typedDataCard.textualViewCard:
+            ReqReason_DataCard2_2 As typedDataCard.textualViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="ReqReason"
                 Default: =ThisItem.ReqReason
@@ -219,7 +198,7 @@ TicketsDetailPage_User As screen:
                 Y: =4
                 ZIndex: =1
 
-                DataCardKey23 As label:
+                DataCardKey23_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -234,7 +213,7 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue22 As label:
+                DataCardValue22_2 As label:
                     AutoHeight: =true
                     DisplayMode: =Parent.DisplayMode
                     PaddingLeft: =0
@@ -244,10 +223,10 @@ TicketsDetailPage_User As screen:
                     Text: =Parent.Default
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey23.Y + DataCardKey23.Height + 5
+                    Y: =DataCardKey23_2.Y + DataCardKey23_2.Height + 5
                     ZIndex: =2
 
-            ReqPermission_DataCard2 As typedDataCard.comboBoxViewCard:
+            ReqPermission_DataCard2_2 As typedDataCard.comboBoxViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="ReqPermission"
                 Default: =ThisItem.ReqPermission
@@ -256,13 +235,13 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Update: =DataCardValue21.Selected
+                Update: =DataCardValue21_2.Selected
                 Width: =640
                 X: =0
                 Y: =5
                 ZIndex: =1
 
-                DataCardKey22 As label:
+                DataCardKey22_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -277,7 +256,7 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue21 As combobox:
+                DataCardValue21_2 As combobox:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
@@ -286,15 +265,15 @@ TicketsDetailPage_User As screen:
                     Items: =Choices([@Request_Test].ReqPermission)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(Request_Test.ReqPermission,DataCardValue21.SearchText)
+                    SearchItems: =Choices(Request_Test.ReqPermission,DataCardValue21_2.SearchText)
                     SelectMultiple: =false
                     Size: =20
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey22.Y + DataCardKey22.Height + 5
+                    Y: =DataCardKey22_2.Y + DataCardKey22_2.Height + 5
                     ZIndex: =2
 
-                ErrorMessage20 As label:
+                ErrorMessage20_2 As label:
                     AutoHeight: =true
                     Height: =10
                     Live: =Live.Assertive
@@ -307,25 +286,25 @@ TicketsDetailPage_User As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue21.Y + DataCardValue21.Height
+                    Y: =DataCardValue21_2.Y + DataCardValue21_2.Height
                     ZIndex: =3
 
-                StarVisible20 As label:
+                StarVisible20_2 As label:
                     Align: =Align.Center
-                    Height: =DataCardKey22.Height
-                    PaddingBottom: =DataCardKey22.PaddingBottom
-                    PaddingLeft: =DataCardKey22.PaddingLeft
-                    PaddingRight: =DataCardKey22.PaddingRight
-                    PaddingTop: =DataCardKey22.PaddingTop
+                    Height: =DataCardKey22_2.Height
+                    PaddingBottom: =DataCardKey22_2.PaddingBottom
+                    PaddingLeft: =DataCardKey22_2.PaddingLeft
+                    PaddingRight: =DataCardKey22_2.PaddingRight
+                    PaddingTop: =DataCardKey22_2.PaddingTop
                     Size: =21
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey22.Y
+                    Y: =DataCardKey22_2.Y
                     ZIndex: =4
 
-            ReqDescription_DataCard2 As typedDataCard.textualViewCard:
+            ReqDescription_DataCard2_2 As typedDataCard.textualViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="ReqDescription"
                 Default: =ThisItem.ReqDescription
@@ -339,7 +318,7 @@ TicketsDetailPage_User As screen:
                 Y: =6
                 ZIndex: =1
 
-                DataCardKey24 As label:
+                DataCardKey24_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -354,7 +333,7 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue23 As label:
+                DataCardValue23_2 As label:
                     AutoHeight: =true
                     DisplayMode: =Parent.DisplayMode
                     PaddingLeft: =0
@@ -364,10 +343,10 @@ TicketsDetailPage_User As screen:
                     Text: =Parent.Default
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey24.Y + DataCardKey24.Height + 5
+                    Y: =DataCardKey24_2.Y + DataCardKey24_2.Height + 5
                     ZIndex: =2
 
-            Attachments_DataCard2 As typedDataCard.attachmentsViewCard:
+            Attachments_DataCard2_2 As typedDataCard.attachmentsViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
                 Default: =ThisItem.'{Attachments}'
@@ -376,13 +355,13 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Update: =DataCardValue24.Attachments
+                Update: =DataCardValue24_2.Attachments
                 Width: =640
                 X: =0
                 Y: =8
                 ZIndex: =1
 
-                DataCardKey25 As label:
+                DataCardKey25_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -397,9 +376,8 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue24 As attachments:
-                    BorderColor: =RGBA(62, 96, 170, 1)
-                    BorderThickness: =5
+                DataCardValue24_2 As attachments:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     DisplayMode: =Parent.DisplayMode
                     Height: =217
                     IsInDataCard: =true
@@ -413,7 +391,7 @@ TicketsDetailPage_User As screen:
                     Y: =48
                     ZIndex: =2
 
-                ErrorMessage21 As label:
+                ErrorMessage21_2 As label:
                     AutoHeight: =true
                     Height: =10
                     PaddingBottom: =0
@@ -425,25 +403,25 @@ TicketsDetailPage_User As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue24.Y + DataCardValue24.Height
+                    Y: =DataCardValue24_2.Y + DataCardValue24_2.Height
                     ZIndex: =3
 
-                StarVisible21 As label:
+                StarVisible21_2 As label:
                     Align: =Align.Center
-                    Height: =DataCardKey25.Height
-                    PaddingBottom: =DataCardKey25.PaddingBottom
-                    PaddingLeft: =DataCardKey25.PaddingLeft
-                    PaddingRight: =DataCardKey25.PaddingRight
-                    PaddingTop: =DataCardKey25.PaddingTop
+                    Height: =DataCardKey25_2.Height
+                    PaddingBottom: =DataCardKey25_2.PaddingBottom
+                    PaddingLeft: =DataCardKey25_2.PaddingLeft
+                    PaddingRight: =DataCardKey25_2.PaddingRight
+                    PaddingTop: =DataCardKey25_2.PaddingTop
                     Size: =21
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey25.Y
+                    Y: =DataCardKey25_2.Y
                     ZIndex: =4
 
-            Title_DataCard2 As typedDataCard.textualViewCard:
+            Title_DataCard2_2 As typedDataCard.textualViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Title"
                 Default: =ThisItem.Title
@@ -457,7 +435,7 @@ TicketsDetailPage_User As screen:
                 Y: =2
                 ZIndex: =3
 
-                DataCardKey14 As label:
+                DataCardKey14_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -472,7 +450,7 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue13 As label:
+                DataCardValue13_2 As label:
                     AutoHeight: =true
                     DisplayMode: =Parent.DisplayMode
                     PaddingLeft: =0
@@ -482,10 +460,10 @@ TicketsDetailPage_User As screen:
                     Text: =Parent.Default
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                    Y: =DataCardKey14_2.Y + DataCardKey14_2.Height + 5
                     ZIndex: =2
 
-            ReqType_DataCard3 As typedDataCard.comboBoxViewCard:
+            ReqType_DataCard3_2 As typedDataCard.comboBoxViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="ReqType"
                 Default: =ThisItem.ReqType
@@ -494,13 +472,13 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Update: =DataCardValue19.Selected
+                Update: =DataCardValue19_2.Selected
                 Width: =640
                 X: =0
                 Y: =3
                 ZIndex: =3
 
-                DataCardKey20 As label:
+                DataCardKey20_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -515,7 +493,7 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue19 As combobox:
+                DataCardValue19_2 As combobox:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
@@ -524,15 +502,15 @@ TicketsDetailPage_User As screen:
                     Items: =Choices([@Request_Test].ReqType)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(Request_Test.ReqType,DataCardValue19.SearchText)
+                    SearchItems: =Choices(Request_Test.ReqType,DataCardValue19_2.SearchText)
                     SelectMultiple: =false
                     Size: =20
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey20.Y + DataCardKey20.Height + 5
+                    Y: =DataCardKey20_2.Y + DataCardKey20_2.Height + 5
                     ZIndex: =2
 
-                ErrorMessage18 As label:
+                ErrorMessage18_2 As label:
                     AutoHeight: =true
                     Height: =10
                     Live: =Live.Assertive
@@ -545,25 +523,25 @@ TicketsDetailPage_User As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue19.Y + DataCardValue19.Height
+                    Y: =DataCardValue19_2.Y + DataCardValue19_2.Height
                     ZIndex: =3
 
-                StarVisible18 As label:
+                StarVisible18_2 As label:
                     Align: =Align.Center
-                    Height: =DataCardKey20.Height
-                    PaddingBottom: =DataCardKey20.PaddingBottom
-                    PaddingLeft: =DataCardKey20.PaddingLeft
-                    PaddingRight: =DataCardKey20.PaddingRight
-                    PaddingTop: =DataCardKey20.PaddingTop
+                    Height: =DataCardKey20_2.Height
+                    PaddingBottom: =DataCardKey20_2.PaddingBottom
+                    PaddingLeft: =DataCardKey20_2.PaddingLeft
+                    PaddingRight: =DataCardKey20_2.PaddingRight
+                    PaddingTop: =DataCardKey20_2.PaddingTop
                     Size: =21
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey20.Y
+                    Y: =DataCardKey20_2.Y
                     ZIndex: =4
 
-            Status_DataCard2 As typedDataCard.comboBoxViewCard:
+            Status_DataCard2_2 As typedDataCard.comboBoxViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Status"
                 Default: =ThisItem.Status
@@ -572,13 +550,13 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Update: =DataCardValue16.Selected
+                Update: =DataCardValue16_2.Selected
                 Width: =640
                 X: =0
                 Y: =7
                 ZIndex: =3
 
-                DataCardKey17 As label:
+                DataCardKey17_2 As label:
                     AutoHeight: =true
                     Height: =48
                     PaddingBottom: =0
@@ -593,7 +571,7 @@ TicketsDetailPage_User As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue16 As combobox:
+                DataCardValue16_2 As combobox:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
@@ -602,15 +580,15 @@ TicketsDetailPage_User As screen:
                     Items: =Choices([@Request_Test].Status)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(Request_Test.Status,DataCardValue16.SearchText)
+                    SearchItems: =Choices(Request_Test.Status,DataCardValue16_2.SearchText)
                     SelectMultiple: =false
                     Size: =20
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                    Y: =DataCardKey17_2.Y + DataCardKey17_2.Height + 5
                     ZIndex: =2
 
-                ErrorMessage16 As label:
+                ErrorMessage16_2 As label:
                     AutoHeight: =true
                     Height: =10
                     Live: =Live.Assertive
@@ -623,176 +601,202 @@ TicketsDetailPage_User As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue16.Y + DataCardValue16.Height
+                    Y: =DataCardValue16_2.Y + DataCardValue16_2.Height
                     ZIndex: =3
 
-                StarVisible16 As label:
+                StarVisible16_2 As label:
                     Align: =Align.Center
-                    Height: =DataCardKey17.Height
-                    PaddingBottom: =DataCardKey17.PaddingBottom
-                    PaddingLeft: =DataCardKey17.PaddingLeft
-                    PaddingRight: =DataCardKey17.PaddingRight
-                    PaddingTop: =DataCardKey17.PaddingTop
+                    Height: =DataCardKey17_2.Height
+                    PaddingBottom: =DataCardKey17_2.PaddingBottom
+                    PaddingLeft: =DataCardKey17_2.PaddingLeft
+                    PaddingRight: =DataCardKey17_2.PaddingRight
+                    PaddingTop: =DataCardKey17_2.PaddingTop
                     Size: =21
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey17.Y
+                    Y: =DataCardKey17_2.Y
                     ZIndex: =4
 
-    Dialog_delete As groupContainer.manualLayoutContainer:
+        Container20 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            Height: =60
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =30
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =3
+
+            btn_approval_1 As button:
+                BorderColor: =
+                BorderThickness: =0
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(10, 128, 32, 1)
+                FocusedBorderThickness: =0
+                HoverBorderColor: =
+                HoverFill: =ColorFade(Self.Fill, 50%)
+                OnSelect: =
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Color.Black, 50%)
+                PressedFill: =ColorFade(Self.Fill, 50%)
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Text: ="Approval"
+                ZIndex: =1
+
+            btn_reject As button:
+                BorderThickness: =0
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(255, 0, 0, 1)
+                FocusedBorderThickness: =0
+                HoverBorderColor: =
+                HoverFill: =ColorFade(Self.Fill, 50%)
+                OnSelect: |-
+                    =Set(
+                        DialogCommentHOD,
+                        true
+                    );
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Color.Black, 50%)
+                PressedFill: =ColorFade(Self.Fill, 50%)
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Text: ="Reject"
+                ZIndex: =2
+
+    Dialog_commentHOD As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =Parent.Height
         PaddingBottom: =0.00
         PaddingLeft: =0.00
         PaddingRight: =0.00
         PaddingTop: =0.00
-        Visible: =Dialogdelete
+        Visible: =DialogCommentHOD
         Width: =Parent.Width
         ZIndex: =2
 
-        Container13_6 As groupContainer.verticalAutoLayoutContainer:
+        Container10_3 As groupContainer.verticalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
-            Fill: =RGBA(0, 0, 0, 0.46)
-            Height: =1136
+            Fill: =RGBA(0, 0, 0, 0.44)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMode: =LayoutMode.Auto
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
             Width: =640
-            ZIndex: =1
+            ZIndex: =8
 
-            Container42_4 As groupContainer.verticalAutoLayoutContainer:
-                DropShadow: =DropShadow.Light
+            Container16_1 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
+                Width: =Parent.Width
                 ZIndex: =5
 
-                Container42 As groupContainer.verticalAutoLayoutContainer:
+                TextInput1 As text:
                     AlignInContainer: =AlignInContainer.Center
                     BorderColor: =RGBA(0, 18, 107, 1)
-                    BorderThickness: =2
-                    DropShadow: =DropShadow.Light
-                    FillPortions: =0
-                    Height: =195
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutJustifyContent: =LayoutJustifyContent.Center
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =372
-                    ZIndex: =1
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =""
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =Self.BorderThickness
+                    Height: =250
+                    HintText: ="Comment"
+                    HoverBorderColor: =RGBA(0, 18, 107, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(186, 202, 226, 1)
+                    Mode: =TextMode.MultiLine
+                    RadiusBottomLeft: =
+                    RadiusBottomRight: =
+                    RadiusTopLeft: =
+                    RadiusTopRight: =
+                    Width: =350
+                    ZIndex: =2
 
-                    TextInput1_4 As text:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 18, 107, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: ="Are you sure want to delete ?"
-                        DisabledBorderColor: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(0, 0, 0, 1)
-                        DisabledFill: =RGBA(0, 0, 0, 1)
-                        DisplayMode: =DisplayMode.View
-                        FocusedBorderThickness: =Self.BorderThickness
-                        FontWeight: =FontWeight.Semibold
-                        Height: =195
-                        HintText: =""
-                        HoverBorderColor: =RGBA(0, 18, 107, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(186, 202, 226, 1)
-                        Mode: =TextMode.MultiLine
-                        PaddingLeft: =5
-                        PaddingTop: =50
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =17
-                        Width: =372
-                        X: =418
-                        Y: =238
-                        ZIndex: =1
-
-                Container28_4 As groupContainer.horizontalAutoLayoutContainer:
+                Container15_1 As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 18, 107, 1)
                     BorderThickness: =2
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =50
+                    Height: =60
                     LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutGap: =40
+                    LayoutGap: =80
                     LayoutJustifyContent: =LayoutJustifyContent.Center
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
-                    RadiusBottomRight: =2
-                    RadiusTopLeft: =2
-                    Width: =372
+                    Width: =350
                     ZIndex: =3
 
-                    Button_OK_12 As button:
+                    Button_OK_8 As button:
                         Color: =RGBA(255, 255, 255, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Fill: =RGBA(56, 96, 178, 1)
+                        Height: =50
                         HoverColor: =RGBA(255, 255, 255, 1)
                         HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        OnSelect: |-
-                            =Remove(
-                                Request_Test,
-                                TicketsGallery.Selected
-                            );
-                            If (
-                                IsEmpty(
-                                    Errors(
-                                        Request_Test,
-                                        TicketsGallery.Selected
-                                    )
-                                ),
-                                Set(
-                                    Dialogdelete,
-                                    false
-                                )
-                            )
+                        OnSelect: =
                         PaddingBottom: =5.00
                         PaddingLeft: =5.00
-                        Text: ="YES"
-                        Width: =60
-                        X: =62
-                        Y: =195
+                        PaddingRight: =5.21
+                        PaddingTop: =5.21
+                        Size: =18
+                        Text: ="Oke"
+                        Width: =80
+                        X: =176
+                        Y: =213
                         ZIndex: =1
 
-                    Button_Cancel_14 As button:
+                    Button_Cancel_10 As button:
                         Color: =RGBA(255, 255, 255, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Fill: =RGBA(56, 96, 178, 1)
+                        Height: =50
                         HoverColor: =RGBA(255, 255, 255, 1)
                         HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        OnSelect: |-
+                        OnSelect: |
                             =Set(
-                                Dialogdelete,
+                                DialogCommentHOD,
                                 false
                             )
                         PaddingBottom: =5.00
                         PaddingLeft: =5.00
-                        Text: ="NO"
-                        Width: =60
-                        X: =184
-                        Y: =195
+                        PaddingRight: =5.21
+                        PaddingTop: =5.21
+                        Size: =18
+                        Text: ="Cancel"
+                        Width: =100
+                        X: =142
+                        Y: =213
                         ZIndex: =2
 

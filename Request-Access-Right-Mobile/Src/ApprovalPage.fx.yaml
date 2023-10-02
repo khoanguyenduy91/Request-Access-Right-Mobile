@@ -1,4 +1,5 @@
 ApprovalPage As screen:
+    Fill: =RGBA(230, 229, 229, 1)
 
     Container9_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =1136
@@ -8,9 +9,9 @@ ApprovalPage As screen:
         ZIndex: =1
 
         Container2_6 As groupContainer.horizontalAutoLayoutContainer:
-            Fill: =RGBA(0, 134, 208, 1)
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =80
+            Height: =90
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -20,7 +21,7 @@ ApprovalPage As screen:
 
             Icon1_8 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Height: =50
                 Icon: =Icon.BackArrow
                 OnSelect: =Back()
@@ -30,12 +31,12 @@ ApprovalPage As screen:
             Label1_5 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
-                Height: =70
+                Height: =88
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
-                Size: =25
+                Size: =28
                 Text: ="Approval Page"
                 Width: =560
                 ZIndex: =2
@@ -53,59 +54,11 @@ ApprovalPage As screen:
             AccessibleLabel: ="Tickets Gallery"
             DisabledBorderColor: =TicketsGallery_approval.BorderColor
             DisabledFill: =TicketsGallery_approval.Fill
-            Fill: =RGBA(242, 244, 249, 1)
+            Fill: =RGBA(255, 255, 255, 1)
             Height: =959.9999999999998
             HoverBorderColor: =TicketsGallery_approval.BorderColor
             HoverFill: =TicketsGallery_approval.Fill
-            Items: |-
-                =If(
-                    !IsBlank(
-                        LookUp(
-                            LevelApproveTest,
-                            IdUser.Email = varEmailUser && Level.Value = "Approver 1"
-                        )
-                    ),
-                    SortByColumns(
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
-                        ),
-                        "Created",
-                        SortOrder.Descending
-                    ),
-                    If(
-                        !IsBlank(
-                            LookUp(
-                                LevelApproveTest,
-                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
-                            )
-                        ),
-                        SortByColumns(
-                            Filter(
-                                Request_Test,
-                                Status.Value = "Approver 1 approved"
-                            ),
-                            "Created",
-                            SortOrder.Descending
-                        ),
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    LevelApproveTest,
-                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
-                                )
-                            ),
-                            SortByColumns(
-                                Filter(
-                                    Request_Test,
-                                    Status.Value = "Approver 2 approved" && ReqType.Value ="Coupon & Voucher"
-                                ),
-                                "Created",
-                                SortOrder.Descending
-                            )
-                        )
-                    )
-                )
+            Items: =Request_Test
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =320
@@ -164,10 +117,9 @@ ApprovalPage As screen:
                     ZIndex: =4
 
                 Heading1_1 As label:
-                    Align: =LayoutAlignItems.Center
                     Color: =RGBA(40, 40, 40, 1)
                     FocusedBorderColor: =Heading1_1.BorderColor
-                    Height: =44.04591836734697
+                    Height: =56
                     HoverBorderColor: =Heading1_1.BorderColor
                     HoverColor: =Heading1_1.Color
                     HoverFill: =Heading1_1.Fill
@@ -180,10 +132,11 @@ ApprovalPage As screen:
                     PressedColor: =Heading1_1.Color
                     PressedFill: =Heading1_1.Fill
                     Size: =16
-                    Text: =ThisItem.Author.DisplayName
-                    Width: =250
+                    Text: |-
+                        ="Created by: " & ThisItem.Author.DisplayName
+                    Width: =386
                     Wrap: =false
-                    X: =165
+                    X: =29
                     Y: =3.954081632653029
                     ZIndex: =5
 
@@ -204,7 +157,8 @@ ApprovalPage As screen:
                     PressedColor: =Subtitle1_2.Color
                     PressedFill: =Subtitle1_2.Fill
                     Size: =22
-                    Text: =ThisItem.ReqType.Value
+                    Text: |-
+                        ="Title: " & ThisItem.Title
                     Width: =571
                     Wrap: =false
                     X: =29
@@ -224,7 +178,7 @@ ApprovalPage As screen:
                     HoverColor: =ColorFade(icon8_1.Color, 20%)
                     HoverFill: =icon8_1.Fill
                     Icon: =Icon.ChevronRight
-                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                    OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                     PressedBorderColor: =ColorFade(icon8_1.BorderColor, -20%)
                     PressedColor: =ColorFade(icon8_1.Color, -20%)
                     PressedFill: =icon8_1.Fill
@@ -261,7 +215,49 @@ ApprovalPage As screen:
                 Rectangle15_1 As rectangle:
                     BorderColor: =RGBA(0, 0, 255, 1)
                     DisabledFill: =Rectangle15_1.Fill
-                    Fill: =
+                    Fill: |-
+                        =If(
+                            ThisItem.Status.Value = "Rejected",
+                            RGBA(
+                                227,
+                                48,
+                                12,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "HOD approved"||ThisItem.Status.Value = "Approver 1 approved"||ThisItem.Status.Value = "Approver 2 approved"||ThisItem.Status.Value = "Approver 3 approved",
+                                RGBA(
+                                    255,
+                                    153,
+                                    51,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "Created",
+                                    RGBA(
+                                        56,
+                                        86,
+                                        153,
+                                        1
+                                    ),
+                                    If(
+                                        ThisItem.Title = "Done",
+                                        RGBA(
+                                            128,
+                                            128,
+                                            128,
+                                            1
+                                        ),
+                                        RGBA(
+                                            71,
+                                            185,
+                                            50,
+                                            1
+                                        )
+                                    )
+                                )
+                            )
+                        )
                     FocusedBorderColor: =Rectangle15_1.BorderColor
                     Height: =222.3
                     HoverFill: =Rectangle15_1.Fill
@@ -270,11 +266,78 @@ ApprovalPage As screen:
                     Width: =8
                     ZIndex: =13
 
-            Subtitle1_3 As label:
+            Subtitle1_8 As label:
                 Color: =RGBA(29, 33, 35, 1)
-                FocusedBorderColor: =Subtitle1_3.BorderColor
+                FocusedBorderColor: =Subtitle1_8.BorderColor
                 FontWeight: =FontWeight.Semibold
                 Height: =58
+                HoverBorderColor: =Subtitle1_8.BorderColor
+                HoverColor: =Subtitle1_8.Color
+                HoverFill: =Subtitle1_8.Fill
+                OnSelect: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =Subtitle1_8.BorderColor
+                PressedColor: =Subtitle1_8.Color
+                PressedFill: =Subtitle1_8.Fill
+                Size: =18
+                Text: |-
+                    ="Request Type: "& ThisItem.ReqType.Value
+                Width: =571
+                Wrap: =false
+                X: =29
+                Y: =105
+                ZIndex: =15
+
+            Subtitle1_3 As label:
+                Color: |-
+                    =If(
+                        ThisItem.Status.Value = "Rejected",
+                        RGBA(
+                            227,
+                            48,
+                            12,
+                            1
+                        ),
+                        If(
+                            ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                            RGBA(
+                                255,
+                                153,
+                                51,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "Created",
+                                RGBA(
+                                    56,
+                                    86,
+                                    153,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "Done",
+                                    RGBA(
+                                        8,
+                                        103,
+                                        26,
+                                        1
+                                    ),
+                                    RGBA(
+                                        71,
+                                        185,
+                                        50,
+                                        1
+                                    )
+                                )
+                            )
+                        )
+                    )
+                FocusedBorderColor: =Subtitle1_3.BorderColor
+                FontWeight: =FontWeight.Bold
+                Height: =68
                 HoverBorderColor: =Subtitle1_3.BorderColor
                 HoverColor: =Subtitle1_3.Color
                 HoverFill: =Subtitle1_3.Fill
@@ -286,11 +349,35 @@ ApprovalPage As screen:
                 PressedBorderColor: =Subtitle1_3.BorderColor
                 PressedColor: =Subtitle1_3.Color
                 PressedFill: =Subtitle1_3.Fill
-                Size: =22
+                Size: =18
                 Text: =ThisItem.Status.Value
-                Width: =571
+                Width: =408
+                Wrap: =false
+                X: =123
+                Y: =155
+                ZIndex: =16
+
+            Subtitle1_10 As label:
+                Color: =RGBA(29, 33, 35, 1)
+                FocusedBorderColor: =Subtitle1_10.BorderColor
+                Height: =68
+                HoverBorderColor: =Subtitle1_10.BorderColor
+                HoverColor: =Subtitle1_10.Color
+                HoverFill: =Subtitle1_10.Fill
+                OnSelect: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =Subtitle1_10.BorderColor
+                PressedColor: =Subtitle1_10.Color
+                PressedFill: =Subtitle1_10.Fill
+                Size: =18
+                Text: |-
+                    ="Status: "
+                Width: =92
                 Wrap: =false
                 X: =29
-                Y: =105
-                ZIndex: =14
+                Y: =155
+                ZIndex: =17
 
