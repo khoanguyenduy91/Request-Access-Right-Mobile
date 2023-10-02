@@ -65,7 +65,7 @@ HomePage As screen:
 
         Container3 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =RGBA(62, 96, 170, 1)
-            Fill: =RGBA(230, 229, 229, 1)
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =325
             LayoutDirection: =LayoutDirection.Vertical
@@ -384,8 +384,8 @@ HomePage As screen:
                         ZIndex: =2
 
         Separator2_3 As rectangle:
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: =8
+            Fill: =RGBA(230, 229, 229, 1)
+            Height: =0
             OnSelect: =
             Width: =Parent.Width
             Y: =
@@ -393,7 +393,7 @@ HomePage As screen:
 
         ContainerApproval As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(230, 229, 229, 1)
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =100
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -408,7 +408,7 @@ HomePage As screen:
                 BorderColor: =
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Fill: =RGBA(230, 229, 229, 1)
+                Fill: =RGBA(255, 255, 255, 1)
                 FocusedBorderColor: =
                 FocusedBorderThickness: =
                 FontWeight: =FontWeight.Normal
@@ -446,17 +446,9 @@ HomePage As screen:
                 Y: =
                 ZIndex: =3
 
-        Separator2_1 As rectangle:
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: =8
-            OnSelect: =
-            Width: =Parent.Width
-            Y: =
-            ZIndex: =5
-
         ContainerHOD As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(230, 229, 229, 1)
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =100
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -470,7 +462,7 @@ HomePage As screen:
                 Align: =Align.Left
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Fill: =RGBA(230, 229, 229, 1)
+                Fill: =RGBA(255, 255, 255, 1)
                 FocusedBorderColor: =
                 FocusedBorderThickness: =
                 FontWeight: =FontWeight.Normal
@@ -510,6 +502,7 @@ HomePage As screen:
                 ZIndex: =2
 
         Container6 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =112
@@ -519,7 +512,7 @@ HomePage As screen:
 
             "Gallery1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
                 DelayItemLoading: =true
-                Fill: =RGBA(230, 229, 229, 1)
+                Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =Parent.Height
                 Items: =FirstN(TableTicketTypes_Test, 5)
@@ -534,7 +527,7 @@ HomePage As screen:
 
                 Title2 As label:
                     Color: =RGBA(0, 0, 0, 1)
-                    Fill: =RGBA(230, 229, 229, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
                     Height: =100-8
                     OnSelect: |
                         =//Select(Parent)
@@ -661,8 +654,8 @@ HomePage As screen:
                     ZIndex: =2
 
                 Separator2 As rectangle:
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =7
+                    Fill: =RGBA(230, 229, 229, 1)
+                    Height: =4
                     OnSelect: =Select(Parent)
                     Width: =Parent.TemplateWidth
                     ZIndex: =3
