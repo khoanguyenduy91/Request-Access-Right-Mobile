@@ -11,6 +11,7 @@ TicketsDetailPage_User As screen:
             Fill: =RGBA(0, 134, 208, 1)
             FillPortions: =0
             Height: =80
+            LayoutGap: =20
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -40,14 +41,35 @@ TicketsDetailPage_User As screen:
                 Width: =560
                 ZIndex: =2
 
-            Image1_3 As image:
+            Icon1_5 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(255, 255, 255, 1)
                 Height: =50
-                Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =320
-                LayoutMinWidth: =320
+                Icon: =Icon.Edit
+                OnSelect: =Back()
+                Visible: |-
+                    =If(
+                        DataCardValue16.Selected.Value = "Created",
+                        true,
+                        false
+                    )
                 Width: =50
                 ZIndex: =3
+
+            Icon1_6 As icon.Add:
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =50
+                Icon: =Icon.Trash
+                OnSelect: =Back()
+                Visible: |-
+                    =If(
+                        DataCardValue16.Selected.Value = "Created",
+                        true,
+                        false
+                    )
+                Width: =50
+                ZIndex: =4
 
         FormDetail_user As formViewer:
             DataSource: =Request_Test
