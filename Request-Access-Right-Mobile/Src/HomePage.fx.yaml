@@ -111,7 +111,7 @@ HomePage As screen:
                         PressedColor: =TextBox2_5.Color
                         PressedFill: =TextBox2_5.Fill
                         Size: =50
-                        Text: =CountRows(CollectRequest)
+                        Text: =CountRows(Filter(CollectRequest,Author.Email = User().Email))
                         Width: =171
                         X: =56
                         ZIndex: =1
@@ -162,7 +162,7 @@ HomePage As screen:
                         PressedColor: =TextBox2_6.Color
                         PressedFill: =TextBox2_6.Fill
                         Size: =50
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Created"))
+                        Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && Author.Email = User().Email))
                         Width: =168
                         X: =25
                         ZIndex: =1
@@ -224,7 +224,13 @@ HomePage As screen:
                         PressedColor: =TextBox2_9.Color
                         PressedFill: =TextBox2_9.Fill
                         Size: =44
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Rejected"))
+                        Text: |-
+                            =CountRows(
+                                Filter(
+                                    CollectRequest,
+                                    Status.Value = "Rejected" && Author.Email = User().Email
+                                )
+                            )
                         Width: =167
                         X: =76
                         Y: =20
@@ -276,7 +282,13 @@ HomePage As screen:
                         PressedColor: =TextBox2_7.Color
                         PressedFill: =TextBox2_7.Fill
                         Size: =44
-                        Text: =CountRows(Filter(CollectRequest,Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved"))
+                        Text: |-
+                            =CountRows(
+                                Filter(
+                                    CollectRequest,
+                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && Author.Email = User().Email
+                                )
+                            )
                         Width: =148
                         X: =60
                         Y: =20
@@ -328,7 +340,7 @@ HomePage As screen:
                         PressedColor: =TextBox2_8.Color
                         PressedFill: =TextBox2_8.Fill
                         Size: =44
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Done"))
+                        Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&Author.Email = User().Email))
                         Width: =117
                         X: =33.5
                         Y: =21
@@ -355,29 +367,160 @@ HomePage As screen:
                         Y: =80
                         ZIndex: =2
 
+        Container15 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =100
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Container16 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                btn_approval As button:
+                    Align: =Align.Left
+                    BorderColor: =
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    Fill: =RGBA(242, 244, 249, 1)
+                    FocusedBorderColor: =
+                    FocusedBorderThickness: =
+                    FontWeight: =FontWeight.Normal
+                    Height: =70
+                    HoverFill: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                    PaddingLeft: =25
+                    PressedBorderColor: =
+                    PressedColor: =
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =25
+                    Text: ="Tickets approval"
+                    Width: =Parent.Width-70
+                    ZIndex: =2
+
+                NextArrow2_3 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.ChevronRight
+                    OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                    PaddingBottom: =12
+                    PaddingLeft: =12
+                    PaddingRight: =12
+                    PaddingTop: =12
+                    Tooltip: ="View item details"
+                    Width: =50
+                    X: =
+                    Y: =
+                    ZIndex: =3
+
+            Separator2_1 As rectangle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =8
+                OnSelect: =
+                Width: =Parent.Width
+                Y: =
+                ZIndex: =2
+
+            Container18 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                Height: =225
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =3
+
+                btn_HOD As button:
+                    Align: =Align.Left
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    Fill: =RGBA(242, 244, 249, 1)
+                    FocusedBorderColor: =
+                    FocusedBorderThickness: =
+                    FontWeight: =FontWeight.Normal
+                    Height: =70
+                    HoverColor: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: =Navigate(HODPage,ScreenTransition.Fade)
+                    PaddingLeft: =25
+                    PressedBorderColor: =
+                    PressedColor: =
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =25
+                    Text: ="Tickets HOD"
+                    Width: =Parent.Width-70
+                    ZIndex: =1
+
+                NextArrow2_2 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.ChevronRight
+                    OnSelect: =Navigate(HODPage,ScreenTransition.Fade)
+                    PaddingBottom: =12
+                    PaddingLeft: =12
+                    PaddingRight: =12
+                    PaddingTop: =12
+                    Tooltip: ="View item details"
+                    Width: =50
+                    X: =
+                    Y: =
+                    ZIndex: =2
+
+        Separator2_2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =8
+            OnSelect: =
+            Width: =Parent.Width
+            Y: =
+            ZIndex: =4
+
         Container6 As groupContainer.verticalAutoLayoutContainer:
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            PaddingTop: =10
-            ZIndex: =4
+            ZIndex: =5
 
             "Gallery1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
                 DelayItemLoading: =true
                 Height: =Parent.Height
                 Items: =TableTicketTypes_Test
                 Layout: =Layout.Vertical
-                LayoutMinHeight: =287
+                LayoutMinHeight: =200
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplateSize: =100
                 ZIndex: =1
 
                 Title2 As label:
+                    Color: =RGBA(0, 0, 0, 1)
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                    Height: =54
+                    Height: =100-8
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingLeft: =0
@@ -386,8 +529,7 @@ HomePage As screen:
                     Size: =25
                     Text: =ThisItem.Title
                     Width: =Parent.TemplateWidth - 86
-                    X: =16
-                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                    X: =24
                     ZIndex: =1
 
                 NextArrow2 As icon.ChevronRight:
@@ -415,12 +557,12 @@ HomePage As screen:
                                     Navigate(
                                         TicketPage,
                                         ScreenTransition.Fade,
-                                        {type: "Progress"}
+                                        {type: "In progress"}
                                     ),
                                     If(
                                         ThisItem.Title = "Tickets approval",
                                         Navigate(
-                                            TicketPage,
+                                            ApprovalPage,
                                             ScreenTransition.Fade,
                                             {type: "Approval"}
                                         ),
