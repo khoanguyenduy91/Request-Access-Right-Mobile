@@ -24,10 +24,10 @@ NewTicketPage As screen:
             Icon1_1 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
-                Icon: =Icon.BackArrow
-                OnSelect: =Back()
-                Width: =50
+                Height: =40
+                Icon: =Icon.ChevronLeft
+                OnSelect: =ResetForm(Form1);Back()
+                Width: =40
                 ZIndex: =1
 
             Label1_1 As label:
@@ -39,7 +39,7 @@ NewTicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="New Ticket"
+                Text: ="New ticket"
                 Width: =560
                 ZIndex: =2
 
@@ -421,6 +421,7 @@ NewTicketPage As screen:
 
                 DataCardValue11 As attachments:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
                     DisplayMode: =Parent.DisplayMode
                     Height: =295
                     IsInDataCard: =true

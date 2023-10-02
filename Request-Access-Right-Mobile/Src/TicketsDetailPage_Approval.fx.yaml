@@ -25,10 +25,10 @@ TicketsDetailPage_Approval As screen:
             Icon1_9 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
-                Icon: =Icon.BackArrow
+                Height: =40
+                Icon: =Icon.ChevronLeft
                 OnSelect: =Back()
-                Width: =50
+                Width: =40
                 ZIndex: =1
 
             Label1_7 As label:
@@ -40,7 +40,7 @@ TicketsDetailPage_Approval As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Ticket Detail Approval"
+                Text: ="Ticket details Approval"
                 Width: =560
                 ZIndex: =2
 
@@ -377,7 +377,8 @@ TicketsDetailPage_Approval As screen:
 
                 DataCardValue24_1 As attachments:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    DisplayMode: =Parent.DisplayMode
+                    BorderThickness: =2
+                    DisplayMode: =Parent.DisplayMode.View
                     Height: =217
                     IsInDataCard: =true
                     Items: =Parent.Default
@@ -385,7 +386,7 @@ TicketsDetailPage_Approval As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PaddingRight: =5
                     PaddingTop: =5
-                    Width: =Parent.Width - 60
+                    Width: =598
                     X: =12
                     Y: =48
                     ZIndex: =2
@@ -619,7 +620,8 @@ TicketsDetailPage_Approval As screen:
                     ZIndex: =4
 
         Container20_1 As groupContainer.horizontalAutoLayoutContainer:
-            DropShadow: =DropShadow.Light
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =60
             LayoutAlignItems: =LayoutAlignItems.Center

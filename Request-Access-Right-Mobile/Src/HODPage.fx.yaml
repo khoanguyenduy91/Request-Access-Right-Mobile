@@ -21,10 +21,10 @@ HODPage As screen:
             Icon1_10 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
-                Icon: =Icon.BackArrow
+                Height: =40
+                Icon: =Icon.ChevronLeft
                 OnSelect: =Back()
-                Width: =50
+                Width: =40
                 ZIndex: =1
 
             Label1_6 As label:

@@ -22,10 +22,10 @@ ApprovalPage As screen:
             Icon1_8 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
-                Icon: =Icon.BackArrow
+                Height: =40
+                Icon: =Icon.ChevronLeft
                 OnSelect: =Back()
-                Width: =50
+                Width: =40
                 ZIndex: =1
 
             Label1_5 As label:
@@ -37,7 +37,7 @@ ApprovalPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Approval Page"
+                Text: ="Approval page"
                 Width: =560
                 ZIndex: =2
 

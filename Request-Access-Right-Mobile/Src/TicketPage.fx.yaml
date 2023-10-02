@@ -25,10 +25,10 @@ TicketPage As screen:
             Icon1_2 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
-                Icon: =Icon.BackArrow
+                Height: =40
+                Icon: =Icon.ChevronLeft
                 OnSelect: =Back()
-                Width: =50
+                Width: =40
                 ZIndex: =1
 
             Label1_2 As label:
@@ -78,7 +78,8 @@ TicketPage As screen:
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
-                OnSelect: =Navigate(TicketFilterPage,ScreenTransition.None)
+                OnSelect: |-
+                    =Navigate(TicketFilterPage,ScreenTransition.None,{type:type})
                 Size: =21
                 Text: =type
                 Width: =560

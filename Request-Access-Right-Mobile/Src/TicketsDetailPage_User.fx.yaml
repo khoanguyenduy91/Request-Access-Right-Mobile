@@ -26,10 +26,10 @@ TicketsDetailPage_User As screen:
             Icon1_3 As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
-                Icon: =Icon.BackArrow
+                Height: =40
+                Icon: =Icon.ChevronLeft
                 OnSelect: =Back()
-                Width: =50
+                Width: =40
                 ZIndex: =1
 
             Label1_3 As label:
@@ -74,6 +74,21 @@ TicketsDetailPage_User As screen:
                     )
                 Width: =50
                 ZIndex: =4
+
+            Image1_8 As image:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =50
+                Image: ='Logo - PizzaHut'
+                LayoutMinHeight: =320
+                LayoutMinWidth: =320
+                Visible: |-
+                    =If(
+                        DataCardValue16.Selected.Value = "Created",
+                        false,
+                        true
+                    )
+                Width: =50
+                ZIndex: =5
 
         FormDetail_user As formViewer:
             DataSource: =Request_Test
