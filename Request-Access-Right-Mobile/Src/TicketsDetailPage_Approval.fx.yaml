@@ -352,7 +352,7 @@ TicketsDetailPage_Approval As screen:
                 DisplayMode: =DisplayMode.View
                 DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
                 Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
+                Height: =295
                 Required: =false
                 Update: =DataCardValue24_1.Attachments
                 Width: =640
@@ -374,22 +374,6 @@ TicketsDetailPage_Approval As screen:
                     X: =30
                     Y: =10
                     ZIndex: =1
-
-                DataCardValue24_1 As attachments:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
-                    DisplayMode: =Parent.DisplayMode.View
-                    Height: =217
-                    IsInDataCard: =true
-                    Items: =Parent.Default
-                    PaddingBottom: =5
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PaddingRight: =5
-                    PaddingTop: =5
-                    Width: =598
-                    X: =12
-                    Y: =48
-                    ZIndex: =2
 
                 ErrorMessage21_1 As label:
                     AutoHeight: =true
@@ -420,6 +404,34 @@ TicketsDetailPage_Approval As screen:
                     Wrap: =false
                     Y: =DataCardKey25_1.Y
                     ZIndex: =4
+
+                Container22 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    BorderThickness: =2
+                    Height: =225
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    X: =30
+                    Y: =60
+                    ZIndex: =5
+
+                    DataCardValue24_1 As attachments:
+                        BorderColor: =RGBA(101, 128, 187, 1)
+                        BorderThickness: =2
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =217
+                        IsInDataCard: =true
+                        Items: =ThisItem.'{Attachments}'
+                        LayoutMinHeight: =520
+                        LayoutMinWidth: =575
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =Parent.Width
+                        X: =17
+                        Y: =48
+                        ZIndex: =1
 
             Title_DataCard2_1 As typedDataCard.textualViewCard:
                 BorderStyle: =BorderStyle.Solid
