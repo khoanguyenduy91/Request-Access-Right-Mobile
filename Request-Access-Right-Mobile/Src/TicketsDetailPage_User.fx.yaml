@@ -46,7 +46,7 @@ TicketsDetailPage_User As screen:
                 Color: =RGBA(255, 255, 255, 1)
                 Height: =50
                 Icon: =Icon.Edit
-                OnSelect: =Back()
+                OnSelect: =EditForm(Form1);Navigate(NewTicketPage, ScreenTransition.None)
                 Visible: |-
                     =If(
                         DataCardValue16.Selected.Value = "Created",

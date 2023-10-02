@@ -51,6 +51,7 @@ NewTicketPage As screen:
 
         Form1 As form:
             DataSource: =Request_Test
+            Item: =TicketsGallery.Selected
             LayoutMinHeight: =250
             LayoutMinWidth: =320
             Width: =640
@@ -256,6 +257,7 @@ NewTicketPage As screen:
                     DisplayMode: =Parent.DisplayMode
                     Height: =166
                     MaxLength: =Parent.MaxLength
+                    Mode: =TextMode.MultiLine
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
@@ -337,6 +339,7 @@ NewTicketPage As screen:
                     DisplayMode: =Parent.DisplayMode
                     Height: =166
                     MaxLength: =Parent.MaxLength
+                    Mode: =TextMode.MultiLine
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
@@ -555,4 +558,22 @@ NewTicketPage As screen:
             RadiusTopRight: =4
             Width: =Parent.Width
             ZIndex: =4
+
+            Button1_1 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 71, 144, 1)
+                Height: =55
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                OnSelect: =SubmitForm(Form1);
+                Size: =20
+                Text: ="Save"
+                Width: =252
+                X: =590
+                Y: =664
+                ZIndex: =1
 
