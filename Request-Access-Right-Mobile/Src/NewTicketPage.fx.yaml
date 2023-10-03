@@ -577,7 +577,33 @@ NewTicketPage As screen:
                 Height: =80
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: =SubmitForm(Form1);
+                OnSelect: |-
+                    =Set(
+                        varEmailUser,
+                        With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.User)
+                        )
+                    );
+                    SubmitForm('Form1');
+                    Patch(
+                        Request_Test,
+                        LookUp(
+                            Request_Test,
+                            ID = Last(Request_Test).ID
+                        ),
+                        {
+                            Approver4: {
+                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                Department: "",
+                                Claims: varEmailUser,
+                                DisplayName: "",
+                                Email: varEmailUser,
+                                JobTitle: "",
+                                Picture: ""
+                            }
+                        }
+                    )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
