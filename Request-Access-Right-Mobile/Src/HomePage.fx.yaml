@@ -463,6 +463,19 @@ HomePage As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            Visible: |-
+                =If(
+                    IsMatch(
+                        With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.Title)
+                        ),
+                        "Head of",
+                        MatchOptions.Contains
+                    ),
+                    true,
+                    false
+                )
             Width: =Parent.Width
             ZIndex: =6
 
