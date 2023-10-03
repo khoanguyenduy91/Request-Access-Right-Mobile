@@ -660,7 +660,81 @@ TicketsDetailPage_Approval As screen:
                 FocusedBorderThickness: =0
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
-                OnSelect: =
+                OnSelect: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                LevelApproveTest,
+                                IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                            )
+                        ),
+                        Patch(
+                            Request_Test,
+                            LookUp(
+                                Request_Test,
+                                ID = TicketsGallery_approval.Selected.ID
+                            ),
+                            {Status: {Value: "Approver 1 approved"}},
+                            {ApprovedDate1: Now()}
+                        ),
+                        If(
+                            !IsBlank(
+                                LookUp(
+                                    LevelApproveTest,
+                                    varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                )
+                            ),
+                            Patch(
+                                Request_Test,
+                                LookUp(
+                                    Request_Test,
+                                    ID = TicketsGallery_approval.Selected.ID
+                                ),
+                                {Status: {Value: "Approver 2 approved"}},
+                                {ApprovedDate2: Now()},
+                                {
+                                    Approver2: {
+                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                        Claims: "",
+                                        Department: "",
+                                        DisplayName: varUser,
+                                        Email: varEmailUser,
+                                        JobTitle: "",
+                                        Picture: ""
+                                    }
+                                }
+                            ),
+                            If(
+                                !IsBlank(
+                                    LookUp(
+                                        LevelApproveTest,
+                                        varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                    )
+                                ),
+                                Patch(
+                                    Request_Test,
+                                    LookUp(
+                                        Request_Test,
+                                        ID = TicketsGallery_approval.Selected.ID
+                                    ),
+                                    {Status: {Value: "Approver 3 approved"}},
+                                    {ApprovedDate3: Now()},
+                                    {
+                                        Approver3: {
+                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                            Claims: "",
+                                            Department: "",
+                                            DisplayName: varUser,
+                                            Email: varEmailUser,
+                                            JobTitle: "",
+                                            Picture: ""
+                                        }
+                                    }
+                                )
+                            )
+                        )
+                    );
+                    Navigate(ApprovalPage)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
                 PressedFill: =ColorFade(Self.Fill, 50%)
@@ -777,7 +851,127 @@ TicketsDetailPage_Approval As screen:
                         Height: =50
                         HoverColor: =RGBA(255, 255, 255, 1)
                         HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        OnSelect: =
+                        OnSelect: |-
+                            =If(
+                                Len(TextInput1_1.Text) = 0,
+                                Notify(
+                                    "Please enter the reason for the reject",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    !IsBlank(
+                                        LookUp(
+                                            LevelApproveTest,
+                                            varEmailUser = IdUser.Email && Level.Value = "Approver 1"
+                                        )
+                                    ),
+                                    Patch(
+                                        Request_Test,
+                                        LookUp(
+                                            Request_Test,
+                                            ID = TicketsGallery_approval.Selected.ID
+                                        ),
+                                        {Status: {Value: "Rejected"}},
+                                        {RejectedDate: Now()},
+                                        //{ReasonReject: varUser & " is the Approver 1 comment: " & TextInput1_1.Text},
+                                        {
+                                            RejectedBy: {
+                                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                Claims: "",
+                                                Department: "",
+                                                DisplayName: varUser,
+                                                Email: varEmailUser,
+                                                JobTitle: "",
+                                                Picture: ""
+                                            }
+                                        }
+                                    );
+                                    Navigate(ApprovalPage),
+                                    If(
+                                        !IsBlank(
+                                            LookUp(
+                                                LevelApproveTest,
+                                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                            )
+                                        ),
+                                        Patch(
+                                            Request_Test,
+                                            LookUp(
+                                                Request_Test,
+                                                ID = TicketsGallery_approval.Selected.ID
+                                            ),
+                                            {Status: {Value: "Rejected"}},
+                                            {RejectedDate: Now()},
+                                            //{ReasonReject: varUser & " is the Approver 2 comment: " & TextInput1_1.Text},
+                                            {
+                                                RejectedBy: {
+                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                    Claims: "",
+                                                    Department: "",
+                                                    DisplayName: varUser,
+                                                    Email: varEmailUser,
+                                                    JobTitle: "",
+                                                    Picture: ""
+                                                }
+                                            },
+                                            {
+                                                Approver2: {
+                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                    Claims: "",
+                                                    Department: "",
+                                                    DisplayName: varUser,
+                                                    Email: varEmailUser,
+                                                    JobTitle: "",
+                                                    Picture: ""
+                                                }
+                                            }
+                                        );
+                                        Navigate(ApprovalPage),
+                                        If(
+                                            !IsBlank(
+                                                LookUp(
+                                                    LevelApproveTest,
+                                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                                )
+                                            ),
+                                            Patch(
+                                                Request_Test,
+                                                LookUp(
+                                                    Request_Test,
+                                                    ID = TicketsGallery_approval.Selected.ID
+                                                ),
+                                                {Status: {Value: "Rejected"}},
+                                                {RejectedDate: Now()},
+                                                //{ReasonReject: varUser & " is the Approver 3 comment: " & TextInput1_1.Text},
+                                                {
+                                                    RejectedBy: {
+                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                        Claims: "",
+                                                        Department: "",
+                                                        DisplayName: varUser,
+                                                        Email: varEmailUser,
+                                                        JobTitle: "",
+                                                        Picture: ""
+                                                    }
+                                                },
+                                                {
+                                                    Approver3: {
+                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                        Claims: "",
+                                                        Department: "",
+                                                        DisplayName: varUser,
+                                                        Email: varEmailUser,
+                                                        JobTitle: "",
+                                                        Picture: ""
+                                                    }
+                                                }
+                                            );
+                                            Navigate(ApprovalPage)
+                                        )
+                                    )
+                                )
+                            );
+                            Reset(TextInput1_1)
                         PaddingBottom: =5.00
                         PaddingLeft: =5.00
                         PaddingRight: =5.21

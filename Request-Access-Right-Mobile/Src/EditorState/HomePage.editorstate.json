@@ -3978,7 +3978,8 @@
         "FocusedBorderColor",
         "BorderStyle",
         "DisplayMode",
-        "ZIndex"
+        "ZIndex",
+        "OnSelect"
       ],
       "DynamicProperties": [
         {
@@ -4131,6 +4132,11 @@
         {
           "Category": "Design",
           "PropertyName": "ZIndex",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnSelect",
           "RuleProviderType": "Unknown"
         }
       ],

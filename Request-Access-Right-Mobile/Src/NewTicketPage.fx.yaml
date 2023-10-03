@@ -585,7 +585,7 @@ NewTicketPage As screen:
                             Text(obj.User)
                         )
                     );
-                    SubmitForm('Form1');
+                    SubmitForm(Form1);
                     Patch(
                         Request_Test,
                         LookUp(
