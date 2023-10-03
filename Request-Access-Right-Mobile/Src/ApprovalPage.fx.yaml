@@ -1,0 +1,450 @@
+ApprovalPage As screen:
+    Fill: =RGBA(230, 229, 229, 1)
+
+    Container9_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container2_6 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =90
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Icon1_8 As icon.Add:
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.ChevronLeft
+                OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                Width: =40
+                ZIndex: =1
+
+            Label1_5 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(0, 0, 0, 1)
+                FillPortions: =1
+                Height: =88
+                LayoutMinHeight: =70
+                LayoutMinWidth: =300
+                Size: =28
+                Text: ="Approval page"
+                Width: =560
+                ZIndex: =2
+
+            Image1_4 As image:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =50
+                Image: ='Logo - PizzaHut'
+                LayoutMinHeight: =320
+                LayoutMinWidth: =320
+                Width: =50
+                ZIndex: =3
+
+        TicketsGallery_approval As gallery.textualGalleryVertical:
+            AccessibleLabel: ="Tickets Gallery"
+            DisabledBorderColor: =TicketsGallery_approval.BorderColor
+            DisabledFill: =TicketsGallery_approval.Fill
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height
+            HoverBorderColor: =TicketsGallery_approval.BorderColor
+            HoverFill: =TicketsGallery_approval.Fill
+            Items: =Request_Test
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            LoadingSpinnerColor: =TicketsGallery_approval.BorderColor
+            PressedBorderColor: =TicketsGallery_approval.BorderColor
+            PressedFill: =TicketsGallery_approval.Fill
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =223.0699504854
+            Width: =Parent.Width
+            Y: =175
+            ZIndex: =3
+
+            Rectangle1_13 As rectangle:
+                BorderColor: =RGBA(0, 0, 255, 1)
+                DisabledFill: =Rectangle1_13.Fill
+                Fill: =RGBA(227,227,227,1)
+                FocusedBorderColor: =Rectangle1_13.BorderColor
+                Height: =0
+                HoverFill: =Rectangle1_13.Fill
+                PressedFill: =Rectangle1_13.Fill
+                Width: =640
+                Y: =222.44680259615347
+                ZIndex: =1
+
+            Rectangle14_1 As rectangle:
+                BorderColor: =RGBA(0, 0, 255, 1)
+                DisabledFill: =Rectangle14_1.Fill
+                Fill: =RGBA(204, 204, 204, 1)
+                FocusedBorderColor: =Rectangle14_1.BorderColor
+                Height: =1
+                HoverFill: =Rectangle14_1.Fill
+                PressedFill: =Rectangle14_1.Fill
+                Width: =640
+                Y: =222.0699504854464
+                ZIndex: =2
+
+            Rectangle6_1 As rectangle:
+                AccessibleLabel: ="Ticket Details"
+                BorderColor: =RGBA(0, 0, 255, 1)
+                BorderThickness: =2
+                DisabledFill: =Rectangle6_1.Fill
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =Rectangle6_1.BorderColor
+                Height: =223
+                HoverFill: =Rectangle6_1.Fill
+                OnSelect: =
+                PressedFill: =Rectangle6_1.Fill
+                Width: =Parent.Width
+                ZIndex: =4
+
+            Rectangle15_1 As rectangle:
+                BorderColor: =RGBA(0, 0, 255, 1)
+                DisabledFill: =Rectangle15_1.Fill
+                Fill: |-
+                    =If(
+                        ThisItem.Status.Value = "Rejected",
+                        RGBA(
+                            227,
+                            48,
+                            12,
+                            1
+                        ),
+                        If(
+                            ThisItem.Status.Value = "HOD approved"||ThisItem.Status.Value = "Approver 1 approved"||ThisItem.Status.Value = "Approver 2 approved"||ThisItem.Status.Value = "Approver 3 approved",
+                            RGBA(
+                                255,
+                                153,
+                                51,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "Created",
+                                RGBA(
+                                    56,
+                                    86,
+                                    153,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Title = "Done",
+                                    RGBA(
+                                        128,
+                                        128,
+                                        128,
+                                        1
+                                    ),
+                                    RGBA(
+                                        71,
+                                        185,
+                                        50,
+                                        1
+                                    )
+                                )
+                            )
+                        )
+                    )
+                FocusedBorderColor: =Rectangle15_1.BorderColor
+                Height: =222.3
+                HoverFill: =Rectangle15_1.Fill
+                OnSelect: =
+                PressedFill: =Rectangle15_1.Fill
+                Width: =8
+                ZIndex: =13
+
+            Container16 As groupContainer.verticalAutoLayoutContainer:
+                Height: =223.0699504854
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                X: =Parent.X
+                ZIndex: =18
+
+                Container17 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    Heading1_1 As label:
+                        Color: =RGBA(40, 40, 40, 1)
+                        FocusedBorderColor: =Heading1_1.BorderColor
+                        Height: =Parent.Height
+                        HoverBorderColor: =Heading1_1.BorderColor
+                        HoverColor: =Heading1_1.Color
+                        HoverFill: =Heading1_1.Fill
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =20
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        PressedBorderColor: =Heading1_1.BorderColor
+                        PressedColor: =Heading1_1.Color
+                        PressedFill: =Heading1_1.Fill
+                        Size: =16
+                        Text: |-
+                            ="Created by: " & ThisItem.Author.DisplayName
+                        Width: =386
+                        Wrap: =false
+                        X: =Parent.X
+                        Y: =8.881784197001252E-16
+                        ZIndex: =1
+
+                    Heading1_3 As label:
+                        Align: =TextPosition.Right
+                        Color: =RGBA(40, 40, 40, 1)
+                        FocusedBorderColor: =Heading1_3.BorderColor
+                        Height: =Parent.Height
+                        HoverBorderColor: =Heading1_3.BorderColor
+                        HoverColor: =Heading1_3.Color
+                        HoverFill: =Heading1_3.Fill
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        PressedBorderColor: =Heading1_3.BorderColor
+                        PressedColor: =Heading1_3.Color
+                        PressedFill: =Heading1_3.Fill
+                        Size: =16
+                        Text: =ThisItem.Created
+                        Width: =204
+                        Wrap: =false
+                        X: =(Parent.X) + 415
+                        Y: =3.954081632653028
+                        ZIndex: =2
+
+                Container18 As groupContainer.verticalAutoLayoutContainer:
+                    Height: =Parent.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    Container21 As groupContainer.horizontalAutoLayoutContainer:
+                        Height: =Parent.Height
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =112
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =10
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                        Container23 As groupContainer.verticalAutoLayoutContainer:
+                            Height: =Parent.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =10
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                            Subtitle1_2 As label:
+                                Color: =RGBA(29, 33, 35, 1)
+                                FocusedBorderColor: =Subtitle1_2.BorderColor
+                                FontWeight: =FontWeight.Semibold
+                                Height: =58
+                                HoverBorderColor: =Subtitle1_2.BorderColor
+                                HoverColor: =Subtitle1_2.Color
+                                HoverFill: =Subtitle1_2.Fill
+                                LayoutMinHeight: =70
+                                LayoutMinWidth: =560
+                                OnSelect: =
+                                PaddingBottom: =0
+                                PaddingLeft: =20
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                PressedBorderColor: =Subtitle1_2.BorderColor
+                                PressedColor: =Subtitle1_2.Color
+                                PressedFill: =Subtitle1_2.Fill
+                                Size: =22
+                                Text: |-
+                                    ="Title: " & ThisItem.Title
+                                Width: =Parent.Width
+                                Wrap: =false
+                                X: =29
+                                Y: =47.76530612244899
+                                ZIndex: =1
+
+                            Subtitle1_8 As label:
+                                Color: =RGBA(29, 33, 35, 1)
+                                FocusedBorderColor: =Subtitle1_8.BorderColor
+                                FontWeight: =FontWeight.Semibold
+                                Height: =58
+                                HoverBorderColor: =Subtitle1_8.BorderColor
+                                HoverColor: =Subtitle1_8.Color
+                                HoverFill: =Subtitle1_8.Fill
+                                LayoutMinHeight: =70
+                                LayoutMinWidth: =560
+                                OnSelect: =
+                                PaddingBottom: =0
+                                PaddingLeft: =20
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                PressedBorderColor: =Subtitle1_8.BorderColor
+                                PressedColor: =Subtitle1_8.Color
+                                PressedFill: =Subtitle1_8.Fill
+                                Size: =18
+                                Text: |-
+                                    ="Request Type: "& ThisItem.ReqType.Value
+                                Width: =Parent.Width
+                                Wrap: =false
+                                X: =29
+                                Y: =57.23469387755101
+                                ZIndex: =2
+
+                            Container24 As groupContainer.horizontalAutoLayoutContainer:
+                                FillPortions: =0
+                                Height: =50
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutMinHeight: =112
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =Parent.Width
+                                ZIndex: =5
+
+                                Subtitle1_10 As label:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: =RGBA(29, 33, 35, 1)
+                                    FocusedBorderColor: =Subtitle1_10.BorderColor
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =Subtitle1_10.BorderColor
+                                    HoverColor: =Subtitle1_10.Color
+                                    HoverFill: =Subtitle1_10.Fill
+                                    LayoutMinHeight: =50
+                                    LayoutMinWidth: =50
+                                    OnSelect: =
+                                    PaddingBottom: =0
+                                    PaddingLeft: =20
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    PressedBorderColor: =Subtitle1_10.BorderColor
+                                    PressedColor: =Subtitle1_10.Color
+                                    PressedFill: =Subtitle1_10.Fill
+                                    Size: =18
+                                    Text: |-
+                                        ="Status: "
+                                    Width: =120
+                                    Wrap: =false
+                                    X: =29
+                                    Y: =107.23469387755101
+                                    ZIndex: =1
+
+                                Subtitle1_3 As label:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: |-
+                                        =If(
+                                            ThisItem.Status.Value = "Rejected",
+                                            RGBA(
+                                                227,
+                                                48,
+                                                12,
+                                                1
+                                            ),
+                                            If(
+                                                ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                                                RGBA(
+                                                    255,
+                                                    153,
+                                                    51,
+                                                    1
+                                                ),
+                                                If(
+                                                    ThisItem.Status.Value = "Created",
+                                                    RGBA(
+                                                        56,
+                                                        86,
+                                                        153,
+                                                        1
+                                                    ),
+                                                    If(
+                                                        ThisItem.Status.Value = "Done",
+                                                        RGBA(
+                                                            8,
+                                                            103,
+                                                            26,
+                                                            1
+                                                        ),
+                                                        RGBA(
+                                                            71,
+                                                            185,
+                                                            50,
+                                                            1
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    FocusedBorderColor: =Subtitle1_3.BorderColor
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =Subtitle1_3.BorderColor
+                                    HoverColor: =Subtitle1_3.Color
+                                    HoverFill: =Subtitle1_3.Fill
+                                    LayoutMinHeight: =50
+                                    LayoutMinWidth: =560
+                                    OnSelect: =
+                                    PaddingBottom: =0
+                                    PaddingLeft: =20
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    PressedBorderColor: =Subtitle1_3.BorderColor
+                                    PressedColor: =Subtitle1_3.Color
+                                    PressedFill: =Subtitle1_3.Fill
+                                    Size: =18
+                                    Text: =ThisItem.Status.Value
+                                    Width: =408
+                                    Wrap: =false
+                                    X: =65
+                                    Y: =107.23469387755101
+                                    ZIndex: =2
+
+                        icon8_1 As icon.ChevronRight:
+                            AccessibleLabel: ="Ticket Details Button"
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(115, 115, 115, 1)
+                            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                            DisabledFill: =icon8_1.Fill
+                            FocusedBorderColor: =Color.Black
+                            FocusedBorderThickness: =1
+                            Height: =40
+                            HoverBorderColor: =ColorFade(icon8_1.BorderColor, 20%)
+                            HoverColor: =ColorFade(icon8_1.Color, 20%)
+                            HoverFill: =icon8_1.Fill
+                            Icon: =Icon.ChevronRight
+                            OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                            PressedBorderColor: =ColorFade(icon8_1.BorderColor, -20%)
+                            PressedColor: =ColorFade(icon8_1.Color, -20%)
+                            PressedFill: =icon8_1.Fill
+                            TabIndex: =0
+                            Width: =32
+                            X: =595.6573962918501
+                            Y: =91.78571428571428
+                            ZIndex: =2
+
