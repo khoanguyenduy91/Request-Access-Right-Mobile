@@ -39,7 +39,7 @@
       "enableideaspanel": true,
       "enablelegacybarcodescanner": false,
       "enableonstart": false,
-      "enableonstartnavigate": false,
+      "enableonstartnavigate": true,
       "enablepcfmoderndatasets": false,
       "enablerowscopeonetonexpand": false,
       "enablerpawarecomponentdependency": true,
@@ -94,9 +94,9 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 96,
+    "BindingErrorCount": 0,
     "ContainsThirdPartyPcfControls": false,
-    "DefaultConnectedDataSourceMaxGetRowsCount": 500,
+    "DefaultConnectedDataSourceMaxGetRowsCount": 2000,
     "DocumentAppType": "Phone",
     "DocumentLayoutHeight": 1136,
     "DocumentLayoutLockOrientation": true,
@@ -129,13 +129,13 @@
   },
   "ScreenOrder": [
     "HomePage",
-    "TicketsPage",
-    "TicketDetailsPage",
-    "FilterPage",
-    "StatusPage",
-    "AssignPage",
-    "CreatePage",
-    "AreaPage",
-    "PriorityGallery"
+    "NewTicketPage",
+    "TicketPage",
+    "TicketsDetailPage_User",
+    "TicketsDetailPage_Approval",
+    "TicketsDetailPage_HOD",
+    "TicketFilterPage",
+    "ApprovalPage",
+    "HODPage"
   ]
 }

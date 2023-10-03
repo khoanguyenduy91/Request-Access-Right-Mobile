@@ -8,8 +8,26 @@
     "datasets": {
       "https://pizzavietnam.sharepoint.com/sites/TESTSITE": {
         "dataSources": {
+          "FilterTickets": {
+            "tableName": "386a3626-5064-46cc-9c79-a7de1c0e82cd"
+          },
+          "LevelApproveTest": {
+            "tableName": "dd7cd97e-921d-4872-b89e-b1b71ef6a046"
+          },
+          "ReqProcessTest": {
+            "tableName": "89929e3a-61da-4916-b702-30a6748071b3"
+          },
+          "ReqTypeTest": {
+            "tableName": "9ac0d190-8ea5-4217-93ed-877ad37d407a"
+          },
           "Request_Test": {
             "tableName": "ffa622b6-fe7d-4532-a5cd-3795b29db0ae"
+          },
+          "Setting_LevelApprove": {
+            "tableName": "e76cdda1-3baa-4f90-a9af-4b8d0911fc84"
+          },
+          "SettingTest": {
+            "tableName": "0f22df83-74f4-4f09-92aa-f93279a5377b"
           },
           "TableTicketTypes_Test": {
             "tableName": "742ee646-9bc4-4300-a672-c32d256e8520"
@@ -19,7 +37,13 @@
     },
     "dataSources": [
       "TableTicketTypes_Test",
-      "Request_Test"
+      "Request_Test",
+      "FilterTickets",
+      "LevelApproveTest",
+      "ReqProcessTest",
+      "ReqTypeTest",
+      "Setting_LevelApprove",
+      "SettingTest"
     ],
     "dependencies": {},
     "dependents": [],
