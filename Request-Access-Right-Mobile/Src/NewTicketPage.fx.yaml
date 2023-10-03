@@ -318,8 +318,14 @@ NewTicketPage As screen:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =250
                 MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqDescription")
-                Required: =true
+                Required: =If(DataCardValue8.Selected.Value="Other",true,false)
                 Update: =DataCardValue10.Text
+                Visible: |-
+                    =If(
+                        DataCardValue8.Selected.Value = "Other",
+                        true,
+                        false
+                    )
                 Width: =Parent.Width
                 X: =0
                 Y: =4
