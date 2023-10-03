@@ -820,7 +820,7 @@ TicketsDetailPage_HOD As screen:
                                         ),
                                         {Status: {Value: "Rejected"}},
                                         {RejectedDate: Now()},
-                                        //{ReasonReject: varUser & " is the HOD Comment: " & TextInput1.Text},
+                                        {Comment: varUser & " is the HOD Comment: " & TextInput1.Text},
                                         {
                                             RejectedBy: {
                                                 '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",

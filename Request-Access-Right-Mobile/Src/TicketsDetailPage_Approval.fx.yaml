@@ -873,7 +873,7 @@ TicketsDetailPage_Approval As screen:
                                         ),
                                         {Status: {Value: "Rejected"}},
                                         {RejectedDate: Now()},
-                                        //{ReasonReject: varUser & " is the Approver 1 comment: " & TextInput1_1.Text},
+                                        {Comment: varUser & " is the Approver 1 comment: " & TextInput1_1.Text},
                                         {
                                             RejectedBy: {
                                                 '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -902,7 +902,7 @@ TicketsDetailPage_Approval As screen:
                                             ),
                                             {Status: {Value: "Rejected"}},
                                             {RejectedDate: Now()},
-                                            //{ReasonReject: varUser & " is the Approver 2 comment: " & TextInput1_1.Text},
+                                            {Comment: varUser & " is the Approver 2 comment: " & TextInput1_1.Text},
                                             {
                                                 RejectedBy: {
                                                     '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -942,7 +942,7 @@ TicketsDetailPage_Approval As screen:
                                                 ),
                                                 {Status: {Value: "Rejected"}},
                                                 {RejectedDate: Now()},
-                                                //{ReasonReject: varUser & " is the Approver 3 comment: " & TextInput1_1.Text},
+                                                {Comment: varUser & " is the Approver 3 comment: " & TextInput1_1.Text},
                                                 {
                                                     RejectedBy: {
                                                         '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
