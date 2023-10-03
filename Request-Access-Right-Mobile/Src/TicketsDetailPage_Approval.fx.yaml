@@ -4,7 +4,7 @@ TicketsDetailPage_Approval As screen:
     Container10_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =1136
         LayoutDirection: =LayoutDirection.Vertical
-        LayoutGap: =2
+        LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
         Width: =640
         ZIndex: =1
@@ -411,6 +411,7 @@ TicketsDetailPage_Approval As screen:
                     Height: =225
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
+                    Width: =593
                     X: =30
                     Y: =60
                     ZIndex: =5

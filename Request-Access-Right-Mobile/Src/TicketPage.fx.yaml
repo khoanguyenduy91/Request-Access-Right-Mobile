@@ -5,7 +5,7 @@ TicketPage As screen:
         Fill: =RGBA(230, 229, 229, 1)
         Height: =1136
         LayoutDirection: =LayoutDirection.Vertical
-        LayoutGap: =2
+        LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
         Width: =640
         ZIndex: =1
@@ -27,7 +27,7 @@ TicketPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
-                OnSelect: =Back()
+                OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
                 Width: =40
                 ZIndex: =1
 
@@ -70,7 +70,8 @@ TicketPage As screen:
                 Color: =RGBA(62, 96, 170, 1)
                 Height: =50
                 Icon: =Icon.Filter
-                OnSelect: =Navigate(TicketFilterPage,ScreenTransition.None)
+                OnSelect: |-
+                    =Navigate(TicketFilterPage,ScreenTransition.None,{type:type})
                 Width: =50
                 ZIndex: =1
 
