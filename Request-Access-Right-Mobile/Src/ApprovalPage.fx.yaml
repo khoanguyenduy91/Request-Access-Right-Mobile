@@ -2,10 +2,10 @@ ApprovalPage As screen:
     Fill: =RGBA(230, 229, 229, 1)
 
     Container9_1 As groupContainer.verticalAutoLayoutContainer:
-        Height: =1136
+        Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
         Container2_6 As groupContainer.horizontalAutoLayoutContainer:
@@ -17,6 +17,7 @@ ApprovalPage As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
             PaddingRight: =10
+            Width: =Parent.Width
             ZIndex: =1
 
             Icon1_8 As icon.Add:
@@ -24,7 +25,7 @@ ApprovalPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
-                OnSelect: =Back()
+                OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
                 Width: =40
                 ZIndex: =1
 
@@ -55,7 +56,7 @@ ApprovalPage As screen:
             DisabledBorderColor: =TicketsGallery_approval.BorderColor
             DisabledFill: =TicketsGallery_approval.Fill
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =959.9999999999998
+            Height: =Parent.Height
             HoverBorderColor: =TicketsGallery_approval.BorderColor
             HoverFill: =TicketsGallery_approval.Fill
             Items: =Request_Test
@@ -68,6 +69,7 @@ ApprovalPage As screen:
             ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =223.0699504854464
+            Width: =Parent.Width
             Y: =175
             ZIndex: =3
 
@@ -113,7 +115,7 @@ ApprovalPage As screen:
                     HoverFill: =Rectangle6_1.Fill
                     OnSelect: =
                     PressedFill: =Rectangle6_1.Fill
-                    Width: =640
+                    Width: =Parent.Width
                     ZIndex: =4
 
                 Heading1_1 As label:

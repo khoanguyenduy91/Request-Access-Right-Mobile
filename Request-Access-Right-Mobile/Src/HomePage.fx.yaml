@@ -12,11 +12,11 @@ HomePage As screen:
 
     Container1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(217, 216, 217, 1)
-        Height: =1136
+        Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
-        LayoutGap: =2
+        LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
         Container2 As groupContainer.horizontalAutoLayoutContainer:
@@ -29,6 +29,7 @@ HomePage As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
             PaddingRight: =10
+            Width: =Parent.Width
             ZIndex: =1
 
             Image1 As image:
@@ -65,6 +66,7 @@ HomePage As screen:
 
         Container3 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =RGBA(62, 96, 170, 1)
+            DropShadow: =DropShadow.Bold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =325
@@ -76,6 +78,7 @@ HomePage As screen:
             PaddingLeft: =5
             PaddingRight: =5
             PaddingTop: =10
+            Width: =Parent.Width
             ZIndex: =2
 
             Container4 As groupContainer.horizontalAutoLayoutContainer:
@@ -287,7 +290,7 @@ HomePage As screen:
                         HoverColor: =TextBox2_7.Color
                         HoverFill: =TextBox2_7.Fill
                         OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"Progress"})
+                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"In progress"})
                         PressedBorderColor: =TextBox2_7.BorderColor
                         PressedColor: =TextBox2_7.Color
                         PressedFill: =TextBox2_7.Fill
@@ -382,14 +385,6 @@ HomePage As screen:
                         X: =32
                         Y: =80
                         ZIndex: =2
-
-        Separator2_3 As rectangle:
-            Fill: =RGBA(230, 229, 229, 1)
-            Height: =0
-            OnSelect: =
-            Width: =Parent.Width
-            Y: =
-            ZIndex: =3
 
         ContainerApproval As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -508,6 +503,7 @@ HomePage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
             ZIndex: =8
 
             "Gallery1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
@@ -655,7 +651,7 @@ HomePage As screen:
 
                 Separator2 As rectangle:
                     Fill: =RGBA(230, 229, 229, 1)
-                    Height: =4
+                    Height: =2
                     OnSelect: =Select(Parent)
                     Width: =Parent.TemplateWidth
                     ZIndex: =3
