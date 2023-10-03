@@ -204,7 +204,7 @@ ApprovalPage As screen:
                         PressedFill: =Heading1_1.Fill
                         Size: =16
                         Text: |-
-                            ="Created by: " & ThisItem.Author.DisplayName
+                            ="Created by: " & ThisItem.'Created By'.DisplayName
                         Width: =386
                         Wrap: =false
                         X: =Parent.X

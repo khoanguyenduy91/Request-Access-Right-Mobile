@@ -101,31 +101,31 @@ TicketPage As screen:
                     type = "All",
                     Filter(
                             Request_Test,
-                            Author.Email = User().Email
+                            'Created By'.Email = User().Email
                         ),
                     If(
                         type = "New",
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && Author.Email = User().Email
+                            Status.Value = "Created" && 'Created By'.Email = User().Email
                         ),
                         If(
                             type = "In progress",
                             Filter(
                                 Request_Test,
-                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && Author.Email = User().Email
+                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                             ),
                             If(
                                 type = "Closed",
                                 Filter(
                                     Request_Test,
-                                    Status.Value = "Done" && Author.Email = User().Email
+                                    Status.Value = "Done" && 'Created By'.Email = User().Email
                                 ),
                                 If(
                                     type = "Rejected",
                                     Filter(
                                         Request_Test,
-                                        Status.Value = "Rejected" && Author.Email = User().Email
+                                        Status.Value = "Rejected" && 'Created By'.Email = User().Email
                                     )
                                 )
                             )
@@ -277,7 +277,7 @@ TicketPage As screen:
                         PressedFill: =Heading1.Fill
                         Size: =16
                         Text: |-
-                            ="Created by: "& ThisItem.Author.DisplayName
+                            ="Created by: "& ThisItem.'Created By'.DisplayName
                         Width: =217
                         Wrap: =false
                         X: =19

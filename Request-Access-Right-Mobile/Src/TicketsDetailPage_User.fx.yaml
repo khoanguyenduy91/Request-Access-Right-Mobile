@@ -277,7 +277,7 @@ TicketsDetailPage_User As screen:
                 Attachments_DataCard2 As typedDataCard.attachmentsViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
-                    Default: =ThisItem.'{Attachments}'
+                    Default: =ThisItem.Attachments
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
                     Fill: =RGBA(0, 0, 0, 0)
@@ -351,7 +351,7 @@ TicketsDetailPage_User As screen:
                             DisplayMode: =Parent.DisplayMode
                             Height: =217
                             IsInDataCard: =true
-                            Items: =ThisItem.'{Attachments}'
+                            Items: =ThisItem.Attachments
                             LayoutMinHeight: =520
                             LayoutMinWidth: =575
                             PaddingBottom: =5
@@ -408,7 +408,7 @@ TicketsDetailPage_User As screen:
                 "'Created By_DataCard1' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Author"
-                    Default: =ThisItem.Author
+                    Default: =ThisItem.'Created By'
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Author")
                     Fill: =RGBA(0, 0, 0, 0)
@@ -441,10 +441,10 @@ TicketsDetailPage_User As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].Author)
+                        Items: =Choices([@Request_Test].'Created By')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.Author,DataCardValue26.SearchText)
+                        SearchItems: =Choices(Request_Test.'Created By',DataCardValue26.SearchText)
                         SelectMultiple: =false
                         Size: =20
                         Template: =ListItemTemplate.Person

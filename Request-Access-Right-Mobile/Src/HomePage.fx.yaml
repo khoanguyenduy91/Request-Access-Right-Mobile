@@ -115,7 +115,7 @@ HomePage As screen:
                         PressedColor: =TextBox2_5.Color
                         PressedFill: =TextBox2_5.Fill
                         Size: =50
-                        Text: =CountRows(Filter(CollectRequest,Author.Email = User().Email))
+                        Text: =CountRows(Filter(CollectRequest,'Created By'.Email = User().Email))
                         Width: =171
                         X: =56
                         Y: =10
@@ -167,7 +167,7 @@ HomePage As screen:
                         PressedColor: =TextBox2_6.Color
                         PressedFill: =TextBox2_6.Fill
                         Size: =50
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && Author.Email = User().Email))
+                        Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Created By'.Email = User().Email))
                         Width: =168
                         X: =72
                         Y: =10
@@ -234,7 +234,7 @@ HomePage As screen:
                             =CountRows(
                                 Filter(
                                     CollectRequest,
-                                    Status.Value = "Rejected" && Author.Email = User().Email
+                                    Status.Value = "Rejected" && 'Created By'.Email = User().Email
                                 )
                             )
                         Width: =179
@@ -298,7 +298,7 @@ HomePage As screen:
                             =CountRows(
                                 Filter(
                                     CollectRequest,
-                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && Author.Email = User().Email
+                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                                 )
                             )
                         Width: =148
@@ -358,7 +358,7 @@ HomePage As screen:
                         PressedColor: =TextBox2_8.Color
                         PressedFill: =TextBox2_8.Fill
                         Size: =44
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&Author.Email = User().Email))
+                        Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Created By'.Email = User().Email))
                         Width: =117
                         X: =48
                         Y: =20
