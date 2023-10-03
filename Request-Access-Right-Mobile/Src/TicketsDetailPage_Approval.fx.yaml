@@ -107,7 +107,7 @@ TicketsDetailPage_Approval As screen:
             "'Created By_DataCard1_1' As typedDataCard.comboBoxViewCard":
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Author"
-                Default: =ThisItem.Author
+                Default: =ThisItem.'Created By'
                 DisplayMode: =DisplayMode.View
                 DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Author")
                 Fill: =RGBA(0, 0, 0, 0)
@@ -140,10 +140,10 @@ TicketsDetailPage_Approval As screen:
                     DisplayFields: =["DisplayName","Email","Picture"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =70
-                    Items: =Choices([@Request_Test].Author)
+                    Items: =Choices([@Request_Test].'Created By')
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["DisplayName"]
-                    SearchItems: =Choices(Request_Test.Author,DataCardValue26_1.SearchText)
+                    SearchItems: =Choices(Request_Test.'Created By',DataCardValue26_1.SearchText)
                     SelectMultiple: =false
                     Size: =20
                     Template: =ListItemTemplate.Person
@@ -348,7 +348,7 @@ TicketsDetailPage_Approval As screen:
             Attachments_DataCard2_1 As typedDataCard.attachmentsViewCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'{Attachments}'
+                Default: =ThisItem.Attachments
                 DisplayMode: =DisplayMode.View
                 DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
                 Fill: =RGBA(0, 0, 0, 0)
@@ -422,7 +422,7 @@ TicketsDetailPage_Approval As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =217
                         IsInDataCard: =true
-                        Items: =ThisItem.'{Attachments}'
+                        Items: =ThisItem.Attachments
                         LayoutMinHeight: =520
                         LayoutMinWidth: =575
                         PaddingBottom: =5
@@ -675,7 +675,7 @@ TicketsDetailPage_Approval As screen:
                                 ID = TicketsGallery_approval.Selected.ID
                             ),
                             {Status: {Value: "Approver 1 approved"}},
-                            {ApprovedDate1: Now()}
+                            {'Approved Date 1': Now()}
                         ),
                         If(
                             !IsBlank(
@@ -691,11 +691,11 @@ TicketsDetailPage_Approval As screen:
                                     ID = TicketsGallery_approval.Selected.ID
                                 ),
                                 {Status: {Value: "Approver 2 approved"}},
-                                {ApprovedDate2: Now()},
+                                {'Approved Date 2': Now()},
                                 {
-                                    Approver2: {
-                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                        Claims: "",
+                                    'Approver 2': {
+                                        '@odata.type': varEmailUser,
+                                        Claims: varEmailUser,
                                         Department: "",
                                         DisplayName: varUser,
                                         Email: varEmailUser,
@@ -703,6 +703,7 @@ TicketsDetailPage_Approval As screen:
                                         Picture: ""
                                     }
                                 }
+                                
                             ),
                             If(
                                 !IsBlank(
@@ -718,9 +719,9 @@ TicketsDetailPage_Approval As screen:
                                         ID = TicketsGallery_approval.Selected.ID
                                     ),
                                     {Status: {Value: "Approver 3 approved"}},
-                                    {ApprovedDate3: Now()},
+                                    {'Approved Date 3': Now()},
                                     {
-                                        Approver3: {
+                                        'Approver 3': {
                                             '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
                                             Claims: "",
                                             Department: "",
@@ -872,12 +873,12 @@ TicketsDetailPage_Approval As screen:
                                             ID = TicketsGallery_approval.Selected.ID
                                         ),
                                         {Status: {Value: "Rejected"}},
-                                        {RejectedDate: Now()},
+                                        {'Rejected Date': Now()},
                                         {Comment: varUser & " is the Approver 1 comment: " & TextInput1_1.Text},
                                         {
-                                            RejectedBy: {
-                                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                Claims: "",
+                                            'Rejected By': {
+                                                '@odata.type': varEmailUser,
+                                                Claims: varEmailUser,
                                                 Department: "",
                                                 DisplayName: varUser,
                                                 Email: varEmailUser,
@@ -901,12 +902,12 @@ TicketsDetailPage_Approval As screen:
                                                 ID = TicketsGallery_approval.Selected.ID
                                             ),
                                             {Status: {Value: "Rejected"}},
-                                            {RejectedDate: Now()},
-                                            {Comment: varUser & " is the Approver 2 comment: " & TextInput1_1.Text},
+                                            {'Rejected Date': Now()},
+                                            {'Reason Reject': varUser & " is the Approver 2 comment: " & TextInput1_1.Text},
                                             {
-                                                RejectedBy: {
-                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                    Claims: "",
+                                                'Rejected By': {
+                                                    '@odata.type': varEmailUser,
+                                                    Claims: varEmailUser,
                                                     Department: "",
                                                     DisplayName: varUser,
                                                     Email: varEmailUser,
@@ -915,9 +916,9 @@ TicketsDetailPage_Approval As screen:
                                                 }
                                             },
                                             {
-                                                Approver2: {
-                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                    Claims: "",
+                                                'Approver 2': {
+                                                    '@odata.type': varEmailUser,
+                                                    Claims: varEmailUser,
                                                     Department: "",
                                                     DisplayName: varUser,
                                                     Email: varEmailUser,
@@ -941,12 +942,12 @@ TicketsDetailPage_Approval As screen:
                                                     ID = TicketsGallery_approval.Selected.ID
                                                 ),
                                                 {Status: {Value: "Rejected"}},
-                                                {RejectedDate: Now()},
-                                                {Comment: varUser & " is the Approver 3 comment: " & TextInput1_1.Text},
+                                                {'Rejected Date': Now()},
+                                                {'Reason Reject': varUser & " is the Approver 3 comment: " & TextInput1_1.Text},
                                                 {
-                                                    RejectedBy: {
-                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                        Claims: "",
+                                                    'Rejected By': {
+                                                        '@odata.type': varEmailUser,
+                                                        Claims: varEmailUser,
                                                         Department: "",
                                                         DisplayName: varUser,
                                                         Email: varEmailUser,
@@ -955,9 +956,9 @@ TicketsDetailPage_Approval As screen:
                                                     }
                                                 },
                                                 {
-                                                    Approver3: {
-                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                        Claims: "",
+                                                    'Approver 3': {
+                                                        '@odata.type': varEmailUser,
+                                                        Claims: varEmailUser,
                                                         Department: "",
                                                         DisplayName: varUser,
                                                         Email: varEmailUser,

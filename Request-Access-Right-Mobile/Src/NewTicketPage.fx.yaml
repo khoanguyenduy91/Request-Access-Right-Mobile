@@ -394,7 +394,7 @@ NewTicketPage As screen:
             Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'{Attachments}'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
                 Fill: =RGBA(0, 0, 0, 0)
@@ -593,7 +593,7 @@ NewTicketPage As screen:
                             ID = Last(Request_Test).ID
                         ),
                         {
-                            Approver4: {
+                            'Approver 4': {
                                 '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
                                 Department: "",
                                 Claims: varEmailUser,

@@ -70,7 +70,7 @@ ApprovalPage As screen:
                     SortByColumns(
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && varEmailUser = Approver1.Email || Status.Value = "HOD approved" && varEmailUser = Approver1.Email
+                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
                         ),
                         "Created",
                         SortOrder.Descending
@@ -100,7 +100,7 @@ ApprovalPage As screen:
                             SortByColumns(
                                 Filter(
                                     Request_Test,
-                                    Status.Value = "Approver 2 approved" && ReqType_x003a__x0020_ID.Value = "2"
+                                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
                                 ),
                                 "Created",
                                 SortOrder.Descending
@@ -183,7 +183,7 @@ ApprovalPage As screen:
                     PressedFill: =Heading1_1.Fill
                     Size: =16
                     Text: |-
-                        ="Created by: " & ThisItem.Author.DisplayName
+                        ="Created by: " & ThisItem.'Created By'.DisplayName
                     Width: =386
                     Wrap: =false
                     X: =29
