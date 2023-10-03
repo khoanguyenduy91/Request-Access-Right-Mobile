@@ -2,11 +2,11 @@ NewTicketPage As screen:
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
-        Height: =1136
+        Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
-        LayoutGap: =2
+        LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
         Container2_1 As groupContainer.horizontalAutoLayoutContainer:
@@ -19,6 +19,7 @@ NewTicketPage As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
             PaddingRight: =10
+            Width: =Parent.Width
             ZIndex: =1
 
             Icon1_1 As icon.Add:
@@ -55,10 +56,11 @@ NewTicketPage As screen:
         Form1 As form:
             DataSource: =Request_Test
             Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height
             Item: =TicketsGallery.Selected
             LayoutMinHeight: =250
             LayoutMinWidth: =320
-            Width: =640
+            Width: =Parent.Width
             ZIndex: =3
 
             ReqType_DataCard2 As typedDataCard.comboBoxEditCard:
@@ -71,7 +73,7 @@ NewTicketPage As screen:
                 Height: =50
                 Required: =true
                 Update: =DataCardValue12.Selected
-                Width: =640
+                Width: =Parent.Width
                 X: =0
                 Y: =1
                 ZIndex: =1
@@ -153,7 +155,7 @@ NewTicketPage As screen:
                 Height: =50
                 Required: =true
                 Update: =DataCardValue8.Selected
-                Width: =640
+                Width: =Parent.Width
                 X: =0
                 Y: =2
                 ZIndex: =1
@@ -236,7 +238,7 @@ NewTicketPage As screen:
                 MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqReason")
                 Required: =true
                 Update: =DataCardValue9.Text
-                Width: =640
+                Width: =Parent.Width
                 X: =0
                 Y: =3
                 ZIndex: =1
@@ -318,7 +320,7 @@ NewTicketPage As screen:
                 MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqDescription")
                 Required: =true
                 Update: =DataCardValue10.Text
-                Width: =640
+                Width: =Parent.Width
                 X: =0
                 Y: =4
                 ZIndex: =1
@@ -399,7 +401,7 @@ NewTicketPage As screen:
                 Height: =50
                 Required: =false
                 Update: =DataCardValue11.Attachments
-                Width: =640
+                Width: =Parent.Width
                 X: =0
                 Y: =5
                 ZIndex: =1
@@ -478,7 +480,7 @@ NewTicketPage As screen:
                 MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "Title")
                 Required: =true
                 Update: =DataCardValue1.Text
-                Width: =640
+                Width: =Parent.Width
                 X: =0
                 Y: =0
                 ZIndex: =2

@@ -23,7 +23,7 @@ HODPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
-                OnSelect: =Back()
+                OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
                 Width: =40
                 ZIndex: =1
 
