@@ -407,7 +407,7 @@ NewTicketPage As screen:
                 Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
-                    Default: =ThisItem.'{Attachments}'
+                    Default: =ThisItem.Attachments
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
                     Fill: =RGBA(0, 0, 0, 0)

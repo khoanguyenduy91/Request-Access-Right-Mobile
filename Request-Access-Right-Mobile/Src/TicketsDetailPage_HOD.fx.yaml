@@ -238,10 +238,131 @@ TicketsDetailPage_HOD As screen:
                         Y: =DataCardKey24_2.Y + DataCardKey24_2.Height + 5
                         ZIndex: =2
 
+                Created_DataCard1_2 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Created"
+                    Default: =ThisItem.Created
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Created")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =6
+                    ZIndex: =1
+
+                    DataCardKey26_2 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue25_2 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey26_2.Y + DataCardKey26_2.Height + 5
+                        ZIndex: =2
+
+                "'Created By_DataCard1_2' As typedDataCard.comboBoxViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Author"
+                    Default: =ThisItem.'Created By'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Author")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue26_2.Selected
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =7
+                    ZIndex: =1
+
+                    DataCardKey27_2 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue26_2 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =70
+                        Items: =Choices([@Request_Test].'Created By')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["DisplayName"]
+                        SearchItems: =Choices(Request_Test.'Created By',DataCardValue26_2.SearchText)
+                        SelectMultiple: =false
+                        Size: =20
+                        Template: =ListItemTemplate.Person
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey27_2.Y + DataCardKey27_2.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage22_2 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue26_2.Y + DataCardValue26_2.Height
+                        ZIndex: =3
+
+                    StarVisible22_2 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey27_2.Height
+                        PaddingBottom: =DataCardKey27_2.PaddingBottom
+                        PaddingLeft: =DataCardKey27_2.PaddingLeft
+                        PaddingRight: =DataCardKey27_2.PaddingRight
+                        PaddingTop: =DataCardKey27_2.PaddingTop
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey27_2.Y
+                        ZIndex: =4
+
                 Attachments_DataCard2_2 As typedDataCard.attachmentsViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
-                    Default: =ThisItem.'{Attachments}'
+                    Default: =ThisItem.Attachments
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
                     Fill: =RGBA(0, 0, 0, 0)
@@ -315,7 +436,7 @@ TicketsDetailPage_HOD As screen:
                             DropTargetBackgroundColor: =RGBA(62, 96, 170, 1)
                             Height: =217
                             IsInDataCard: =true
-                            Items: =ThisItem.'{Attachments}'
+                            Items: =ThisItem.Attachments
                             LayoutMinHeight: =520
                             LayoutMinWidth: =575
                             PaddingBottom: =5
@@ -326,127 +447,6 @@ TicketsDetailPage_HOD As screen:
                             X: =15
                             Y: =48
                             ZIndex: =1
-
-                Created_DataCard1_2 As typedDataCard.textualViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Created"
-                    Default: =ThisItem.Created
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Created")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Required: =false
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =6
-                    ZIndex: =1
-
-                    DataCardKey26_2 As label:
-                        AutoHeight: =true
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue25_2 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey26_2.Y + DataCardKey26_2.Height + 5
-                        ZIndex: =2
-
-                "'Created By_DataCard1_2' As typedDataCard.comboBoxViewCard":
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Author"
-                    Default: =ThisItem.Author
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Author")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    Required: =false
-                    Update: =DataCardValue26_2.Selected
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =7
-                    ZIndex: =1
-
-                    DataCardKey27_2 As label:
-                        AutoHeight: =true
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue26_2 As combobox:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultSelectedItems: =Parent.Default
-                        DisplayFields: =["DisplayName","Email","Picture"]
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =70
-                        Items: =Choices([@Request_Test].Author)
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.Author,DataCardValue26_2.SearchText)
-                        SelectMultiple: =false
-                        Size: =20
-                        Template: =ListItemTemplate.Person
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey27_2.Y + DataCardKey27_2.Height + 5
-                        ZIndex: =2
-
-                    ErrorMessage22_2 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =12
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue26_2.Y + DataCardValue26_2.Height
-                        ZIndex: =3
-
-                    StarVisible22_2 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey27_2.Height
-                        PaddingBottom: =DataCardKey27_2.PaddingBottom
-                        PaddingLeft: =DataCardKey27_2.PaddingLeft
-                        PaddingRight: =DataCardKey27_2.PaddingRight
-                        PaddingTop: =DataCardKey27_2.PaddingTop
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey27_2.Y
-                        ZIndex: =4
 
                 Title_DataCard2_2 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
@@ -677,7 +677,25 @@ TicketsDetailPage_HOD As screen:
                 Height: =50
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
-                OnSelect: =
+                OnSelect: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                Request_Test,
+                                varEmailUser = HOD.Email
+                            )
+                        ),
+                        Patch(
+                            Request_Test,
+                            LookUp(
+                                Request_Test,
+                                ID = TicketsGallery_HOD.Selected.ID
+                            ),
+                            {Status: {Value: "HOD approved"}},
+                            {'HOD Approved Date': Now()}
+                        )
+                    );
+                    Navigate(HODPage)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
                 PressedFill: =ColorFade(Self.Fill, 50%)
@@ -796,7 +814,45 @@ TicketsDetailPage_HOD As screen:
                         Height: =50
                         HoverColor: =RGBA(255, 255, 255, 1)
                         HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        OnSelect: =
+                        OnSelect: |-
+                            =If(
+                                Len(TextInput1.Text) = 0,
+                                Notify(
+                                    "Please enter the reason for the reject",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    !IsBlank(
+                                        LookUp(
+                                            Request_Test,
+                                            varEmailUser = HOD.Email
+                                        )
+                                    ),
+                                    Patch(
+                                        Request_Test,
+                                        LookUp(
+                                            Request_Test,
+                                            ID = TicketsGallery_HOD.Selected.ID
+                                        ),
+                                        {Status: {Value: "Rejected"}},
+                                        {'Rejected Date': Now()},
+                                        {'Reason Reject': varUser & " is the HOD Comment: " & TextInput1.Text},
+                                        {
+                                            'Rejected By': {
+                                                '@odata.type': varEmailUser,
+                                                Claims: varEmailUser,
+                                                Department: "",
+                                                DisplayName: varUser,
+                                                Email: varEmailUser,
+                                                JobTitle: "",
+                                                Picture: ""
+                                            }
+                                        }
+                                    ),
+                                    Navigate(HODPage)
+                                    )
+                            );
+                            Reset(TextInput1)
                         PaddingBottom: =5.00
                         PaddingLeft: =5.00
                         PaddingRight: =5.21

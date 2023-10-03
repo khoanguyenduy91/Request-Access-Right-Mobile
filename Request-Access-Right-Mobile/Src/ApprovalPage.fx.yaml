@@ -59,7 +59,55 @@ ApprovalPage As screen:
             Height: =Parent.Height
             HoverBorderColor: =TicketsGallery_approval.BorderColor
             HoverFill: =TicketsGallery_approval.Fill
-            Items: =Request_Test
+            Items: |-
+                =If(
+                    !IsBlank(
+                        LookUp(
+                            LevelApproveTest,
+                            IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                        )
+                    ),
+                    SortByColumns(
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
+                        ),
+                        "Created",
+                        SortOrder.Descending
+                    ),
+                    If(
+                        !IsBlank(
+                            LookUp(
+                                LevelApproveTest,
+                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                            )
+                        ),
+                        SortByColumns(
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Approver 1 approved"
+                            ),
+                            "Created",
+                            SortOrder.Descending
+                        ),
+                        If(
+                            !IsBlank(
+                                LookUp(
+                                    LevelApproveTest,
+                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                )
+                            ),
+                            SortByColumns(
+                                Filter(
+                                    Request_Test,
+                                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                                ),
+                                "Created",
+                                SortOrder.Descending
+                            )
+                        )
+                    )
+                )
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =320
@@ -204,7 +252,7 @@ ApprovalPage As screen:
                         PressedFill: =Heading1_1.Fill
                         Size: =16
                         Text: |-
-                            ="Created by: " & ThisItem.Author.DisplayName
+                            ="Created by: " & ThisItem.'Created By'.DisplayName
                         Width: =386
                         Wrap: =false
                         X: =Parent.X
