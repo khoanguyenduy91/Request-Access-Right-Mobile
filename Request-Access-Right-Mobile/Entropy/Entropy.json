@@ -358,7 +358,12 @@
   "FunctionParamsInvariantScriptsOnInstances": {},
   "HeaderLastSavedDateTimeUTC": "10/03/2023 04:51:00",
   "IsLegacyComponentAllowGlobalScopeCase": false,
-  "LocalConnectionIDReferences": {},
+  "LocalConnectionIDReferences": {
+    "38e06757-82fb-4679-ac8e-ca5ed276e924": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/5451808c3d0b45399ed7b44383dc4fe1\"",
+    "65812730-5db3-41bc-a8ca-ec1f2d3d88b1": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/b344e347bfff7a29ef20959b6a6e9c53-f41d71cebc81ba37\"",
+    "7776555d-977e-44f7-bd77-d4fe047f3143": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/c9a0ab277aacbc4bd2a13b7578b4b685-f41d71cebc81ba37\"",
+    "a965592d-aebd-42f7-bd1b-ab864595125d": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/52e84b494b3540f785d5db01505bb46b\""
+  },
   "LocalDatabaseReferencesAsEmpty": false,
   "LocalResourceFileNames": {
     "Logo - PizzaHut": "0001.png",
@@ -371,8 +376,62 @@
   "OldLogoFileName": "logo.jpg",
   "OrderComponentMetadata": {},
   "OrderComponentTemplate": {},
-  "OrderDataSource": {},
-  "OrderGroupControls": {},
+  "OrderDataSource": {
+    "AccountName": 2,
+    "AccountNameTypes": 3,
+    "Attendants": 4,
+    "CardStackGallerySample": 5,
+    "CaseStatus": 6,
+    "CollectRequest": 24,
+    "ComboBoxSample": 7,
+    "CustomGallerySample": 8,
+    "DropDownSample": 9,
+    "Filterby": 10,
+    "FilterTickets": 11,
+    "Getrandompasswords": 0,
+    "LevelApproveTest": 12,
+    "Login2": 1,
+    "PriorityDropdown": 13,
+    "PriorityTypes": 14,
+    "ReqProcessTest": 15,
+    "ReqTypeTest": 16,
+    "Request_Test": 17,
+    "Setting_LevelApprove": 19,
+    "SettingTest": 18,
+    "TableTicketTypes_Test": 20,
+    "TextualGallerySample": 21,
+    "Tickets": 22,
+    "TicketTypes": 23
+  },
+  "OrderGroupControls": {
+    "Group13_1": {
+      "icon3_2": 2,
+      "Rectangle7_1": 0,
+      "TextBox3_2": 1
+    },
+    "Group5": {
+      "Heading1": 1,
+      "Heading1_2": 4,
+      "icon8": 3,
+      "Rectangle15": 5,
+      "Rectangle6": 0,
+      "Subtitle1": 2
+    },
+    "Group5_1": {
+      "Heading1_1": 1,
+      "Heading1_3": 4,
+      "icon8_1": 3,
+      "Rectangle15_1": 5,
+      "Rectangle6_1": 0,
+      "Subtitle1_2": 2
+    },
+    "Group5_2": {
+      "Heading1_4": 2,
+      "icon8_2": 1,
+      "Rectangle15_2": 3,
+      "Rectangle6_2": 0
+    }
+  },
   "OrderPcfTemplate": {},
   "OrderTemplate": {},
   "OrderXMLTemplate": {

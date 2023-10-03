@@ -101,31 +101,31 @@ TicketPage As screen:
                     type = "All",
                     Filter(
                             Request_Test,
-                            Author.Email = User().Email
+                            'Approver 4'.Email = varEmailUser
                         ),
                     If(
                         type = "New",
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && Author.Email = User().Email
+                            Status.Value = "Created" && 'Approver 4'.Email = varEmailUser
                         ),
                         If(
                             type = "In progress",
                             Filter(
                                 Request_Test,
-                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && Author.Email = User().Email
+                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
                             ),
                             If(
                                 type = "Closed",
                                 Filter(
                                     Request_Test,
-                                    Status.Value = "Done" && Author.Email = User().Email
+                                    Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
                                 ),
                                 If(
                                     type = "Rejected",
                                     Filter(
                                         Request_Test,
-                                        Status.Value = "Rejected" && Author.Email = User().Email
+                                        Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
                                     )
                                 )
                             )
@@ -183,59 +183,155 @@ TicketPage As screen:
                 Width: =Parent.Width
                 ZIndex: =4
 
-            Rectangle15 As rectangle:
-                BorderColor: =RGBA(0, 0, 255, 1)
-                DisabledFill: =Rectangle15.Fill
-                Fill: |-
-                    =If(
-                        ThisItem.Status.Value = "Rejected",
-                        RGBA(
-                            227,
-                            48,
-                            12,
-                            1
-                        ),
-                        If(
-                            ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                Heading1 As label:
+                    Color: =RGBA(40, 40, 40, 1)
+                    FocusedBorderColor: =Heading1.BorderColor
+                    Height: =44
+                    HoverBorderColor: =Heading1.BorderColor
+                    HoverColor: =Heading1.Color
+                    HoverFill: =Heading1.Fill
+                    OnSelect: =
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    PressedBorderColor: =Heading1.BorderColor
+                    PressedColor: =Heading1.Color
+                    PressedFill: =Heading1.Fill
+                    Size: =16
+                    Text: |-
+                        ="Created by: "& ThisItem.'Created By'.DisplayName
+                    Width: =217
+                    Wrap: =false
+                    X: =19
+                    Y: =3.954081632653029
+                    ZIndex: =5
+
+                Subtitle1 As label:
+                    Color: =RGBA(29, 33, 35, 1)
+                    FocusedBorderColor: =Subtitle1.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =58
+                    HoverBorderColor: =Subtitle1.BorderColor
+                    HoverColor: =Subtitle1.Color
+                    HoverFill: =Subtitle1.Fill
+                    OnSelect: =
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    PressedBorderColor: =Subtitle1.BorderColor
+                    PressedColor: =Subtitle1.Color
+                    PressedFill: =Subtitle1.Fill
+                    Size: =22
+                    Text: |-
+                        ="Title: "& ThisItem.Title
+                    Width: =621
+                    Wrap: =false
+                    X: =19
+                    Y: =47
+                    ZIndex: =6
+
+                icon8 As icon.ChevronRight:
+                    AccessibleLabel: ="Ticket Details Button"
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(115, 115, 115, 1)
+                    DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                    DisabledFill: =icon8.Fill
+                    FocusedBorderColor: =Color.Black
+                    FocusedBorderThickness: =1
+                    Height: =40
+                    HoverBorderColor: =ColorFade(icon8.BorderColor, 20%)
+                    HoverColor: =ColorFade(icon8.Color, 20%)
+                    HoverFill: =icon8.Fill
+                    Icon: =Icon.ChevronRight
+                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                    PressedBorderColor: =ColorFade(icon8.BorderColor, -20%)
+                    PressedColor: =ColorFade(icon8.Color, -20%)
+                    PressedFill: =icon8.Fill
+                    TabIndex: =0
+                    Width: =217
+                    X: =403
+                    Y: =91.78571428571428
+                    ZIndex: =8
+
+                Heading1_2 As label:
+                    Align: =TextPosition.Right
+                    Color: =RGBA(40, 40, 40, 1)
+                    FocusedBorderColor: =Heading1_2.BorderColor
+                    Height: =44
+                    HoverBorderColor: =Heading1_2.BorderColor
+                    HoverColor: =Heading1_2.Color
+                    HoverFill: =Heading1_2.Fill
+                    OnSelect: =
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    PressedBorderColor: =Heading1_2.BorderColor
+                    PressedColor: =Heading1_2.Color
+                    PressedFill: =Heading1_2.Fill
+                    Size: =16
+                    Text: =ThisItem.Created
+                    Width: =217
+                    Wrap: =false
+                    X: =281
+                    Y: =3.954081632653028
+                    ZIndex: =12
+
+                Rectangle15 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
+                    DisabledFill: =Rectangle15.Fill
+                    Fill: |-
+                        =If(
+                            ThisItem.Status.Value = "Rejected",
                             RGBA(
-                                255,
-                                153,
-                                51,
+                                227,
+                                48,
+                                12,
                                 1
                             ),
                             If(
-                                ThisItem.Status.Value = "Created",
+                                ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
                                 RGBA(
-                                    56,
-                                    86,
+                                    255,
                                     153,
+                                    51,
                                     1
                                 ),
                                 If(
-                                    ThisItem.Status.Value = "Done",
+                                    ThisItem.Status.Value = "Created",
                                     RGBA(
-                                        8,
-                                        103,
-                                        26,
+                                        56,
+                                        86,
+                                        153,
                                         1
                                     ),
-                                    RGBA(
-                                        71,
-                                        185,
-                                        50,
-                                        1
+                                    If(
+                                        ThisItem.Status.Value = "Done",
+                                        RGBA(
+                                            8,
+                                            103,
+                                            26,
+                                            1
+                                        ),
+                                        RGBA(
+                                            71,
+                                            185,
+                                            50,
+                                            1
+                                        )
                                     )
                                 )
                             )
                         )
-                    )
-                FocusedBorderColor: =Rectangle15.BorderColor
-                Height: =222
-                HoverFill: =Rectangle15.Fill
-                OnSelect: =
-                PressedFill: =Rectangle15.Fill
-                Width: =6
-                ZIndex: =13
+                    FocusedBorderColor: =Rectangle15.BorderColor
+                    Height: =222
+                    HoverFill: =Rectangle15.Fill
+                    OnSelect: =
+                    PressedFill: =Rectangle15.Fill
+                    Width: =6
+                    ZIndex: =13
 
             Container31 As groupContainer.verticalAutoLayoutContainer:
                 Height: =223

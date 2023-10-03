@@ -5,7 +5,21 @@ HomePage As screen:
         =ClearCollect(
             CollectRequest,
             Request_Test
-        )
+        );
+        Set(
+            varEmailUser,
+            With(
+                {obj: ParseJSON(getEmail.result)},
+                Text(obj.Email)
+            )
+        );
+        Set(
+            varUser,
+            With(
+                {obj: ParseJSON(getEmail.result)},
+                Text(obj.User)
+            )
+        );
     Orientation: =If(HomePage.Width < HomePage.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= HomePage.Width)
     Width: =Max(App.Width, App.DesignWidth)
@@ -38,6 +52,7 @@ HomePage As screen:
                 Image: ='Logo - PizzaHut'
                 LayoutMinHeight: =320
                 LayoutMinWidth: =320
+                OnSelect: =Navigate(LoginPage)
                 Width: =50
                 ZIndex: =1
 
@@ -51,7 +66,7 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Pizza Hut"
+                Text: ="Pizza Hut" 
                 Width: =560
                 ZIndex: =2
 
@@ -115,7 +130,7 @@ HomePage As screen:
                         PressedColor: =TextBox2_5.Color
                         PressedFill: =TextBox2_5.Fill
                         Size: =50
-                        Text: =CountRows(Filter(CollectRequest,Author.Email = User().Email))
+                        Text: =CountRows(Filter(CollectRequest,'Approver 4'.Email = varEmailUser))
                         Width: =171
                         X: =56
                         Y: =10
@@ -167,7 +182,7 @@ HomePage As screen:
                         PressedColor: =TextBox2_6.Color
                         PressedFill: =TextBox2_6.Fill
                         Size: =50
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && Author.Email = User().Email))
+                        Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Approver 4'.Email = varEmailUser))
                         Width: =168
                         X: =72
                         Y: =10
@@ -234,7 +249,7 @@ HomePage As screen:
                             =CountRows(
                                 Filter(
                                     CollectRequest,
-                                    Status.Value = "Rejected" && Author.Email = User().Email
+                                    Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
                                 )
                             )
                         Width: =179
@@ -298,7 +313,7 @@ HomePage As screen:
                             =CountRows(
                                 Filter(
                                     CollectRequest,
-                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && Author.Email = User().Email
+                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
                                 )
                             )
                         Width: =148
@@ -358,7 +373,13 @@ HomePage As screen:
                         PressedColor: =TextBox2_8.Color
                         PressedFill: =TextBox2_8.Fill
                         Size: =44
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&Author.Email = User().Email))
+                        Text: |-
+                            =CountRows(
+                                Filter(
+                                    CollectRequest,
+                                    Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
+                                )
+                            )
                         Width: =117
                         X: =48
                         Y: =20
@@ -394,6 +415,22 @@ HomePage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            Visible: |-
+                =If(
+                    With(
+                        {obj: ParseJSON(getEmail.result)},
+                        Text(obj.isApprover)
+                    ) = "True" || IsMatch(
+                        With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.Title)
+                        ),
+                        "General Manager",
+                        MatchOptions.Complete
+                    ),
+                    true,
+                    false
+                )
             Width: =Parent.Width
             ZIndex: =4
 
@@ -449,6 +486,19 @@ HomePage As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            Visible: |-
+                =If(
+                    IsMatch(
+                        With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.Title)
+                        ),
+                        "Head of",
+                        MatchOptions.Contains
+                    ),
+                    true,
+                    false
+                )
             Width: =Parent.Width
             ZIndex: =6
 

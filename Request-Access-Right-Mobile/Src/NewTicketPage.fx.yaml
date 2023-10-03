@@ -322,20 +322,41 @@ NewTicketPage As screen:
                         Y: =DataCardKey10.Y
                         ZIndex: =4
 
-                ReqDescription_DataCard1 As typedDataCard.textualEditCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="ReqDescription"
-                    Default: =ThisItem.ReqDescription
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqDescription")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =250
-                    MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqDescription")
-                    Required: =true
-                    Update: =DataCardValue10.Text
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =4
+            ReqDescription_DataCard1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="ReqDescription"
+                Default: =ThisItem.ReqDescription
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqDescription")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =250
+                MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqDescription")
+                Required: =If(DataCardValue8.Selected.Value="Other",true,false)
+                Update: =DataCardValue10.Text
+                Visible: |-
+                    =If(
+                        DataCardValue8.Selected.Value = "Other",
+                        true,
+                        false
+                    )
+                Width: =Parent.Width
+                X: =0
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey11 As label:
+                    AutoHeight: =true
+                    Height: =48
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =21
+                    Text: ="Description"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey11 As label:
@@ -404,19 +425,34 @@ NewTicketPage As screen:
                         Y: =DataCardKey11.Y
                         ZIndex: =4
 
-                Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="{Attachments}"
-                    Default: =ThisItem.'{Attachments}'
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    Required: =false
-                    Update: =DataCardValue11.Attachments
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =5
+            Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="{Attachments}"
+                Default: =ThisItem.Attachments
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue11.Attachments
+                Width: =Parent.Width
+                X: =0
+                Y: =5
+                ZIndex: =1
+
+                DataCardKey12 As label:
+                    AutoHeight: =true
+                    Height: =48
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =21
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey12 As label:
@@ -590,7 +626,33 @@ NewTicketPage As screen:
                 Height: =80
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: =SubmitForm(Form1);
+                OnSelect: |-
+                    =Set(
+                        varEmailUser,
+                        With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.User)
+                        )
+                    );
+                    SubmitForm(Form1);
+                    Patch(
+                        Request_Test,
+                        LookUp(
+                            Request_Test,
+                            ID = Last(Request_Test).ID
+                        ),
+                        {
+                            'Approver 4': {
+                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                Department: "",
+                                Claims: varEmailUser,
+                                DisplayName: "",
+                                Email: varEmailUser,
+                                JobTitle: "",
+                                Picture: ""
+                            }
+                        }
+                    )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

@@ -112,19 +112,83 @@ TicketsDetailPage_User As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                ReqReason_DataCard2 As typedDataCard.textualViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="ReqReason"
-                    Default: =ThisItem.ReqReason
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqReason")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Required: =false
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =2
+                DataCardKey27 As label:
+                    AutoHeight: =true
+                    Height: =48
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =21
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
                     ZIndex: =1
+
+                DataCardValue26 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =70
+                    Items: =Choices([@Request_Test].'Created By')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["DisplayName"]
+                    SearchItems: =Choices(Request_Test.'Created By',DataCardValue26.SearchText)
+                    SelectMultiple: =false
+                    Size: =20
+                    Template: =ListItemTemplate.Person
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey27.Y + DataCardKey27.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage22 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =12
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue26.Y + DataCardValue26.Height
+                    ZIndex: =3
+
+                StarVisible22 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey27.Height
+                    PaddingBottom: =DataCardKey27.PaddingBottom
+                    PaddingLeft: =DataCardKey27.PaddingLeft
+                    PaddingRight: =DataCardKey27.PaddingRight
+                    PaddingTop: =DataCardKey27.PaddingTop
+                    Size: =21
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey27.Y
+                    ZIndex: =4
+
+            ReqReason_DataCard2 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="ReqReason"
+                Default: =ThisItem.ReqReason
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqReason")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =640
+                X: =0
+                Y: =4
+                ZIndex: =1
 
                     DataCardKey23 As label:
                         AutoHeight: =true
@@ -274,20 +338,20 @@ TicketsDetailPage_User As screen:
                         Y: =DataCardKey24.Y + DataCardKey24.Height + 5
                         ZIndex: =2
 
-                Attachments_DataCard2 As typedDataCard.attachmentsViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="{Attachments}"
-                    Default: =ThisItem.'{Attachments}'
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =300
-                    Required: =false
-                    Update: =DataCardValue24.Attachments
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =8
-                    ZIndex: =1
+            Attachments_DataCard2 As typedDataCard.attachmentsViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="{Attachments}"
+                Default: =ThisItem.Attachments
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =300
+                Required: =false
+                Update: =DataCardValue24.Attachments
+                Width: =640
+                X: =0
+                Y: =8
+                ZIndex: =1
 
                     DataCardKey25 As label:
                         AutoHeight: =true
@@ -345,23 +409,23 @@ TicketsDetailPage_User As screen:
                         Y: =70
                         ZIndex: =5
 
-                        DataCardValue24 As attachments:
-                            BorderColor: =RGBA(62, 96, 170, 1)
-                            BorderThickness: =5
-                            DisplayMode: =Parent.DisplayMode
-                            Height: =217
-                            IsInDataCard: =true
-                            Items: =ThisItem.'{Attachments}'
-                            LayoutMinHeight: =520
-                            LayoutMinWidth: =575
-                            PaddingBottom: =5
-                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                            PaddingRight: =5
-                            PaddingTop: =5
-                            Width: =Parent.Width
-                            X: =12
-                            Y: =48
-                            ZIndex: =1
+                    DataCardValue24 As attachments:
+                        BorderColor: =RGBA(62, 96, 170, 1)
+                        BorderThickness: =5
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =217
+                        IsInDataCard: =true
+                        Items: =ThisItem.Attachments
+                        LayoutMinHeight: =520
+                        LayoutMinWidth: =575
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =Parent.Width
+                        X: =12
+                        Y: =48
+                        ZIndex: =1
 
                 Created_DataCard1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
