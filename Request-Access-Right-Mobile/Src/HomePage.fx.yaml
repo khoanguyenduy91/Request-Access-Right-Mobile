@@ -52,6 +52,7 @@ HomePage As screen:
                 Image: ='Logo - PizzaHut'
                 LayoutMinHeight: =320
                 LayoutMinWidth: =320
+                OnSelect: =Navigate(LoginPage)
                 Width: =50
                 ZIndex: =1
 
