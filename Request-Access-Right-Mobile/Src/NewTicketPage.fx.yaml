@@ -4,7 +4,7 @@ NewTicketPage As screen:
         Fill: =RGBA(230, 229, 229, 1)
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
-        LayoutGap: =2
+        LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
