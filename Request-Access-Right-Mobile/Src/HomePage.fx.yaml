@@ -20,7 +20,7 @@ HomePage As screen:
         ZIndex: =1
 
         Container2 As groupContainer.horizontalAutoLayoutContainer:
-            DropShadow: =DropShadow.ExtraBold
+            BorderColor: =
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =90
@@ -65,8 +65,7 @@ HomePage As screen:
                 ZIndex: =3
 
         Container3 As groupContainer.verticalAutoLayoutContainer:
-            BorderColor: =RGBA(62, 96, 170, 1)
-            DropShadow: =DropShadow.Bold
+            BorderColor: =
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =325
@@ -82,20 +81,20 @@ HomePage As screen:
             ZIndex: =2
 
             Container4 As groupContainer.horizontalAutoLayoutContainer:
-                FillPortions: =0
                 Height: =150
                 LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
                 ZIndex: =1
 
                 "'Group, All Ticket' As groupContainer":
                     Height: =149
                     LayoutMinHeight: =112
                     LayoutMinWidth: =250
-                    Width: =208
+                    Width: =Parent.Width
                     X: =109.5
                     Y: =111
                     ZIndex: =3
@@ -147,7 +146,7 @@ HomePage As screen:
                     Height: =155
                     LayoutMinHeight: =112
                     LayoutMinWidth: =250
-                    Width: =216
+                    Width: =Parent.Width
                     X: =340
                     Y: =113
                     ZIndex: =4
@@ -196,20 +195,20 @@ HomePage As screen:
                         ZIndex: =2
 
             Container5 As groupContainer.horizontalAutoLayoutContainer:
-                FillPortions: =0
                 Height: =150
                 LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                 LayoutMinHeight: =112
                 LayoutMinWidth: =100
                 LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
                 ZIndex: =2
 
                 "'Group, on hold' As groupContainer":
                     Height: =150
                     LayoutMinHeight: =112
                     LayoutMinWidth: =100
-                    Width: =199
+                    Width: =Parent.Width
                     X: =441
                     Y: =275
                     ZIndex: =1
@@ -269,7 +268,7 @@ HomePage As screen:
                     Height: =150
                     LayoutMinHeight: =112
                     LayoutMinWidth: =100
-                    Width: =199
+                    Width: =Parent.Width
                     Y: =275
                     ZIndex: =2
 
@@ -338,7 +337,7 @@ HomePage As screen:
                     Height: =150
                     LayoutMinHeight: =112
                     LayoutMinWidth: =100
-                    Width: =199
+                    Width: =Parent.Width
                     X: =228.5
                     Y: =275
                     ZIndex: =3
@@ -524,7 +523,7 @@ HomePage As screen:
                 Title2 As label:
                     Color: =RGBA(0, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
-                    Height: =100-8
+                    Height: =70
                     OnSelect: |
                         =//Select(Parent)
                         If(
@@ -583,6 +582,7 @@ HomePage As screen:
                     Text: =ThisItem.Title
                     Width: =Parent.TemplateWidth - 86
                     X: =24
+                    Y: =13
                     ZIndex: =1
 
                 NextArrow2 As icon.ChevronRight:
