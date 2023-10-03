@@ -93,7 +93,8 @@ LoginPage As screen:
                         NotificationType.Error,
                         1000
                     )
-                )
+                );
+                Reset(txtEmail)
             RadiusBottomLeft: =5
             RadiusBottomRight: =5
             RadiusTopLeft: =5
