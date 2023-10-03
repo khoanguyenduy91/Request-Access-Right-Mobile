@@ -14,6 +14,7 @@ LoginPage As screen:
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FontWeight: =FontWeight.Bold
+            Height: =60
             Size: =25
             Text: ="Welcome Hutter !"
             Width: =Parent.Width
@@ -26,7 +27,6 @@ LoginPage As screen:
             DisabledFill: =RGBA(244, 244, 244, 1)
             Height: =400
             Image: =pizzahut1
-            ImagePosition: =ImagePosition.Fill
             Width: =650
             ZIndex: =2
 
@@ -116,6 +116,7 @@ LoginPage As screen:
                     Login2.Run(txtEmail.Text)
                 );
                 If(
+                    
                     txtPass.Text = "1111",
                     Navigate(
                         HomePage,
