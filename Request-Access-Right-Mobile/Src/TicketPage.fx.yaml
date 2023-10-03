@@ -3,11 +3,11 @@ TicketPage As screen:
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
-        Height: =1136
+        Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
         Container2_2 As groupContainer.horizontalAutoLayoutContainer:
@@ -20,6 +20,7 @@ TicketPage As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
             PaddingRight: =10
+            Width: =Parent.Width
             ZIndex: =1
 
             Icon1_2 As icon.Add:
@@ -57,12 +58,13 @@ TicketPage As screen:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =80
-            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutGap: =10
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
             PaddingRight: =10
+            Width: =Parent.Width
             ZIndex: =2
 
             Icon1_4 As icon.Add:
@@ -91,7 +93,7 @@ TicketPage As screen:
             DisabledBorderColor: =TicketsGallery.BorderColor
             DisabledFill: =TicketsGallery.Fill
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =959.9999999999998
+            Height: =Parent.Height
             HoverBorderColor: =TicketsGallery.BorderColor
             HoverFill: =TicketsGallery.Fill
             Items: |-
@@ -139,6 +141,7 @@ TicketPage As screen:
             ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =223.0699504854464
+            Width: =Parent.Width
             Y: =175
             ZIndex: =3
 
@@ -184,7 +187,7 @@ TicketPage As screen:
                     HoverFill: =Rectangle6.Fill
                     OnSelect: =
                     PressedFill: =Rectangle6.Fill
-                    Width: =640
+                    Width: =Parent.Width
                     ZIndex: =4
 
                 Heading1 As label:
@@ -205,9 +208,9 @@ TicketPage As screen:
                     Size: =16
                     Text: |-
                         ="Created by: "& ThisItem.Author.DisplayName
-                    Width: =386
+                    Width: =217
                     Wrap: =false
-                    X: =29
+                    X: =19
                     Y: =3.954081632653029
                     ZIndex: =5
 
@@ -230,9 +233,9 @@ TicketPage As screen:
                     Size: =22
                     Text: |-
                         ="Title: "& ThisItem.Title
-                    Width: =571
+                    Width: =621
                     Wrap: =false
-                    X: =29
+                    X: =19
                     Y: =47
                     ZIndex: =6
 
@@ -254,8 +257,8 @@ TicketPage As screen:
                     PressedColor: =ColorFade(icon8.Color, -20%)
                     PressedFill: =icon8.Fill
                     TabIndex: =0
-                    Width: =32
-                    X: =595.6573962918501
+                    Width: =217
+                    X: =403
                     Y: =91.78571428571428
                     ZIndex: =8
 
@@ -277,9 +280,9 @@ TicketPage As screen:
                     PressedFill: =Heading1_2.Fill
                     Size: =16
                     Text: =ThisItem.Created
-                    Width: =204
+                    Width: =217
                     Wrap: =false
-                    X: =415
+                    X: =281
                     Y: =3.954081632653028
                     ZIndex: =12
 
@@ -330,11 +333,11 @@ TicketPage As screen:
                             )
                         )
                     FocusedBorderColor: =Rectangle15.BorderColor
-                    Height: =222.3
+                    Height: =222
                     HoverFill: =Rectangle15.Fill
                     OnSelect: =
                     PressedFill: =Rectangle15.Fill
-                    Width: =8
+                    Width: =6
                     ZIndex: =13
 
             Subtitle1_1 As label:
@@ -397,7 +400,7 @@ TicketPage As screen:
                 PressedFill: =Subtitle1_1.Fill
                 Size: =18
                 Text: =ThisItem.Status.Value
-                Width: =408
+                Width: =640
                 Wrap: =false
                 X: =123
                 Y: =155.0699504854464
@@ -421,7 +424,7 @@ TicketPage As screen:
                 Size: =18
                 Text: |-
                     ="Status: "
-                Width: =92
+                Width: =640
                 Wrap: =false
                 X: =29
                 Y: =155.0699504854464
@@ -446,7 +449,7 @@ TicketPage As screen:
                 Size: =18
                 Text: |-
                     ="Request Type: "& ThisItem.ReqType.Value
-                Width: =571
+                Width: =640
                 Wrap: =false
                 X: =29
                 Y: =105

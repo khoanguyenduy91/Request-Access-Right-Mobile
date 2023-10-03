@@ -12,11 +12,11 @@ HomePage As screen:
 
     Container1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(217, 216, 217, 1)
-        Height: =1136
+        Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
         Container2 As groupContainer.horizontalAutoLayoutContainer:
@@ -29,6 +29,7 @@ HomePage As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
             PaddingRight: =10
+            Width: =Parent.Width
             ZIndex: =1
 
             Image1 As image:
@@ -77,6 +78,7 @@ HomePage As screen:
             PaddingLeft: =5
             PaddingRight: =5
             PaddingTop: =10
+            Width: =Parent.Width
             ZIndex: =2
 
             Container4 As groupContainer.horizontalAutoLayoutContainer:
@@ -501,6 +503,7 @@ HomePage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
             ZIndex: =8
 
             "Gallery1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
