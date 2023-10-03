@@ -646,6 +646,7 @@ TicketsDetailPage_HOD As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Fill: =RGBA(10, 128, 32, 1)
                 FocusedBorderThickness: =0
+                FontWeight: =FontWeight.Normal
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: =
@@ -667,6 +668,7 @@ TicketsDetailPage_HOD As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Fill: =RGBA(255, 0, 0, 1)
                 FocusedBorderThickness: =0
+                FontWeight: =FontWeight.Normal
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: |-
