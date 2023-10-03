@@ -58,7 +58,23 @@ HODPage As screen:
             Height: =959.9999999999998
             HoverBorderColor: =TicketsGallery_HOD.BorderColor
             HoverFill: =TicketsGallery_HOD.Fill
-            Items: =Request_Test
+            Items: |-
+                =If(
+                    !IsBlank(
+                        LookUp(
+                            Request_Test,
+                            varEmailUser = HOD.Email
+                        )
+                    ),
+                    SortByColumns(
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && HOD.Email = varEmailUser
+                        ),
+                        "Created",
+                        SortOrder.Descending
+                    )
+                )
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =320

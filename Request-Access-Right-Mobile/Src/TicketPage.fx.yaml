@@ -101,31 +101,31 @@ TicketPage As screen:
                     type = "All",
                     Filter(
                             Request_Test,
-                            'Created By'.Email = User().Email
+                            'Approver 4'.Email = varEmailUser
                         ),
                     If(
                         type = "New",
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && 'Created By'.Email = User().Email
+                            Status.Value = "Created" && 'Approver 4'.Email = varEmailUser
                         ),
                         If(
                             type = "In progress",
                             Filter(
                                 Request_Test,
-                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
                             ),
                             If(
                                 type = "Closed",
                                 Filter(
                                     Request_Test,
-                                    Status.Value = "Done" && 'Created By'.Email = User().Email
+                                    Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
                                 ),
                                 If(
                                     type = "Rejected",
                                     Filter(
                                         Request_Test,
-                                        Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                        Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
                                     )
                                 )
                             )
