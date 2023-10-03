@@ -408,22 +408,6 @@ HomePage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            Visible: |-
-                =If(
-                    With(
-                        {obj: ParseJSON(getEmail.result)},
-                        Text(obj.isApprover)
-                    ) = "True" || IsMatch(
-                        With(
-                            {obj: ParseJSON(getEmail.result)},
-                            Text(obj.Title)
-                        ),
-                        "General Manager",
-                        MatchOptions.Complete
-                    ),
-                    true,
-                    false
-                )
             Width: =Parent.Width
             ZIndex: =4
 
@@ -479,19 +463,6 @@ HomePage As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            Visible: |-
-                =If(
-                    IsMatch(
-                        With(
-                            {obj: ParseJSON(getEmail.result)},
-                            Text(obj.Title)
-                        ),
-                        "Head of",
-                        MatchOptions.Contains
-                    ),
-                    true,
-                    false
-                )
             Width: =Parent.Width
             ZIndex: =6
 
