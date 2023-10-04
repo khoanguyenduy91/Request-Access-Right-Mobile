@@ -331,8 +331,9 @@ NewTicketPage As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =250
                     MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqDescription")
-                    Required: =true
+                    Required: =If(DataCardValue8.Selected.Value="Other",true,false)
                     Update: =DataCardValue10.Text
+                    Visible: =If(DataCardValue8.Selected.Value="Other",true,false)
                     Width: =Parent.Width
                     X: =0
                     Y: =4
@@ -590,7 +591,37 @@ NewTicketPage As screen:
                 Height: =80
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: =SubmitForm(Form1);
+                OnSelect: |-
+                    =Set(
+                        varEmailUser,
+                        With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.User)
+                        )
+                    );
+                    If(
+                        !IsBlank(DataCardValue1.Text) && !IsBlank(DataCardValue12.Selected.Value) && !IsBlank(DataCardValue8.Selected.Value) && !IsBlank(DataCardValue9.Text),
+                        SubmitForm(Form1);
+                        Patch(
+                            Request_Test,
+                            LookUp(
+                                Request_Test,
+                                ID = Last(Request_Test).ID
+                            ),
+                            {
+                                'Approver 4': {
+                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                    Department: "",
+                                    Claims: varEmailUser,
+                                    DisplayName: "",
+                                    Email: varEmailUser,
+                                    JobTitle: "",
+                                    Picture: ""
+                                }
+                            }
+                        ),
+                        SubmitForm(Form1)
+                    )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

@@ -97,40 +97,44 @@ TicketPage As screen:
             HoverBorderColor: =TicketsGallery.BorderColor
             HoverFill: =TicketsGallery.Fill
             Items: |-
-                =If(
-                    type = "All",
-                    Filter(
+                =Sort(
+                    If(
+                        type = "All",
+                        Filter(
                             Request_Test,
                             'Approver 4'.Email = varEmailUser
                         ),
-                    If(
-                        type = "New",
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && 'Approver 4'.Email = varEmailUser
-                        ),
                         If(
-                            type = "In progress",
+                            type = "New",
                             Filter(
                                 Request_Test,
-                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
+                                Status.Value = "Created" && 'Approver 4'.Email = varEmailUser
                             ),
                             If(
-                                type = "Closed",
+                                type = "In progress",
                                 Filter(
                                     Request_Test,
-                                    Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
+                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
                                 ),
                                 If(
-                                    type = "Rejected",
+                                    type = "Closed",
                                     Filter(
                                         Request_Test,
-                                        Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
+                                        Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
+                                    ),
+                                    If(
+                                        type = "Rejected",
+                                        Filter(
+                                            Request_Test,
+                                            Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
+                                        )
                                     )
                                 )
                             )
                         )
-                    )
+                    ),
+                    Created,
+                    SortOrder.Descending
                 )
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
