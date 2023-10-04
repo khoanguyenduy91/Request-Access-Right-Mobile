@@ -97,7 +97,7 @@ TicketsDetailPage_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.DisplayName
+                        Text: ="Reason"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -140,7 +140,7 @@ TicketsDetailPage_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.DisplayName
+                        Text: ="Request Permission"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -217,7 +217,7 @@ TicketsDetailPage_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.DisplayName
+                        Text: ="Description"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -513,7 +513,7 @@ TicketsDetailPage_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.DisplayName
+                        Text: ="Request Type"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -600,9 +600,53 @@ TicketsDetailPage_Approval As screen:
 
                     DataCardValue16_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: |-
+                            =If(
+                                ThisItem.Status.Value = "Rejected",
+                                RGBA(
+                                    227,
+                                    48,
+                                    12,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                                    RGBA(
+                                        255,
+                                        153,
+                                        51,
+                                        1
+                                    ),
+                                    If(
+                                        ThisItem.Status.Value = "Created",
+                                        RGBA(
+                                            56,
+                                            86,
+                                            153,
+                                            1
+                                        ),
+                                        If(
+                                            ThisItem.Status.Value = "Done",
+                                            RGBA(
+                                                8,
+                                                103,
+                                                26,
+                                                1
+                                            ),
+                                            RGBA(
+                                                71,
+                                                185,
+                                                50,
+                                                1
+                                            )
+                                        )
+                                    )
+                                )
+                            )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         Items: =Choices([@Request_Test].Status)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
