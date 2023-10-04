@@ -330,6 +330,7 @@ TicketPage As screen:
                         LayoutMinHeight: =112
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =10
                         Width: =Parent.Width
                         ZIndex: =1
 
@@ -484,7 +485,7 @@ TicketPage As screen:
                                     HoverColor: =Subtitle1_1.Color
                                     HoverFill: =Subtitle1_1.Fill
                                     LayoutMinHeight: =70
-                                    LayoutMinWidth: =560
+                                    LayoutMinWidth: =460
                                     OnSelect: =
                                     PaddingBottom: =0
                                     PaddingLeft: =0
