@@ -52,7 +52,7 @@ HomePage As screen:
                 Image: ='Logo - PizzaHut'
                 LayoutMinHeight: =320
                 LayoutMinWidth: =320
-                OnSelect: =Navigate(LoginPage)
+                OnSelect: =Exit()
                 Width: =50
                 ZIndex: =1
 
@@ -106,108 +106,283 @@ HomePage As screen:
                 ZIndex: =1
 
                 "'Group, All Ticket' As groupContainer":
-                    Height: =149
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =155
                     LayoutMinHeight: =112
-                    LayoutMinWidth: =250
+                    LayoutMinWidth: =100
                     Width: =Parent.Width
                     X: =109.5
                     Y: =111
                     ZIndex: =3
 
-                    TextBox2_5 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        FocusedBorderColor: =TextBox2_5.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_5.BorderColor
-                        HoverColor: =TextBox2_5.Color
-                        HoverFill: =TextBox2_5.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"All"})
-                        PressedBorderColor: =TextBox2_5.BorderColor
-                        PressedColor: =TextBox2_5.Color
-                        PressedFill: =TextBox2_5.Fill
-                        Size: =50
-                        Text: =CountRows(Filter(CollectRequest,'Approver 4'.Email = varEmailUser))
-                        Width: =171
-                        X: =56
-                        Y: =10
-                        ZIndex: =1
+                    Container39 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
 
-                    TextBox2 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        FocusedBorderColor: =TextBox2.BorderColor
-                        Height: =38
-                        HoverBorderColor: =TextBox2.BorderColor
-                        HoverColor: =TextBox2.Color
-                        HoverFill: =TextBox2.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"All"})
-                        PressedBorderColor: =TextBox2.BorderColor
-                        PressedColor: =TextBox2.Color
-                        PressedFill: =TextBox2.Fill
-                        Size: =18
-                        Text: ="All tickets"
-                        Width: =171
-                        X: =56
-                        Y: =86
-                        ZIndex: =2
+                        TextBox2_5 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            FocusedBorderColor: =TextBox2_5.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_5.BorderColor
+                            HoverColor: =TextBox2_5.Color
+                            HoverFill: =TextBox2_5.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"All"})
+                            PressedBorderColor: =TextBox2_5.BorderColor
+                            PressedColor: =TextBox2_5.Color
+                            PressedFill: =TextBox2_5.Fill
+                            Size: =50
+                            Text: =CountRows(Filter(CollectRequest,'Approver 4'.Email = varEmailUser))
+                            Width: =Parent.Width
+                            X: =56
+                            Y: =10
+                            ZIndex: =1
+
+                        TextBox2 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            FocusedBorderColor: =TextBox2.BorderColor
+                            Height: =80
+                            HoverBorderColor: =TextBox2.BorderColor
+                            HoverColor: =TextBox2.Color
+                            HoverFill: =TextBox2.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"All"})
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            PressedBorderColor: =TextBox2.BorderColor
+                            PressedColor: =TextBox2.Color
+                            PressedFill: =TextBox2.Fill
+                            Size: =18
+                            Text: ="All tickets"
+                            Width: =Parent.Width
+                            X: =56
+                            Y: =76
+                            ZIndex: =2
 
                 "'Group ,New Tickets' As groupContainer":
+                    AlignInContainer: =AlignInContainer.Center
                     Height: =155
                     LayoutMinHeight: =112
-                    LayoutMinWidth: =250
+                    LayoutMinWidth: =100
                     Width: =Parent.Width
                     X: =340
                     Y: =113
                     ZIndex: =4
 
-                    TextBox2_6 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(56, 86, 153, 1)
-                        FocusedBorderColor: =TextBox2_6.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_6.BorderColor
-                        HoverColor: =TextBox2_6.Color
-                        HoverFill: =TextBox2_6.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"New"})
-                        PressedBorderColor: =TextBox2_6.BorderColor
-                        PressedColor: =TextBox2_6.Color
-                        PressedFill: =TextBox2_6.Fill
-                        Size: =50
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Approver 4'.Email = varEmailUser))
-                        Width: =168
-                        X: =72
-                        Y: =10
-                        ZIndex: =1
+                    Container40 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
 
-                    TextBox2_1 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(56, 86, 153, 1)
-                        FocusedBorderColor: =TextBox2_1.BorderColor
-                        Height: =50
-                        HoverBorderColor: =TextBox2_1.BorderColor
-                        HoverColor: =TextBox2_1.Color
-                        HoverFill: =TextBox2_1.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"New"})
-                        PressedBorderColor: =TextBox2_1.BorderColor
-                        PressedColor: =TextBox2_1.Color
-                        PressedFill: =TextBox2_1.Fill
-                        Size: =18
-                        Text: =If(TextBox2_6.Text="1","New ticket","New tickets")
-                        Width: =151
-                        X: =81
-                        Y: =81
-                        ZIndex: =2
+                        TextBox2_6 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(56, 86, 153, 1)
+                            FocusedBorderColor: =TextBox2_6.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_6.BorderColor
+                            HoverColor: =TextBox2_6.Color
+                            HoverFill: =TextBox2_6.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"New"})
+                            PressedBorderColor: =TextBox2_6.BorderColor
+                            PressedColor: =TextBox2_6.Color
+                            PressedFill: =TextBox2_6.Fill
+                            Size: =50
+                            Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Approver 4'.Email = varEmailUser))
+                            Width: =Parent.Width
+                            X: =72
+                            Y: =10
+                            ZIndex: =1
+
+                        TextBox2_1 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(56, 86, 153, 1)
+                            FocusedBorderColor: =TextBox2_1.BorderColor
+                            Height: =80
+                            HoverBorderColor: =TextBox2_1.BorderColor
+                            HoverColor: =TextBox2_1.Color
+                            HoverFill: =TextBox2_1.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"New"})
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            PressedBorderColor: =TextBox2_1.BorderColor
+                            PressedColor: =TextBox2_1.Color
+                            PressedFill: =TextBox2_1.Fill
+                            Size: =18
+                            Text: =If(TextBox2_6.Text="1","New ticket","New tickets")
+                            Width: =Parent.Width
+                            X: =81
+                            Y: =81
+                            ZIndex: =2
+
+                "'Group,Tickets Approval' As groupContainer":
+                    Height: =155
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =100
+                    Visible: |-
+                        =If(
+                            With(
+                                {obj: ParseJSON(getEmail.result)},
+                                Text(obj.isApprover)
+                            ) = "True" || IsMatch(
+                                With(
+                                    {obj: ParseJSON(getEmail.result)},
+                                    Text(obj.Title)
+                                ),
+                                "General Manager",
+                                MatchOptions.Complete
+                            ),
+                            true,
+                            false
+                        )
+                    Width: =Parent.Width
+                    X: =340
+                    Y: =113
+                    ZIndex: =5
+
+                    Container41 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        TextBox2_10 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(128, 128, 128, 1)
+                            FocusedBorderColor: =TextBox2_10.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_10.BorderColor
+                            HoverColor: =TextBox2_10.Color
+                            HoverFill: =TextBox2_10.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                            PressedBorderColor: =TextBox2_10.BorderColor
+                            PressedColor: =TextBox2_10.Color
+                            PressedFill: =TextBox2_10.Fill
+                            Size: =50
+                            Text: |-
+                                =If(
+                                    !IsBlank(
+                                        LookUp(
+                                            LevelApproveTest,
+                                            IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                                        )
+                                    ),
+                                    CountRows(
+                                        Filter(
+                                            CollectRequest,
+                                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
+                                        )
+                                    ),
+                                    If(
+                                        !IsBlank(
+                                            LookUp(
+                                                LevelApproveTest,
+                                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                            )
+                                        ),
+                                        CountRows(
+                                            Filter(
+                                                CollectRequest,
+                                                Status.Value = "Approver 1 approved"
+                                            )
+                                        ),
+                                        If(
+                                            !IsBlank(
+                                                LookUp(
+                                                    LevelApproveTest,
+                                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                                )
+                                            ),
+                                            CountRows(
+                                                Filter(
+                                                    CollectRequest,
+                                                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                                                )
+                                            ),
+                                            If(
+                                                !IsBlank(
+                                                    LookUp(
+                                                        Request_Test,
+                                                        varEmailUser = HOD.Email
+                                                    )
+                                                ),
+                                                CountRows(
+                                                    Filter(
+                                                        CollectRequest,
+                                                        Status.Value = "Created" && HOD.Email = varEmailUser
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            Width: =168
+                            X: =72
+                            Y: =10
+                            ZIndex: =1
+
+                        TextBox2_11 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(128, 128, 128, 1)
+                            FocusedBorderColor: =TextBox2_11.BorderColor
+                            Height: =80
+                            HoverBorderColor: =TextBox2_11.BorderColor
+                            HoverColor: =TextBox2_11.Color
+                            HoverFill: =TextBox2_11.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            PressedBorderColor: =TextBox2_11.BorderColor
+                            PressedColor: =TextBox2_11.Color
+                            PressedFill: =TextBox2_11.Fill
+                            Size: =18
+                            Text: ="Tickets Approval"
+                            Width: =151
+                            X: =9
+                            Y: =71
+                            ZIndex: =2
 
             Container5 As groupContainer.horizontalAutoLayoutContainer:
                 Height: =150
@@ -228,56 +403,69 @@ HomePage As screen:
                     Y: =275
                     ZIndex: =1
 
-                    TextBox2_9 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(227,48,12,1)
-                        FocusedBorderColor: =TextBox2_9.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_9.BorderColor
-                        HoverColor: =TextBox2_9.Color
-                        HoverFill: =TextBox2_9.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"Rejected"})
-                        PaddingRight: =10
-                        PressedBorderColor: =TextBox2_9.BorderColor
-                        PressedColor: =TextBox2_9.Color
-                        PressedFill: =TextBox2_9.Fill
-                        Size: =44
-                        Text: |-
-                            =CountRows(
-                                Filter(
-                                    CollectRequest,
-                                    Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
-                                )
-                            )
-                        Width: =179
-                        X: =12
-                        Y: =20
-                        ZIndex: =1
+                    Container43 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
 
-                    TextBox2_4 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(227,48,12,1)
-                        FocusedBorderColor: =TextBox2_4.BorderColor
-                        Height: =56
-                        HoverBorderColor: =TextBox2_4.BorderColor
-                        HoverColor: =TextBox2_4.Color
-                        HoverFill: =TextBox2_4.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"Rejected"})
-                        PaddingRight: =10
-                        PressedBorderColor: =TextBox2_4.BorderColor
-                        PressedColor: =TextBox2_4.Color
-                        PressedFill: =TextBox2_4.Fill
-                        Size: =18
-                        Text: ="Rejected"
-                        Width: =148
-                        X: =27
-                        Y: =80
-                        ZIndex: =2
+                        TextBox2_9 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(227,48,12,1)
+                            FocusedBorderColor: =TextBox2_9.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_9.BorderColor
+                            HoverColor: =TextBox2_9.Color
+                            HoverFill: =TextBox2_9.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Rejected"})
+                            PaddingRight: =10
+                            PressedBorderColor: =TextBox2_9.BorderColor
+                            PressedColor: =TextBox2_9.Color
+                            PressedFill: =TextBox2_9.Fill
+                            Size: =44
+                            Text: |-
+                                =CountRows(
+                                    Filter(
+                                        CollectRequest,
+                                        Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
+                                    )
+                                )
+                            Width: =179
+                            X: =12
+                            Y: =20
+                            ZIndex: =1
+
+                        TextBox2_4 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(227,48,12,1)
+                            FocusedBorderColor: =TextBox2_4.BorderColor
+                            Height: =56
+                            HoverBorderColor: =TextBox2_4.BorderColor
+                            HoverColor: =TextBox2_4.Color
+                            HoverFill: =TextBox2_4.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Rejected"})
+                            PaddingRight: =10
+                            PressedBorderColor: =TextBox2_4.BorderColor
+                            PressedColor: =TextBox2_4.Color
+                            PressedFill: =TextBox2_4.Fill
+                            Size: =18
+                            Text: ="Rejected"
+                            Width: =148
+                            X: =15
+                            Y: =60
+                            ZIndex: =2
 
                 Group21 As groupContainer:
                     Height: =150
@@ -287,68 +475,82 @@ HomePage As screen:
                     Y: =275
                     ZIndex: =2
 
-                    TextBox2_7 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: |-
-                            =RGBA(
-                                        255,
-                                        153,
-                                        51,
-                                        1
-                                    )
-                        FocusedBorderColor: =TextBox2_7.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_7.BorderColor
-                        HoverColor: =TextBox2_7.Color
-                        HoverFill: =TextBox2_7.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"In progress"})
-                        PressedBorderColor: =TextBox2_7.BorderColor
-                        PressedColor: =TextBox2_7.Color
-                        PressedFill: =TextBox2_7.Fill
-                        Size: =44
-                        Text: |-
-                            =CountRows(
-                                Filter(
-                                    CollectRequest,
-                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
-                                )
-                            )
-                        Width: =148
-                        X: =34
-                        Y: =20
-                        ZIndex: =1
+                    Container44 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
 
-                    TextBox2_2 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: |-
-                            =RGBA(
-                                        255,
-                                        153,
-                                        51,
-                                        1
+                        TextBox2_7 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: |-
+                                =RGBA(
+                                            255,
+                                            153,
+                                            51,
+                                            1
+                                        )
+                            FocusedBorderColor: =TextBox2_7.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_7.BorderColor
+                            HoverColor: =TextBox2_7.Color
+                            HoverFill: =TextBox2_7.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"In progress"})
+                            PressedBorderColor: =TextBox2_7.BorderColor
+                            PressedColor: =TextBox2_7.Color
+                            PressedFill: =TextBox2_7.Fill
+                            Size: =44
+                            Text: |-
+                                =CountRows(
+                                    Filter(
+                                        CollectRequest,
+                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
                                     )
-                        FocusedBorderColor: =TextBox2_2.BorderColor
-                        Height: =56
-                        HoverBorderColor: =TextBox2_2.BorderColor
-                        HoverColor: =TextBox2_2.Color
-                        HoverFill: =TextBox2_2.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"Progress"})
-                        PressedBorderColor: =TextBox2_2.BorderColor
-                        PressedColor: =TextBox2_2.Color
-                        PressedFill: =TextBox2_2.Fill
-                        Size: =18
-                        Text: ="In progress"
-                        Width: =174
-                        X: =21
-                        Y: =80
-                        ZIndex: =2
+                                )
+                            Width: =148
+                            X: =13
+                            Y: =20
+                            ZIndex: =1
+
+                        TextBox2_2 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: |-
+                                =RGBA(
+                                            255,
+                                            153,
+                                            51,
+                                            1
+                                        )
+                            FocusedBorderColor: =TextBox2_2.BorderColor
+                            Height: =56
+                            HoverBorderColor: =TextBox2_2.BorderColor
+                            HoverColor: =TextBox2_2.Color
+                            HoverFill: =TextBox2_2.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Progress"})
+                            PressedBorderColor: =TextBox2_2.BorderColor
+                            PressedColor: =TextBox2_2.Color
+                            PressedFill: =TextBox2_2.Fill
+                            Size: =18
+                            Text: ="In progress"
+                            Width: =174
+                            X: =21
+                            Y: =60
+                            ZIndex: =2
 
                 Group6 As groupContainer:
+                    AlignInContainer: =AlignInContainer.Center
                     Height: =150
                     LayoutMinHeight: =112
                     LayoutMinWidth: =100
@@ -357,48 +559,61 @@ HomePage As screen:
                     Y: =275
                     ZIndex: =3
 
-                    TextBox2_8 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(71,185,50,1)
-                        FocusedBorderColor: =TextBox2_8.BorderColor
-                        FontWeight: =FontWeight.Lighter
-                        Height: =60
-                        HoverBorderColor: =TextBox2_8.BorderColor
-                        HoverColor: =TextBox2_8.Color
-                        HoverFill: =TextBox2_8.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"Closed"})
-                        PressedBorderColor: =TextBox2_8.BorderColor
-                        PressedColor: =TextBox2_8.Color
-                        PressedFill: =TextBox2_8.Fill
-                        Size: =44
-                        Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Approver 4'.Email = varEmailUser))
-                        Width: =117
-                        X: =48
-                        Y: =20
-                        ZIndex: =1
+                    Container45 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
 
-                    TextBox2_3 As label:
-                        Align: =LayoutAlignItems.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(71,185,50,1)
-                        FocusedBorderColor: =TextBox2_3.BorderColor
-                        Height: =56
-                        HoverBorderColor: =TextBox2_3.BorderColor
-                        HoverColor: =TextBox2_3.Color
-                        HoverFill: =TextBox2_3.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:"Closed"})
-                        PressedBorderColor: =TextBox2_3.BorderColor
-                        PressedColor: =TextBox2_3.Color
-                        PressedFill: =TextBox2_3.Fill
-                        Size: =18
-                        Text: ="Closed"
-                        Width: =148
-                        X: =32
-                        Y: =80
-                        ZIndex: =2
+                        TextBox2_8 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(71,185,50,1)
+                            FocusedBorderColor: =TextBox2_8.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_8.BorderColor
+                            HoverColor: =TextBox2_8.Color
+                            HoverFill: =TextBox2_8.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Closed"})
+                            PressedBorderColor: =TextBox2_8.BorderColor
+                            PressedColor: =TextBox2_8.Color
+                            PressedFill: =TextBox2_8.Fill
+                            Size: =44
+                            Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Approver 4'.Email = varEmailUser))
+                            Width: =117
+                            X: =16
+                            Y: =20
+                            ZIndex: =1
+
+                        TextBox2_3 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(71,185,50,1)
+                            FocusedBorderColor: =TextBox2_3.BorderColor
+                            Height: =56
+                            HoverBorderColor: =TextBox2_3.BorderColor
+                            HoverColor: =TextBox2_3.Color
+                            HoverFill: =TextBox2_3.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Closed"})
+                            PressedBorderColor: =TextBox2_3.BorderColor
+                            PressedColor: =TextBox2_3.Color
+                            PressedFill: =TextBox2_3.Fill
+                            Size: =18
+                            Text: ="Closed"
+                            Width: =148
+                            X: =32
+                            Y: =60
+                            ZIndex: =2
 
         ContainerApproval As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
