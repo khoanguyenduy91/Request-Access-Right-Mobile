@@ -740,18 +740,19 @@ TicketsDetailPage_User As screen:
         Container13_6 As groupContainer.verticalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 0, 0, 0.46)
-            Height: =1136
+            Height: =Parent.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
             RadiusBottomLeft: =4
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Width: =640
+            Width: =Parent.Width
             ZIndex: =1
 
             Container42_4 As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
+                Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -762,6 +763,7 @@ TicketsDetailPage_User As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Width: =Parent.Width
                 ZIndex: =5
 
                 Container42 As groupContainer.verticalAutoLayoutContainer:

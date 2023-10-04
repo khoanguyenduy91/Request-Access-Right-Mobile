@@ -621,7 +621,8 @@ NewTicketPage As screen:
                             }
                         ),
                         SubmitForm(Form1)
-                    )
+                    );
+                    Back()
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
