@@ -11,7 +11,7 @@ ApprovalPage As screen:
         Container2_6 As groupContainer.horizontalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =90
+            Height: =100
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -21,12 +21,11 @@ ApprovalPage As screen:
             ZIndex: =1
 
             Icon1_8 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
-                Width: =40
                 ZIndex: =1
 
             Label1_5 As label:
@@ -43,12 +42,12 @@ ApprovalPage As screen:
                 ZIndex: =2
 
             Image1_4 As image:
-                AlignInContainer: =AlignInContainer.Center
-                Height: =50
+                AlignInContainer: =AlignInContainer.Stretch
+                Height: =64
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =320
+                LayoutMinHeight: =64
                 LayoutMinWidth: =320
-                Width: =50
+                Width: =64
                 ZIndex: =3
 
         TicketsGallery_approval As gallery.textualGalleryVertical:
@@ -64,13 +63,13 @@ ApprovalPage As screen:
                     !IsBlank(
                         LookUp(
                             LevelApproveTest,
-                            IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                            IdUser.Email = User().Email && Level.Value = "Approver 1"
                         )
                     ),
                     SortByColumns(
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
+                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
                         ),
                         "Created",
                         SortOrder.Descending
@@ -79,7 +78,7 @@ ApprovalPage As screen:
                         !IsBlank(
                             LookUp(
                                 LevelApproveTest,
-                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                User().Email = IdUser.Email && Level.Value = "Approver 2"
                             )
                         ),
                         SortByColumns(
@@ -94,7 +93,7 @@ ApprovalPage As screen:
                             !IsBlank(
                                 LookUp(
                                     LevelApproveTest,
-                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                    User().Email = IdUser.Email && Level.Value = "Approver 3"
                                 )
                             ),
                             SortByColumns(
@@ -242,7 +241,7 @@ ApprovalPage As screen:
                         HoverFill: =Heading1_1.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =560
-                        OnSelect: =
+                        OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -269,7 +268,7 @@ ApprovalPage As screen:
                         HoverFill: =Heading1_3.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =560
-                        OnSelect: =
+                        OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -323,7 +322,7 @@ ApprovalPage As screen:
                                 HoverFill: =Subtitle1_2.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =
+                                OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -350,7 +349,7 @@ ApprovalPage As screen:
                                 HoverFill: =Subtitle1_8.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =
+                                OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -387,7 +386,7 @@ ApprovalPage As screen:
                                     HoverFill: =Subtitle1_10.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =50
-                                    OnSelect: =
+                                    OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0
@@ -457,7 +456,7 @@ ApprovalPage As screen:
                                     HoverFill: =Subtitle1_3.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =560
-                                    OnSelect: =
+                                    OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0

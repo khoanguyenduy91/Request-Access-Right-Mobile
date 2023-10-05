@@ -6,7 +6,9 @@
       "id": "/providers/microsoft.powerapps/apis/shared_office365users"
     },
     "datasets": {},
-    "dataSources": [],
+    "dataSources": [
+      "Office365Users"
+    ],
     "dependencies": {},
     "dependents": [
       "65812730-5db3-41bc-a8ca-ec1f2d3d88b1"

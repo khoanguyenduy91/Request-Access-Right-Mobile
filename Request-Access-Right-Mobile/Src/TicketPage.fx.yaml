@@ -14,7 +14,7 @@ TicketPage As screen:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =90
+            Height: =100
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -24,17 +24,18 @@ TicketPage As screen:
             ZIndex: =1
 
             Icon1_2 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
+                LayoutMinHeight: =50
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
-                Width: =40
+                Width: =50
                 ZIndex: =1
 
             Label1_2 As label:
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
                 Height: =88
@@ -46,12 +47,12 @@ TicketPage As screen:
                 ZIndex: =2
 
             Image1_2 As image:
-                AlignInContainer: =AlignInContainer.Center
-                Height: =50
+                AlignInContainer: =AlignInContainer.Stretch
+                Height: =64
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =320
+                LayoutMinHeight: =50
                 LayoutMinWidth: =320
-                Width: =50
+                Width: =64
                 ZIndex: =3
 
         Container2_4 As groupContainer.horizontalAutoLayoutContainer:
@@ -83,7 +84,7 @@ TicketPage As screen:
                 LayoutMinWidth: =560
                 OnSelect: |-
                     =Navigate(TicketFilterPage,ScreenTransition.None,{type:type})
-                Size: =21
+                Size: =24
                 Text: =type
                 Width: =560
                 ZIndex: =2
@@ -102,31 +103,31 @@ TicketPage As screen:
                         type = "All",
                         Filter(
                             Request_Test,
-                            'Approver 4'.Email = varEmailUser
+                            'Created By'.Email = User().Email
                         ),
                         If(
                             type = "New",
                             Filter(
                                 Request_Test,
-                                Status.Value = "Created" && 'Approver 4'.Email = varEmailUser
+                                Status.Value = "Created" && 'Created By'.Email = User().Email
                             ),
                             If(
                                 type = "In progress",
                                 Filter(
                                     Request_Test,
-                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
+                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                                 ),
                                 If(
                                     type = "Closed",
                                     Filter(
                                         Request_Test,
-                                        Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
+                                        Status.Value = "Done" && 'Created By'.Email = User().Email
                                     ),
                                     If(
                                         type = "Rejected",
                                         Filter(
                                             Request_Test,
-                                            Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
+                                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
                                         )
                                     )
                                 )
@@ -242,7 +243,7 @@ TicketPage As screen:
                 ZIndex: =13
 
             Container31 As groupContainer.verticalAutoLayoutContainer:
-                Height: =223
+                Height: =223.0699504854464
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
@@ -271,7 +272,7 @@ TicketPage As screen:
                         HoverFill: =Heading1.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =300
-                        OnSelect: =
+                        OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =10
                         PaddingRight: =0
@@ -299,7 +300,7 @@ TicketPage As screen:
                         HoverFill: =Heading1_2.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =300
-                        OnSelect: =
+                        OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -346,6 +347,7 @@ TicketPage As screen:
                             ZIndex: =1
 
                             Subtitle1 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
                                 Color: =RGBA(29, 33, 35, 1)
                                 FocusedBorderColor: =Subtitle1.BorderColor
                                 FontWeight: =FontWeight.Semibold
@@ -355,7 +357,7 @@ TicketPage As screen:
                                 HoverFill: =Subtitle1.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =
+                                OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =10
                                 PaddingRight: =0
@@ -373,6 +375,7 @@ TicketPage As screen:
                                 ZIndex: =1
 
                             Subtitle1_7 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
                                 Color: =RGBA(29, 33, 35, 1)
                                 FocusedBorderColor: =Subtitle1_7.BorderColor
                                 FontWeight: =FontWeight.Semibold
@@ -382,7 +385,7 @@ TicketPage As screen:
                                 HoverFill: =Subtitle1_7.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =
+                                OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =10
                                 PaddingRight: =0
@@ -416,7 +419,7 @@ TicketPage As screen:
                                     HoverFill: =Subtitle1_6.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =120
-                                    OnSelect: =
+                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
                                     PaddingRight: =0
@@ -486,7 +489,7 @@ TicketPage As screen:
                                     HoverFill: =Subtitle1_1.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =460
-                                    OnSelect: =
+                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =0
                                     PaddingRight: =0
