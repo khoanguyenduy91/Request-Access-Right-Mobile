@@ -13,7 +13,7 @@ TicketsDetailPage_HOD As screen:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =90
+            Height: =100
             LayoutGap: =20
             LayoutMinHeight: =112
             LayoutMinWidth: =250
@@ -24,12 +24,11 @@ TicketsDetailPage_HOD As screen:
             ZIndex: =1
 
             Icon1_13 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 OnSelect: =Back()
-                Width: =40
                 ZIndex: =1
 
             Label1_8 As label:
@@ -47,12 +46,12 @@ TicketsDetailPage_HOD As screen:
                 ZIndex: =2
 
             Image1_6 As image:
-                AlignInContainer: =AlignInContainer.Center
-                Height: =50
+                AlignInContainer: =AlignInContainer.Stretch
+                Height: =64
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =320
+                LayoutMinHeight: =60
                 LayoutMinWidth: =320
-                Width: =50
+                Width: =64
                 ZIndex: =3
 
         Container15 As groupContainer.verticalAutoLayoutContainer:
@@ -430,11 +429,12 @@ TicketsDetailPage_HOD As screen:
                         ZIndex: =6
 
                         DataCardValue24_2 As attachments:
+                            AlignInContainer: =AlignInContainer.Center
                             BorderColor: =RGBA(255, 255, 255, 1)
                             BorderThickness: =5
                             DisplayMode: =Parent.DisplayMode
                             DropTargetBackgroundColor: =RGBA(62, 96, 170, 1)
-                            Height: =217
+                            Height: =Parent.Height
                             IsInDataCard: =true
                             Items: =ThisItem.Attachments
                             LayoutMinHeight: =520
@@ -694,9 +694,9 @@ TicketsDetailPage_HOD As screen:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =80
+            Height: =100
             LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutGap: =30
+            LayoutGap: =100
             LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -717,8 +717,8 @@ TicketsDetailPage_HOD As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Fill: =RGBA(10, 128, 32, 1)
                 FocusedBorderThickness: =0
-                FontWeight: =FontWeight.Normal
-                Height: =50
+                FontWeight: =FontWeight.Bold
+                Height: =70
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: |-
@@ -747,6 +747,7 @@ TicketsDetailPage_HOD As screen:
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
+                Size: =18
                 Text: ="Approval"
                 ZIndex: =1
 
@@ -758,8 +759,8 @@ TicketsDetailPage_HOD As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Fill: =RGBA(255, 0, 0, 1)
                 FocusedBorderThickness: =0
-                FontWeight: =FontWeight.Normal
-                Height: =50
+                FontWeight: =FontWeight.Bold
+                Height: =70
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: |-
@@ -774,6 +775,7 @@ TicketsDetailPage_HOD As screen:
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
+                Size: =18
                 Text: ="Reject"
                 ZIndex: =2
 

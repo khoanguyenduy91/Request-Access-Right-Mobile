@@ -13,7 +13,7 @@ NewTicketPage As screen:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =90
+            Height: =100
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -23,34 +23,36 @@ NewTicketPage As screen:
             ZIndex: =1
 
             Icon1_1 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 OnSelect: =ResetForm(Form1);Back()
-                Width: =40
                 ZIndex: =1
 
             Label1_1 As label:
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="New ticket"
+                Text: |-
+                    =If(
+                        varRenameButton = "1",
+                        "New ticket",
+                        "Edit ticket"
+                    )
                 Width: =560
                 ZIndex: =2
 
             Image1_1 As image:
-                AlignInContainer: =AlignInContainer.Center
-                Height: =50
+                AlignInContainer: =AlignInContainer.Stretch
+                Height: =64
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =320
-                LayoutMinWidth: =320
-                Width: =50
+                Width: =64
                 ZIndex: =3
 
         Container38 As groupContainer.verticalAutoLayoutContainer:
@@ -73,6 +75,13 @@ NewTicketPage As screen:
                 Item: =TicketsGallery.Selected
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
+                OnSuccess: |-
+                    =Notify(
+                        "Successfully",
+                        NotificationType.Success,
+                        3000
+                    );
+                    Back()
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -581,7 +590,7 @@ NewTicketPage As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            Button1_1 As button:
+            Button_newticket As button:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -622,13 +631,17 @@ NewTicketPage As screen:
                         ),
                         SubmitForm(Form1)
                     );
-                    Back()
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
                 Size: =24
-                Text: ="Create ticket"
+                Text: |-
+                    =If(
+                        varRenameButton = "1",
+                        "Create ticket",
+                        "Edit ticket"
+                    )
                 Width: =Parent.Width
                 X: =590
                 Y: =664

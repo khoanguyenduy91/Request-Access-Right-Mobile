@@ -10,7 +10,7 @@ HODPage As screen:
         Container2_8 As groupContainer.horizontalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =90
+            Height: =100
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -20,12 +20,11 @@ HODPage As screen:
             ZIndex: =1
 
             Icon1_10 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
-                Width: =40
                 ZIndex: =1
 
             Label1_6 As label:
@@ -42,12 +41,12 @@ HODPage As screen:
                 ZIndex: =2
 
             Image1_5 As image:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Height: =50
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =320
+                LayoutMinHeight: =64
                 LayoutMinWidth: =320
-                Width: =50
+                Width: =64
                 ZIndex: =3
 
         TicketsGallery_HOD As gallery.textualGalleryVertical:
@@ -208,7 +207,7 @@ HODPage As screen:
                         HoverFill: =Heading1_5.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =560
-                        OnSelect: =
+                        OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -235,7 +234,7 @@ HODPage As screen:
                         HoverFill: =Heading1_4.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =560
-                        OnSelect: =
+                        OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -288,7 +287,7 @@ HODPage As screen:
                                 HoverFill: =Subtitle1_9.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =
+                                OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -315,7 +314,7 @@ HODPage As screen:
                                 HoverFill: =Subtitle1_4.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =
+                                OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -350,7 +349,7 @@ HODPage As screen:
                                     HoverFill: =Subtitle1_11.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =560
-                                    OnSelect: =
+                                    OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
                                     PaddingRight: =0
@@ -419,7 +418,7 @@ HODPage As screen:
                                     HoverFill: =Subtitle1_5.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =560
-                                    OnSelect: =
+                                    OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =0
                                     PaddingRight: =0

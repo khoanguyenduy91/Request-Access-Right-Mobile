@@ -14,7 +14,7 @@ TicketsDetailPage_User As screen:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =90
+            Height: =100
             LayoutGap: =20
             LayoutMinHeight: =112
             LayoutMinWidth: =250
@@ -25,17 +25,16 @@ TicketsDetailPage_User As screen:
             ZIndex: =1
 
             Icon1_3 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 OnSelect: =Back()
-                Width: =40
                 ZIndex: =1
 
             Label1_3 As label:
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
                 Height: =70
@@ -47,24 +46,27 @@ TicketsDetailPage_User As screen:
                 ZIndex: =2
 
             Icon1_5 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
                 Icon: =Icon.Edit
-                OnSelect: =EditForm(Form1);Navigate(NewTicketPage, ScreenTransition.None)
+                OnSelect: |-
+                    =EditForm(Form1);
+                    Set(varRenameButton,"0");
+                    Navigate(
+                        NewTicketPage,
+                        ScreenTransition.None
+                    )
                 Visible: |-
                     =If(
                         DataCardValue16.Selected.Value = "Created",
                         true,
                         false
                     )
-                Width: =50
                 ZIndex: =3
 
             Icon1_6 As icon.Add:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
                 Icon: =Icon.Trash
                 OnSelect: =Set(Dialogdelete,true)
                 Visible: |-
@@ -73,14 +75,13 @@ TicketsDetailPage_User As screen:
                         true,
                         false
                     )
-                Width: =50
                 ZIndex: =4
 
             Image1_8 As image:
-                AlignInContainer: =AlignInContainer.Center
-                Height: =50
+                AlignInContainer: =AlignInContainer.Stretch
+                Height: =64
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =320
+                LayoutMinHeight: =60
                 LayoutMinWidth: =320
                 Visible: |-
                     =If(
@@ -88,7 +89,7 @@ TicketsDetailPage_User As screen:
                         false,
                         true
                     )
-                Width: =50
+                Width: =64
                 ZIndex: =5
 
         Container37 As groupContainer.verticalAutoLayoutContainer:
@@ -849,10 +850,12 @@ TicketsDetailPage_User As screen:
                                         TicketsGallery.Selected
                                     )
                                 ),
-                                Set(
-                                    Dialogdelete,
-                                    false
-                                )
+                                Notify(
+                                    "Delete Request Successfully",
+                                    NotificationType.Success,
+                                    3000
+                                );
+                                Navigate(HomePage)
                             )
                         PaddingBottom: =5.00
                         PaddingLeft: =5.00
