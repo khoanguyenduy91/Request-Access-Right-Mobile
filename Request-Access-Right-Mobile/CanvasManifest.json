@@ -111,13 +111,13 @@
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "PHVN Request App",
+    "Name": "[UAT] PHVN Request App",
     "OriginatingVersion": "1.160",
     "ParserErrorCount": 0,
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "PHVN Request App",
+    "AppName": "[UAT] PHVN Request App",
     "BackgroundColor": "rgba(104, 101, 171, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",
@@ -128,8 +128,8 @@
     "UserLocale": "vi-VN"
   },
   "ScreenOrder": [
-    "LoginPage",
     "HomePage",
+    "LoginPage",
     "NewTicketPage",
     "TicketPage",
     "TicketsDetailPage_User",

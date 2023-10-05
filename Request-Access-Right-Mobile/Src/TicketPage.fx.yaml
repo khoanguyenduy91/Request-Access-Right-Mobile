@@ -28,7 +28,9 @@ TicketPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
+                LayoutMinHeight: =50
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                Width: =50
                 ZIndex: =1
 
             Label1_2 As label:
@@ -82,7 +84,7 @@ TicketPage As screen:
                 LayoutMinWidth: =560
                 OnSelect: |-
                     =Navigate(TicketFilterPage,ScreenTransition.None,{type:type})
-                Size: =21
+                Size: =24
                 Text: =type
                 Width: =560
                 ZIndex: =2
@@ -101,31 +103,31 @@ TicketPage As screen:
                         type = "All",
                         Filter(
                             Request_Test,
-                            'Approver 4'.Email = varEmailUser
+                            'Created By'.Email = User().Email
                         ),
                         If(
                             type = "New",
                             Filter(
                                 Request_Test,
-                                Status.Value = "Created" && 'Approver 4'.Email = varEmailUser
+                                Status.Value = "Created" && 'Created By'.Email = User().Email
                             ),
                             If(
                                 type = "In progress",
                                 Filter(
                                     Request_Test,
-                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
+                                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                                 ),
                                 If(
                                     type = "Closed",
                                     Filter(
                                         Request_Test,
-                                        Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
+                                        Status.Value = "Done" && 'Created By'.Email = User().Email
                                     ),
                                     If(
                                         type = "Rejected",
                                         Filter(
                                             Request_Test,
-                                            Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
+                                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
                                         )
                                     )
                                 )
@@ -345,6 +347,7 @@ TicketPage As screen:
                             ZIndex: =1
 
                             Subtitle1 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
                                 Color: =RGBA(29, 33, 35, 1)
                                 FocusedBorderColor: =Subtitle1.BorderColor
                                 FontWeight: =FontWeight.Semibold
@@ -372,6 +375,7 @@ TicketPage As screen:
                                 ZIndex: =1
 
                             Subtitle1_7 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
                                 Color: =RGBA(29, 33, 35, 1)
                                 FocusedBorderColor: =Subtitle1_7.BorderColor
                                 FontWeight: =FontWeight.Semibold

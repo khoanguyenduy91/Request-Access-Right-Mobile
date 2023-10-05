@@ -62,13 +62,13 @@ HODPage As screen:
                     !IsBlank(
                         LookUp(
                             Request_Test,
-                            varEmailUser = HOD.Email
+                            User().Email = HOD.Email
                         )
                     ),
                     SortByColumns(
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && HOD.Email = varEmailUser
+                            Status.Value = "Created" && HOD.Email = User().Email
                         ),
                         "Created",
                         SortOrder.Descending

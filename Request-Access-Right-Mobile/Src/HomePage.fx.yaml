@@ -2,23 +2,10 @@ HomePage As screen:
     Fill: =RGBA(245, 245, 245, 1)
     Height: =Max(App.Height, App.DesignHeight)
     OnVisible: |-
-        =ClearCollect(
+        =Refresh(Request_Test);
+        ClearCollect(
             CollectRequest,
             Request_Test
-        );
-        Set(
-            varEmailUser,
-            With(
-                {obj: ParseJSON(getEmail.result)},
-                Text(obj.Email)
-            )
-        );
-        Set(
-            varUser,
-            With(
-                {obj: ParseJSON(getEmail.result)},
-                Text(obj.User)
-            )
         );
         Set(varRenameButton,"1");
     Orientation: =If(HomePage.Width < HomePage.Height, Layout.Vertical, Layout.Horizontal)
@@ -53,7 +40,9 @@ HomePage As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Leave
+                LayoutMinHeight: =50
                 OnSelect: =Exit()
+                Width: =50
                 ZIndex: =1
 
             Image1 As image:
@@ -141,7 +130,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_5.Color
                             PressedFill: =TextBox2_5.Fill
                             Size: =50
-                            Text: =CountRows(Filter(CollectRequest,'Approver 4'.Email = varEmailUser))
+                            Text: =CountRows(Filter(CollectRequest,'Created By'.Email = User().Email))
                             Width: =Parent.Width
                             X: =56
                             Y: =10
@@ -168,7 +157,7 @@ HomePage As screen:
                             PressedColor: =TextBox2.Color
                             PressedFill: =TextBox2.Fill
                             Size: =18
-                            Text: ="All tickets"
+                            Text: ="All requests"
                             Width: =Parent.Width
                             X: =56
                             Y: =76
@@ -211,7 +200,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_6.Color
                             PressedFill: =TextBox2_6.Fill
                             Size: =50
-                            Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Approver 4'.Email = varEmailUser))
+                            Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Created By'.Email = User().Email))
                             Width: =Parent.Width
                             X: =72
                             Y: =10
@@ -238,7 +227,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_1.Color
                             PressedFill: =TextBox2_1.Fill
                             Size: =18
-                            Text: =If(TextBox2_6.Text="1","New ticket","New tickets")
+                            Text: =If(TextBox2_6.Text="1","New request","New requests")
                             Width: =Parent.Width
                             X: =81
                             Y: =81
@@ -250,16 +239,13 @@ HomePage As screen:
                     LayoutMinWidth: =100
                     Visible: |-
                         =If(
-                            With(
-                                {obj: ParseJSON(getEmail.result)},
-                                Text(obj.isApprover)
-                            ) = "True" || IsMatch(
-                                With(
-                                    {obj: ParseJSON(getEmail.result)},
-                                    Text(obj.Title)
-                                ),
-                                "General Manager",
-                                MatchOptions.Complete
+                            !IsBlank(
+                                LookUp(
+                                    LevelApproveTest,
+                                    IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                                    IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                                    IdUser.Email = User().Email && Level.Value = "Approver 3"
+                                )
                             ),
                             true,
                             false
@@ -300,20 +286,20 @@ HomePage As screen:
                                     !IsBlank(
                                         LookUp(
                                             LevelApproveTest,
-                                            IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                                            IdUser.Email = User().Email && Level.Value = "Approver 1"
                                         )
                                     ),
                                     CountRows(
                                         Filter(
                                             CollectRequest,
-                                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
+                                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
                                         )
                                     ),
                                     If(
                                         !IsBlank(
                                             LookUp(
                                                 LevelApproveTest,
-                                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                                User().Email = IdUser.Email && Level.Value = "Approver 2"
                                             )
                                         ),
                                         CountRows(
@@ -326,7 +312,7 @@ HomePage As screen:
                                             !IsBlank(
                                                 LookUp(
                                                     LevelApproveTest,
-                                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                                    User().Email = IdUser.Email && Level.Value = "Approver 3"
                                                 )
                                             ),
                                             CountRows(
@@ -339,13 +325,13 @@ HomePage As screen:
                                                 !IsBlank(
                                                     LookUp(
                                                         Request_Test,
-                                                        varEmailUser = HOD.Email
+                                                        User().Email = HOD.Email
                                                     )
                                                 ),
                                                 CountRows(
                                                     Filter(
                                                         CollectRequest,
-                                                        Status.Value = "Created" && HOD.Email = varEmailUser
+                                                        Status.Value = "Created" && HOD.Email = User().Email
                                                     )
                                                 )
                                             )
@@ -377,7 +363,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_11.Color
                             PressedFill: =TextBox2_11.Fill
                             Size: =18
-                            Text: ="Tickets Approval"
+                            Text: ="Requests Approval"
                             Width: =151
                             X: =9
                             Y: =71
@@ -434,7 +420,7 @@ HomePage As screen:
                                 =CountRows(
                                     Filter(
                                         CollectRequest,
-                                        Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
+                                        Status.Value = "Rejected" && 'Created By'.Email = User().Email
                                     )
                                 )
                             Width: =179
@@ -511,7 +497,7 @@ HomePage As screen:
                                 =CountRows(
                                     Filter(
                                         CollectRequest,
-                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
+                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                                     )
                                 )
                             Width: =148
@@ -585,7 +571,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_8.Color
                             PressedFill: =TextBox2_8.Fill
                             Size: =44
-                            Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Approver 4'.Email = varEmailUser))
+                            Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Created By'.Email = User().Email))
                             Width: =117
                             X: =16
                             Y: =20
@@ -625,16 +611,13 @@ HomePage As screen:
             LayoutMode: =LayoutMode.Auto
             Visible: |-
                 =If(
-                    With(
-                        {obj: ParseJSON(getEmail.result)},
-                        Text(obj.isApprover)
-                    ) = "True" || IsMatch(
-                        With(
-                            {obj: ParseJSON(getEmail.result)},
-                            Text(obj.Title)
-                        ),
-                        "General Manager",
-                        MatchOptions.Complete
+                    !IsBlank(
+                        LookUp(
+                            LevelApproveTest,
+                            IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                            IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                            IdUser.Email = User().Email && Level.Value = "Approver 3"
+                        )
                     ),
                     true,
                     false
@@ -697,10 +680,7 @@ HomePage As screen:
             Visible: |-
                 =If(
                     IsMatch(
-                        With(
-                            {obj: ParseJSON(getEmail.result)},
-                            Text(obj.Title)
-                        ),
+                        Office365Users.MyProfile().JobTitle,
                         "Head of",
                         MatchOptions.Contains
                     ),
@@ -785,42 +765,42 @@ HomePage As screen:
                     OnSelect: |
                         =//Select(Parent)
                         If(
-                            ThisItem.Title = "All tickets",
+                            ThisItem.Title = "All requests",
                             Navigate(
                                 TicketPage,
                                 ScreenTransition.Fade,
                                 {type: "All"}
                             ),
                             If(
-                                ThisItem.Title = "New tickets",
+                                ThisItem.Title = "New requests",
                                 Navigate(
                                     TicketPage,
                                     ScreenTransition.Fade,
                                     {type: "New"}
                                 ),
                                 If(
-                                    ThisItem.Title = "Tickets in progress",
+                                    ThisItem.Title = "Requests in progress",
                                     Navigate(
                                         TicketPage,
                                         ScreenTransition.Fade,
                                         {type: "In progress"}
                                     ),
                                     If(
-                                        ThisItem.Title = "Tickets approval",
+                                        ThisItem.Title = "Requests approval",
                                         Navigate(
                                             ApprovalPage,
                                             ScreenTransition.Fade,
                                             {type: "Approval"}
                                         ),
                                         If(
-                                            ThisItem.Title = "Tickets closed",
+                                            ThisItem.Title = "Requests closed",
                                             Navigate(
                                                 TicketPage,
                                                 ScreenTransition.Fade,
                                                 {type: "Closed"}
                                             ),
                                             If(
-                                                ThisItem.Title = "Tickets rejected",
+                                                ThisItem.Title = "Requests rejected",
                                                 Navigate(
                                                     TicketPage,
                                                     ScreenTransition.Fade,
@@ -849,43 +829,44 @@ HomePage As screen:
                     Height: =50
                     Icon: =Icon.ChevronRight
                     OnSelect: |
-                        =If(
-                            ThisItem.Title = "All tickets",
+                        =//Select(Parent)
+                        If(
+                            ThisItem.Title = "All requests",
                             Navigate(
                                 TicketPage,
                                 ScreenTransition.Fade,
                                 {type: "All"}
                             ),
                             If(
-                                ThisItem.Title = "New tickets",
+                                ThisItem.Title = "New requests",
                                 Navigate(
                                     TicketPage,
                                     ScreenTransition.Fade,
                                     {type: "New"}
                                 ),
                                 If(
-                                    ThisItem.Title = "Tickets in progress",
+                                    ThisItem.Title = "Requests in progress",
                                     Navigate(
                                         TicketPage,
                                         ScreenTransition.Fade,
                                         {type: "In progress"}
                                     ),
                                     If(
-                                        ThisItem.Title = "Tickets approval",
+                                        ThisItem.Title = "Requests approval",
                                         Navigate(
                                             ApprovalPage,
                                             ScreenTransition.Fade,
                                             {type: "Approval"}
                                         ),
                                         If(
-                                            ThisItem.Title = "Tickets closed",
+                                            ThisItem.Title = "Requests closed",
                                             Navigate(
                                                 TicketPage,
                                                 ScreenTransition.Fade,
                                                 {type: "Closed"}
                                             ),
                                             If(
-                                                ThisItem.Title = "Tickets rejected",
+                                                ThisItem.Title = "Requests rejected",
                                                 Navigate(
                                                     TicketPage,
                                                     ScreenTransition.Fade,
