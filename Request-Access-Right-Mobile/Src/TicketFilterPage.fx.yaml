@@ -2,11 +2,11 @@ TicketFilterPage As screen:
     Fill: =RGBA(230, 229, 229, 1)
 
     Container12 As groupContainer.verticalAutoLayoutContainer:
-        Height: =1136
+        Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
         Container2_5 As groupContainer.horizontalAutoLayoutContainer:
@@ -19,6 +19,7 @@ TicketFilterPage As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
             PaddingRight: =10
+            Width: =Parent.Width
             ZIndex: =1
 
             Icon1_7 As icon.Add:
@@ -58,6 +59,7 @@ TicketFilterPage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
             ZIndex: =2
 
             FilterByGallery As gallery.textualGalleryVertical:
@@ -81,146 +83,106 @@ TicketFilterPage As screen:
                 Y: =88
                 ZIndex: =1
 
-                Rectangle2_18 As rectangle:
-                    BorderColor: =RGBA(0, 0, 255, 1)
-                    DisabledFill: =Rectangle2_18.Fill
-                    Fill: =RGBA(204, 204, 204, 1)
-                    FocusedBorderColor: =Rectangle2_18.BorderColor
-                    Height: =2
-                    HoverFill: =Rectangle2_18.Fill
-                    PressedFill: =Rectangle2_18.Fill
-                    Width: =640
-                    Y: =98.7646657892906
-                    ZIndex: =1
+                Container46 As groupContainer.verticalAutoLayoutContainer:
+                    Height: =97
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =7
 
-                Group13_1 As group:
-                    Height: =99
-                    Width: =640
-                    X: =0
-                    Y: =-5.97708030913564e-15
-                    ZIndex: =2
+                    Container47 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =Parent.Height
+                        LayoutMinHeight: =112
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =1
 
-                    Rectangle7_1 As rectangle:
-                        AccessibleLabel: ="Click to Select"
-                        BorderColor: =RGBA(0, 0, 255, 1)
-                        DisabledFill: =Rectangle7_1.Fill
-                        Fill: =RGBA(0, 0, 0, 0)
-                        FocusedBorderColor: =Color.Black
-                        FocusedBorderThickness: =1
-                        Height: =97.03960396039603
-                        HoverFill: =Rectangle7_1.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:FilterByGallery.Selected.Title})
-                        PressedFill: =Rectangle7_1.Fill
-                        TabIndex: =0
-                        Width: =640
-                        ZIndex: =3
-
-                    TextBox3_2 As label:
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(29, 33, 35, 1)
-                        FocusedBorderColor: =TextBox3_2.BorderColor
-                        FontWeight: =FontWeight.Semibold
-                        Height: =99
-                        HoverBorderColor: =TextBox3_2.BorderColor
-                        HoverColor: =TextBox3_2.Color
-                        HoverFill: =TextBox3_2.Fill
-                        OnSelect: |-
-                            =Navigate(TicketPage,ScreenTransition.Fade,{type:FilterByGallery.Selected.Title})
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        PressedBorderColor: =TextBox3_2.BorderColor
-                        PressedColor: =TextBox3_2.Color
-                        PressedFill: =TextBox3_2.Fill
-                        Size: =22
-                        Text: =ThisItem.Title
-                        Width: =504
-                        X: =28.2048192771084
-                        ZIndex: =4
-
-                    icon3_2 As icon.Check:
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledBorderColor: =RGBA(56, 56, 56, 1)
-                        DisabledFill: =icon3_2.Fill
-                        Fill: =RGBA(255, 255, 255, 1)
-                        FocusedBorderColor: =icon3_2.BorderColor
-                        Height: =39.20792079207921
-                        HoverBorderColor: =ColorFade(icon3_2.BorderColor, 20%)
-                        HoverColor: =ColorFade(icon3_2.Color, 20%)
-                        HoverFill: =icon3_2.Fill
-                        Icon: =Icon.Check
-                        OnSelect: =
-                        PressedBorderColor: =ColorFade(icon3_2.BorderColor, -20%)
-                        PressedColor: =ColorFade(icon3_2.Color, -20%)
-                        PressedFill: =icon3_2.Fill
-                        Visible: =If(ThisItem.Title = Text(type),true,false)
-                        Width: =40
-                        X: =572.337349397591
-                        Y: =30.36505940572657
-                        ZIndex: =5
-
-                Rectangle13_1 As rectangle:
-                    BorderColor: =RGBA(0, 0, 255, 1)
-                    DisabledFill: =Rectangle13_1.Fill
-                    Fill: |-
-                        =If(
-                            ThisItem.Title = "Rejected",
-                            RGBA(
-                                227,
-                                48,
-                                12,
-                                1
-                            ),
-                            If(
-                                ThisItem.Title = "In progress",
-                                RGBA(
-                                    255,
-                                    153,
-                                    51,
-                                    1
-                                ),
-                                If(
-                                    ThisItem.Title = "New",
+                        Rectangle13_1 As rectangle:
+                            BorderColor: =RGBA(0, 0, 255, 1)
+                            DisabledFill: =Rectangle13_1.Fill
+                            Fill: |-
+                                =If(
+                                    ThisItem.Title = "Rejected",
                                     RGBA(
-                                        56,
-                                        86,
-                                        153,
+                                        227,
+                                        48,
+                                        12,
                                         1
                                     ),
                                     If(
-                                        ThisItem.Title = "All",
+                                        ThisItem.Title = "In progress",
                                         RGBA(
-                                            128,
-                                            128,
-                                            128,
+                                            255,
+                                            153,
+                                            51,
                                             1
                                         ),
-                                        RGBA(
-                                            71,
-                                            185,
-                                            50,
-                                            1
+                                        If(
+                                            ThisItem.Title = "New",
+                                            RGBA(
+                                                56,
+                                                86,
+                                                153,
+                                                1
+                                            ),
+                                            If(
+                                                ThisItem.Title = "All",
+                                                RGBA(
+                                                    128,
+                                                    128,
+                                                    128,
+                                                    1
+                                                ),
+                                                RGBA(
+                                                    71,
+                                                    185,
+                                                    50,
+                                                    1
+                                                )
+                                            )
                                         )
                                     )
                                 )
-                            )
-                        )
-                    FocusedBorderColor: =Rectangle13_1.BorderColor
-                    Height: =99
-                    HoverFill: =Rectangle13_1.Fill
-                    PressedFill: =Rectangle13_1.Fill
-                    Width: =8
-                    ZIndex: =6
+                            FocusedBorderColor: =Rectangle13_1.BorderColor
+                            Height: =99
+                            HoverFill: =Rectangle13_1.Fill
+                            PressedFill: =Rectangle13_1.Fill
+                            Width: =8
+                            ZIndex: =1
 
-        Label3 As label:
-            Height: =70
-            LayoutMinHeight: =70
-            LayoutMinWidth: =560
-            Size: =21
-            Text: =
-            Width: =560
-            ZIndex: =3
+                        Container48 As groupContainer.verticalAutoLayoutContainer:
+                            Height: =Parent.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =97
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            ZIndex: =5
+
+                            Container49 As groupContainer.horizontalAutoLayoutContainer:
+                                FillPortions: =0
+                                Height: =Parent.Height
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                LayoutMinHeight: =112
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingLeft: =20
+                                PaddingRight: =10
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                    Rectangle2_18 As rectangle:
+                        BorderColor: =RGBA(0, 0, 255, 1)
+                        DisabledFill: =Rectangle2_18.Fill
+                        Fill: =RGBA(204, 204, 204, 1)
+                        FocusedBorderColor: =Rectangle2_18.BorderColor
+                        Height: =2
+                        HoverFill: =Rectangle2_18.Fill
+                        PressedFill: =Rectangle2_18.Fill
+                        Width: =640
+                        Y: =98.7646657892906
+                        ZIndex: =2
 
