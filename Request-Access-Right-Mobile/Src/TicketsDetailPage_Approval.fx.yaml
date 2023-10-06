@@ -359,22 +359,22 @@ TicketsDetailPage_Approval As screen:
                         Y: =DataCardKey27_1.Y
                         ZIndex: =4
 
-                Attachments_DataCard2_1 As typedDataCard.attachmentsViewCard:
+                Attachments_DataCard7 As typedDataCard.attachmentsViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
                     Default: =ThisItem.Attachments
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =295
+                    Height: =225
                     Required: =false
-                    Update: =DataCardValue24_1.Attachments
+                    Update: =DataCardValue7.Attachments
                     Width: =Parent.Width
                     X: =0
                     Y: =8
                     ZIndex: =1
 
-                    DataCardKey25_1 As label:
+                    DataCardKey7 As label:
                         AutoHeight: =true
                         Height: =48
                         PaddingBottom: =0
@@ -389,7 +389,22 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    ErrorMessage21_1 As label:
+                    DataCardValue7 As attachments:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =225
+                        IsInDataCard: =true
+                        Items: =Parent.Default
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage7 As label:
                         AutoHeight: =true
                         Height: =10
                         PaddingBottom: =0
@@ -401,53 +416,23 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue24_1.Y + DataCardValue24_1.Height
+                        Y: =DataCardValue7.Y + DataCardValue7.Height
                         ZIndex: =3
 
-                    StarVisible21_1 As label:
+                    StarVisible7 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey25_1.Height
-                        PaddingBottom: =DataCardKey25_1.PaddingBottom
-                        PaddingLeft: =DataCardKey25_1.PaddingLeft
-                        PaddingRight: =DataCardKey25_1.PaddingRight
-                        PaddingTop: =DataCardKey25_1.PaddingTop
+                        Height: =DataCardKey7.Height
+                        PaddingBottom: =DataCardKey7.PaddingBottom
+                        PaddingLeft: =DataCardKey7.PaddingLeft
+                        PaddingRight: =DataCardKey7.PaddingRight
+                        PaddingTop: =DataCardKey7.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey25_1.Y
+                        Y: =DataCardKey7.Y
                         ZIndex: =4
-
-                    Container22 As groupContainer.verticalAutoLayoutContainer:
-                        BorderColor: =RGBA(101, 128, 187, 1)
-                        BorderThickness: =2
-                        Height: =225
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =60
-                        ZIndex: =5
-
-                        DataCardValue24_1 As attachments:
-                            AlignInContainer: =AlignInContainer.Stretch
-                            BorderColor: =RGBA(101, 128, 187, 1)
-                            BorderThickness: =2
-                            DisplayMode: =Parent.DisplayMode
-                            Height: =Parent.Height
-                            IsInDataCard: =true
-                            Items: =ThisItem.Attachments
-                            LayoutMinHeight: =520
-                            LayoutMinWidth: =575
-                            PaddingBottom: =5
-                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                            PaddingRight: =5
-                            PaddingTop: =5
-                            Width: =Parent.Width
-                            X: =17
-                            Y: =48
-                            ZIndex: =1
 
                 Title_DataCard2_1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
