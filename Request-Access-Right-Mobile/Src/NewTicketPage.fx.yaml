@@ -44,8 +44,8 @@ NewTicketPage As screen:
                 Text: |-
                     =If(
                         varRenameButton = "1",
-                        "New ticket",
-                        "Edit ticket"
+                        "New request",
+                        "Edit request"
                     )
                 Width: =560
                 ZIndex: =2
@@ -623,8 +623,8 @@ NewTicketPage As screen:
                 Text: |-
                     =If(
                         varRenameButton = "1",
-                        "Create ticket",
-                        "Edit ticket"
+                        "Create request",
+                        "Edit request"
                     )
                 Width: =Parent.Width
                 X: =590
