@@ -361,81 +361,6 @@ TicketsDetailPage_Approval As screen:
                         Y: =DataCardKey24_1.Y + DataCardKey24_1.Height + 5
                         ZIndex: =2
 
-                Attachments_DataCard7 As typedDataCard.attachmentsViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="{Attachments}"
-                    Default: =ThisItem.Attachments
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =225
-                    Required: =false
-                    Update: =DataCardValue7.Attachments
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =19
-                    ZIndex: =1
-
-                    DataCardKey7 As label:
-                        AutoHeight: =true
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue7 As attachments:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =225
-                        IsInDataCard: =true
-                        Items: =Parent.Default
-                        PaddingBottom: =5
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        PaddingRight: =5
-                        PaddingTop: =5
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
-                        ZIndex: =2
-
-                    ErrorMessage7 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =12
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue7.Y + DataCardValue7.Height
-                        ZIndex: =3
-
-                    StarVisible7 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey7.Height
-                        PaddingBottom: =DataCardKey7.PaddingBottom
-                        PaddingLeft: =DataCardKey7.PaddingLeft
-                        PaddingRight: =DataCardKey7.PaddingRight
-                        PaddingTop: =DataCardKey7.PaddingTop
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey7.Y
-                        ZIndex: =4
-
                 HOD_DataCard2 As typedDataCard.comboBoxViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="HOD"
@@ -1088,6 +1013,81 @@ TicketsDetailPage_Approval As screen:
                         X: =30
                         Y: =DataCardKey39.Y + DataCardKey39.Height + 5
                         ZIndex: =2
+
+                Attachments_DataCard7 As typedDataCard.attachmentsViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="{Attachments}"
+                    Default: =ThisItem.Attachments
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =225
+                    Required: =false
+                    Update: =DataCardValue7.Attachments
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =19
+                    ZIndex: =1
+
+                    DataCardKey7 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue7 As attachments:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =225
+                        IsInDataCard: =true
+                        Items: =Parent.Default
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage7 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue7.Y + DataCardValue7.Height
+                        ZIndex: =3
+
+                    StarVisible7 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey7.Height
+                        PaddingBottom: =DataCardKey7.PaddingBottom
+                        PaddingLeft: =DataCardKey7.PaddingLeft
+                        PaddingRight: =DataCardKey7.PaddingRight
+                        PaddingTop: =DataCardKey7.PaddingTop
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey7.Y
+                        ZIndex: =4
 
                 Title_DataCard2_1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
