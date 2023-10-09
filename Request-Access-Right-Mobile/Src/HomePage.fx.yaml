@@ -8,6 +8,7 @@ HomePage As screen:
             Request_Test
         );
         Set(varRenameButton,"1");
+        Set(autoRefresh,true)
     Orientation: =If(HomePage.Width < HomePage.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= HomePage.Width)
     Width: =Max(App.Width, App.DesignWidth)
@@ -27,6 +28,7 @@ HomePage As screen:
             FillPortions: =0
             Height: =100
             LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =20
             LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
             LayoutMinHeight: =112
             LayoutMinWidth: =250
@@ -46,12 +48,38 @@ HomePage As screen:
                 ZIndex: =1
 
             Image1 As image:
+                AlignInContainer: =AlignInContainer.Stretch
+                FillPortions: =1
                 Height: =Parent.Height
                 Image: =logocochu
+                ImagePosition: =ImagePosition.Center
                 LayoutMinHeight: =60
                 LayoutMinWidth: =320
                 Width: =250
                 ZIndex: =2
+
+            Icon3 As icon.Reload:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =50
+                Icon: =Icon.Reload
+                OnSelect: |
+                    =Refresh(Request_Test);
+                    ClearCollect(
+                        CollectRequest,
+                        Request_Test
+                    );
+                    Set(
+                        autoRefresh,
+                        false
+                    );
+                    Reset(Timer_Refresh);
+                    Set(
+                        autoRefresh,
+                        true
+                    );
+                Width: =50
+                ZIndex: =3
 
             Icon1 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
@@ -67,7 +95,7 @@ HomePage As screen:
                         ScreenTransition.Fade
                     )
                 Width: =50
-                ZIndex: =3
+                ZIndex: =4
 
         Container3 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =
@@ -412,7 +440,11 @@ HomePage As screen:
                             LayoutMinHeight: =70
                             LayoutMinWidth: =560
                             OnSelect: |-
-                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Rejected"})
+                                =Navigate(
+                                    TicketPage,
+                                    ScreenTransition.Fade,
+                                    {type: "Rejected"}
+                                )
                             PaddingRight: =10
                             PressedBorderColor: =TextBox2_9.BorderColor
                             PressedColor: =TextBox2_9.Color
@@ -601,6 +633,23 @@ HomePage As screen:
                             X: =32
                             Y: =60
                             ZIndex: =2
+
+            Timer_Refresh As timer:
+                AutoStart: =autoRefresh
+                Duration: =30000
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnTimerEnd: |-
+                    =Refresh(Request_Test);
+                    ClearCollect(
+                        CollectRequest,
+                        Request_Test
+                    )
+                Repeat: =true
+                Visible: =false
+                Width: =280
+                ZIndex: =3
 
         ContainerApproval As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer

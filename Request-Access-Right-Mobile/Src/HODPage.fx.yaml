@@ -49,6 +49,18 @@ HODPage As screen:
                 Width: =64
                 ZIndex: =3
 
+        Label7 As label:
+            Align: =Align.Center
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =21
+            Text: =If(TicketsGallery_HOD.AllItemsCount=0,"Không tìm thấy request nào")
+            Visible: =If(TicketsGallery_HOD.AllItemsCount=0,true,false)
+            Width: =Parent.Width
+            ZIndex: =2
+
         TicketsGallery_HOD As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
             DisabledBorderColor: =TicketsGallery_HOD.BorderColor
@@ -85,7 +97,7 @@ HODPage As screen:
             TemplateSize: =223.0699504854464
             Width: =Parent.Width
             Y: =175
-            ZIndex: =2
+            ZIndex: =3
 
             Rectangle1_14 As rectangle:
                 BorderColor: =RGBA(0, 0, 255, 1)
