@@ -25,7 +25,9 @@ ApprovalPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
+                LayoutMinHeight: =50
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                Width: =50
                 ZIndex: =1
 
             Label1_5 As label:
@@ -50,17 +52,40 @@ ApprovalPage As screen:
                 Width: =64
                 ZIndex: =3
 
-        Label6 As label:
-            Align: =Align.Center
+        Container2_10 As groupContainer.horizontalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
             Height: =70
-            LayoutMinHeight: =70
-            LayoutMinWidth: =560
-            Size: =21
-            Text: =If(TicketsGallery_approval.AllItemsCount=0,"Không tìm thấy request nào")
-            Visible: =If(TicketsGallery_approval.AllItemsCount=0,true,false)
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
             Width: =Parent.Width
             ZIndex: =2
+
+            Label6 As label:
+                Align: =Align.Center
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =21
+                Text: =If(TicketsGallery_approval.AllItemsCount=0,"Không tìm thấy request nào","")
+                Width: =Parent.Width-100
+                ZIndex: =1
+
+            Icon1_11 As icon.Add:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.History
+                LayoutMinHeight: =50
+                OnSelect: =Navigate(History_request_Approver,ScreenTransition.Fade)
+                Width: =50
+                ZIndex: =2
 
         TicketsGallery_approval As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
@@ -130,7 +155,7 @@ ApprovalPage As screen:
             TemplateSize: =223.0699504854
             Width: =Parent.Width
             Y: =175
-            ZIndex: =3
+            ZIndex: =4
 
             Rectangle1_13 As rectangle:
                 BorderColor: =RGBA(0, 0, 255, 1)
