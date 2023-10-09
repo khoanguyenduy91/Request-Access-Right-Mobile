@@ -595,10 +595,10 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].Approver1)
+                        Items: =Choices([@Request_Test].'Approver 1')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.Approver1,DataCardValue31.SearchText)
+                        SearchItems: =Choices(Request_Test.'Approver 1',DataCardValue31.SearchText)
                         SelectMultiple: =false
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
@@ -717,10 +717,10 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].Approver2)
+                        Items: =Choices([@Request_Test].'Approver 2')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.Approver2,DataCardValue33.SearchText)
+                        SearchItems: =Choices(Request_Test.'Approver 2',DataCardValue33.SearchText)
                         SelectMultiple: =false
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
@@ -839,10 +839,10 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].Approver3)
+                        Items: =Choices([@Request_Test].'Approver 3')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.Approver3,DataCardValue35.SearchText)
+                        SearchItems: =Choices(Request_Test.'Approver 3',DataCardValue35.SearchText)
                         SelectMultiple: =false
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
@@ -961,10 +961,10 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].RejectedBy)
+                        Items: =Choices([@Request_Test].'Rejected By')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.RejectedBy,DataCardValue37.SearchText)
+                        SearchItems: =Choices(Request_Test.'Rejected By',DataCardValue37.SearchText)
                         SelectMultiple: =false
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
@@ -1332,16 +1332,19 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =4
 
         Container20_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =100
             LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutGap: =100
+            LayoutGap: =20
             LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
             RadiusBottomLeft: =4
             RadiusBottomRight: =4
             RadiusTopLeft: =4
@@ -1358,6 +1361,7 @@ TicketsDetailPage_Approval As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Fill: =RGBA(10, 128, 32, 1)
+                FillPortions: =1
                 FocusedBorderThickness: =0
                 Height: =70
                 HoverBorderColor: =
@@ -1462,6 +1466,7 @@ TicketsDetailPage_Approval As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Fill: =RGBA(255, 0, 0, 1)
+                FillPortions: =1
                 FocusedBorderThickness: =0
                 Height: =70
                 HoverBorderColor: =
@@ -1482,6 +1487,35 @@ TicketsDetailPage_Approval As screen:
                 Text: ="Reject"
                 Width: =200
                 ZIndex: =2
+
+            btn_gop_y As button:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =
+                BorderThickness: =0
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(62, 96, 170, 1)
+                FillPortions: =1
+                FocusedBorderThickness: =0
+                Height: =70
+                HoverBorderColor: =
+                HoverFill: =ColorFade(Self.Fill, 50%)
+                OnSelect: =Set(DialogFeedback,true)
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Color.Black, 50%)
+                PressedFill: =ColorFade(Self.Fill, 50%)
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Size: =18
+                Text: ="Feedback"
+                Visible: |
+                    =If(!IsBlank(LookUp(LevelApproveTest,IdUser.Email=User().Email&&Level.Value="Approver 1")), true , false )
+                Width: =200
+                ZIndex: =3
 
     Dialog_commentapproval As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
@@ -1740,6 +1774,178 @@ TicketsDetailPage_Approval As screen:
                             OnSelect: |
                                 =Set(
                                     DialogCommentapproval,
+                                    false
+                                )
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            PaddingRight: =5.21
+                            PaddingTop: =5.21
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Cancel"
+                            Width: =200
+                            X: =142
+                            Y: =213
+                            ZIndex: =2
+
+    Dialog_feedback As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        PaddingBottom: =0.00
+        PaddingLeft: =0.00
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Visible: =DialogFeedback
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Container10_5 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(0, 0, 0, 0.44)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =8
+
+            Container16_3 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =5
+
+                Container50_1 As groupContainer.verticalAutoLayoutContainer:
+                    Height: =450
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =600
+                    ZIndex: =1
+
+                    Label3_1 As label:
+                        Align: =Align.Center
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =70
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        Size: =24
+                        Text: ="Feedback"
+                        Width: =600
+                        ZIndex: =1
+
+                    TextInput1_2 As text:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =""
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =Self.BorderThickness
+                        Height: =250
+                        HintText: ="Comment"
+                        HoverBorderColor: =RGBA(0, 18, 107, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        Mode: =TextMode.MultiLine
+                        RadiusBottomLeft: =
+                        RadiusBottomRight: =
+                        RadiusTopLeft: =
+                        RadiusTopRight: =
+                        Size: =25
+                        Width: =600
+                        ZIndex: =2
+
+                    Container15_3 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =100
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =80
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =600
+                        ZIndex: =3
+
+                        Button_OK_10 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(54, 176, 75, 1)
+                            Height: =70
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
+                            OnSelect: |-
+                                =If(
+                                    Len(TextInput1_2.Text) = 0,
+                                    Notify(
+                                        "Please enter the feedback for the request",
+                                        NotificationType.Error
+                                    ),
+                                    '[SubFlow]Feed_back_approver1'.Run(
+                                        TicketsGallery_approval.Selected.ID,
+                                        TextInput1_2.Text
+                                    );
+                                    Notify(
+                                        "Successfully",
+                                        NotificationType.Success,
+                                        3000
+                                    );
+                                    Reset(TextInput1_2);
+                                    Set(
+                                        DialogFeedback,
+                                        false
+                                    )
+                                )
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            PaddingRight: =5.21
+                            PaddingTop: =5.21
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Send"
+                            Width: =200
+                            X: =176
+                            Y: =213
+                            ZIndex: =1
+
+                        Button_Cancel_12 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(56, 96, 178, 1)
+                            Height: =70
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            OnSelect: |
+                                =Set(
+                                    DialogFeedback,
                                     false
                                 )
                             PaddingBottom: =5.00

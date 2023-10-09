@@ -49,17 +49,40 @@ HODPage As screen:
                 Width: =64
                 ZIndex: =3
 
-        Label7 As label:
-            Align: =Align.Center
+        Container2_15 As groupContainer.horizontalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
             Height: =70
-            LayoutMinHeight: =70
-            LayoutMinWidth: =560
-            Size: =21
-            Text: =If(TicketsGallery_HOD.AllItemsCount=0,"Không tìm thấy request nào")
-            Visible: =If(TicketsGallery_HOD.AllItemsCount=0,true,false)
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
             Width: =Parent.Width
             ZIndex: =2
+
+            Label6_1 As label:
+                Align: =Align.Center
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =21
+                Text: =If(TicketsGallery_HOD.AllItemsCount=0,"Không tìm thấy request nào","")
+                Width: =Parent.Width-100
+                ZIndex: =1
+
+            Icon1_17 As icon.Add:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.History
+                LayoutMinHeight: =50
+                OnSelect: =Navigate(History_request_HOD,ScreenTransition.Fade)
+                Width: =50
+                ZIndex: =2
 
         TicketsGallery_HOD As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
