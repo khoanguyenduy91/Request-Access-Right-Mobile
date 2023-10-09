@@ -2858,7 +2858,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container6",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3026,7 +3026,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
+          "AutoRuleBindingString": "true",
           "InvariantPropertyName": "Visible",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -3138,7 +3138,7 @@
         {
           "Category": "Design",
           "PropertyName": "Visible",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -3308,7 +3308,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerHOD",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3359,7 +3359,7 @@
         {
           "Category": "Design",
           "PropertyName": "Visible",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -4297,7 +4297,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
+          "AutoRuleBindingString": "If(\n    With(\n        {obj: ParseJSON(getEmail.result)},\n        Text(obj.isApprover)\n    ) = \"True\" || IsMatch(\n        With(\n            {obj: ParseJSON(getEmail.result)},\n            Text(obj.Title)\n        ),\n        \"General Manager\",\n        MatchOptions.Complete\n    ),\n    true,\n    false\n)",
           "InvariantPropertyName": "Visible",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -9490,7 +9490,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",
@@ -9844,7 +9844,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
