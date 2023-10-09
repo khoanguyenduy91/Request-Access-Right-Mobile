@@ -520,10 +520,10 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].Approver1)
+                        Items: =Choices([@Request_Test].'Approver 1')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.Approver1,DataCardValue31.SearchText)
+                        SearchItems: =Choices(Request_Test.'Approver 1',DataCardValue31.SearchText)
                         SelectMultiple: =false
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
@@ -642,10 +642,10 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].Approver2)
+                        Items: =Choices([@Request_Test].'Approver 2')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.Approver2,DataCardValue33.SearchText)
+                        SearchItems: =Choices(Request_Test.'Approver 2',DataCardValue33.SearchText)
                         SelectMultiple: =false
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
@@ -764,10 +764,10 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].Approver3)
+                        Items: =Choices([@Request_Test].'Approver 3')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.Approver3,DataCardValue35.SearchText)
+                        SearchItems: =Choices(Request_Test.'Approver 3',DataCardValue35.SearchText)
                         SelectMultiple: =false
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
@@ -886,10 +886,10 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@Request_Test].RejectedBy)
+                        Items: =Choices([@Request_Test].'Rejected By')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(Request_Test.RejectedBy,DataCardValue37.SearchText)
+                        SearchItems: =Choices(Request_Test.'Rejected By',DataCardValue37.SearchText)
                         SelectMultiple: =false
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
