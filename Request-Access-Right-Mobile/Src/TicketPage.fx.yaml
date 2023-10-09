@@ -70,7 +70,7 @@ TicketPage As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =4
 
-            Container2_10 As groupContainer.horizontalAutoLayoutContainer:
+            Container2_4 As groupContainer.horizontalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =80
@@ -84,7 +84,6 @@ TicketPage As screen:
                 ZIndex: =1
 
                 Icon1_4 As icon.Add:
-                    AlignInContainer: =AlignInContainer.Center
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
                     Icon: =Icon.Filter
@@ -94,7 +93,6 @@ TicketPage As screen:
                     ZIndex: =1
 
                 Label2 As label:
-                    AlignInContainer: =AlignInContainer.Center
                     Height: =70
                     LayoutMinHeight: =70
                     LayoutMinWidth: =560
