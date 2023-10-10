@@ -90,6 +90,7 @@ TicketPage As screen:
                 ZIndex: =1
 
                 Icon1_4 As icon.Add:
+                    AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
                     Icon: =Icon.Filter
