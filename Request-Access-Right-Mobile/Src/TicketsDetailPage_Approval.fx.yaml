@@ -502,9 +502,9 @@ TicketsDetailPage_Approval As screen:
                     Update: =DataCardValue31.Selected
                     Visible: |-
                         =If(
-                            DataCardValue16_1.Selected.Value = "Approver 1 approved",
-                            true,
-                            false
+                            DataCardValue16_1.Selected.Value = "Created",
+                            false,
+                            true
                         )
                     Width: =640
                     X: =0
@@ -1389,6 +1389,7 @@ TicketsDetailPage_Approval As screen:
                 Fill: =RGBA(10, 128, 32, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0
+                FontWeight: =FontWeight.Bold
                 Height: =70
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
@@ -1494,6 +1495,7 @@ TicketsDetailPage_Approval As screen:
                 Fill: =RGBA(255, 0, 0, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0
+                FontWeight: =FontWeight.Bold
                 Height: =70
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)

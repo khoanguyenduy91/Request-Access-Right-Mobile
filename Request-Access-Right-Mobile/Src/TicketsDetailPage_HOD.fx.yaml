@@ -502,9 +502,9 @@ TicketsDetailPage_HOD As screen:
                     Update: =DataCardValue42.Selected
                     Visible: |-
                         =If(
-                            DataCardValue16_2.Selected.Value = "Approver 1 approved",
-                            true,
-                            false
+                            DataCardValue16_2.Selected.Value = "Created",
+                            false,
+                            true
                         )
                     Width: =640
                     X: =0

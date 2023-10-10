@@ -545,9 +545,9 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue2.Selected
                     Visible: |-
                         =If(
-                            DataCardValue16.Selected.Value = "Approver 1 approved",
-                            true,
-                            false
+                            DataCardValue16.Selected.Value = "Created",
+                            false,
+                            true
                         )
                     Width: =640
                     X: =0
