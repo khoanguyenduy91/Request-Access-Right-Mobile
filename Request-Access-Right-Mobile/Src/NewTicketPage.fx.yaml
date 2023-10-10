@@ -37,6 +37,7 @@ NewTicketPage As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
+                FontWeight: =FontWeight.Semibold
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
@@ -54,7 +55,6 @@ NewTicketPage As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Height: =64
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =320
                 LayoutMinWidth: =320
                 Width: =64
                 ZIndex: =3
@@ -109,6 +109,7 @@ NewTicketPage As screen:
 
                     DataCardKey13 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -191,6 +192,7 @@ NewTicketPage As screen:
 
                     DataCardKey9 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -274,6 +276,7 @@ NewTicketPage As screen:
 
                     DataCardKey10 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -357,6 +360,7 @@ NewTicketPage As screen:
 
                     DataCardKey11 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -438,6 +442,7 @@ NewTicketPage As screen:
 
                     DataCardKey12 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -517,6 +522,7 @@ NewTicketPage As screen:
 
                     DataCardKey1 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -581,14 +587,19 @@ NewTicketPage As screen:
                         ZIndex: =4
 
         Container11 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
             DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =80
+            Height: =120
+            LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =100
             LayoutMinWidth: =200
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
             RadiusBottomLeft: =4
             RadiusBottomRight: =4
             RadiusTopLeft: =4
@@ -597,13 +608,12 @@ NewTicketPage As screen:
             ZIndex: =4
 
             Button_newticket As button:
-                AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Fill: =RGBA(11, 128, 32, 1)
-                Height: =80
+                Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-

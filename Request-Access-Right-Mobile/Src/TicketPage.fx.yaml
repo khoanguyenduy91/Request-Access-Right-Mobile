@@ -48,6 +48,7 @@ TicketPage As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
+                FontWeight: =FontWeight.Semibold
                 Height: =88
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
@@ -78,6 +79,7 @@ TicketPage As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250

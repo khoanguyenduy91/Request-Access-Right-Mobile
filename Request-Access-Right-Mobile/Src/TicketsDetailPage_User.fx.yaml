@@ -39,6 +39,7 @@ TicketsDetailPage_User As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
+                FontWeight: =FontWeight.Semibold
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
@@ -51,6 +52,7 @@ TicketsDetailPage_User As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Edit
+                LayoutMinHeight: =50
                 OnSelect: |-
                     =EditForm(Form1);
                     Set(varRenameButton,"0");
@@ -64,12 +66,14 @@ TicketsDetailPage_User As screen:
                         true,
                         false
                     )
+                Width: =50
                 ZIndex: =3
 
             Icon1_6 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Trash
+                LayoutMinHeight: =50
                 OnSelect: =Set(Dialogdelete,true)
                 Visible: |-
                     =If(
@@ -77,20 +81,15 @@ TicketsDetailPage_User As screen:
                         true,
                         false
                     )
+                Width: =50
                 ZIndex: =4
 
             Image1_8 As image:
                 AlignInContainer: =AlignInContainer.Stretch
                 Height: =64
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =60
+                LayoutMinHeight: =50
                 LayoutMinWidth: =320
-                Visible: |-
-                    =If(
-                        DataCardValue16.Selected.Value = "Created",
-                        false,
-                        true
-                    )
                 Width: =64
                 ZIndex: =5
 
@@ -115,48 +114,6 @@ TicketsDetailPage_User As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Created_DataCard1 As typedDataCard.textualViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Created"
-                    Default: =ThisItem.Created
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Created")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Required: =false
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =0
-                    ZIndex: =1
-
-                    DataCardKey26 As label:
-                        AutoHeight: =true
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue25 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey26.Y + DataCardKey26.Height + 5
-                        ZIndex: =2
-
                 "'Created By_DataCard1' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Author"
@@ -169,11 +126,12 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue26.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =1
+                    Y: =0
                     ZIndex: =1
 
                     DataCardKey27 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -236,6 +194,49 @@ TicketsDetailPage_User As screen:
                         Y: =DataCardKey27.Y
                         ZIndex: =4
 
+                Created_DataCard1 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Created"
+                    Default: =ThisItem.Created
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Created")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =123
+                    Required: =false
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey26 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue25 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey26.Y + DataCardKey26.Height + 5
+                        ZIndex: =2
+
                 ReqReason_DataCard2 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqReason"
@@ -243,7 +244,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqReason")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Width: =Parent.Width
                     X: =0
@@ -252,6 +253,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey23 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -295,6 +297,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey22 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -373,6 +376,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey24 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -417,6 +421,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey18 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -485,7 +490,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"HODApprovedDate")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue20.Text),false,true)
                     Width: =640
@@ -495,6 +500,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey19 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -528,7 +534,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Approver1")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =123
                     Required: =false
                     Update: =DataCardValue2.Selected
                     Visible: =If(IsBlank(DataCardValue2.SelectedItems),false,true)
@@ -539,6 +545,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey2 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -557,12 +564,13 @@ TicketsDetailPage_User As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
+                        Height: =50
                         Items: =Choices([@Request_Test].'Approver 1')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Approver 1',DataCardValue2.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -607,7 +615,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ApprovedDate1")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue3.Text),false,true)
                     Width: =640
@@ -617,6 +625,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey3 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -661,6 +670,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey4 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -729,7 +739,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ApprovedDate2")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue14.Text),false,true)
                     Width: =640
@@ -739,6 +749,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey8 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -783,6 +794,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey15 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -851,7 +863,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ApprovedDate3")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue17.Text),false,true)
                     Width: =640
@@ -861,6 +873,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey16 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -905,6 +918,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey25 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -973,7 +987,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"RejectedDate")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue28.Text),false,true)
                     Width: =640
@@ -983,6 +997,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey28 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1016,7 +1031,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReasonReject")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue24.Text),false,true)
                     Width: =640
@@ -1026,6 +1041,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey21 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1069,6 +1085,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey5 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1134,7 +1151,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Title")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =true
                     Width: =Parent.Width
                     X: =0
@@ -1143,6 +1160,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey14 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1186,6 +1204,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey20 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1264,6 +1283,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey17 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1473,11 +1493,13 @@ TicketsDetailPage_User As screen:
                         Height: |
                             =100
                         LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutGap: =40
+                        LayoutGap: =10
                         LayoutJustifyContent: =LayoutJustifyContent.Center
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
                         RadiusBottomRight: =2
                         RadiusTopLeft: =2
                         Width: =Parent.Width
@@ -1490,6 +1512,7 @@ TicketsDetailPage_User As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Fill: =RGBA(255, 0, 0, 1)
+                            FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
@@ -1532,6 +1555,7 @@ TicketsDetailPage_User As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Fill: =RGBA(56, 96, 178, 1)
+                            FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
