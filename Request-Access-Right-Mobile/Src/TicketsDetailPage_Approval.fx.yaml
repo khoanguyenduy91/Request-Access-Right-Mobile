@@ -188,8 +188,8 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =1
 
                     DataCardValue25_1 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -231,8 +231,8 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =1
 
                     DataCardValue22_1 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -329,7 +329,7 @@ TicketsDetailPage_Approval As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqDescription")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue23_1.Text),false,true)
                     Width: =Parent.Width
@@ -354,8 +354,8 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =1
 
                     DataCardValue23_1 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -533,6 +533,7 @@ TicketsDetailPage_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Approver 1',DataCardValue31.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -602,8 +603,8 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =1
 
                     DataCardValue32 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -1137,8 +1138,8 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =1
 
                     DataCardValue13_1 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -1598,7 +1599,7 @@ TicketsDetailPage_Approval As screen:
                         Height: =70
                         LayoutMinHeight: =70
                         LayoutMinWidth: =560
-                        Size: =24
+                        Size: =30
                         Text: ="Comment"
                         Width: =600
                         ZIndex: =1
@@ -1627,17 +1628,19 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =2
 
                     Container15_2 As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
+                        AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(0, 18, 107, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         FillPortions: =0
                         Height: =100
                         LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutGap: =80
+                        LayoutGap: =10
                         LayoutJustifyContent: =LayoutJustifyContent.Center
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
                         Width: =600
                         ZIndex: =3
 
@@ -1648,6 +1651,7 @@ TicketsDetailPage_Approval As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Fill: =RGBA(54, 176, 75, 1)
+                            FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
@@ -1797,6 +1801,7 @@ TicketsDetailPage_Approval As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Fill: =RGBA(56, 96, 178, 1)
+                            FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
@@ -1872,7 +1877,7 @@ TicketsDetailPage_Approval As screen:
                         Height: =70
                         LayoutMinHeight: =70
                         LayoutMinWidth: =560
-                        Size: =24
+                        Size: =30
                         Text: ="Feedback"
                         Width: =600
                         ZIndex: =1
@@ -1901,17 +1906,19 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =2
 
                     Container15_3 As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
+                        AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(0, 18, 107, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         FillPortions: =0
                         Height: =100
                         LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutGap: =80
+                        LayoutGap: =10
                         LayoutJustifyContent: =LayoutJustifyContent.Center
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
                         Width: =600
                         ZIndex: =3
 
@@ -1922,6 +1929,7 @@ TicketsDetailPage_Approval As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Fill: =RGBA(54, 176, 75, 1)
+                            FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
@@ -1969,6 +1977,7 @@ TicketsDetailPage_Approval As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Fill: =RGBA(56, 96, 178, 1)
+                            FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)

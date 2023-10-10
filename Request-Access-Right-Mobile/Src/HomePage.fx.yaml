@@ -764,7 +764,10 @@ HomePage As screen:
                             Text(obj.Title)
                         ),
                         "Head of",
-                        MatchOptions.Contains
+                        MatchOptions.Contains && With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.isApprover)
+                        ) <> "True"
                     ),
                     true,
                     false
