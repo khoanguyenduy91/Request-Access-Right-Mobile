@@ -100,13 +100,13 @@ ApprovalPage As screen:
                     !IsBlank(
                         LookUp(
                             LevelApproveTest,
-                            IdUser.Email = User().Email && Level.Value = "Approver 1"
+                            IdUser.Email = varEmailUser && Level.Value = "Approver 1"
                         )
                     ),
                     SortByColumns(
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
                         ),
                         "Created",
                         SortOrder.Descending
@@ -115,7 +115,7 @@ ApprovalPage As screen:
                         !IsBlank(
                             LookUp(
                                 LevelApproveTest,
-                                User().Email = IdUser.Email && Level.Value = "Approver 2"
+                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
                             )
                         ),
                         SortByColumns(
@@ -130,7 +130,7 @@ ApprovalPage As screen:
                             !IsBlank(
                                 LookUp(
                                     LevelApproveTest,
-                                    User().Email = IdUser.Email && Level.Value = "Approver 3"
+                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
                                 )
                             ),
                             SortByColumns(
@@ -305,7 +305,7 @@ ApprovalPage As screen:
                         HoverFill: =Heading1_3.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =560
-                        OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                        OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -493,7 +493,7 @@ ApprovalPage As screen:
                                     HoverFill: =Subtitle1_3.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                                    OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0

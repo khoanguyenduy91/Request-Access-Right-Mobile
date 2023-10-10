@@ -1367,7 +1367,7 @@ TicketsDetailPage_HOD As screen:
                         !IsBlank(
                             LookUp(
                                 Request_Test,
-                                User().Email = HOD.Email
+                                varEmailUser = HOD.Email
                             )
                         ),
                         Patch(
@@ -1533,7 +1533,7 @@ TicketsDetailPage_HOD As screen:
                                     !IsBlank(
                                         LookUp(
                                             Request_Test,
-                                            User().Email = HOD.Email
+                                            varEmailUser = HOD.Email
                                         )
                                     ),
                                     Patch(
@@ -1544,14 +1544,14 @@ TicketsDetailPage_HOD As screen:
                                         ),
                                         {Status: {Value: "Rejected"}},
                                         {'Rejected Date': Now()},
-                                        {'Reason Reject': User().FullName & " is the HOD Comment: " & TextInput1.Text},
+                                        {'Reason Reject': varUser & " is the HOD Comment: " & TextInput1.Text},
                                         {
                                             'Rejected By': {
-                                                '@odata.type': User().Email,
-                                                Claims: User().Email,
+                                                '@odata.type': varEmailUser,
+                                                Claims: varEmailUser,
                                                 Department: "",
-                                                DisplayName: User().FullName,
-                                                Email: User().Email,
+                                                DisplayName: varUser,
+                                                Email: varEmailUser,
                                                 JobTitle: "",
                                                 Picture: ""
                                             }
