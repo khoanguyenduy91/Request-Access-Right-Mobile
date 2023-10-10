@@ -493,7 +493,12 @@ TicketsDetailPage_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue31.Selected
-                    Visible: =If(IsBlank(DataCardValue31.SelectedItems),false,true)
+                    Visible: |-
+                        =If(
+                            DataCardValue16_1.Selected.Value = "Approver 1 approved",
+                            true,
+                            false
+                        )
                     Width: =640
                     X: =0
                     Y: =10
@@ -525,6 +530,7 @@ TicketsDetailPage_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Approver 1',DataCardValue31.SearchText)
                         SelectMultiple: =false
+                        Size: =20
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30

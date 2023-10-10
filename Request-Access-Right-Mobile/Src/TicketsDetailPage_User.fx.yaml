@@ -51,6 +51,7 @@ TicketsDetailPage_User As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Edit
+                LayoutMinHeight: =50
                 OnSelect: |-
                     =EditForm(Form1);
                     Set(varRenameButton,"0");
@@ -64,12 +65,14 @@ TicketsDetailPage_User As screen:
                         true,
                         false
                     )
+                Width: =50
                 ZIndex: =3
 
             Icon1_6 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Trash
+                LayoutMinHeight: =50
                 OnSelect: =Set(Dialogdelete,true)
                 Visible: |-
                     =If(
@@ -77,6 +80,7 @@ TicketsDetailPage_User As screen:
                         true,
                         false
                     )
+                Width: =50
                 ZIndex: =4
 
             Image1_8 As image:
@@ -531,7 +535,12 @@ TicketsDetailPage_User As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue2.Selected
-                    Visible: =If(IsBlank(DataCardValue2.SelectedItems),false,true)
+                    Visible: |-
+                        =If(
+                            DataCardValue16.Selected.Value = "Approver 1 approved",
+                            true,
+                            false
+                        )
                     Width: =640
                     X: =0
                     Y: =10

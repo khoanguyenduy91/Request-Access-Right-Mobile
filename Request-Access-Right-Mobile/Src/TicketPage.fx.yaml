@@ -5,7 +5,7 @@ TicketPage As screen:
         ClearCollect(
             CollectRequest,
             Request_Test
-        );
+        )
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -138,34 +138,19 @@ TicketPage As screen:
                     =Sort(
                         If(
                             type = "All",
-                            Filter(
-                                Request_Test,
-                                'Approver 4'.Email = varEmailUser
-                            ),
+                            CollectRequestAll,
                             If(
                                 type = "New",
-                                Filter(
-                                    Request_Test,
-                                    Status.Value = "Created" && 'Approver 4'.Email = varEmailUser
-                                ),
+                                CollectRequestNew,
                                 If(
                                     type = "In progress",
-                                    Filter(
-                                        Request_Test,
-                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
-                                    ),
+                                    CollectRequestProcess,
                                     If(
                                         type = "Closed",
-                                        Filter(
-                                            Request_Test,
-                                            Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
-                                        ),
+                                        CollectRequestClosed,
                                         If(
                                             type = "Rejected",
-                                            Filter(
-                                                Request_Test,
-                                                Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
-                                            )
+                                            CollectRequestRejected
                                         )
                                     )
                                 )

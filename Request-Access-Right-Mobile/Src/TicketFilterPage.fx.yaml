@@ -27,7 +27,9 @@ TicketFilterPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.Cancel
+                LayoutMinHeight: =50
                 OnSelect: =Back()
+                Width: =50
                 ZIndex: =1
 
             Label1_4 As label:
@@ -176,6 +178,7 @@ TicketFilterPage As screen:
                                 TextBox3_2 As label:
                                     BorderColor: =RGBA(0, 0, 0, 1)
                                     Color: =RGBA(29, 33, 35, 1)
+                                    FillPortions: =1
                                     FocusedBorderColor: =TextBox3_2.BorderColor
                                     FontWeight: =FontWeight.Semibold
                                     Height: =80
@@ -183,7 +186,7 @@ TicketFilterPage As screen:
                                     HoverColor: =TextBox3_2.Color
                                     HoverFill: =TextBox3_2.Fill
                                     LayoutMinHeight: =70
-                                    LayoutMinWidth: =560
+                                    LayoutMinWidth: =200
                                     OnSelect: |-
                                         =Navigate(TicketPage,ScreenTransition.Fade,{type:FilterByGallery.Selected.Title})
                                     PaddingBottom: =0
@@ -195,11 +198,12 @@ TicketFilterPage As screen:
                                     PressedFill: =TextBox3_2.Fill
                                     Size: =22
                                     Text: =ThisItem.Title
-                                    Width: =504
+                                    Width: =Parent.Width-70
                                     X: =28.2048192771084
                                     ZIndex: =1
 
                                 icon3_2 As icon.Check:
+                                    AlignInContainer: =AlignInContainer.Stretch
                                     BorderColor: =RGBA(0, 0, 0, 1)
                                     Color: =RGBA(0, 0, 0, 1)
                                     DisabledBorderColor: =RGBA(56, 56, 56, 1)
@@ -211,12 +215,14 @@ TicketFilterPage As screen:
                                     HoverColor: =ColorFade(icon3_2.Color, 20%)
                                     HoverFill: =icon3_2.Fill
                                     Icon: =Icon.Check
-                                    OnSelect: =
+                                    LayoutMinHeight: =50
+                                    OnSelect: |-
+                                        =Navigate(TicketPage,ScreenTransition.Fade,{type:FilterByGallery.Selected.Title})
                                     PressedBorderColor: =ColorFade(icon3_2.BorderColor, -20%)
                                     PressedColor: =ColorFade(icon3_2.Color, -20%)
                                     PressedFill: =icon3_2.Fill
                                     Visible: =If(ThisItem.Title = Text(type),true,false)
-                                    Width: =40
+                                    Width: =50
                                     X: =544.1325301204826
                                     Y: =30.36505940572657
                                     ZIndex: =2
@@ -239,13 +245,14 @@ TicketFilterPage As screen:
 
                     Rectangle2_18 As rectangle:
                         BorderColor: =RGBA(0, 0, 255, 1)
+                        BorderThickness: =1
                         DisabledFill: =Rectangle2_18.Fill
                         Fill: =RGBA(204, 204, 204, 1)
                         FocusedBorderColor: =Rectangle2_18.BorderColor
-                        Height: =2
+                        Height: =1
                         HoverFill: =Rectangle2_18.Fill
                         PressedFill: =Rectangle2_18.Fill
-                        Width: =640
+                        Width: =Parent.Width
                         Y: =98.7646657892906
                         ZIndex: =2
 

@@ -493,7 +493,12 @@ TicketsDetailPage_HOD As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue42.Selected
-                    Visible: =If(IsBlank(DataCardValue42.SelectedItems),false,true)
+                    Visible: |-
+                        =If(
+                            DataCardValue16_2.Selected.Value = "Approver 1 approved",
+                            true,
+                            false
+                        )
                     Width: =640
                     X: =0
                     Y: =10

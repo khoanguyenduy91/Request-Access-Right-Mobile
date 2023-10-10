@@ -7,8 +7,49 @@ HomePage As screen:
             CollectRequest,
             Request_Test
         );
-        Set(varRenameButton,"1");
-        Set(autoRefresh,true);
+        Set(
+            varRenameButton,
+            "1"
+        );
+        Set(
+            autoRefresh,
+            true
+        );
+        ClearCollect(
+            CollectRequestProcess,
+            Filter(
+                Request_Test,
+                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
+            )
+        );
+        ClearCollect(
+            CollectRequestAll,
+            Filter(
+                Request_Test,
+                'Approver 4'.Email = varEmailUser
+            )
+        );
+        ClearCollect(
+            CollectRequestNew,
+            Filter(
+                Request_Test,
+                Status.Value = "Created" && 'Approver 4'.Email = varEmailUser
+            )
+        );
+        ClearCollect(
+            CollectRequestClosed,
+            Filter(
+                Request_Test,
+                Status.Value = "Done" && 'Approver 4'.Email = varEmailUser
+            )
+        );
+        ClearCollect(
+            CollectRequestRejected,
+            Filter(
+                Request_Test,
+                Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
+            )
+        );
         Set(
             varEmailUser,
             With(
@@ -656,7 +697,7 @@ HomePage As screen:
 
             Timer_Refresh As timer:
                 AutoStart: =autoRefresh
-                Duration: =30000
+                Duration: =120000
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
