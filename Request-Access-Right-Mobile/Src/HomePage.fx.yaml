@@ -8,7 +8,21 @@ HomePage As screen:
             Request_Test
         );
         Set(varRenameButton,"1");
-        Set(autoRefresh,true)
+        Set(autoRefresh,true);
+        Set(
+            varEmailUser,
+            With(
+                {obj: ParseJSON(getEmail.result)},
+                Text(obj.Email)
+            )
+        );
+        Set(
+            varUser,
+            With(
+                {obj: ParseJSON(getEmail.result)},
+                Text(obj.User)
+            )
+        )
     Orientation: =If(HomePage.Width < HomePage.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= HomePage.Width)
     Width: =Max(App.Width, App.DesignWidth)
@@ -55,6 +69,10 @@ HomePage As screen:
                 ImagePosition: =ImagePosition.Center
                 LayoutMinHeight: =60
                 LayoutMinWidth: =320
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
                 Width: =250
                 ZIndex: =2
 
@@ -63,6 +81,7 @@ HomePage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =50
                 Icon: =Icon.Reload
+                LayoutMinHeight: =50
                 OnSelect: |
                     =Refresh(Request_Test);
                     ClearCollect(
@@ -160,7 +179,13 @@ HomePage As screen:
                             PressedColor: =TextBox2_5.Color
                             PressedFill: =TextBox2_5.Fill
                             Size: =50
-                            Text: =CountRows(Filter(CollectRequest,'Created By'.Email = User().Email))
+                            Text: |-
+                                =CountRows(
+                                    Filter(
+                                        CollectRequest,
+                                        'Approver 4'.Email = varEmailUser
+                                    )
+                                )
                             Width: =Parent.Width
                             X: =56
                             Y: =10
@@ -230,7 +255,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_6.Color
                             PressedFill: =TextBox2_6.Fill
                             Size: =50
-                            Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Created By'.Email = User().Email))
+                            Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Approver 4'.Email = varEmailUser))
                             Width: =Parent.Width
                             X: =72
                             Y: =10
@@ -272,9 +297,9 @@ HomePage As screen:
                             !IsBlank(
                                 LookUp(
                                     LevelApproveTest,
-                                    IdUser.Email = User().Email && Level.Value = "Approver 1" ||
-                                    IdUser.Email = User().Email && Level.Value = "Approver 2" ||
-                                    IdUser.Email = User().Email && Level.Value = "Approver 3"
+                                    IdUser.Email = varEmailUser && Level.Value = "Approver 1" ||
+                                    IdUser.Email = varEmailUser && Level.Value = "Approver 2" ||
+                                    IdUser.Email = varEmailUser && Level.Value = "Approver 3"
                                 )
                             ),
                             true,
@@ -316,20 +341,20 @@ HomePage As screen:
                                     !IsBlank(
                                         LookUp(
                                             LevelApproveTest,
-                                            IdUser.Email = User().Email && Level.Value = "Approver 1"
+                                            IdUser.Email = varEmailUser && Level.Value = "Approver 1"
                                         )
                                     ),
                                     CountRows(
                                         Filter(
                                             CollectRequest,
-                                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
                                         )
                                     ),
                                     If(
                                         !IsBlank(
                                             LookUp(
                                                 LevelApproveTest,
-                                                User().Email = IdUser.Email && Level.Value = "Approver 2"
+                                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
                                             )
                                         ),
                                         CountRows(
@@ -342,7 +367,7 @@ HomePage As screen:
                                             !IsBlank(
                                                 LookUp(
                                                     LevelApproveTest,
-                                                    User().Email = IdUser.Email && Level.Value = "Approver 3"
+                                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
                                                 )
                                             ),
                                             CountRows(
@@ -355,13 +380,13 @@ HomePage As screen:
                                                 !IsBlank(
                                                     LookUp(
                                                         Request_Test,
-                                                        User().Email = HOD.Email
+                                                        varEmailUser = HOD.Email
                                                     )
                                                 ),
                                                 CountRows(
                                                     Filter(
                                                         CollectRequest,
-                                                        Status.Value = "Created" && HOD.Email = User().Email
+                                                        Status.Value = "Created" && HOD.Email = varEmailUser
                                                     )
                                                 )
                                             )
@@ -454,7 +479,7 @@ HomePage As screen:
                                 =CountRows(
                                     Filter(
                                         CollectRequest,
-                                        Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                        Status.Value = "Rejected" && 'Approver 4'.Email = varEmailUser
                                     )
                                 )
                             Width: =179
@@ -531,7 +556,7 @@ HomePage As screen:
                                 =CountRows(
                                     Filter(
                                         CollectRequest,
-                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Approver 4'.Email = varEmailUser
                                     )
                                 )
                             Width: =148
@@ -605,7 +630,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_8.Color
                             PressedFill: =TextBox2_8.Fill
                             Size: =44
-                            Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Created By'.Email = User().Email))
+                            Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Approver 4'.Email = varEmailUser))
                             Width: =117
                             X: =16
                             Y: =20
@@ -662,13 +687,16 @@ HomePage As screen:
             LayoutMode: =LayoutMode.Auto
             Visible: |-
                 =If(
-                    !IsBlank(
-                        LookUp(
-                            LevelApproveTest,
-                            IdUser.Email = User().Email && Level.Value = "Approver 1" ||
-                            IdUser.Email = User().Email && Level.Value = "Approver 2" ||
-                            IdUser.Email = User().Email && Level.Value = "Approver 3"
-                        )
+                    With(
+                        {obj: ParseJSON(getEmail.result)},
+                        Text(obj.isApprover)
+                    ) = "True" || IsMatch(
+                        With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.Title)
+                        ),
+                        "General Manager",
+                        MatchOptions.Complete
                     ),
                     true,
                     false
@@ -731,7 +759,10 @@ HomePage As screen:
             Visible: |-
                 =If(
                     IsMatch(
-                        Office365Users.MyProfile().JobTitle,
+                        With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.Title)
+                        ),
                         "Head of",
                         MatchOptions.Contains
                     ),

@@ -7,7 +7,7 @@
   },
   "Properties": {
     "AppCreationSource": "SampleApp",
-    "AppDescription": "Request Access Right platform mobile version 1.2.1",
+    "AppDescription": "Request Access Right platform mobile version 1.2.3",
     "AppPreviewFlagsMap": {
       "aibuilderserviceenrollment": false,
       "allowmultiplescreensincanvaspages": false,
@@ -94,7 +94,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 2,
+    "BindingErrorCount": 0,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 2000,
     "DocumentAppType": "Phone",
@@ -128,8 +128,8 @@
     "UserLocale": "vi-VN"
   },
   "ScreenOrder": [
-    "HomePage",
     "LoginPage",
+    "HomePage",
     "NewTicketPage",
     "TicketPage",
     "TicketsDetailPage_User",
