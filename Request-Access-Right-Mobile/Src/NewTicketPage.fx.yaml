@@ -617,15 +617,7 @@ NewTicketPage As screen:
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: |-
-                    =Set(
-                        varEmailUser,
-                        With(
-                            {obj: ParseJSON(getEmail.result)},
-                            Text(obj.User)
-                        )
-                    );
-                    SubmitForm(Form1)
+                OnSelect: =SubmitForm(Form1)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

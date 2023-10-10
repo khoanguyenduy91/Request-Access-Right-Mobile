@@ -77,49 +77,6 @@ TicketsDetailPage_Approval As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Created_DataCard1_1 As typedDataCard.textualViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Created"
-                    Default: =ThisItem.Created
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Created")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =123
-                    Required: =false
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =1
-                    ZIndex: =1
-
-                    DataCardKey26_1 As label:
-                        AutoHeight: =true
-                        FontWeight: =FontWeight.Semibold
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue25_1 As label:
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =70
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 5
-                        ZIndex: =2
-
                 "'Created By_DataCard1_1' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Author"
@@ -199,6 +156,49 @@ TicketsDetailPage_Approval As screen:
                         Wrap: =false
                         Y: =DataCardKey27_1.Y
                         ZIndex: =4
+
+                Created_DataCard1_1 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Created"
+                    Default: =ThisItem.Created
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Created")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =123
+                    Required: =false
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey26_1 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue25_1 As label:
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =70
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 5
+                        ZIndex: =2
 
                 ReqReason_DataCard2_1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
@@ -1397,7 +1397,7 @@ TicketsDetailPage_Approval As screen:
                         !IsBlank(
                             LookUp(
                                 LevelApproveTest,
-                                IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                                IdUser.Email = User().Email && Level.Value = "Approver 1"
                             )
                         ),
                         Patch(
@@ -1413,7 +1413,7 @@ TicketsDetailPage_Approval As screen:
                             !IsBlank(
                                 LookUp(
                                     LevelApproveTest,
-                                    varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                    User().Email = IdUser.Email && Level.Value = "Approver 2"
                                 )
                             ),
                             Patch(
@@ -1426,11 +1426,11 @@ TicketsDetailPage_Approval As screen:
                                 {'Approved Date 2': Now()},
                                 {
                                     'Approver 2': {
-                                        '@odata.type': varEmailUser,
-                                        Claims: varEmailUser,
+                                        '@odata.type': User().Email,
+                                        Claims: User().Email,
                                         Department: "",
-                                        DisplayName: varUser,
-                                        Email: varEmailUser,
+                                        DisplayName: User().FullName,
+                                        Email: User().Email,
                                         JobTitle: "",
                                         Picture: ""
                                     }
@@ -1441,7 +1441,7 @@ TicketsDetailPage_Approval As screen:
                                 !IsBlank(
                                     LookUp(
                                         LevelApproveTest,
-                                        varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                        User().Email = IdUser.Email && Level.Value = "Approver 3"
                                     )
                                 ),
                                 Patch(
@@ -1457,8 +1457,8 @@ TicketsDetailPage_Approval As screen:
                                             '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
                                             Claims: "",
                                             Department: "",
-                                            DisplayName: varUser,
-                                            Email: varEmailUser,
+                                            DisplayName: User().FullName,
+                                            Email: User().Email,
                                             JobTitle: "",
                                             Picture: ""
                                         }
@@ -1543,7 +1543,7 @@ TicketsDetailPage_Approval As screen:
                         !IsBlank(
                             LookUp(
                                 LevelApproveTest,
-                                IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                                IdUser.Email = User().Email && Level.Value = "Approver 1"
                             )
                         ),
                         true,
@@ -1671,7 +1671,7 @@ TicketsDetailPage_Approval As screen:
                                         !IsBlank(
                                             LookUp(
                                                 LevelApproveTest,
-                                                varEmailUser = IdUser.Email && Level.Value = "Approver 1"
+                                                User().Email = IdUser.Email && Level.Value = "Approver 1"
                                             )
                                         ),
                                         Patch(
@@ -1682,14 +1682,14 @@ TicketsDetailPage_Approval As screen:
                                             ),
                                             {Status: {Value: "Rejected"}},
                                             {'Rejected Date': Now()},
-                                            {'Reason Reject': varUser & " is the Approver 1 comment: " & TextInput1_1.Text},
+                                            {'Reason Reject': User().FullName & " is the Approver 1 comment: " & TextInput1_1.Text},
                                             {
                                                 'Rejected By': {
-                                                    '@odata.type': varEmailUser,
-                                                    Claims: varEmailUser,
+                                                    '@odata.type': User().Email,
+                                                    Claims: User().Email,
                                                     Department: "",
-                                                    DisplayName: varUser,
-                                                    Email: varEmailUser,
+                                                    DisplayName: User().FullName,
+                                                    Email: User().Email,
                                                     JobTitle: "",
                                                     Picture: ""
                                                 }
@@ -1699,7 +1699,7 @@ TicketsDetailPage_Approval As screen:
                                             !IsBlank(
                                                 LookUp(
                                                     LevelApproveTest,
-                                                    varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                                    User().Email = IdUser.Email && Level.Value = "Approver 2"
                                                 )
                                             ),
                                             Patch(
@@ -1710,25 +1710,25 @@ TicketsDetailPage_Approval As screen:
                                                 ),
                                                 {Status: {Value: "Rejected"}},
                                                 {'Rejected Date': Now()},
-                                                {'Reason Reject': varUser & " is the Approver 2 comment: " & TextInput1_1.Text},
+                                                {'Reason Reject': User().FullName & " is the Approver 2 comment: " & TextInput1_1.Text},
                                                 {
                                                     'Rejected By': {
-                                                        '@odata.type': varEmailUser,
-                                                        Claims: varEmailUser,
+                                                        '@odata.type': User().Email,
+                                                        Claims: User().Email,
                                                         Department: "",
-                                                        DisplayName: varUser,
-                                                        Email: varEmailUser,
+                                                        DisplayName: User().FullName,
+                                                        Email: User().Email,
                                                         JobTitle: "",
                                                         Picture: ""
                                                     }
                                                 },
                                                 {
                                                     'Approver 2': {
-                                                        '@odata.type': varEmailUser,
-                                                        Claims: varEmailUser,
+                                                        '@odata.type': User().Email,
+                                                        Claims: User().Email,
                                                         Department: "",
-                                                        DisplayName: varUser,
-                                                        Email: varEmailUser,
+                                                        DisplayName: User().FullName,
+                                                        Email: User().Email,
                                                         JobTitle: "",
                                                         Picture: ""
                                                     }
@@ -1738,7 +1738,7 @@ TicketsDetailPage_Approval As screen:
                                                 !IsBlank(
                                                     LookUp(
                                                         LevelApproveTest,
-                                                        varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                                        User().Email = IdUser.Email && Level.Value = "Approver 3"
                                                     )
                                                 ),
                                                 Patch(
@@ -1749,25 +1749,25 @@ TicketsDetailPage_Approval As screen:
                                                     ),
                                                     {Status: {Value: "Rejected"}},
                                                     {'Rejected Date': Now()},
-                                                    {'Reason Reject': varUser & " is the Approver 3 comment: " & TextInput1_1.Text},
+                                                    {'Reason Reject': User().FullName & " is the Approver 3 comment: " & TextInput1_1.Text},
                                                     {
                                                         'Rejected By': {
-                                                            '@odata.type': varEmailUser,
-                                                            Claims: varEmailUser,
+                                                            '@odata.type': User().Email,
+                                                            Claims: User().Email,
                                                             Department: "",
-                                                            DisplayName: varUser,
-                                                            Email: varEmailUser,
+                                                            DisplayName: User().FullName,
+                                                            Email: User().Email,
                                                             JobTitle: "",
                                                             Picture: ""
                                                         }
                                                     },
                                                     {
                                                         'Approver 3': {
-                                                            '@odata.type': varEmailUser,
-                                                            Claims: varEmailUser,
+                                                            '@odata.type': User().Email,
+                                                            Claims: User().Email,
                                                             Department: "",
-                                                            DisplayName: varUser,
-                                                            Email: varEmailUser,
+                                                            DisplayName: User().FullName,
+                                                            Email: User().Email,
                                                             JobTitle: "",
                                                             Picture: ""
                                                         }

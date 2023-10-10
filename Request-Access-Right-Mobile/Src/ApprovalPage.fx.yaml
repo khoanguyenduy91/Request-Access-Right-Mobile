@@ -100,13 +100,13 @@ ApprovalPage As screen:
                     !IsBlank(
                         LookUp(
                             LevelApproveTest,
-                            IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                            IdUser.Email = User().Email && Level.Value = "Approver 1"
                         )
                     ),
                     SortByColumns(
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && varEmailUser = 'Approver 1'.Email || Status.Value = "HOD approved" && varEmailUser = 'Approver 1'.Email
+                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
                         ),
                         "Created",
                         SortOrder.Descending
@@ -115,7 +115,7 @@ ApprovalPage As screen:
                         !IsBlank(
                             LookUp(
                                 LevelApproveTest,
-                                varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                User().Email = IdUser.Email && Level.Value = "Approver 2"
                             )
                         ),
                         SortByColumns(
@@ -130,7 +130,7 @@ ApprovalPage As screen:
                             !IsBlank(
                                 LookUp(
                                     LevelApproveTest,
-                                    varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                    User().Email = IdUser.Email && Level.Value = "Approver 3"
                                 )
                             ),
                             SortByColumns(
