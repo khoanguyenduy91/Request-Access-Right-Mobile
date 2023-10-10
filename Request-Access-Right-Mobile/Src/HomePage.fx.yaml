@@ -110,6 +110,10 @@ HomePage As screen:
                 ImagePosition: =ImagePosition.Center
                 LayoutMinHeight: =60
                 LayoutMinWidth: =320
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
                 Width: =250
                 ZIndex: =2
 
@@ -118,6 +122,7 @@ HomePage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =50
                 Icon: =Icon.Reload
+                LayoutMinHeight: =50
                 OnSelect: |
                     =Refresh(Request_Test);
                     ClearCollect(
@@ -800,7 +805,10 @@ HomePage As screen:
                             Text(obj.Title)
                         ),
                         "Head of",
-                        MatchOptions.Contains
+                        MatchOptions.Contains && With(
+                            {obj: ParseJSON(getEmail.result)},
+                            Text(obj.isApprover)
+                        ) <> "True"
                     ),
                     true,
                     false

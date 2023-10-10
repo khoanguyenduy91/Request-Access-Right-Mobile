@@ -48,6 +48,7 @@ TicketPage As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
+                FontWeight: =FontWeight.Semibold
                 Height: =88
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
@@ -78,6 +79,7 @@ TicketPage As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
@@ -88,7 +90,6 @@ TicketPage As screen:
                 ZIndex: =1
 
                 Icon1_4 As icon.Add:
-                    AlignInContainer: =AlignInContainer.Center
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
                     Icon: =Icon.Filter
@@ -98,7 +99,6 @@ TicketPage As screen:
                     ZIndex: =1
 
                 Label2 As label:
-                    AlignInContainer: =AlignInContainer.Center
                     Height: =70
                     LayoutMinHeight: =70
                     LayoutMinWidth: =560
@@ -124,7 +124,7 @@ TicketPage As screen:
                     )
                 Visible: =If(TicketsGallery.AllItemsCount=0, true , false )
                 Width: =560
-                ZIndex: =2
+                ZIndex: =3
 
             TicketsGallery As gallery.textualGalleryVertical:
                 AccessibleLabel: ="Tickets Gallery"
@@ -170,7 +170,7 @@ TicketPage As screen:
                 TemplateSize: =223.0699504854464
                 Width: =Parent.Width
                 Y: =175
-                ZIndex: =3
+                ZIndex: =5
 
                 Rectangle1_12 As rectangle:
                     BorderColor: =RGBA(0, 0, 255, 1)
