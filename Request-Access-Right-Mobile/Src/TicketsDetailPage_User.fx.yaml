@@ -90,6 +90,12 @@ TicketsDetailPage_User As screen:
                 Image: ='Logo - PizzaHut'
                 LayoutMinHeight: =50
                 LayoutMinWidth: =320
+                Visible: |-
+                    =If(
+                        DataCardValue16.Selected.Value <> "Created",
+                        true,
+                        false
+                    )
                 Width: =64
                 ZIndex: =5
 
@@ -225,8 +231,8 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue25 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -268,8 +274,8 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue22 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -564,7 +570,7 @@ TicketsDetailPage_User As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =50
+                        Height: =70
                         Items: =Choices([@Request_Test].'Approver 1')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
@@ -640,8 +646,8 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue3 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -695,6 +701,7 @@ TicketsDetailPage_User As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Approver 2',DataCardValue4.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -764,8 +771,8 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue14 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -943,6 +950,7 @@ TicketsDetailPage_User As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Rejected By',DataCardValue27.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -1012,8 +1020,8 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue28 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -1175,8 +1183,8 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue13 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
