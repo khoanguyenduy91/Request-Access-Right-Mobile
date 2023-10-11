@@ -129,13 +129,13 @@ History_request_Approver As screen:
                         !IsBlank(
                             LookUp(
                                 LevelApproveTest,
-                                IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                                IdUser.Email = User().Email && Level.Value = "Approver 1"
                             )
                         ),
                         SortByColumns(
                             Filter(
                                 Request_Test,
-                                varEmailUser = 'Approver 1'.Email && !IsBlank('Approved Date 1')
+                                User().Email = 'Approver 1'.Email && !IsBlank('Approved Date 1')
                             ),
                             "Created",
                             SortOrder.Descending
@@ -144,13 +144,13 @@ History_request_Approver As screen:
                             !IsBlank(
                                 LookUp(
                                     LevelApproveTest,
-                                    varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                    User().Email = IdUser.Email && Level.Value = "Approver 2"
                                 )
                             ),
                             SortByColumns(
                                 Filter(
                                     Request_Test,
-                                    varEmailUser = 'Approver 2'.Email && !IsBlank('Approved Date 2')
+                                    User().Email = 'Approver 2'.Email && !IsBlank('Approved Date 2')
                                 ),
                                 "Created",
                                 SortOrder.Descending
@@ -159,13 +159,13 @@ History_request_Approver As screen:
                                 !IsBlank(
                                     LookUp(
                                         LevelApproveTest,
-                                        varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                        User().Email = IdUser.Email && Level.Value = "Approver 3"
                                     )
                                 ),
                                 SortByColumns(
                                     Filter(
                                         Request_Test,
-                                        varEmailUser = 'Approver 3'.Email && !IsBlank('Approved Date 3') && 'ReqType: ID'.Value = "2"
+                                        User().Email = 'Approver 3'.Email && !IsBlank('Approved Date 3') && 'ReqType: ID'.Value = "2"
                                     ),
                                     "Created",
                                     SortOrder.Descending
