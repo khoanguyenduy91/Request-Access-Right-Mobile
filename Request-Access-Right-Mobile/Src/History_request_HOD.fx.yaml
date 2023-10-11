@@ -111,26 +111,26 @@ History_request_HOD As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
                 Size: =21
-                Text: =If(TicketsGallery_2.AllItemsCount=0,"Không tìm thấy request nào")
-                Visible: =If(TicketsGallery_2.AllItemsCount=0,true,false)
+                Text: =If(TicketsGallery_history_HOD.AllItemsCount=0,"Không tìm thấy request nào")
+                Visible: =If(TicketsGallery_history_HOD.AllItemsCount=0,true,false)
                 Width: =560
                 ZIndex: =2
 
-            TicketsGallery_2 As gallery.textualGalleryVertical:
+            TicketsGallery_history_HOD As gallery.textualGalleryVertical:
                 AccessibleLabel: ="Tickets Gallery"
-                DisabledBorderColor: =TicketsGallery_2.BorderColor
-                DisabledFill: =TicketsGallery_2.Fill
+                DisabledBorderColor: =TicketsGallery_history_HOD.BorderColor
+                DisabledFill: =TicketsGallery_history_HOD.Fill
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                HoverBorderColor: =TicketsGallery_2.BorderColor
-                HoverFill: =TicketsGallery_2.Fill
+                HoverBorderColor: =TicketsGallery_history_HOD.BorderColor
+                HoverFill: =TicketsGallery_history_HOD.Fill
                 Items: =Request_Test
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
-                LoadingSpinnerColor: =TicketsGallery_2.BorderColor
-                PressedBorderColor: =TicketsGallery_2.BorderColor
-                PressedFill: =TicketsGallery_2.Fill
+                LoadingSpinnerColor: =TicketsGallery_history_HOD.BorderColor
+                PressedBorderColor: =TicketsGallery_history_HOD.BorderColor
+                PressedFill: =TicketsGallery_history_HOD.Fill
                 ShowScrollbar: =false
                 TemplatePadding: =0
                 TemplateSize: =223.0699504854464
@@ -260,7 +260,7 @@ History_request_HOD As screen:
                             HoverFill: =Heading1_8.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =300
-                            OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                            OnSelect: =Navigate(TicketsDetail_History_HOD,ScreenTransition.Fade)
                             PaddingBottom: =0
                             PaddingLeft: =10
                             PaddingRight: =0
@@ -288,7 +288,7 @@ History_request_HOD As screen:
                             HoverFill: =Heading1_9.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =300
-                            OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                            OnSelect: =Navigate(TicketsDetail_History_HOD,ScreenTransition.Fade)
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -345,7 +345,7 @@ History_request_HOD As screen:
                                     HoverFill: =Subtitle1_16.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    OnSelect: =Navigate(TicketsDetail_History_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
                                     PaddingRight: =0
@@ -373,7 +373,7 @@ History_request_HOD As screen:
                                     HoverFill: =Subtitle1_17.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    OnSelect: =Navigate(TicketsDetail_History_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
                                     PaddingRight: =0
@@ -407,7 +407,7 @@ History_request_HOD As screen:
                                         HoverFill: =Subtitle1_18.Fill
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =120
-                                        OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                        OnSelect: =Navigate(TicketsDetail_History_HOD,ScreenTransition.Fade)
                                         PaddingBottom: =0
                                         PaddingLeft: =10
                                         PaddingRight: =0
@@ -477,7 +477,7 @@ History_request_HOD As screen:
                                         HoverFill: =Subtitle1_19.Fill
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =460
-                                        OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                        OnSelect: =Navigate(TicketsDetail_History_HOD,ScreenTransition.Fade)
                                         PaddingBottom: =0
                                         PaddingLeft: =0
                                         PaddingRight: =0
@@ -495,6 +495,7 @@ History_request_HOD As screen:
 
                             icon8_4 As icon.ChevronRight:
                                 AccessibleLabel: ="Ticket Details Button"
+                                AlignInContainer: =AlignInContainer.Stretch
                                 BorderColor: =RGBA(0, 0, 0, 1)
                                 Color: =RGBA(115, 115, 115, 1)
                                 DisabledBorderColor: =RGBA(56, 56, 56, 1)
@@ -506,7 +507,7 @@ History_request_HOD As screen:
                                 HoverColor: =ColorFade(icon8_4.Color, 20%)
                                 HoverFill: =icon8_4.Fill
                                 Icon: =Icon.ChevronRight
-                                OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                OnSelect: =Navigate(TicketsDetail_History_HOD,ScreenTransition.Fade)
                                 PressedBorderColor: =ColorFade(icon8_4.BorderColor, -20%)
                                 PressedColor: =ColorFade(icon8_4.Color, -20%)
                                 PressedFill: =icon8_4.Fill

@@ -94,7 +94,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 0,
+    "BindingErrorCount": 12,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 2000,
     "DocumentAppType": "Phone",
@@ -131,6 +131,7 @@
     "HomePage",
     "LoginPage",
     "NewTicketPage",
+    "EditTicketPage",
     "TicketPage",
     "TicketsDetailPage_User",
     "TicketsDetailPage_Approval",
@@ -139,6 +140,9 @@
     "ApprovalPage",
     "HODPage",
     "History_request_Approver",
-    "History_request_HOD"
+    "History_request_HOD",
+    "TicketsDetail_History_Approval",
+    "TicketsDetail_History_HOD",
+    "TestFIlter_Permission"
   ]
 }

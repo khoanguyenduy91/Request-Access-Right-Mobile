@@ -158,6 +158,9 @@
     "datasets": {
       "https://pizzavietnam.sharepoint.com/sites/TESTSITE": {
         "dataSources": {
+          "Filter Permission form ReqType": {
+            "tableName": "22aee061-44b6-4f86-9ee4-88c284faba13"
+          },
           "FilterTickets": {
             "tableName": "386a3626-5064-46cc-9c79-a7de1c0e82cd"
           },
@@ -193,7 +196,8 @@
       "ReqProcessTest",
       "ReqTypeTest",
       "Setting_LevelApprove",
-      "SettingTest"
+      "SettingTest",
+      "Filter Permission form ReqType"
     ],
     "dependencies": {},
     "dependents": [

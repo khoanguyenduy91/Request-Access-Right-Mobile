@@ -111,26 +111,74 @@ History_request_Approver As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
                 Size: =21
-                Text: =If(TicketsGallery_1.AllItemsCount=0,"Không tìm thấy request nào")
-                Visible: =If(TicketsGallery_1.AllItemsCount=0,true,false)
+                Text: =If(TicketsGallery_history_approver.AllItemsCount=0,"Không tìm thấy request nào")
+                Visible: =If(TicketsGallery_history_approver.AllItemsCount=0,true,false)
                 Width: =560
                 ZIndex: =2
 
-            TicketsGallery_1 As gallery.textualGalleryVertical:
+            TicketsGallery_history_approver As gallery.textualGalleryVertical:
                 AccessibleLabel: ="Tickets Gallery"
-                DisabledBorderColor: =TicketsGallery_1.BorderColor
-                DisabledFill: =TicketsGallery_1.Fill
+                DisabledBorderColor: =TicketsGallery_history_approver.BorderColor
+                DisabledFill: =TicketsGallery_history_approver.Fill
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                HoverBorderColor: =TicketsGallery_1.BorderColor
-                HoverFill: =TicketsGallery_1.Fill
-                Items: =Request_Test
+                HoverBorderColor: =TicketsGallery_history_approver.BorderColor
+                HoverFill: =TicketsGallery_history_approver.Fill
+                Items: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                LevelApproveTest,
+                                IdUser.Email = varEmailUser && Level.Value = "Approver 1"
+                            )
+                        ),
+                        SortByColumns(
+                            Filter(
+                                Request_Test,
+                                varEmailUser = 'Approver 1'.Email && !IsBlank('Approved Date 1')
+                            ),
+                            "Created",
+                            SortOrder.Descending
+                        ),
+                        If(
+                            !IsBlank(
+                                LookUp(
+                                    LevelApproveTest,
+                                    varEmailUser = IdUser.Email && Level.Value = "Approver 2"
+                                )
+                            ),
+                            SortByColumns(
+                                Filter(
+                                    Request_Test,
+                                    varEmailUser = 'Approver 2'.Email && !IsBlank('Approved Date 2')
+                                ),
+                                "Created",
+                                SortOrder.Descending
+                            ),
+                            If(
+                                !IsBlank(
+                                    LookUp(
+                                        LevelApproveTest,
+                                        varEmailUser = IdUser.Email && Level.Value = "Approver 3"
+                                    )
+                                ),
+                                SortByColumns(
+                                    Filter(
+                                        Request_Test,
+                                        varEmailUser = 'Approver 3'.Email && !IsBlank('Approved Date 3') && 'ReqType: ID'.Value = "2"
+                                    ),
+                                    "Created",
+                                    SortOrder.Descending
+                                )
+                            )
+                        )
+                    )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
-                LoadingSpinnerColor: =TicketsGallery_1.BorderColor
-                PressedBorderColor: =TicketsGallery_1.BorderColor
-                PressedFill: =TicketsGallery_1.Fill
+                LoadingSpinnerColor: =TicketsGallery_history_approver.BorderColor
+                PressedBorderColor: =TicketsGallery_history_approver.BorderColor
+                PressedFill: =TicketsGallery_history_approver.Fill
                 ShowScrollbar: =false
                 TemplatePadding: =0
                 TemplateSize: =223.0699504854464
@@ -260,7 +308,7 @@ History_request_Approver As screen:
                             HoverFill: =Heading1_6.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =300
-                            OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                            OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                             PaddingBottom: =0
                             PaddingLeft: =10
                             PaddingRight: =0
@@ -288,7 +336,7 @@ History_request_Approver As screen:
                             HoverFill: =Heading1_7.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =300
-                            OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                            OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -345,7 +393,7 @@ History_request_Approver As screen:
                                     HoverFill: =Subtitle1_12.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
                                     PaddingRight: =0
@@ -373,7 +421,7 @@ History_request_Approver As screen:
                                     HoverFill: =Subtitle1_13.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
                                     PaddingRight: =0
@@ -407,7 +455,7 @@ History_request_Approver As screen:
                                         HoverFill: =Subtitle1_14.Fill
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =120
-                                        OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                        OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                                         PaddingBottom: =0
                                         PaddingLeft: =10
                                         PaddingRight: =0
@@ -477,7 +525,7 @@ History_request_Approver As screen:
                                         HoverFill: =Subtitle1_15.Fill
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =460
-                                        OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                        OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                                         PaddingBottom: =0
                                         PaddingLeft: =0
                                         PaddingRight: =0
@@ -495,6 +543,7 @@ History_request_Approver As screen:
 
                             icon8_3 As icon.ChevronRight:
                                 AccessibleLabel: ="Ticket Details Button"
+                                AlignInContainer: =AlignInContainer.Stretch
                                 BorderColor: =RGBA(0, 0, 0, 1)
                                 Color: =RGBA(115, 115, 115, 1)
                                 DisabledBorderColor: =RGBA(56, 56, 56, 1)
@@ -506,7 +555,7 @@ History_request_Approver As screen:
                                 HoverColor: =ColorFade(icon8_3.Color, 20%)
                                 HoverFill: =icon8_3.Fill
                                 Icon: =Icon.ChevronRight
-                                OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                                 PressedBorderColor: =ColorFade(icon8_3.BorderColor, -20%)
                                 PressedColor: =ColorFade(icon8_3.Color, -20%)
                                 PressedFill: =icon8_3.Fill

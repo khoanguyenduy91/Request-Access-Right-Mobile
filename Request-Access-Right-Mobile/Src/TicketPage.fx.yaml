@@ -530,6 +530,7 @@ TicketPage As screen:
 
                             icon8 As icon.ChevronRight:
                                 AccessibleLabel: ="Ticket Details Button"
+                                AlignInContainer: =AlignInContainer.Stretch
                                 BorderColor: =RGBA(0, 0, 0, 1)
                                 Color: =RGBA(115, 115, 115, 1)
                                 DisabledBorderColor: =RGBA(56, 56, 56, 1)
