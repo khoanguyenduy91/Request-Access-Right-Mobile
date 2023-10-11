@@ -393,7 +393,6 @@ EditTicketPage As screen:
                     DataCardValue10_2 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
-                        DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength

@@ -305,6 +305,7 @@ NewTicketPage As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -378,8 +379,7 @@ NewTicketPage As screen:
 
                     DataCardValue10 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
-                        DelayOutput: =true
+                        Default: =If(DataCardValue8.Selected.Value="Other","",Parent.Default)
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -389,6 +389,7 @@ NewTicketPage As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -618,7 +619,8 @@ NewTicketPage As screen:
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: =SubmitForm(Form1)
+                OnSelect: |
+                    =SubmitForm(Form1)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

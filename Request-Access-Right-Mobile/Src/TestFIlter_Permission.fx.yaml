@@ -1,4 +1,5 @@
 TestFIlter_Permission As screen:
+    OnVisible: =NewForm(Form1_1)
 
     Container7_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -41,13 +42,9 @@ TestFIlter_Permission As screen:
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
+                OnSelect: =
                 Size: =28
-                Text: |-
-                    =If(
-                        varRenameButton = "1",
-                        "New request",
-                        "Edit request"
-                    )
+                Text: ="New request"
                 Width: =560
                 ZIndex: =2
 
@@ -57,6 +54,7 @@ TestFIlter_Permission As screen:
                 Image: ='Logo - PizzaHut'
                 LayoutMinHeight: =50
                 LayoutMinWidth: =320
+                OnSelect: =
                 Width: =64
                 ZIndex: =3
 
@@ -287,7 +285,6 @@ TestFIlter_Permission As screen:
                     DataCardValue9_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
-                        DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -297,6 +294,7 @@ TestFIlter_Permission As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -616,12 +614,7 @@ TestFIlter_Permission As screen:
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
                 Size: =24
-                Text: |-
-                    =If(
-                        varRenameButton = "1",
-                        "Create request",
-                        "Edit request"
-                    )
+                Text: ="Create request"
                 Width: =Parent.Width
                 X: =590
                 Y: =664
