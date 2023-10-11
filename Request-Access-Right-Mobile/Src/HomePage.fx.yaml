@@ -8,10 +8,6 @@ HomePage As screen:
             Request_Test
         );
         Set(
-            varRenameButton,
-            "1"
-        );
-        Set(
             autoRefresh,
             true
         );
@@ -135,7 +131,6 @@ HomePage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =NewForm(Form1);
-                    Set(varRenameButton,"1");
                     Navigate(
                         NewTicketPage,
                         ScreenTransition.Fade
