@@ -1,4 +1,5 @@
 EditTicketPage As screen:
+    OnVisible: =
 
     Container7_2 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -392,7 +393,7 @@ EditTicketPage As screen:
 
                     DataCardValue10_2 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =If(DataCardValue8_1.Selected.Value="Other","",Parent.Default)
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -402,7 +403,7 @@ EditTicketPage As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =If(DataCardValue8_1.Selected.Value="Other",true,false)
+                        Reset: =
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
