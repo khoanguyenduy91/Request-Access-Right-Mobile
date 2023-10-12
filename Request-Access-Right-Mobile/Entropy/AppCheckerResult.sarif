@@ -3354,49 +3354,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container51.Subtitle1.FocusedBorderThickness"
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Subtitle1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container51.Subtitle1.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "TicketPage",
-                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container51.Subtitle1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container51.Subtitle1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container51.Subtitle1.TabIndex",
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Subtitle1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "TicketPage",
-                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container51.Subtitle1"
+                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Subtitle1"
               }
             }
           ],
@@ -3408,6 +3378,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Subtitle1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Subtitle1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "TicketPage",
+                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Subtitle1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 4
         },
         {
           "locations": [
