@@ -1,6 +1,5 @@
 EditTicketPage As screen:
-    OnVisible: |-
-        =UpdateContext({varResetDesr: false});
+    OnVisible: =
 
     Container7_2 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -405,7 +404,7 @@ EditTicketPage As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =varResetDesr
+                        Reset: =
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
