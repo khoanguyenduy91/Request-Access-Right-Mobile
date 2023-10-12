@@ -572,6 +572,7 @@ TicketPage As screen:
                                     HoverFill: =icon8.Fill
                                     Icon: =Icon.ChevronRight
                                     LayoutMinHeight: =60
+                                    LayoutMinWidth: =40
                                     OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                     PressedBorderColor: =ColorFade(icon8.BorderColor, -20%)
                                     PressedColor: =ColorFade(icon8.Color, -20%)
@@ -591,11 +592,12 @@ TicketPage As screen:
                                     DisabledFill: =icon8_5.Fill
                                     FocusedBorderColor: =Color.Black
                                     FocusedBorderThickness: =1
-                                    Height: =60
+                                    Height: =40
                                     HoverBorderColor: =ColorFade(icon8_5.BorderColor, 20%)
                                     HoverColor: =ColorFade(icon8_5.Color, 20%)
                                     HoverFill: =icon8_5.Fill
                                     Icon: =Icon.Copy
+                                    LayoutMinWidth: =40
                                     OnSelect: |-
                                         =Set(Copyrequest,TicketsGallery.Selected);
                                         NewForm(Form1_3);
@@ -607,9 +609,7 @@ TicketPage As screen:
                                     PressedColor: =ColorFade(icon8_5.Color, -20%)
                                     PressedFill: =icon8_5.Fill
                                     TabIndex: =0
-                                    Visible: |-
-                                        =//If(ThisItem.Status.Value="Rejected",true,false)
-                                        true
+                                    Visible: =If(ThisItem.Status.Value="Rejected",true,false)
                                     Width: =40
                                     X: =403
                                     Y: =91.78571428571428
