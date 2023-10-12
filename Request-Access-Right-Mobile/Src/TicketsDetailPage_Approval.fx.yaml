@@ -409,6 +409,7 @@ TicketsDetailPage_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.HOD,DataCardValue29.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -538,7 +539,7 @@ TicketsDetailPage_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Approver 1',DataCardValue31.SearchText)
                         SelectMultiple: =false
-                        Size: =20
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -663,6 +664,7 @@ TicketsDetailPage_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Approver 2',DataCardValue33.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -787,6 +789,7 @@ TicketsDetailPage_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Approver 3',DataCardValue35.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -911,6 +914,7 @@ TicketsDetailPage_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Rejected By',DataCardValue37.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30

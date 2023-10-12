@@ -1,7 +1,9 @@
-TestFIlter_Permission As screen:
-    OnVisible: =NewForm(Form1_1)
+NewTicketPage_1 As screen:
+    OnVisible: |-
+        =UpdateContext({varResetDesr: false});
+        NewForm(Form1_4)
 
-    Container7_1 As groupContainer.verticalAutoLayoutContainer:
+    Container7_4 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
@@ -10,7 +12,7 @@ TestFIlter_Permission As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        Container2_19 As groupContainer.horizontalAutoLayoutContainer:
+        Container2_21 As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -23,17 +25,17 @@ TestFIlter_Permission As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            Icon1_21 As icon.Add:
+            Icon1_23 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
-                OnSelect: =ResetForm(Form1_1);Back()
+                OnSelect: =ResetForm(Form1_4);Back()
                 Width: =50
                 ZIndex: =1
 
-            Label1_14 As label:
+            Label1_17 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
@@ -42,23 +44,22 @@ TestFIlter_Permission As screen:
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
-                OnSelect: =
                 Size: =28
                 Text: ="New request"
                 Width: =560
                 ZIndex: =2
 
-            Image1_13 As image:
+            Image1_16 As image:
                 AlignInContainer: =AlignInContainer.Stretch
                 Height: =64
                 Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =63
+                LayoutMinHeight: =50
                 LayoutMinWidth: =320
                 OnSelect: =
                 Width: =64
                 ZIndex: =3
 
-        Container38_1 As groupContainer.verticalAutoLayoutContainer:
+        Container38_4 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height
@@ -71,11 +72,10 @@ TestFIlter_Permission As screen:
             Width: =Parent.Width
             ZIndex: =2
 
-            Form1_1 As form:
+            Form1_4 As form:
                 DataSource: =Request_Test
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Item: =TicketsGallery.Selected
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 OnFailure: |-
@@ -97,7 +97,7 @@ TestFIlter_Permission As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                ReqType_DataCard2_1 As typedDataCard.comboBoxEditCard:
+                ReqType_DataCard1_1 As typedDataCard.comboBoxEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqType"
                     Default: =ThisItem.ReqType
@@ -106,13 +106,13 @@ TestFIlter_Permission As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =true
-                    Update: =Dropdown2.Selected
+                    Update: =DataCardValue12_1.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =1
                     ZIndex: =1
 
-                    DataCardKey13_1 As label:
+                    DataCardKey13_2 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -128,7 +128,28 @@ TestFIlter_Permission As screen:
                         Y: =10
                         ZIndex: =1
 
-                    ErrorMessage13_1 As label:
+                    DataCardValue12_1 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        ChevronBackground: =RGBA(10, 128, 32, 1)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =70
+                        IsSearchable: =false
+                        Items: =Choices([@Request_Test].ReqType)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =RGBA(10, 128, 32, 1)
+                        SelectMultiple: =false
+                        Size: =21
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey13_2.Y + DataCardKey13_2.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage13_2 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -141,40 +162,25 @@ TestFIlter_Permission As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =Dropdown2.Y + Dropdown2.Height
+                        Y: =DataCardValue12_1.Y + DataCardValue12_1.Height
                         ZIndex: =3
 
-                    StarVisible13_1 As label:
+                    StarVisible13_2 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey13_1.Height
-                        PaddingBottom: =DataCardKey13_1.PaddingBottom
-                        PaddingLeft: =DataCardKey13_1.PaddingLeft
-                        PaddingRight: =DataCardKey13_1.PaddingRight
-                        PaddingTop: =DataCardKey13_1.PaddingTop
+                        Height: =DataCardKey13_2.Height
+                        PaddingBottom: =DataCardKey13_2.PaddingBottom
+                        PaddingLeft: =DataCardKey13_2.PaddingLeft
+                        PaddingRight: =DataCardKey13_2.PaddingRight
+                        PaddingTop: =DataCardKey13_2.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey13_1.Y
+                        Y: =DataCardKey13_2.Y
                         ZIndex: =4
 
-                    Dropdown2 As dropdown:
-                        AllowEmptySelection: =true
-                        ChevronBackground: =RGBA(10, 128, 32, 1)
-                        ChevronFill: =RGBA(186, 186, 186, 1)
-                        Height: =70
-                        HoverColor: =
-                        HoverFill: =RGBA(186, 186, 186, 1)
-                        Items: =Distinct('Filter Permission form ReqType',ReqType.Value)
-                        SelectionFill: =RGBA(11, 128, 32, 1)
-                        Size: =21
-                        Width: =Parent.Width-60
-                        X: =30
-                        Y: =50
-                        ZIndex: =5
-
-                ReqPermission_DataCard1_1 As typedDataCard.comboBoxEditCard:
+                ReqPermission_DataCard1_4 As typedDataCard.comboBoxEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqPermission"
                     Default: =ThisItem.ReqPermission
@@ -183,13 +189,13 @@ TestFIlter_Permission As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =true
-                    Update: =Dropdown3.Selected
+                    Update: =DataCardValue8_3.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =2
                     ZIndex: =1
 
-                    DataCardKey9_1 As label:
+                    DataCardKey9_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -205,7 +211,28 @@ TestFIlter_Permission As screen:
                         Y: =10
                         ZIndex: =1
 
-                    ErrorMessage9_1 As label:
+                    DataCardValue8_3 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        ChevronBackground: =RGBA(10, 128, 32, 1)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =70
+                        IsSearchable: =false
+                        Items: =Choices(Request_Test.ReqPermission)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =RGBA(11, 128, 32, 0.85)
+                        SelectMultiple: =false
+                        Size: =21
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey9_4.Y + DataCardKey9_4.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage9_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -218,39 +245,25 @@ TestFIlter_Permission As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =Dropdown3.Y + Dropdown3.Height
+                        Y: =DataCardValue8_3.Y + DataCardValue8_3.Height
                         ZIndex: =3
 
-                    StarVisible9_1 As label:
+                    StarVisible9_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey9_1.Height
-                        PaddingBottom: =DataCardKey9_1.PaddingBottom
-                        PaddingLeft: =DataCardKey9_1.PaddingLeft
-                        PaddingRight: =DataCardKey9_1.PaddingRight
-                        PaddingTop: =DataCardKey9_1.PaddingTop
+                        Height: =DataCardKey9_4.Height
+                        PaddingBottom: =DataCardKey9_4.PaddingBottom
+                        PaddingLeft: =DataCardKey9_4.PaddingLeft
+                        PaddingRight: =DataCardKey9_4.PaddingRight
+                        PaddingTop: =DataCardKey9_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey9_1.Y
+                        Y: =DataCardKey9_4.Y
                         ZIndex: =4
 
-                    Dropdown3 As dropdown:
-                        AllowEmptySelection: =true
-                        ChevronBackground: =RGBA(10, 128, 32, 1)
-                        Height: =70
-                        HoverColor: =
-                        HoverFill: =
-                        Items: =Distinct(Filter('Filter Permission form ReqType', ReqType.Value=Dropdown2.Selected.Value),ReqPermission.Value)
-                        SelectionFill: =RGBA(11, 128, 32, 1)
-                        Size: =21
-                        Width: =Parent.Width-60
-                        X: =30
-                        Y: =50
-                        ZIndex: =5
-
-                ReqReason_DataCard1_1 As typedDataCard.textualEditCard:
+                ReqReason_DataCard1_4 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqReason"
                     Default: =ThisItem.ReqReason
@@ -260,13 +273,13 @@ TestFIlter_Permission As screen:
                     Height: =260
                     MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqReason")
                     Required: =true
-                    Update: =DataCardValue9_1.Text
+                    Update: =DataCardValue9_4.Text
                     Width: =Parent.Width
                     X: =0
                     Y: =3
                     ZIndex: =1
 
-                    DataCardKey10_1 As label:
+                    DataCardKey10_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -282,9 +295,10 @@ TestFIlter_Permission As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue9_1 As text:
+                    DataCardValue9_4 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
+                        DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -299,10 +313,10 @@ TestFIlter_Permission As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey10_1.Y + DataCardKey10_1.Height + 5
+                        Y: =DataCardKey10_4.Y + DataCardKey10_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage10_1 As label:
+                    ErrorMessage10_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -315,25 +329,25 @@ TestFIlter_Permission As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue9_1.Y + DataCardValue9_1.Height
+                        Y: =DataCardValue9_4.Y + DataCardValue9_4.Height
                         ZIndex: =3
 
-                    StarVisible10_1 As label:
+                    StarVisible10_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey10_1.Height
-                        PaddingBottom: =DataCardKey10_1.PaddingBottom
-                        PaddingLeft: =DataCardKey10_1.PaddingLeft
-                        PaddingRight: =DataCardKey10_1.PaddingRight
-                        PaddingTop: =DataCardKey10_1.PaddingTop
+                        Height: =DataCardKey10_4.Height
+                        PaddingBottom: =DataCardKey10_4.PaddingBottom
+                        PaddingLeft: =DataCardKey10_4.PaddingLeft
+                        PaddingRight: =DataCardKey10_4.PaddingRight
+                        PaddingTop: =DataCardKey10_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey10_1.Y
+                        Y: =DataCardKey10_4.Y
                         ZIndex: =4
 
-                ReqDescription_DataCard1_1 As typedDataCard.textualEditCard:
+                ReqDescription_DataCard1_4 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqDescription"
                     Default: =ThisItem.ReqDescription
@@ -342,15 +356,15 @@ TestFIlter_Permission As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =250
                     MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqDescription")
-                    Required: =If(Dropdown3.Selected.Value="Other",true,false)
-                    Update: =DataCardValue10_1.Text
-                    Visible: =If(Dropdown3.Selected.Value="Other",true,false)
+                    Required: =If(DataCardValue8_3.Selected.Value="Other",true,false)
+                    Update: =DataCardValue10_4.Text
+                    Visible: =If(DataCardValue8_3.Selected.Value="Other",true,false)
                     Width: =Parent.Width
                     X: =0
                     Y: =4
                     ZIndex: =1
 
-                    DataCardKey11_1 As label:
+                    DataCardKey11_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -366,10 +380,9 @@ TestFIlter_Permission As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue10_1 As text:
+                    DataCardValue10_4 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
-                        DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -379,15 +392,15 @@ TestFIlter_Permission As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =
+                        Reset: =varResetDesr
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey11_1.Y + DataCardKey11_1.Height + 5
+                        Y: =DataCardKey11_4.Y + DataCardKey11_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage11_1 As label:
+                    ErrorMessage11_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -400,25 +413,25 @@ TestFIlter_Permission As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue10_1.Y + DataCardValue10_1.Height
+                        Y: =DataCardValue10_4.Y + DataCardValue10_4.Height
                         ZIndex: =3
 
-                    StarVisible11_1 As label:
+                    StarVisible11_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey11_1.Height
-                        PaddingBottom: =DataCardKey11_1.PaddingBottom
-                        PaddingLeft: =DataCardKey11_1.PaddingLeft
-                        PaddingRight: =DataCardKey11_1.PaddingRight
-                        PaddingTop: =DataCardKey11_1.PaddingTop
+                        Height: =DataCardKey11_4.Height
+                        PaddingBottom: =DataCardKey11_4.PaddingBottom
+                        PaddingLeft: =DataCardKey11_4.PaddingLeft
+                        PaddingRight: =DataCardKey11_4.PaddingRight
+                        PaddingTop: =DataCardKey11_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey11_1.Y
+                        Y: =DataCardKey11_4.Y
                         ZIndex: =4
 
-                Attachments_DataCard1_1 As typedDataCard.attachmentsEditCard:
+                Attachments_DataCard1_4 As typedDataCard.attachmentsEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
                     Default: =ThisItem.Attachments
@@ -427,13 +440,13 @@ TestFIlter_Permission As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue11_1.Attachments
+                    Update: =DataCardValue11_4.Attachments
                     Width: =Parent.Width
                     X: =0
                     Y: =5
                     ZIndex: =1
 
-                    DataCardKey12_1 As label:
+                    DataCardKey12_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -449,7 +462,7 @@ TestFIlter_Permission As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue11_1 As attachments:
+                    DataCardValue11_4 As attachments:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =2
                         DisplayMode: =Parent.DisplayMode
@@ -463,10 +476,10 @@ TestFIlter_Permission As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey12_1.Y + DataCardKey12_1.Height + 5
+                        Y: =DataCardKey12_4.Y + DataCardKey12_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage12_1 As label:
+                    ErrorMessage12_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -479,25 +492,25 @@ TestFIlter_Permission As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue11_1.Y + DataCardValue11_1.Height
+                        Y: =DataCardValue11_4.Y + DataCardValue11_4.Height
                         ZIndex: =3
 
-                    StarVisible12_1 As label:
+                    StarVisible12_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey12_1.Height
-                        PaddingBottom: =DataCardKey12_1.PaddingBottom
-                        PaddingLeft: =DataCardKey12_1.PaddingLeft
-                        PaddingRight: =DataCardKey12_1.PaddingRight
-                        PaddingTop: =DataCardKey12_1.PaddingTop
+                        Height: =DataCardKey12_4.Height
+                        PaddingBottom: =DataCardKey12_4.PaddingBottom
+                        PaddingLeft: =DataCardKey12_4.PaddingLeft
+                        PaddingRight: =DataCardKey12_4.PaddingRight
+                        PaddingTop: =DataCardKey12_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey12_1.Y
+                        Y: =DataCardKey12_4.Y
                         ZIndex: =4
 
-                Title_DataCard1_1 As typedDataCard.textualEditCard:
+                Title_DataCard1_4 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Title"
                     Default: =ThisItem.Title
@@ -507,13 +520,13 @@ TestFIlter_Permission As screen:
                     Height: =133
                     MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "Title")
                     Required: =true
-                    Update: =DataCardValue1_1.Text
+                    Update: =DataCardValue1_4.Text
                     Width: =Parent.Width
                     X: =0
                     Y: =0
                     ZIndex: =2
 
-                    DataCardKey1_1 As label:
+                    DataCardKey1_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -529,7 +542,7 @@ TestFIlter_Permission As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue1_1 As text:
+                    DataCardValue1_4 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
                         DelayOutput: =true
@@ -545,10 +558,10 @@ TestFIlter_Permission As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey1_1.Y + DataCardKey1_1.Height + 5
+                        Y: =DataCardKey1_4.Y + DataCardKey1_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage1_1 As label:
+                    ErrorMessage1_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -561,25 +574,25 @@ TestFIlter_Permission As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue1_1.Y + DataCardValue1_1.Height
+                        Y: =DataCardValue1_4.Y + DataCardValue1_4.Height
                         ZIndex: =3
 
-                    StarVisible1_1 As label:
+                    StarVisible1_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey1_1.Height
-                        PaddingBottom: =DataCardKey1_1.PaddingBottom
-                        PaddingLeft: =DataCardKey1_1.PaddingLeft
-                        PaddingRight: =DataCardKey1_1.PaddingRight
-                        PaddingTop: =DataCardKey1_1.PaddingTop
+                        Height: =DataCardKey1_4.Height
+                        PaddingBottom: =DataCardKey1_4.PaddingBottom
+                        PaddingLeft: =DataCardKey1_4.PaddingLeft
+                        PaddingRight: =DataCardKey1_4.PaddingRight
+                        PaddingTop: =DataCardKey1_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey1_1.Y
+                        Y: =DataCardKey1_4.Y
                         ZIndex: =4
 
-        Container11_1 As groupContainer.verticalAutoLayoutContainer:
+        Container11_4 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
             DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
@@ -600,7 +613,7 @@ TestFIlter_Permission As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            Button_newticket_1 As button:
+            Button_newticket_4 As button:
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -609,7 +622,12 @@ TestFIlter_Permission As screen:
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: =SubmitForm(Form1_1)
+                OnSelect: |-
+                    =If(
+                        DataCardValue8_3.Selected.Value = "Other",
+                        SubmitForm(Form1_4),
+                        UpdateContext({varResetDesr: true}) && SubmitForm(Form1_4)
+                    )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

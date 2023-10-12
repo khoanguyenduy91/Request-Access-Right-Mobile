@@ -1,5 +1,6 @@
 EditTicketPage As screen:
-    OnVisible: =
+    OnVisible: |-
+        =UpdateContext({varResetDesr: false});
 
     Container7_2 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -53,6 +54,7 @@ EditTicketPage As screen:
                 Image: ='Logo - PizzaHut'
                 LayoutMinHeight: =50
                 LayoutMinWidth: =320
+                OnSelect: =
                 Width: =64
                 ZIndex: =3
 
@@ -300,7 +302,6 @@ EditTicketPage As screen:
                     DataCardValue9_2 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
-                        DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -310,6 +311,7 @@ EditTicketPage As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -393,7 +395,7 @@ EditTicketPage As screen:
 
                     DataCardValue10_2 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =If(DataCardValue8_1.Selected.Value="Other","",Parent.Default)
+                        Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -403,7 +405,7 @@ EditTicketPage As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =
+                        Reset: =varResetDesr
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -634,8 +636,8 @@ EditTicketPage As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
-                    ='[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
-                    SubmitForm(Form1_2)
+                    =SubmitForm(Form1_2);
+                    '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

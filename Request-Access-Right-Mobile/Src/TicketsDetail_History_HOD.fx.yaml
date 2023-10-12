@@ -408,6 +408,7 @@ TicketsDetail_History_HOD As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.HOD,DataCardValue40_1.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -912,6 +913,7 @@ TicketsDetail_History_HOD As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Rejected By',DataCardValue48_1.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
