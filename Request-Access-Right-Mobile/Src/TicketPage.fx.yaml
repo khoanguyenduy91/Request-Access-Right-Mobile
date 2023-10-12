@@ -369,44 +369,34 @@ TicketPage As screen:
                                 Width: =Parent.Width
                                 ZIndex: =1
 
-                                Container51 As groupContainer.horizontalAutoLayoutContainer:
-                                    AlignInContainer: =AlignInContainer.Center
-                                    FillPortions: =0
-                                    Height: =60
-                                    LayoutMinHeight: =112
-                                    LayoutMinWidth: =200
-                                    LayoutMode: =LayoutMode.Auto
+                                Subtitle1 As label:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: =RGBA(29, 33, 35, 1)
+                                    FillPortions: =1
+                                    FocusedBorderColor: =Subtitle1.BorderColor
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =58
+                                    HoverBorderColor: =Subtitle1.BorderColor
+                                    HoverColor: =Subtitle1.Color
+                                    HoverFill: =Subtitle1.Fill
+                                    LayoutMinHeight: =60
+                                    LayoutMinWidth: =560
+                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =10
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    PressedBorderColor: =Subtitle1.BorderColor
+                                    PressedColor: =Subtitle1.Color
+                                    PressedFill: =Subtitle1.Fill
+                                    Size: =22
+                                    Text: |-
+                                        ="Title: "& ThisItem.Title
                                     Width: =Parent.Width
+                                    Wrap: =false
+                                    X: =19
+                                    Y: =47
                                     ZIndex: =1
-
-                                    Subtitle1 As label:
-                                        AlignInContainer: =AlignInContainer.Stretch
-                                        Color: =RGBA(29, 33, 35, 1)
-                                        FillPortions: =1
-                                        FocusedBorderColor: =Subtitle1.BorderColor
-                                        FontWeight: =FontWeight.Semibold
-                                        Height: =58
-                                        HoverBorderColor: =Subtitle1.BorderColor
-                                        HoverColor: =Subtitle1.Color
-                                        HoverFill: =Subtitle1.Fill
-                                        LayoutMinHeight: =60
-                                        LayoutMinWidth: =560
-                                        OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
-                                        PaddingBottom: =0
-                                        PaddingLeft: =10
-                                        PaddingRight: =0
-                                        PaddingTop: =0
-                                        PressedBorderColor: =Subtitle1.BorderColor
-                                        PressedColor: =Subtitle1.Color
-                                        PressedFill: =Subtitle1.Fill
-                                        Size: =22
-                                        Text: |-
-                                            ="Title: "& ThisItem.Title
-                                        Width: =Parent.Width
-                                        Wrap: =false
-                                        X: =19
-                                        Y: =47
-                                        ZIndex: =1
 
                                 Subtitle1_7 As label:
                                     AlignInContainer: =AlignInContainer.Stretch

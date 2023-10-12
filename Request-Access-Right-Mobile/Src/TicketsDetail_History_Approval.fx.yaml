@@ -407,6 +407,7 @@ TicketsDetail_History_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.HOD,DataCardValue29_1.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -786,6 +787,7 @@ TicketsDetail_History_Approval As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(Request_Test.'Approver 3',DataCardValue35_1.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
