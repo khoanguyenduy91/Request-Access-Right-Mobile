@@ -124,7 +124,20 @@ History_request_HOD As screen:
                 Height: =Parent.Height
                 HoverBorderColor: =TicketsGallery_history_HOD.BorderColor
                 HoverFill: =TicketsGallery_history_HOD.Fill
-                Items: =Request_Test
+                Items: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                Request_Test,
+                                User().Email = HOD.Email
+                            )
+                        ),
+                        SortByColumns(
+                            CollecRequestHistory_HOD,
+                            "Created",
+                            SortOrder.Descending
+                        )
+                    )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320

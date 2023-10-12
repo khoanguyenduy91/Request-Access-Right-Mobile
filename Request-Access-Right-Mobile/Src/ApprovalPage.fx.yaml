@@ -1,5 +1,28 @@
 ApprovalPage As screen:
     Fill: =RGBA(230, 229, 229, 1)
+    OnVisible: |-
+        =Refresh(Request_Test);
+        ClearCollect(
+            CollecRequestHistory_Approver1,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 1'.Email && !IsBlank('Approved Date 1') || User().Email = 'Rejected By'.Email && !IsBlank('Rejected Date') && !IsBlank('Reason Reject')
+            )
+        );
+        ClearCollect(
+            CollecRequestHistory_Approver2,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 2'.Email && !IsBlank('Approved Date 2') || User().Email = 'Rejected By'.Email && !IsBlank('Rejected Date') && !IsBlank('Reason Reject')
+            )
+        );
+        ClearCollect(
+            CollecRequestHistory_Approver3,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 3'.Email && !IsBlank('Approved Date 3') && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && !IsBlank('Rejected Date') && !IsBlank('Reason Reject')
+            )
+        )
 
     Container9_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
