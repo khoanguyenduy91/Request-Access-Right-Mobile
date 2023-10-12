@@ -369,44 +369,55 @@ TicketPage As screen:
                                 Width: =Parent.Width
                                 ZIndex: =1
 
-                                Subtitle1 As label:
-                                    AlignInContainer: =AlignInContainer.Stretch
-                                    Color: =RGBA(29, 33, 35, 1)
-                                    FocusedBorderColor: =Subtitle1.BorderColor
-                                    FontWeight: =FontWeight.Semibold
-                                    Height: =58
-                                    HoverBorderColor: =Subtitle1.BorderColor
-                                    HoverColor: =Subtitle1.Color
-                                    HoverFill: =Subtitle1.Fill
-                                    LayoutMinHeight: =70
-                                    LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
-                                    PaddingBottom: =0
-                                    PaddingLeft: =10
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    PressedBorderColor: =Subtitle1.BorderColor
-                                    PressedColor: =Subtitle1.Color
-                                    PressedFill: =Subtitle1.Fill
-                                    Size: =22
-                                    Text: |-
-                                        ="Title: "& ThisItem.Title
-                                    Width: =621
-                                    Wrap: =false
-                                    X: =19
-                                    Y: =47
+                                Container51 As groupContainer.horizontalAutoLayoutContainer:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    FillPortions: =0
+                                    Height: =60
+                                    LayoutMinHeight: =112
+                                    LayoutMinWidth: =200
+                                    LayoutMode: =LayoutMode.Auto
+                                    Width: =Parent.Width
                                     ZIndex: =1
+
+                                    Subtitle1 As label:
+                                        AlignInContainer: =AlignInContainer.Stretch
+                                        Color: =RGBA(29, 33, 35, 1)
+                                        FillPortions: =1
+                                        FocusedBorderColor: =Subtitle1.BorderColor
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =58
+                                        HoverBorderColor: =Subtitle1.BorderColor
+                                        HoverColor: =Subtitle1.Color
+                                        HoverFill: =Subtitle1.Fill
+                                        LayoutMinHeight: =60
+                                        LayoutMinWidth: =560
+                                        OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                        PaddingBottom: =0
+                                        PaddingLeft: =10
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        PressedBorderColor: =Subtitle1.BorderColor
+                                        PressedColor: =Subtitle1.Color
+                                        PressedFill: =Subtitle1.Fill
+                                        Size: =22
+                                        Text: |-
+                                            ="Title: "& ThisItem.Title
+                                        Width: =Parent.Width
+                                        Wrap: =false
+                                        X: =19
+                                        Y: =47
+                                        ZIndex: =1
 
                                 Subtitle1_7 As label:
                                     AlignInContainer: =AlignInContainer.Stretch
                                     Color: =RGBA(29, 33, 35, 1)
                                     FocusedBorderColor: =Subtitle1_7.BorderColor
                                     FontWeight: =FontWeight.Semibold
-                                    Height: =58
+                                    Height: =50
                                     HoverBorderColor: =Subtitle1_7.BorderColor
                                     HoverColor: =Subtitle1_7.Color
                                     HoverFill: =Subtitle1_7.Fill
-                                    LayoutMinHeight: =70
+                                    LayoutMinHeight: =50
                                     LayoutMinWidth: =560
                                     OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                     PaddingBottom: =0
@@ -419,21 +430,24 @@ TicketPage As screen:
                                     Size: =18
                                     Text: |-
                                         ="Request Type: "& ThisItem.ReqType.Value
-                                    Width: =640
+                                    Width: =Parent.Width
                                     Wrap: =false
                                     X: =10
                                     Y: =58
-                                    ZIndex: =4
+                                    ZIndex: =2
 
                                 Container36 As groupContainer.horizontalAutoLayoutContainer:
                                     FillPortions: =0
                                     Height: =50
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
                                     LayoutMinHeight: =112
                                     LayoutMinWidth: =250
                                     LayoutMode: =LayoutMode.Auto
-                                    ZIndex: =5
+                                    ZIndex: =3
 
                                     Subtitle1_6 As label:
+                                        AlignInContainer: =AlignInContainer.Center
                                         Color: =RGBA(29, 33, 35, 1)
                                         FocusedBorderColor: =Subtitle1_6.BorderColor
                                         Height: =50
@@ -460,6 +474,7 @@ TicketPage As screen:
                                         ZIndex: =1
 
                                     Subtitle1_1 As label:
+                                        AlignInContainer: =AlignInContainer.Stretch
                                         Color: |-
                                             =If(
                                                 ThisItem.Status.Value = "Rejected",
@@ -510,8 +525,8 @@ TicketPage As screen:
                                         HoverBorderColor: =Subtitle1_1.BorderColor
                                         HoverColor: =Subtitle1_1.Color
                                         HoverFill: =Subtitle1_1.Fill
-                                        LayoutMinHeight: =70
-                                        LayoutMinWidth: =460
+                                        LayoutMinHeight: =50
+                                        LayoutMinWidth: =300
                                         OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                         PaddingBottom: =0
                                         PaddingLeft: =0
@@ -528,27 +543,75 @@ TicketPage As screen:
                                         Y: =108.06995048544641
                                         ZIndex: =2
 
-                            icon8 As icon.ChevronRight:
-                                AccessibleLabel: ="Ticket Details Button"
-                                AlignInContainer: =AlignInContainer.Stretch
-                                BorderColor: =RGBA(0, 0, 0, 1)
-                                Color: =RGBA(115, 115, 115, 1)
-                                DisabledBorderColor: =RGBA(56, 56, 56, 1)
-                                DisabledFill: =icon8.Fill
-                                FocusedBorderColor: =Color.Black
-                                FocusedBorderThickness: =1
-                                Height: =40
-                                HoverBorderColor: =ColorFade(icon8.BorderColor, 20%)
-                                HoverColor: =ColorFade(icon8.Color, 20%)
-                                HoverFill: =icon8.Fill
-                                Icon: =Icon.ChevronRight
-                                OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
-                                PressedBorderColor: =ColorFade(icon8.BorderColor, -20%)
-                                PressedColor: =ColorFade(icon8.Color, -20%)
-                                PressedFill: =icon8.Fill
-                                TabIndex: =0
-                                Width: =40
-                                X: =403
-                                Y: =91.78571428571428
+                            Container52 As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.Center
+                                FillPortions: =0
+                                Height: =Parent.Height
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutGap: =30
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =8
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =60
                                 ZIndex: =2
+
+                                icon8 As icon.ChevronRight:
+                                    AccessibleLabel: ="Ticket Details Button"
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Color: =RGBA(115, 115, 115, 1)
+                                    DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                                    DisabledFill: =icon8.Fill
+                                    FocusedBorderColor: =Color.Black
+                                    FocusedBorderThickness: =1
+                                    Height: =40
+                                    HoverBorderColor: =ColorFade(icon8.BorderColor, 20%)
+                                    HoverColor: =ColorFade(icon8.Color, 20%)
+                                    HoverFill: =icon8.Fill
+                                    Icon: =Icon.ChevronRight
+                                    LayoutMinHeight: =60
+                                    LayoutMinWidth: =40
+                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    PressedBorderColor: =ColorFade(icon8.BorderColor, -20%)
+                                    PressedColor: =ColorFade(icon8.Color, -20%)
+                                    PressedFill: =icon8.Fill
+                                    TabIndex: =0
+                                    Width: =40
+                                    X: =393
+                                    Y: =33.78571428571428
+                                    ZIndex: =1
+
+                                icon8_5 As icon.ChevronRight:
+                                    AccessibleLabel: ="Ticket Details Button"
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Color: =RGBA(115, 115, 115, 1)
+                                    DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                                    DisabledFill: =icon8_5.Fill
+                                    FocusedBorderColor: =Color.Black
+                                    FocusedBorderThickness: =1
+                                    Height: =40
+                                    HoverBorderColor: =ColorFade(icon8_5.BorderColor, 20%)
+                                    HoverColor: =ColorFade(icon8_5.Color, 20%)
+                                    HoverFill: =icon8_5.Fill
+                                    Icon: =Icon.Copy
+                                    LayoutMinWidth: =40
+                                    OnSelect: |-
+                                        =Set(Copyrequest,TicketsGallery.Selected);
+                                        NewForm(Form1_3);
+                                        Navigate(
+                                            CopyRequestPage,
+                                            ScreenTransition.None
+                                        )
+                                    PressedBorderColor: =ColorFade(icon8_5.BorderColor, -20%)
+                                    PressedColor: =ColorFade(icon8_5.Color, -20%)
+                                    PressedFill: =icon8_5.Fill
+                                    TabIndex: =0
+                                    Visible: =If(ThisItem.Status.Value="Rejected",true,false)
+                                    Width: =40
+                                    X: =403
+                                    Y: =91.78571428571428
+                                    ZIndex: =2
 

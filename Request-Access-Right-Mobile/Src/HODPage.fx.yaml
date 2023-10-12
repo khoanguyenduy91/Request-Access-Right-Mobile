@@ -1,4 +1,13 @@
 HODPage As screen:
+    OnVisible: |-
+        =Refresh(Request_Test);
+        ClearCollect(
+            CollecRequestHistory_HOD,
+            Filter(
+                Request_Test,
+                User().Email = HOD.Email && !IsBlank('HOD Approved Date') || User().Email = 'Rejected By'.Email && !IsBlank('Rejected Date') && !IsBlank('Reason Reject')
+            )
+        )
 
     Container19 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height

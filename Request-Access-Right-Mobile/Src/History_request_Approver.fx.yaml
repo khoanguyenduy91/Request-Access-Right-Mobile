@@ -133,10 +133,7 @@ History_request_Approver As screen:
                             )
                         ),
                         SortByColumns(
-                            Filter(
-                                Request_Test,
-                                User().Email = 'Approver 1'.Email && !IsBlank('Approved Date 1')
-                            ),
+                            CollecRequestHistory_Approver1,
                             "Created",
                             SortOrder.Descending
                         ),
@@ -148,10 +145,7 @@ History_request_Approver As screen:
                                 )
                             ),
                             SortByColumns(
-                                Filter(
-                                    Request_Test,
-                                    User().Email = 'Approver 2'.Email && !IsBlank('Approved Date 2')
-                                ),
+                                CollecRequestHistory_Approver2,
                                 "Created",
                                 SortOrder.Descending
                             ),
@@ -163,10 +157,7 @@ History_request_Approver As screen:
                                     )
                                 ),
                                 SortByColumns(
-                                    Filter(
-                                        Request_Test,
-                                        User().Email = 'Approver 3'.Email && !IsBlank('Approved Date 3') && 'ReqType: ID'.Value = "2"
-                                    ),
+                                    CollecRequestHistory_Approver3,
                                     "Created",
                                     SortOrder.Descending
                                 )
