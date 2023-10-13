@@ -27,11 +27,13 @@ ApprovalPage As screen:
     Container9_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =0.5
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
 
         Container2_6 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =100
@@ -78,7 +80,6 @@ ApprovalPage As screen:
 
         Container2_10 As groupContainer.horizontalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
-            FillPortions: =0
             Height: =70
             LayoutGap: =20
             LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -92,8 +93,9 @@ ApprovalPage As screen:
 
             Label6 As label:
                 Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Start
                 Fill: =RGBA(255, 255, 255, 1)
-                Height: =70
+                Height: =Parent.Height
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
                 Size: =21
@@ -102,13 +104,15 @@ ApprovalPage As screen:
                 ZIndex: =1
 
             Icon1_11 As icon.Add:
-                AlignInContainer: =AlignInContainer.Stretch
+                AlignInContainer: =AlignInContainer.Start
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =40
+                FillPortions: =1
+                Height: =100
                 Icon: =Icon.History
                 LayoutMinHeight: =50
+                LayoutMinWidth: =40
                 OnSelect: =Navigate(History_request_Approver,ScreenTransition.Fade)
-                Width: =50
+                Width: =100
                 ZIndex: =2
 
         TicketsGallery_approval As gallery.textualGalleryVertical:
