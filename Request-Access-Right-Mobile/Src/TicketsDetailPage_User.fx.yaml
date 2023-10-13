@@ -1409,7 +1409,6 @@ TicketsDetailPage_User As screen:
 
         Container11_4 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
-            DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =120
@@ -1425,7 +1424,6 @@ TicketsDetailPage_User As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Visible: =If(DataCardValue16.Selected.Value="Rejected",true,false)
             Width: =Parent.Width
             ZIndex: =3
 
@@ -1451,6 +1449,7 @@ TicketsDetailPage_User As screen:
                 RadiusTopRight: =5
                 Size: =24
                 Text: ="Copy request"
+                Visible: =If(DataCardValue16.Selected.Value="Rejected",true,false)
                 Width: =Parent.Width
                 X: =590
                 Y: =664
