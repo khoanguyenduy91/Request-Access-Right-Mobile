@@ -44,6 +44,7 @@ History_request_HOD As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 FillPortions: =1
+                FontWeight: =FontWeight.Semibold
                 Height: =88
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
@@ -69,39 +70,6 @@ History_request_HOD As screen:
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =4
-
-            Container2_14 As groupContainer.horizontalAutoLayoutContainer:
-                Fill: =RGBA(255, 255, 255, 1)
-                FillPortions: =0
-                Height: =80
-                LayoutGap: =10
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                PaddingLeft: =10
-                PaddingRight: =10
-                Width: =Parent.Width
-                ZIndex: =1
-
-                Icon1_16 As icon.Add:
-                    AlignInContainer: =AlignInContainer.Center
-                    Color: =RGBA(62, 96, 170, 1)
-                    Height: =50
-                    Icon: =Icon.Filter
-                    OnSelect: =
-                    Width: =50
-                    ZIndex: =1
-
-                Label2_3 As label:
-                    AlignInContainer: =AlignInContainer.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    OnSelect: =
-                    Size: =24
-                    Text: =
-                    Width: =560
-                    ZIndex: =2
 
             Label5_2 As label:
                 Align: =Align.Center

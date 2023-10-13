@@ -393,7 +393,7 @@ CopyRequestPage As screen:
 
                     DataCardValue10_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =If(DataCardValue8_2.Selected.Value="Other","",Parent.Default)
+                        Default: =Copyrequest.ReqDescription
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -479,7 +479,7 @@ CopyRequestPage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =295
                         IsInDataCard: =true
-                        Items: =Copyrequest.Attachments
+                        Items: =Parent.Default
                         PaddingBottom: =5
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PaddingRight: =5

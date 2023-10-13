@@ -418,7 +418,12 @@ TicketsDetailPage_User As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue18.Selected
-                    Visible: =If(IsBlank(DataCardValue18.SelectedItems),false,true)
+                    Visible: |-
+                        =If(
+                            IsBlank(DataCardValue20),
+                            false,
+                            true
+                        )
                     Width: =640
                     X: =0
                     Y: =8
@@ -544,7 +549,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue2.Selected
                     Visible: |-
                         =If(
-                            DataCardValue16.Selected.Value = "Created",
+                            IsBlank(DataCardValue3),
                             false,
                             true
                         )

@@ -39,6 +39,7 @@ TicketsDetailPage_HOD As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =1
+                FontWeight: =FontWeight.Semibold
                 Height: =88
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
@@ -376,7 +377,12 @@ TicketsDetailPage_HOD As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue40.Selected
-                    Visible: =If(IsBlank(DataCardValue40.SelectedItems),false,true)
+                    Visible: |-
+                        =If(
+                            IsBlank(DataCardValue41),
+                            false,
+                            true
+                        )
                     Width: =640
                     X: =0
                     Y: =8
@@ -503,7 +509,7 @@ TicketsDetailPage_HOD As screen:
                     Update: =DataCardValue42.Selected
                     Visible: |-
                         =If(
-                            DataCardValue16_2.Selected.Value = "Created",
+                            IsBlank(DataCardValue43),
                             false,
                             true
                         )
