@@ -375,7 +375,12 @@ TicketsDetail_History_HOD As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue40_1.Selected
-                    Visible: =If(IsBlank(DataCardValue40_1.SelectedItems),false,true)
+                    Visible: |-
+                        =If(
+                            IsBlank(DataCardValue41_1),
+                            false,
+                            true
+                        )
                     Width: =640
                     X: =0
                     Y: =8
@@ -502,7 +507,7 @@ TicketsDetail_History_HOD As screen:
                     Update: =DataCardValue42_1.Selected
                     Visible: |-
                         =If(
-                            DataCardValue16_4.Selected.Value = "Created",
+                            IsBlank(DataCardValue43_1),
                             false,
                             true
                         )
