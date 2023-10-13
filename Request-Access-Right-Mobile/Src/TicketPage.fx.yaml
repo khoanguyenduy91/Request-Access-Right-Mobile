@@ -537,10 +537,9 @@ TicketPage As screen:
                                 AlignInContainer: =AlignInContainer.Center
                                 FillPortions: =0
                                 Height: =Parent.Height
-                                LayoutAlignItems: =LayoutAlignItems.Stretch
+                                LayoutAlignItems: =LayoutAlignItems.Center
                                 LayoutDirection: =LayoutDirection.Vertical
-                                LayoutGap: =20
-                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                                 LayoutMinHeight: =8
                                 LayoutMinWidth: =250
                                 LayoutMode: =LayoutMode.Auto
@@ -549,11 +548,12 @@ TicketPage As screen:
 
                                 icon8 As icon.ChevronRight:
                                     AccessibleLabel: ="Ticket Details Button"
-                                    AlignInContainer: =AlignInContainer.End
+                                    AlignInContainer: =AlignInContainer.Center
                                     BorderColor: =RGBA(0, 0, 0, 1)
                                     Color: =RGBA(115, 115, 115, 1)
                                     DisabledBorderColor: =RGBA(56, 56, 56, 1)
                                     DisabledFill: =icon8.Fill
+                                    FillPortions: =1
                                     FocusedBorderColor: =Color.Black
                                     FocusedBorderThickness: =1
                                     Height: =40
@@ -576,17 +576,18 @@ TicketPage As screen:
                                 Container51 As groupContainer.horizontalAutoLayoutContainer:
                                     AlignInContainer: =AlignInContainer.SetByContainer
                                     FillPortions: =0
-                                    Height: =50
-                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    Height: =70
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
                                     LayoutMinHeight: =112
                                     LayoutMinWidth: =100
                                     LayoutMode: =LayoutMode.Auto
                                     Visible: =If(ThisItem.Status.Value="Rejected",true,false)
+                                    Width: =110
                                     ZIndex: =4
 
                                     Label7 As label:
                                         Align: =Align.Center
-                                        AlignInContainer: =AlignInContainer.Center
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =560
                                         OnSelect: |-
@@ -607,7 +608,6 @@ TicketPage As screen:
 
                                     icon8_5 As icon.ChevronRight:
                                         AccessibleLabel: ="Ticket Details Button"
-                                        AlignInContainer: =AlignInContainer.Center
                                         BorderColor: =RGBA(0, 0, 0, 1)
                                         Color: =RGBA(115, 115, 115, 1)
                                         DisabledBorderColor: =RGBA(56, 56, 56, 1)

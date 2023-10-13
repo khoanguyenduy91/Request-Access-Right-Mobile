@@ -1407,6 +1407,55 @@ TicketsDetailPage_User As screen:
                         Y: =DataCardKey17.Y
                         ZIndex: =4
 
+        Container11_4 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =120
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =200
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =If(DataCardValue16.Selected.Value="Rejected",true,false)
+            Width: =Parent.Width
+            ZIndex: =3
+
+            Button_newticket_4 As button:
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(11, 128, 32, 1)
+                Height: =90
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(8, 103, 26,1)
+                OnSelect: |-
+                    =Set(Copyrequest,TicketsGallery.Selected);
+                    NewForm(Form1_3);
+                    Navigate(
+                        CopyRequestPage,
+                        ScreenTransition.None
+                    )
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Size: =24
+                Text: ="Copy request"
+                Width: =Parent.Width
+                X: =590
+                Y: =664
+                ZIndex: =1
+
     Dialog_delete As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =Parent.Height
