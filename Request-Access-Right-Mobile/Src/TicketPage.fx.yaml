@@ -1,7 +1,14 @@
 TicketPage As screen:
     Fill: =RGBA(255, 255, 255, 1)
     OnVisible: |-
-        =Refresh(Request_Test);
+        =If(
+            TicketsGallery.AllItemsCount = 0,
+            Set(
+                visibleRequest,
+                true
+            )
+        );
+        Refresh(Request_Test);
         ClearCollect(
             CollectRequest,
             Request_Test
@@ -39,7 +46,11 @@ TicketPage As screen:
                     =Navigate(
                         HomePage,
                         ScreenTransition.Fade
-                    )
+                    );
+                    Set(
+                            visibleRequest,
+                            false
+                        )
                 Width: =50
                 ZIndex: =1
 
@@ -70,12 +81,14 @@ TicketPage As screen:
         Container22 As groupContainer.verticalAutoLayoutContainer:
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =1
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =4
 
             Container2_4 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =80
@@ -114,16 +127,13 @@ TicketPage As screen:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Stretch
                 Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =1
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
                 Size: =21
-                Text: |-
-                    =If(
-                        TicketsGallery.AllItemsCount = 0,
-                        "Không tìm thấy request nào"
-                    )
-                Visible: =If(TicketsGallery.AllItemsCount=0, true , false )
+                Text: ="Không tìm thấy request nào"
+                Visible: =visibleRequest
                 Width: =560
                 ZIndex: =3
 
@@ -173,43 +183,18 @@ TicketPage As screen:
                 Y: =175
                 ZIndex: =5
 
-                Rectangle1_12 As rectangle:
-                    BorderColor: =RGBA(0, 0, 255, 1)
-                    DisabledFill: =Rectangle1_12.Fill
-                    Fill: =RGBA(227,227,227,1)
-                    FocusedBorderColor: =Rectangle1_12.BorderColor
-                    Height: =0
-                    HoverFill: =Rectangle1_12.Fill
-                    PressedFill: =Rectangle1_12.Fill
-                    Width: =640
-                    Y: =222.44680259615347
-                    ZIndex: =1
-
                 Rectangle14 As rectangle:
                     BorderColor: =RGBA(0, 0, 255, 1)
+                    BorderThickness: =0.5
                     DisabledFill: =Rectangle14.Fill
                     Fill: =RGBA(204, 204, 204, 1)
                     FocusedBorderColor: =Rectangle14.BorderColor
                     Height: =1
                     HoverFill: =Rectangle14.Fill
                     PressedFill: =Rectangle14.Fill
-                    Width: =640
+                    Width: =Parent.Width
                     Y: =222.0699504854464
                     ZIndex: =2
-
-                Rectangle6 As rectangle:
-                    AccessibleLabel: ="Ticket Details"
-                    BorderColor: =RGBA(0, 0, 255, 1)
-                    BorderThickness: =2
-                    DisabledFill: =Rectangle6.Fill
-                    Fill: =RGBA(0, 0, 0, 0)
-                    FocusedBorderColor: =Rectangle6.BorderColor
-                    Height: =223
-                    HoverFill: =Rectangle6.Fill
-                    OnSelect: =
-                    PressedFill: =Rectangle6.Fill
-                    Width: =Parent.Width
-                    ZIndex: =4
 
                 Rectangle15 As rectangle:
                     BorderColor: =RGBA(0, 0, 255, 1)
@@ -539,12 +524,11 @@ TicketPage As screen:
                                 Height: =Parent.Height
                                 LayoutAlignItems: =LayoutAlignItems.Center
                                 LayoutDirection: =LayoutDirection.Vertical
-                                LayoutGap: =30
-                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                                 LayoutMinHeight: =8
                                 LayoutMinWidth: =250
                                 LayoutMode: =LayoutMode.Auto
-                                Width: =60
+                                Width: =110
                                 ZIndex: =2
 
                                 icon8 As icon.ChevronRight:
@@ -554,8 +538,9 @@ TicketPage As screen:
                                     Color: =RGBA(115, 115, 115, 1)
                                     DisabledBorderColor: =RGBA(56, 56, 56, 1)
                                     DisabledFill: =icon8.Fill
+                                    FillPortions: =1
                                     FocusedBorderColor: =Color.Black
-                                    FocusedBorderThickness: =1
+                                    FocusedBorderThickness: =0
                                     Height: =40
                                     HoverBorderColor: =ColorFade(icon8.BorderColor, 20%)
                                     HoverColor: =ColorFade(icon8.Color, 20%)
@@ -564,6 +549,10 @@ TicketPage As screen:
                                     LayoutMinHeight: =60
                                     LayoutMinWidth: =40
                                     OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    PaddingBottom: =35
+                                    PaddingLeft: =35
+                                    PaddingRight: =35
+                                    PaddingTop: =35
                                     PressedBorderColor: =ColorFade(icon8.BorderColor, -20%)
                                     PressedColor: =ColorFade(icon8.Color, -20%)
                                     PressedFill: =icon8.Fill
@@ -573,35 +562,68 @@ TicketPage As screen:
                                     Y: =33.78571428571428
                                     ZIndex: =1
 
-                                icon8_5 As icon.ChevronRight:
-                                    AccessibleLabel: ="Ticket Details Button"
-                                    AlignInContainer: =AlignInContainer.Stretch
-                                    BorderColor: =RGBA(0, 0, 0, 1)
-                                    Color: =RGBA(115, 115, 115, 1)
-                                    DisabledBorderColor: =RGBA(56, 56, 56, 1)
-                                    DisabledFill: =icon8_5.Fill
-                                    FocusedBorderColor: =Color.Black
-                                    FocusedBorderThickness: =1
-                                    Height: =40
-                                    HoverBorderColor: =ColorFade(icon8_5.BorderColor, 20%)
-                                    HoverColor: =ColorFade(icon8_5.Color, 20%)
-                                    HoverFill: =icon8_5.Fill
-                                    Icon: =Icon.Copy
-                                    LayoutMinWidth: =40
-                                    OnSelect: |-
-                                        =Set(Copyrequest,TicketsGallery.Selected);
-                                        NewForm(Form1_3);
-                                        Navigate(
-                                            CopyRequestPage,
-                                            ScreenTransition.None
-                                        )
-                                    PressedBorderColor: =ColorFade(icon8_5.BorderColor, -20%)
-                                    PressedColor: =ColorFade(icon8_5.Color, -20%)
-                                    PressedFill: =icon8_5.Fill
-                                    TabIndex: =0
+                                Container51 As groupContainer.horizontalAutoLayoutContainer:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    FillPortions: =0
+                                    Height: =70
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    LayoutMinHeight: =112
+                                    LayoutMinWidth: =100
+                                    LayoutMode: =LayoutMode.Auto
                                     Visible: =If(ThisItem.Status.Value="Rejected",true,false)
-                                    Width: =40
-                                    X: =403
-                                    Y: =91.78571428571428
-                                    ZIndex: =2
+                                    Width: =110
+                                    ZIndex: =4
+
+                                    Label7 As label:
+                                        Align: =Align.Center
+                                        AlignInContainer: =AlignInContainer.Stretch
+                                        LayoutMinHeight: =70
+                                        LayoutMinWidth: =560
+                                        OnSelect: |-
+                                            =Set(Copyrequest,TicketsGallery.Selected);
+                                            NewForm(Form1_3);
+                                            Navigate(
+                                                CopyRequestPage,
+                                                ScreenTransition.None
+                                            )
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =18
+                                        Text: ="Copy"
+                                        Width: =70
+                                        ZIndex: =1
+
+                                    icon8_5 As icon.ChevronRight:
+                                        AccessibleLabel: ="Ticket Details Button"
+                                        AlignInContainer: =AlignInContainer.Stretch
+                                        BorderColor: =RGBA(0, 0, 0, 1)
+                                        Color: =RGBA(115, 115, 115, 1)
+                                        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                                        DisabledFill: =icon8_5.Fill
+                                        FocusedBorderColor: =Color.Black
+                                        FocusedBorderThickness: =0
+                                        Height: =40
+                                        HoverBorderColor: =ColorFade(icon8_5.BorderColor, 20%)
+                                        HoverColor: =ColorFade(icon8_5.Color, 20%)
+                                        HoverFill: =icon8_5.Fill
+                                        Icon: =Icon.Copy
+                                        LayoutMinWidth: =40
+                                        OnSelect: |-
+                                            =Set(Copyrequest,TicketsGallery.Selected);
+                                            NewForm(Form1_3);
+                                            Navigate(
+                                                CopyRequestPage,
+                                                ScreenTransition.None
+                                            )
+                                        PressedBorderColor: =ColorFade(icon8_5.BorderColor, -20%)
+                                        PressedColor: =ColorFade(icon8_5.Color, -20%)
+                                        PressedFill: =icon8_5.Fill
+                                        TabIndex: =0
+                                        Width: =40
+                                        X: =403
+                                        Y: =91.78571428571428
+                                        ZIndex: =2
 
