@@ -107,6 +107,7 @@ HomePage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |
                     =Refresh(Request_Test);
+                    Refresh(LevelApproveTest);
                     ClearCollect(
                         CollectRequest,
                         Request_Test
@@ -746,7 +747,7 @@ HomePage As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =25
-                Text: ="Tickets approval"
+                Text: ="Requests approval"
                 Width: =Parent.Width-70
                 ZIndex: =2
 
@@ -811,7 +812,7 @@ HomePage As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =25
-                Text: ="Tickets HOD"
+                Text: ="Requests HOD"
                 Width: =Parent.Width-70
                 ZIndex: =1
 

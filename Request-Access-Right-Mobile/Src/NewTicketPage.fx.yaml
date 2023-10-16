@@ -1,4 +1,5 @@
 NewTicketPage As screen:
+    OnHidden: =ResetForm(Form1)
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -28,7 +29,7 @@ NewTicketPage As screen:
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
-                OnSelect: =ResetForm(Form1);Back()
+                OnSelect: =Back()
                 Width: =50
                 ZIndex: =1
 
@@ -613,8 +614,7 @@ NewTicketPage As screen:
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: |
-                    =SubmitForm(Form1)
+                OnSelect: =SubmitForm(Form1)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

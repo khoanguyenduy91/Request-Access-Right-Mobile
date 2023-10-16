@@ -11,6 +11,10 @@ History_request_Approver As screen:
             Set(
                 visiblehistoryApprover,
                 true
+            ),
+            Set(
+                visiblehistoryApprover,
+                false
             )
         );
         Refresh(Request_Test);

@@ -11,6 +11,10 @@ History_request_HOD As screen:
             Set(
                 visiblehistoryHOD,
                 true
+            ),
+            Set(
+                visiblehistoryHOD,
+                false
             )
         );
         Refresh(Request_Test);

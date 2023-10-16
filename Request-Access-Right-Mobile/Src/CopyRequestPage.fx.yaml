@@ -1,4 +1,5 @@
 CopyRequestPage As screen:
+    OnHidden: =ResetForm(Form1_3)
 
     Container7_3 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -28,7 +29,7 @@ CopyRequestPage As screen:
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
-                OnSelect: =ResetForm(Form1_3);Back()
+                OnSelect: =Back()
                 Width: =50
                 ZIndex: =1
 
