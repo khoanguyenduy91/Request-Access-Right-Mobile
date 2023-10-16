@@ -12,11 +12,6 @@ TicketPage As screen:
                 visibleticketpage,
                 true
             )
-        );
-        Refresh(Request_Test);
-        ClearCollect(
-            CollectRequest,
-            Request_Test
         )
 
     Container9 As groupContainer.verticalAutoLayoutContainer:

@@ -1,4 +1,16 @@
 TicketsDetailPage_User As screen:
+    OnVisible: |-
+        =If(
+            DataCardValue16.Selected.Value = "Rejected",
+            Set(
+                visiblebtnCopy,
+                true
+            ),
+            Set(
+                visiblebtnCopy,
+                false
+            )
+        )
 
     Container10 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.ExtraBold
@@ -1424,6 +1436,7 @@ TicketsDetailPage_User As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
+            Visible: =visiblebtnCopy
             Width: =Parent.Width
             ZIndex: =3
 
@@ -1449,7 +1462,6 @@ TicketsDetailPage_User As screen:
                 RadiusTopRight: =5
                 Size: =24
                 Text: ="Copy request"
-                Visible: =If(DataCardValue16.Selected.Value="Rejected",true,false)
                 Width: =Parent.Width
                 X: =590
                 Y: =664
