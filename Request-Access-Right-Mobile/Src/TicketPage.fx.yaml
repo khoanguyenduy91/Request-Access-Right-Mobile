@@ -1,10 +1,15 @@
 TicketPage As screen:
     Fill: =RGBA(255, 255, 255, 1)
+    OnHidden: |-
+        =Set(
+                visibleticketpage,
+                false
+            )
     OnVisible: |-
         =If(
             TicketsGallery.AllItemsCount = 0,
             Set(
-                visibleRequest,
+                visibleticketpage,
                 true
             )
         );
@@ -46,11 +51,7 @@ TicketPage As screen:
                     =Navigate(
                         HomePage,
                         ScreenTransition.Fade
-                    );
-                    Set(
-                            visibleRequest,
-                            false
-                        )
+                    )
                 Width: =50
                 ZIndex: =1
 
@@ -132,8 +133,8 @@ TicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
                 Size: =21
-                Text: ="Không tìm thấy request nào"
-                Visible: =visibleRequest
+                Text: ="No requests found"
+                Visible: =visibleticketpage
                 Width: =560
                 ZIndex: =3
 

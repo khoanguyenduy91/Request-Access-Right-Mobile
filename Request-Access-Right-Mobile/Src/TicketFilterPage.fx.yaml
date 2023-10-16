@@ -1,10 +1,6 @@
 TicketFilterPage As screen:
     Fill: =RGBA(230, 229, 229, 1)
-    OnVisible: |-
-        =Set(
-                visibleRequest,
-                false
-            )
+    OnVisible: =
 
     Container12 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height

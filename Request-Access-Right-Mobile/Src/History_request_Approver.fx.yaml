@@ -1,11 +1,23 @@
 History_request_Approver As screen:
     Fill: =RGBA(255, 255, 255, 1)
+    OnHidden: |-
+        =Set(
+                visiblehistoryApprover,
+                false
+            )
     OnVisible: |-
-        =Refresh(Request_Test);
+        =If(
+            TicketsGallery_history_approver.AllItemsCount = 0,
+            Set(
+                visiblehistoryApprover,
+                true
+            )
+        );
+        Refresh(Request_Test);
         ClearCollect(
             CollectRequest,
             Request_Test
-        );
+        )
 
     Container9_2 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -80,8 +92,8 @@ History_request_Approver As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
                 Size: =21
-                Text: =If(TicketsGallery_history_approver.AllItemsCount=0,"Không tìm thấy request nào")
-                Visible: =If(TicketsGallery_history_approver.AllItemsCount=0,true,false)
+                Text: ="No requests found"
+                Visible: =visiblehistoryApprover
                 Width: =560
                 ZIndex: =2
 
@@ -509,7 +521,7 @@ History_request_Approver As screen:
                                 DisabledBorderColor: =RGBA(56, 56, 56, 1)
                                 DisabledFill: =icon8_3.Fill
                                 FocusedBorderColor: =Color.Black
-                                FocusedBorderThickness: =1
+                                FocusedBorderThickness: =0
                                 Height: =40
                                 HoverBorderColor: =ColorFade(icon8_3.BorderColor, 20%)
                                 HoverColor: =ColorFade(icon8_3.Color, 20%)
