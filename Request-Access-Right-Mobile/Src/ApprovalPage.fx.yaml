@@ -11,13 +11,8 @@ ApprovalPage As screen:
             Set(
                 visibleapprovalPage,
                 true
-            );
-            Set(
-                visibleapprovalPage,
-                false
             )
-        );
-        Refresh(Request_Test)
+        )
 
     Container9_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -125,6 +120,7 @@ ApprovalPage As screen:
                 LayoutMinWidth: =560
                 Size: =21
                 Text: ="No requests found"
+                Visible: =visibleapprovalPage
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -145,10 +141,7 @@ ApprovalPage As screen:
                         )
                     ),
                     SortByColumns(
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                        ),
+                        CollectRequestApprover1,
                         "Created",
                         SortOrder.Descending
                     ),
@@ -160,10 +153,7 @@ ApprovalPage As screen:
                             )
                         ),
                         SortByColumns(
-                            Filter(
-                                Request_Test,
-                                Status.Value = "Approver 1 approved"
-                            ),
+                            CollectRequestApprover2,
                             "Created",
                             SortOrder.Descending
                         ),
@@ -175,10 +165,7 @@ ApprovalPage As screen:
                                 )
                             ),
                             SortByColumns(
-                                Filter(
-                                    Request_Test,
-                                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                                ),
+                                CollectRequestApprover3,
                                 "Created",
                                 SortOrder.Descending
                             )

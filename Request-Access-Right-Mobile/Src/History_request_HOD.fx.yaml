@@ -11,16 +11,7 @@ History_request_HOD As screen:
             Set(
                 visiblehistoryHOD,
                 true
-            ),
-            Set(
-                visiblehistoryHOD,
-                false
             )
-        );
-        Refresh(Request_Test);
-        ClearCollect(
-            CollectRequest,
-            Request_Test
         )
 
     Container9_3 As groupContainer.verticalAutoLayoutContainer:

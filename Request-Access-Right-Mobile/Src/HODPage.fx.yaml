@@ -11,8 +11,7 @@ HODPage As screen:
                 visibleHODPage,
                 true
             )
-        );
-        Refresh(Request_Test)
+        )
 
     Container19 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -117,6 +116,7 @@ HODPage As screen:
                 PaddingTop: =0
                 Size: =21
                 Text: ="No requests found"
+                Visible: =visibleHODPage
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -137,10 +137,7 @@ HODPage As screen:
                         )
                     ),
                     SortByColumns(
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && HOD.Email = User().Email
-                        ),
+                        CollectRequestHOD,
                         "Created",
                         SortOrder.Descending
                     )

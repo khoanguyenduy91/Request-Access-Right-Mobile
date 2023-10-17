@@ -204,7 +204,7 @@
         {
           "Category": "Design",
           "PropertyName": "DisabledFill",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -827,7 +827,14 @@
           "NameMapSourceSchema": "?"
         },
         "FocusedBorderThickness",
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Visible"
       ],
       "DynamicProperties": [
@@ -904,7 +911,7 @@
         {
           "Category": "Design",
           "PropertyName": "DisabledFill",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -1054,7 +1061,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -1180,7 +1187,14 @@
           "NameMapSourceSchema": "?"
         },
         "FocusedBorderThickness",
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Visible"
       ],
       "DynamicProperties": [
@@ -1257,7 +1271,7 @@
         {
           "Category": "Design",
           "PropertyName": "DisabledFill",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -1407,7 +1421,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -3585,7 +3599,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container6",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4035,7 +4049,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerHistoryAppro",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4256,7 +4270,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerHistoryHOD",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4477,7 +4491,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerHOD",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6627,7 +6641,14 @@
         "HoverBorderColor",
         "FocusedBorderColor",
         "ZIndex",
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -6795,7 +6816,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultIconStyle",
@@ -7236,7 +7257,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultIconStyle",
@@ -7762,7 +7783,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "Select(Parent)",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "OnSelect",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -7970,7 +7991,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultIconStyle",
@@ -12836,7 +12857,14 @@
         "Duration",
         "Repeat",
         "OnTimerStart",
-        "OnTimerEnd",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "OnTimerEnd",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "AutoStart",
         "Visible"
       ],
@@ -13039,7 +13067,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnTimerEnd",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Behavior",
@@ -13324,7 +13352,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",

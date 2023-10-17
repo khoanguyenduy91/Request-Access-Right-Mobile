@@ -12,11 +12,6 @@ History_request_Approver As screen:
                 visiblehistoryApprover,
                 true
             )
-        );
-        Refresh(Request_Test);
-        ClearCollect(
-            CollectRequest,
-            Request_Test
         )
 
     Container9_2 As groupContainer.verticalAutoLayoutContainer:

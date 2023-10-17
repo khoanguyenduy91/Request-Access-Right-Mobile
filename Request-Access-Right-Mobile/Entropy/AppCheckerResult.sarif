@@ -7454,66 +7454,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "History_request_Approver.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "History_request_Approver.OnVisible",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "History_request_Approver",
-                "type": "History_request_Approver"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "History_request_HOD.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "History_request_HOD.OnVisible",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "History_request_HOD",
-                "type": "History_request_HOD"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "HomePage.OnVisible"
                 }
               ],
@@ -7747,36 +7687,6 @@
           },
           "ruleId": "app-InefficientDelayLoading",
           "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ApprovalPage.type"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ApprovalPage.type",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "type",
-                "module": "ApprovalPage",
-                "type": "ApprovalPage"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 3
         },
         {
           "locations": [
