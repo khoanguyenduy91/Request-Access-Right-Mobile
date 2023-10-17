@@ -1484,6 +1484,7 @@ TicketsDetailPage_Approval As screen:
                         NotificationType.Success,
                         3000
                     );
+                    Refresh(Request_Test);
                     Navigate(ApprovalPage)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
@@ -1773,6 +1774,7 @@ TicketsDetailPage_Approval As screen:
                                         3000
                                     );
                                     Reset(TextInput1_1);
+                                    Refresh(Request_Test);
                                     Navigate(ApprovalPage)
                                 )
                             PaddingBottom: =5.00
