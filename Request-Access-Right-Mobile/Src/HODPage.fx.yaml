@@ -152,7 +152,10 @@ HODPage As screen:
                         )
                     ),
                     SortByColumns(
-                        CollectRequestHOD,
+                        Filter(
+                            Request_Test,
+                            User().Email = HOD.Email && Status.Value = "Created"
+                        ),
                         "Created",
                         SortOrder.Descending
                     )

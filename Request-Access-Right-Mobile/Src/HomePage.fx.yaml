@@ -358,55 +358,27 @@ HomePage As screen:
                             LayoutMinHeight: =70
                             LayoutMinWidth: =560
                             OnSelect: |-
-                                =ClearCollect(
-                                    CollectRequestApprover1,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                                    )
-                                );
-                                ClearCollect(
-                                    CollectRequestApprover2,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Approver 1 approved"
-                                    )
-                                );
-                                ClearCollect(
-                                    CollectRequestApprover3,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                                    )
-                                );
-                                ClearCollect(
-                                    CollectRequestHOD,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Created" && HOD.Email = User().Email
-                                    )
-                                );
-                                If(
+                                =If(
                                     Office365Users.MyProfile().Department <> "DTS" && IsMatch(
                                         Office365Users.MyProfile().JobTitle,
                                         "Head of",
                                         MatchOptions.Contains
                                     ),
-                                    Navigate(
-                                        HODPage,
-                                        ScreenTransition.Fade
-                                    );
                                     Set(
                                         visibleHODPage,
                                         false
-                                    ),
-                                    Navigate(
-                                        ApprovalPage,
-                                        ScreenTransition.Fade
                                     );
+                                    Navigate(
+                                        HODPage,
+                                        ScreenTransition.Fade
+                                    ),
                                     Set(
                                         visibleapprovalPage,
                                         false
+                                    );
+                                    Navigate(
+                                        ApprovalPage,
+                                        ScreenTransition.Fade
                                     )
                                 )
                             PressedBorderColor: =TextBox2_10.BorderColor
@@ -487,55 +459,27 @@ HomePage As screen:
                             LayoutMinHeight: =70
                             LayoutMinWidth: =560
                             OnSelect: |-
-                                =ClearCollect(
-                                    CollectRequestApprover1,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                                    )
-                                );
-                                ClearCollect(
-                                    CollectRequestApprover2,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Approver 1 approved"
-                                    )
-                                );
-                                ClearCollect(
-                                    CollectRequestApprover3,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                                    )
-                                );
-                                ClearCollect(
-                                    CollectRequestHOD,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Created" && HOD.Email = User().Email
-                                    )
-                                );
-                                If(
+                                =If(
                                     Office365Users.MyProfile().Department <> "DTS" && IsMatch(
                                         Office365Users.MyProfile().JobTitle,
                                         "Head of",
                                         MatchOptions.Contains
                                     ),
-                                    Navigate(
-                                        HODPage,
-                                        ScreenTransition.Fade
-                                    );
                                     Set(
                                         visibleHODPage,
                                         false
-                                    ),
-                                    Navigate(
-                                        ApprovalPage,
-                                        ScreenTransition.Fade
                                     );
+                                    Navigate(
+                                        HODPage,
+                                        ScreenTransition.Fade
+                                    ),
                                     Set(
                                         visibleapprovalPage,
                                         false
+                                    );
+                                    Navigate(
+                                        ApprovalPage,
+                                        ScreenTransition.Fade
                                     )
                                 )
                             PaddingBottom: =0
@@ -850,34 +794,13 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =ClearCollect(
-                        CollectRequestApprover1,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover2,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 1 approved"
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover3,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                        )
+                    =Set(
+                        visibleapprovalPage,
+                        false
                     );
                     Navigate(
                         ApprovalPage,
                         ScreenTransition.Fade
-                    );
-                    Set(
-                        visibleapprovalPage,
-                        false
                     )
                 PaddingLeft: =25
                 PressedBorderColor: =
@@ -898,34 +821,13 @@ HomePage As screen:
                 Height: =50
                 Icon: =Icon.ChevronRight
                 OnSelect: |-
-                    =ClearCollect(
-                        CollectRequestApprover1,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover2,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 1 approved"
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover3,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                        )
+                    =Set(
+                        visibleapprovalPage,
+                        false
                     );
                     Navigate(
                         ApprovalPage,
                         ScreenTransition.Fade
-                    );
-                    Set(
-                        visibleapprovalPage,
-                        false
                     )
                 PaddingBottom: =12
                 PaddingLeft: =12
@@ -973,14 +875,7 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |
-                    =ClearCollect(
-                        CollectRequestHOD,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && HOD.Email = User().Email
-                        )
-                    );
-                    Set(
+                    =Set(
                         visibleHODPage,
                         false
                     );
@@ -1007,14 +902,7 @@ HomePage As screen:
                 Height: =50
                 Icon: =Icon.ChevronRight
                 OnSelect: |
-                    =ClearCollect(
-                        CollectRequestHOD,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && HOD.Email = User().Email
-                        )
-                    );
-                    Set(
+                    =Set(
                         visibleHODPage,
                         false
                     );
@@ -1075,34 +963,13 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =ClearCollect(
-                        CollecRequestHistory_Approver1,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver2,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver3,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
+                    =Set(
+                        visiblehistoryApprover,
+                        false
                     );
                     Navigate(
                         History_request_Approver,
                         ScreenTransition.Fade
-                    );
-                    Set(
-                        visiblehistoryApprover,
-                        false
                     )
                 PaddingLeft: =25
                 PressedBorderColor: =
@@ -1135,36 +1002,15 @@ HomePage As screen:
                 Color: =RGBA(166, 166, 166, 1)
                 Height: =50
                 Icon: =Icon.ChevronRight
-                OnSelect: |
-                    =ClearCollect(
-                        CollecRequestHistory_Approver1,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver2,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver3,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    Set(
+                OnSelect: |-
+                    =Set(
                         visiblehistoryApprover,
                         false
                     );
                     Navigate(
                         History_request_Approver,
                         ScreenTransition.Fade
-                    );
+                    )
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -1212,14 +1058,7 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =ClearCollect(
-                        CollecRequestHistory_HOD,
-                        Filter(
-                            Request_Test,
-                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    Set(
+                    =Set(
                         visiblehistoryHOD,
                         false
                     );
@@ -1246,14 +1085,7 @@ HomePage As screen:
                 Height: =50
                 Icon: =Icon.ChevronRight
                 OnSelect: |
-                    =ClearCollect(
-                        CollecRequestHistory_HOD,
-                        Filter(
-                            Request_Test,
-                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    Set(
+                    =Set(
                         visiblehistoryHOD,
                         false
                     );

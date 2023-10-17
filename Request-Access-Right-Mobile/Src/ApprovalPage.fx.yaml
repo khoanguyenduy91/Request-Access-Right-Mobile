@@ -170,7 +170,10 @@ ApprovalPage As screen:
                         )
                     ),
                     SortByColumns(
-                        CollectRequestApprover1,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                        ),
                         "Created",
                         SortOrder.Descending
                     ),
@@ -182,7 +185,10 @@ ApprovalPage As screen:
                             )
                         ),
                         SortByColumns(
-                            CollectRequestApprover2,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Approver 1 approved"
+                            ),
                             "Created",
                             SortOrder.Descending
                         ),
@@ -194,7 +200,10 @@ ApprovalPage As screen:
                                 )
                             ),
                             SortByColumns(
-                                CollectRequestApprover3,
+                                Filter(
+                                    Request_Test,
+                                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                                ),
                                 "Created",
                                 SortOrder.Descending
                             )
