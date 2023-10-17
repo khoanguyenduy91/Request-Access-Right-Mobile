@@ -86,7 +86,22 @@ HODPage As screen:
                 Icon: =Icon.History
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
-                OnSelect: =Navigate(History_request_HOD,ScreenTransition.Fade)
+                OnSelect: |
+                    =ClearCollect(
+                        CollecRequestHistory_HOD,
+                        Filter(
+                            Request_Test,
+                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    Set(
+                        visiblehistoryHOD,
+                        false
+                    );
+                    Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    );
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1

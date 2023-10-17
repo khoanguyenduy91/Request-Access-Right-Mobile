@@ -94,7 +94,36 @@ ApprovalPage As screen:
                 Icon: =Icon.History
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
-                OnSelect: =Navigate(History_request_Approver,ScreenTransition.Fade)
+                OnSelect: |-
+                    =ClearCollect(
+                        CollecRequestHistory_Approver1,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    ClearCollect(
+                        CollecRequestHistory_Approver2,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    ClearCollect(
+                        CollecRequestHistory_Approver3,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    Navigate(
+                        History_request_Approver,
+                        ScreenTransition.Fade
+                    );
+                    Set(
+                        visiblehistoryApprover,
+                        false
+                    )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
