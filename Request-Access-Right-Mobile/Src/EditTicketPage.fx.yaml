@@ -633,8 +633,9 @@ EditTicketPage As screen:
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: |
+                OnSelect: |-
                     =SubmitForm(Form1_2);
+                    Set(ButtonnMode,false);
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

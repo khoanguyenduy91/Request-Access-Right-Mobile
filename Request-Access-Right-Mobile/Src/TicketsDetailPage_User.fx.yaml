@@ -10,8 +10,7 @@ TicketsDetailPage_User As screen:
                 visiblebtnCopy,
                 false
             )
-        );
-        Set(ButtonnMode,false)
+        )
 
     Container10 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.ExtraBold
