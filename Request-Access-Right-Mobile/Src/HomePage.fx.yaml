@@ -10,6 +10,41 @@ HomePage As screen:
         Set(
             autoRefresh,
             true
+        );
+        ClearCollect(
+            CollectRequestAll,
+            Filter(
+                Request_Test,
+                'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestNew,
+            Filter(
+                Request_Test,
+                Status.Value = "Created" && 'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestProcess,
+            Filter(
+                Request_Test,
+                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestClosed,
+            Filter(
+                Request_Test,
+                Status.Value = "Done" && 'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestRejected,
+            Filter(
+                Request_Test,
+                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+            )
         )
     Orientation: =If(HomePage.Width < HomePage.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= HomePage.Width)
@@ -738,6 +773,10 @@ HomePage As screen:
                         ApprovalPage,
                         ScreenTransition.Fade
                     );
+                    Set(
+                        visibleapprovalPage,
+                        false
+                    )
                 PaddingLeft: =25
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Self.Color,90%)
@@ -756,7 +795,36 @@ HomePage As screen:
                 Color: =RGBA(166, 166, 166, 1)
                 Height: =50
                 Icon: =Icon.ChevronRight
-                OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                OnSelect: |-
+                    =ClearCollect(
+                        CollectRequestApprover1,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestApprover2,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Approver 1 approved"
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestApprover3,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                        )
+                    );
+                    Navigate(
+                        ApprovalPage,
+                        ScreenTransition.Fade
+                    );
+                    Set(
+                        visibleapprovalPage,
+                        false
+                    )
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -802,18 +870,22 @@ HomePage As screen:
                 HoverFill: =
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
-                OnSelect: |-
-                    =Navigate(
-                        HODPage,
-                        ScreenTransition.Fade
-                    );
-                    ClearCollect(
+                OnSelect: |
+                    =ClearCollect(
                         CollectRequestHOD,
                         Filter(
                             Request_Test,
                             Status.Value = "Created" && HOD.Email = User().Email
                         )
-                    )
+                    );
+                    Set(
+                        visibleHODPage,
+                        false
+                    );
+                    Navigate(
+                        HODPage,
+                        ScreenTransition.Fade
+                    );
                 PaddingLeft: =25
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Self.Color,90%)
@@ -832,7 +904,22 @@ HomePage As screen:
                 Color: =RGBA(166, 166, 166, 1)
                 Height: =50
                 Icon: =Icon.ChevronRight
-                OnSelect: =Navigate(HODPage,ScreenTransition.Fade)
+                OnSelect: |
+                    =ClearCollect(
+                        CollectRequestHOD,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && HOD.Email = User().Email
+                        )
+                    );
+                    Set(
+                        visibleHODPage,
+                        false
+                    );
+                    Navigate(
+                        HODPage,
+                        ScreenTransition.Fade
+                    );
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -886,11 +973,7 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =Navigate(
-                        History_request_Approver,
-                        ScreenTransition.Fade
-                    );
-                    ClearCollect(
+                    =ClearCollect(
                         CollecRequestHistory_Approver1,
                         Filter(
                             Request_Test,
@@ -910,6 +993,10 @@ HomePage As screen:
                             Request_Test,
                             User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                         )
+                    );
+                    Navigate(
+                        History_request_Approver,
+                        ScreenTransition.Fade
                     );
                     Set(
                         visiblehistoryApprover,
@@ -946,12 +1033,8 @@ HomePage As screen:
                 Color: =RGBA(166, 166, 166, 1)
                 Height: =50
                 Icon: =Icon.ChevronRight
-                OnSelect: |-
-                    =Navigate(
-                        History_request_Approver,
-                        ScreenTransition.Fade
-                    );
-                    ClearCollect(
+                OnSelect: |
+                    =ClearCollect(
                         CollecRequestHistory_Approver1,
                         Filter(
                             Request_Test,
@@ -975,7 +1058,11 @@ HomePage As screen:
                     Set(
                         visiblehistoryApprover,
                         false
-                    )
+                    );
+                    Navigate(
+                        History_request_Approver,
+                        ScreenTransition.Fade
+                    );
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -1023,11 +1110,7 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =Navigate(
-                        History_request_HOD,
-                        ScreenTransition.Fade
-                    );
-                    ClearCollect(
+                    =ClearCollect(
                         CollecRequestHistory_HOD,
                         Filter(
                             Request_Test,
@@ -1035,9 +1118,13 @@ HomePage As screen:
                         )
                     );
                     Set(
-                        visibleHODPage,
+                        visiblehistoryHOD,
                         false
-                    )
+                    );
+                    Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    );
                 PaddingLeft: =25
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Self.Color,90%)
@@ -1056,7 +1143,22 @@ HomePage As screen:
                 Color: =RGBA(166, 166, 166, 1)
                 Height: =50
                 Icon: =Icon.ChevronRight
-                OnSelect: =Navigate(History_request_HOD,ScreenTransition.Fade)
+                OnSelect: |
+                    =ClearCollect(
+                        CollecRequestHistory_HOD,
+                        Filter(
+                            Request_Test,
+                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    Set(
+                        visiblehistoryHOD,
+                        false
+                    );
+                    Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    );
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -1099,13 +1201,6 @@ HomePage As screen:
                     OnSelect: |-
                         =If(
                             ThisItem.Title = "All requests",
-                            ClearCollect(
-                                CollectRequestAll,
-                                Filter(
-                                    Request_Test,
-                                    'Created By'.Email = User().Email
-                                )
-                            );
                             Navigate(
                                 TicketPage,
                                 ScreenTransition.Fade,
@@ -1113,13 +1208,6 @@ HomePage As screen:
                             ),
                             If(
                                 ThisItem.Title = "New requests",
-                                ClearCollect(
-                                    CollectRequestNew,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Created" && 'Created By'.Email = User().Email
-                                    )
-                                );
                                 Navigate(
                                     TicketPage,
                                     ScreenTransition.Fade,
@@ -1127,13 +1215,6 @@ HomePage As screen:
                                 ),
                                 If(
                                     ThisItem.Title = "Requests in progress",
-                                    ClearCollect(
-                                        CollectRequestProcess,
-                                        Filter(
-                                            Request_Test,
-                                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-                                        )
-                                    );
                                     Navigate(
                                         TicketPage,
                                         ScreenTransition.Fade,
@@ -1141,13 +1222,6 @@ HomePage As screen:
                                     ),
                                     If(
                                         ThisItem.Title = "Requests closed",
-                                        ClearCollect(
-                                            CollectRequestClosed,
-                                            Filter(
-                                                Request_Test,
-                                                Status.Value = "Done" && 'Created By'.Email = User().Email
-                                            )
-                                        );
                                         Navigate(
                                             TicketPage,
                                             ScreenTransition.Fade,
@@ -1155,13 +1229,6 @@ HomePage As screen:
                                         ),
                                         If(
                                             ThisItem.Title = "Requests rejected",
-                                            ClearCollect(
-                                                CollectRequestRejected,
-                                                Filter(
-                                                    Request_Test,
-                                                    Status.Value = "Rejected" && 'Created By'.Email = User().Email
-                                                )
-                                            );
                                             Navigate(
                                                 TicketPage,
                                                 ScreenTransition.Fade,
@@ -1192,13 +1259,6 @@ HomePage As screen:
                     OnSelect: |-
                         =If(
                             ThisItem.Title = "All requests",
-                            ClearCollect(
-                                CollectRequestAll,
-                                Filter(
-                                    Request_Test,
-                                    'Created By'.Email = User().Email
-                                )
-                            );
                             Navigate(
                                 TicketPage,
                                 ScreenTransition.Fade,
@@ -1206,13 +1266,6 @@ HomePage As screen:
                             ),
                             If(
                                 ThisItem.Title = "New requests",
-                                ClearCollect(
-                                    CollectRequestNew,
-                                    Filter(
-                                        Request_Test,
-                                        Status.Value = "Created" && 'Created By'.Email = User().Email
-                                    )
-                                );
                                 Navigate(
                                     TicketPage,
                                     ScreenTransition.Fade,
@@ -1220,13 +1273,6 @@ HomePage As screen:
                                 ),
                                 If(
                                     ThisItem.Title = "Requests in progress",
-                                    ClearCollect(
-                                        CollectRequestProcess,
-                                        Filter(
-                                            Request_Test,
-                                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-                                        )
-                                    );
                                     Navigate(
                                         TicketPage,
                                         ScreenTransition.Fade,
@@ -1234,13 +1280,6 @@ HomePage As screen:
                                     ),
                                     If(
                                         ThisItem.Title = "Requests closed",
-                                        ClearCollect(
-                                            CollectRequestClosed,
-                                            Filter(
-                                                Request_Test,
-                                                Status.Value = "Done" && 'Created By'.Email = User().Email
-                                            )
-                                        );
                                         Navigate(
                                             TicketPage,
                                             ScreenTransition.Fade,
@@ -1248,13 +1287,6 @@ HomePage As screen:
                                         ),
                                         If(
                                             ThisItem.Title = "Requests rejected",
-                                            ClearCollect(
-                                                CollectRequestRejected,
-                                                Filter(
-                                                    Request_Test,
-                                                    Status.Value = "Rejected" && 'Created By'.Email = User().Email
-                                                )
-                                            );
                                             Navigate(
                                                 TicketPage,
                                                 ScreenTransition.Fade,
