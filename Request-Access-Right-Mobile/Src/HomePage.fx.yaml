@@ -357,7 +357,58 @@ HomePage As screen:
                             HoverFill: =TextBox2_10.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =560
-                            OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                            OnSelect: |-
+                                =ClearCollect(
+                                    CollectRequestApprover1,
+                                    Filter(
+                                        Request_Test,
+                                        Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                                    )
+                                );
+                                ClearCollect(
+                                    CollectRequestApprover2,
+                                    Filter(
+                                        Request_Test,
+                                        Status.Value = "Approver 1 approved"
+                                    )
+                                );
+                                ClearCollect(
+                                    CollectRequestApprover3,
+                                    Filter(
+                                        Request_Test,
+                                        Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                                    )
+                                );
+                                ClearCollect(
+                                    CollectRequestHOD,
+                                    Filter(
+                                        Request_Test,
+                                        Status.Value = "Created" && HOD.Email = User().Email
+                                    )
+                                );
+                                If(
+                                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                                        Office365Users.MyProfile().JobTitle,
+                                        "Head of",
+                                        MatchOptions.Contains
+                                    ),
+                                    Navigate(
+                                        HODPage,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        visibleHODPage,
+                                        false
+                                    ),
+                                    Navigate(
+                                        ApprovalPage,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        visibleapprovalPage,
+                                        false
+                                    )
+                                )
                             PressedBorderColor: =TextBox2_10.BorderColor
                             PressedColor: =TextBox2_10.Color
                             PressedFill: =TextBox2_10.Fill
@@ -435,7 +486,58 @@ HomePage As screen:
                             HoverFill: =TextBox2_11.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =560
-                            OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                            OnSelect: |-
+                                =ClearCollect(
+                                    CollectRequestApprover1,
+                                    Filter(
+                                        Request_Test,
+                                        Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                                    )
+                                );
+                                ClearCollect(
+                                    CollectRequestApprover2,
+                                    Filter(
+                                        Request_Test,
+                                        Status.Value = "Approver 1 approved"
+                                    )
+                                );
+                                ClearCollect(
+                                    CollectRequestApprover3,
+                                    Filter(
+                                        Request_Test,
+                                        Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                                    )
+                                );
+                                ClearCollect(
+                                    CollectRequestHOD,
+                                    Filter(
+                                        Request_Test,
+                                        Status.Value = "Created" && HOD.Email = User().Email
+                                    )
+                                );
+                                If(
+                                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                                        Office365Users.MyProfile().JobTitle,
+                                        "Head of",
+                                        MatchOptions.Contains
+                                    ),
+                                    Navigate(
+                                        HODPage,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        visibleHODPage,
+                                        false
+                                    ),
+                                    Navigate(
+                                        ApprovalPage,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        visibleapprovalPage,
+                                        false
+                                    )
+                                )
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
