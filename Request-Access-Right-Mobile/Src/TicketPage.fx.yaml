@@ -361,7 +361,7 @@ TicketPage As screen:
                                     HoverColor: =Subtitle1.Color
                                     HoverFill: =Subtitle1.Fill
                                     LayoutMinHeight: =60
-                                    LayoutMinWidth: =560
+                                    LayoutMinWidth: =200
                                     OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
@@ -389,7 +389,7 @@ TicketPage As screen:
                                     HoverColor: =Subtitle1_7.Color
                                     HoverFill: =Subtitle1_7.Fill
                                     LayoutMinHeight: =50
-                                    LayoutMinWidth: =560
+                                    LayoutMinWidth: =200
                                     OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
@@ -497,7 +497,7 @@ TicketPage As screen:
                                         HoverColor: =Subtitle1_1.Color
                                         HoverFill: =Subtitle1_1.Fill
                                         LayoutMinHeight: =50
-                                        LayoutMinWidth: =300
+                                        LayoutMinWidth: =200
                                         OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                         PaddingBottom: =0
                                         PaddingLeft: =0

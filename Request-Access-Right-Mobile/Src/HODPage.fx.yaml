@@ -280,13 +280,14 @@ HODPage As screen:
 
                     Heading1_5 As label:
                         Color: =RGBA(40, 40, 40, 1)
+                        FillPortions: =1
                         FocusedBorderColor: =Heading1_5.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_5.BorderColor
                         HoverColor: =Heading1_5.Color
                         HoverFill: =Heading1_5.Fill
                         LayoutMinHeight: =70
-                        LayoutMinWidth: =560
+                        LayoutMinWidth: =200
                         OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
@@ -378,7 +379,7 @@ HODPage As screen:
                                 Size: =18
                                 Text: |-
                                     ="Request Type: "& ThisItem.ReqType.Value
-                                Width: =571
+                                Width: =Parent.Width
                                 Wrap: =false
                                 X: =34
                                 Y: =58
@@ -405,7 +406,7 @@ HODPage As screen:
                                 Size: =22
                                 Text: |-
                                     ="Title: "& ThisItem.Title
-                                Width: =571
+                                Width: =Parent.Width
                                 Wrap: =false
                                 X: =34
                                 Y: =47
@@ -490,6 +491,7 @@ HODPage As screen:
                                                 )
                                             )
                                         )
+                                    FillPortions: =1
                                     FocusedBorderColor: =Subtitle1_5.BorderColor
                                     FontWeight: =FontWeight.Bold
                                     Height: =50
@@ -497,7 +499,7 @@ HODPage As screen:
                                     HoverColor: =Subtitle1_5.Color
                                     HoverFill: =Subtitle1_5.Fill
                                     LayoutMinHeight: =70
-                                    LayoutMinWidth: =560
+                                    LayoutMinWidth: =200
                                     OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =0
