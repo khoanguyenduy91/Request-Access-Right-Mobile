@@ -47,6 +47,7 @@ TicketPage As screen:
                         HomePage,
                         ScreenTransition.Fade
                     )
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
