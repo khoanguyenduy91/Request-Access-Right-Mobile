@@ -30,6 +30,7 @@ TicketFilterPage As screen:
                 Icon: =Icon.Cancel
                 LayoutMinHeight: =50
                 OnSelect: =Back()
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -196,7 +197,7 @@ TicketFilterPage As screen:
                                     PaddingRight: =0
                                     PaddingTop: =0
                                     PressedBorderColor: =TextBox3_2.BorderColor
-                                    PressedColor: =TextBox3_2.Color
+                                    PressedColor: =ColorFade(Self.Color,90%)
                                     PressedFill: =TextBox3_2.Fill
                                     Size: =22
                                     Text: =ThisItem.Title

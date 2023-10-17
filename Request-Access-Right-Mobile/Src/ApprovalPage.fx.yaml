@@ -51,6 +51,7 @@ ApprovalPage As screen:
                         HomePage,
                         ScreenTransition.Fade
                     )
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -99,6 +100,7 @@ ApprovalPage As screen:
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
                 OnSelect: =Navigate(History_request_Approver,ScreenTransition.Fade)
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 

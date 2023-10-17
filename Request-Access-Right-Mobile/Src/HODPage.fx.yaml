@@ -10,10 +10,6 @@ HODPage As screen:
             Set(
                 visibleHODPage,
                 true
-            ),
-            Set(
-                visibleHODPage,
-                false
             )
         );
         Refresh(Request_Test)
@@ -44,6 +40,7 @@ HODPage As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -91,6 +88,7 @@ HODPage As screen:
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
                 OnSelect: =Navigate(History_request_HOD,ScreenTransition.Fade)
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 

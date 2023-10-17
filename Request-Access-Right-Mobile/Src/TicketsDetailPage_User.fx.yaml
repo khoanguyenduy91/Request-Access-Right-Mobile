@@ -43,6 +43,7 @@ TicketsDetailPage_User As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Back()
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -67,11 +68,12 @@ TicketsDetailPage_User As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =EditForm(Form1_2);
-                    Set(ButtonnMode,true);
+                    Set(ButtonModeEdit,true);
                     Navigate(
                         EditTicketPage,
                         ScreenTransition.None
                     )
+                PressedColor: =ColorFade(Self.Color,90%)
                 Visible: |-
                     =If(
                         DataCardValue16.Selected.Value = "Created",
@@ -87,6 +89,7 @@ TicketsDetailPage_User As screen:
                 Icon: =Icon.Trash
                 LayoutMinHeight: =50
                 OnSelect: =Set(Dialogdelete,true)
+                PressedColor: =ColorFade(Self.Color,90%)
                 Visible: |-
                     =If(
                         DataCardValue16.Selected.Value = "Created",
@@ -1453,10 +1456,11 @@ TicketsDetailPage_User As screen:
                 OnSelect: |-
                     =Set(Copyrequest,TicketsGallery.Selected);
                     NewForm(Form1_3);
+                    Set(ButtonModeCopy,true);
                     Navigate(
                         CopyRequestPage,
                         ScreenTransition.None
-                    )
+                    );
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
