@@ -10,7 +10,8 @@ TicketsDetailPage_User As screen:
                 visiblebtnCopy,
                 false
             )
-        )
+        );
+        Set(ButtonnMode,false)
 
     Container10 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.ExtraBold
@@ -67,6 +68,7 @@ TicketsDetailPage_User As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =EditForm(Form1_2);
+                    Set(ButtonnMode,true);
                     Navigate(
                         EditTicketPage,
                         ScreenTransition.None
