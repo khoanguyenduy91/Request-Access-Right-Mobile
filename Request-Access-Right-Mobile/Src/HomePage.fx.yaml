@@ -778,7 +778,11 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =Navigate(
+                    =Set(
+                        visiblehistoryApprover,
+                        false
+                    );
+                    Navigate(
                         ApprovalPage,
                         ScreenTransition.Fade
                     )
@@ -801,7 +805,11 @@ HomePage As screen:
                 Height: =50
                 Icon: =Icon.ChevronRight
                 OnSelect: |-
-                    =Navigate(
+                    =Set(
+                        visiblehistoryApprover,
+                        false
+                    );
+                    Navigate(
                         ApprovalPage,
                         ScreenTransition.Fade
                     )

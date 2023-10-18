@@ -16,6 +16,28 @@ ApprovalPage As screen:
                 visibleapprovalPage,
                 false
             )
+        );
+        Refresh(Request_Test);
+        ClearCollect(
+            CollecRequestHistory_Approver1,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+            )
+        );
+        ClearCollect(
+            CollecRequestHistory_Approver2,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+            )
+        );
+        ClearCollect(
+            CollecRequestHistory_Approver3,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+            )
         )
 
     Container9_1 As groupContainer.verticalAutoLayoutContainer:
