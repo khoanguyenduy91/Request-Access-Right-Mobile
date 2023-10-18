@@ -1,22 +1,7 @@
 HODPage As screen:
-    OnHidden: |-
-        =Set(
-                visibleHODPage,
-                false
-            )
+    OnHidden: =
     OnVisible: |-
-        =If(
-            TicketsGallery_HOD.AllItemsCount = 0,
-            Set(
-                visibleHODPage,
-                true
-            ),
-            Set(
-                visibleHODPage,
-                false
-            )
-        );
-        Refresh(Request_Test);
+        =Refresh(Request_Test);
         ClearCollect(
             CollecRequestHistory_HOD,
             Filter(
@@ -51,6 +36,7 @@ HODPage As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -97,37 +83,31 @@ HODPage As screen:
                 Icon: =Icon.History
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
-                OnSelect: =Navigate(History_request_HOD,ScreenTransition.Fade)
+                OnSelect: |
+                    =Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    );
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
-        Container2_15 As groupContainer.horizontalAutoLayoutContainer:
+        Label6_1 As label:
+            Align: =Align.Center
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =70
-            LayoutGap: =20
-            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-            LayoutMinHeight: =112
-            LayoutMinWidth: =250
-            LayoutMode: =LayoutMode.Auto
-            Visible: =visibleHODPage
+            FillPortions: =1
+            Height: =Parent.Height
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =21
+            Text: ="No requests found"
+            Visible: =If(TicketsGallery_HOD.AllItemsCount=0,true,false)
             Width: =Parent.Width
             ZIndex: =3
-
-            Label6_1 As label:
-                Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Stretch
-                Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height
-                LayoutMinHeight: =70
-                LayoutMinWidth: =560
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =21
-                Text: ="No requests found"
-                Width: =Parent.Width
-                ZIndex: =1
 
         TicketsGallery_HOD As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
@@ -280,13 +260,14 @@ HODPage As screen:
 
                     Heading1_5 As label:
                         Color: =RGBA(40, 40, 40, 1)
+                        FillPortions: =1
                         FocusedBorderColor: =Heading1_5.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_5.BorderColor
                         HoverColor: =Heading1_5.Color
                         HoverFill: =Heading1_5.Fill
                         LayoutMinHeight: =70
-                        LayoutMinWidth: =560
+                        LayoutMinWidth: =200
                         OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
@@ -378,7 +359,7 @@ HODPage As screen:
                                 Size: =18
                                 Text: |-
                                     ="Request Type: "& ThisItem.ReqType.Value
-                                Width: =571
+                                Width: =Parent.Width
                                 Wrap: =false
                                 X: =34
                                 Y: =58
@@ -405,7 +386,7 @@ HODPage As screen:
                                 Size: =22
                                 Text: |-
                                     ="Title: "& ThisItem.Title
-                                Width: =571
+                                Width: =Parent.Width
                                 Wrap: =false
                                 X: =34
                                 Y: =47
@@ -490,6 +471,7 @@ HODPage As screen:
                                                 )
                                             )
                                         )
+                                    FillPortions: =1
                                     FocusedBorderColor: =Subtitle1_5.BorderColor
                                     FontWeight: =FontWeight.Bold
                                     Height: =50
@@ -497,7 +479,7 @@ HODPage As screen:
                                     HoverColor: =Subtitle1_5.Color
                                     HoverFill: =Subtitle1_5.Fill
                                     LayoutMinHeight: =70
-                                    LayoutMinWidth: =560
+                                    LayoutMinWidth: =200
                                     OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =0

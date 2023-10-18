@@ -30,6 +30,7 @@ TicketsDetailPage_HOD As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Back()
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -1426,6 +1427,7 @@ TicketsDetailPage_HOD As screen:
                         NotificationType.Success,
                         3000
                     );
+                    Refresh(Request_Test);
                     Navigate(HODPage)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
@@ -1526,7 +1528,7 @@ TicketsDetailPage_HOD As screen:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     FocusedBorderThickness: =Self.BorderThickness
-                    Height: =250
+                    Height: =350
                     HintText: ="Comment"
                     HoverBorderColor: =RGBA(0, 18, 107, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
@@ -1607,6 +1609,7 @@ TicketsDetailPage_HOD As screen:
                                     3000
                                 );
                                 Reset(TextInput1);
+                                Refresh(Request_Test);
                                 Navigate(HODPage)
                             )
                         PaddingBottom: =5.00

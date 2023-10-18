@@ -30,6 +30,7 @@ CopyRequestPage As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Back()
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -625,11 +626,14 @@ CopyRequestPage As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(ButtonModeCopy=true, DisplayMode.Edit, DisplayMode.Disabled)
                 Fill: =RGBA(11, 128, 32, 1)
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: =SubmitForm(Form1_3)
+                OnSelect: |-
+                    =SubmitForm(Form1_3);
+                    Set(ButtonModeCopy,false)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
