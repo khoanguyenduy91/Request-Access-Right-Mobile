@@ -15,14 +15,6 @@ HODPage As screen:
                 visibleHODPage,
                 false
             )
-        );
-        Refresh(Request_Test);
-        ClearCollect(
-            CollecRequestHistory_HOD,
-            Filter(
-                Request_Test,
-                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-            )
         )
 
     Container19 As groupContainer.verticalAutoLayoutContainer:
@@ -51,6 +43,7 @@ HODPage As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -97,7 +90,12 @@ HODPage As screen:
                 Icon: =Icon.History
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
-                OnSelect: =Navigate(History_request_HOD,ScreenTransition.Fade)
+                OnSelect: |
+                    =Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    );
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -148,7 +146,7 @@ HODPage As screen:
                     SortByColumns(
                         Filter(
                             Request_Test,
-                            Status.Value = "Created" && HOD.Email = User().Email
+                            User().Email = HOD.Email && Status.Value = "Created"
                         ),
                         "Created",
                         SortOrder.Descending
@@ -280,13 +278,14 @@ HODPage As screen:
 
                     Heading1_5 As label:
                         Color: =RGBA(40, 40, 40, 1)
+                        FillPortions: =1
                         FocusedBorderColor: =Heading1_5.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_5.BorderColor
                         HoverColor: =Heading1_5.Color
                         HoverFill: =Heading1_5.Fill
                         LayoutMinHeight: =70
-                        LayoutMinWidth: =560
+                        LayoutMinWidth: =200
                         OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
@@ -378,7 +377,7 @@ HODPage As screen:
                                 Size: =18
                                 Text: |-
                                     ="Request Type: "& ThisItem.ReqType.Value
-                                Width: =571
+                                Width: =Parent.Width
                                 Wrap: =false
                                 X: =34
                                 Y: =58
@@ -405,7 +404,7 @@ HODPage As screen:
                                 Size: =22
                                 Text: |-
                                     ="Title: "& ThisItem.Title
-                                Width: =571
+                                Width: =Parent.Width
                                 Wrap: =false
                                 X: =34
                                 Y: =47
@@ -490,6 +489,7 @@ HODPage As screen:
                                                 )
                                             )
                                         )
+                                    FillPortions: =1
                                     FocusedBorderColor: =Subtitle1_5.BorderColor
                                     FontWeight: =FontWeight.Bold
                                     Height: =50
@@ -497,7 +497,7 @@ HODPage As screen:
                                     HoverColor: =Subtitle1_5.Color
                                     HoverFill: =Subtitle1_5.Fill
                                     LayoutMinHeight: =70
-                                    LayoutMinWidth: =560
+                                    LayoutMinWidth: =200
                                     OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =0

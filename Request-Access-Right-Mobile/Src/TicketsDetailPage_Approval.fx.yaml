@@ -31,6 +31,7 @@ TicketsDetailPage_Approval As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Back()
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -1483,6 +1484,7 @@ TicketsDetailPage_Approval As screen:
                         NotificationType.Success,
                         3000
                     );
+                    Refresh(Request_Test);
                     Navigate(ApprovalPage)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
@@ -1694,7 +1696,7 @@ TicketsDetailPage_Approval As screen:
                                             ),
                                             {Status: {Value: "Rejected"}},
                                             {'Rejected Date': Now()},
-                                            {'Reason Reject': User().FullName & " is the Approver 1 comment: " & TextInput1_1.Text},
+                                            {'Reason Reject': User().FullName & " Comment: " & TextInput1_1.Text},
                                             {
                                                 'Rejected By': {
                                                     '@odata.type': User().Email,
@@ -1722,20 +1724,9 @@ TicketsDetailPage_Approval As screen:
                                                 ),
                                                 {Status: {Value: "Rejected"}},
                                                 {'Rejected Date': Now()},
-                                                {'Reason Reject': User().FullName & " is the Approver 2 comment: " & TextInput1_1.Text},
+                                                {'Reason Reject': User().FullName & " Comment: " & TextInput1_1.Text},
                                                 {
                                                     'Rejected By': {
-                                                        '@odata.type': User().Email,
-                                                        Claims: User().Email,
-                                                        Department: "",
-                                                        DisplayName: User().FullName,
-                                                        Email: User().Email,
-                                                        JobTitle: "",
-                                                        Picture: ""
-                                                    }
-                                                },
-                                                {
-                                                    'Approver 2': {
                                                         '@odata.type': User().Email,
                                                         Claims: User().Email,
                                                         Department: "",
@@ -1761,20 +1752,9 @@ TicketsDetailPage_Approval As screen:
                                                     ),
                                                     {Status: {Value: "Rejected"}},
                                                     {'Rejected Date': Now()},
-                                                    {'Reason Reject': User().FullName & " is the Approver 3 comment: " & TextInput1_1.Text},
+                                                    {'Reason Reject': User().FullName & " Comment: " & TextInput1_1.Text},
                                                     {
                                                         'Rejected By': {
-                                                            '@odata.type': User().Email,
-                                                            Claims: User().Email,
-                                                            Department: "",
-                                                            DisplayName: User().FullName,
-                                                            Email: User().Email,
-                                                            JobTitle: "",
-                                                            Picture: ""
-                                                        }
-                                                    },
-                                                    {
-                                                        'Approver 3': {
                                                             '@odata.type': User().Email,
                                                             Claims: User().Email,
                                                             Department: "",
@@ -1794,6 +1774,7 @@ TicketsDetailPage_Approval As screen:
                                         3000
                                     );
                                     Reset(TextInput1_1);
+                                    Refresh(Request_Test);
                                     Navigate(ApprovalPage)
                                 )
                             PaddingBottom: =5.00

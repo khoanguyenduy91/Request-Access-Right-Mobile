@@ -16,11 +16,6 @@ History_request_HOD As screen:
                 visiblehistoryHOD,
                 false
             )
-        );
-        Refresh(Request_Test);
-        ClearCollect(
-            CollectRequest,
-            Request_Test
         )
 
     Container9_3 As groupContainer.verticalAutoLayoutContainer:
@@ -52,6 +47,7 @@ History_request_HOD As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -79,27 +75,27 @@ History_request_HOD As screen:
                 Width: =64
                 ZIndex: =3
 
+        Label5_2 As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Stretch
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =1
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =21
+            Text: ="No requests found"
+            Visible: =visiblehistoryHOD
+            Width: =560
+            ZIndex: =2
+
         Container22_2 As groupContainer.verticalAutoLayoutContainer:
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =4
-
-            Label5_2 As label:
-                Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Stretch
-                Fill: =RGBA(255, 255, 255, 1)
-                FillPortions: =1
-                Height: =70
-                LayoutMinHeight: =70
-                LayoutMinWidth: =560
-                Size: =21
-                Text: ="No requests found"
-                Visible: =visiblehistoryHOD
-                Width: =560
-                ZIndex: =2
+            ZIndex: =3
 
             TicketsGallery_history_HOD As gallery.textualGalleryVertical:
                 AccessibleLabel: ="Tickets Gallery"
@@ -118,7 +114,10 @@ History_request_HOD As screen:
                             )
                         ),
                         SortByColumns(
-                            CollecRequestHistory_HOD,
+                            Filter(
+                                Request_Test,
+                                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            ),
                             "Created",
                             SortOrder.Descending
                         )

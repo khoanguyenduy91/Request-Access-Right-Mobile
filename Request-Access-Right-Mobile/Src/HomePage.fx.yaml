@@ -12,13 +12,6 @@ HomePage As screen:
             true
         );
         ClearCollect(
-            CollectRequestProcess,
-            Filter(
-                Request_Test,
-                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
             CollectRequestAll,
             Filter(
                 Request_Test,
@@ -30,6 +23,13 @@ HomePage As screen:
             Filter(
                 Request_Test,
                 Status.Value = "Created" && 'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestProcess,
+            Filter(
+                Request_Test,
+                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
             )
         );
         ClearCollect(
@@ -81,6 +81,7 @@ HomePage As screen:
                 Icon: =Icon.Leave
                 LayoutMinHeight: =50
                 OnSelect: =Exit()
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -136,6 +137,7 @@ HomePage As screen:
                         NewTicketPage,
                         ScreenTransition.Fade
                     )
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =4
 
@@ -143,7 +145,7 @@ HomePage As screen:
             BorderColor: =
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =325
+            Height: =280
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =112
             LayoutMinWidth: =250
@@ -167,7 +169,7 @@ HomePage As screen:
 
                 "'Group, All Ticket' As groupContainer":
                     AlignInContainer: =AlignInContainer.Center
-                    Height: =155
+                    Height: =150
                     LayoutMinHeight: =112
                     LayoutMinWidth: =100
                     Width: =Parent.Width
@@ -176,7 +178,7 @@ HomePage As screen:
                     ZIndex: =3
 
                     Container39 As groupContainer.verticalAutoLayoutContainer:
-                        Height: =153
+                        Height: =150
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -243,7 +245,7 @@ HomePage As screen:
 
                 "'Group ,New Tickets' As groupContainer":
                     AlignInContainer: =AlignInContainer.Center
-                    Height: =155
+                    Height: =150
                     LayoutMinHeight: =112
                     LayoutMinWidth: =100
                     Width: =Parent.Width
@@ -252,7 +254,7 @@ HomePage As screen:
                     ZIndex: =4
 
                     Container40 As groupContainer.verticalAutoLayoutContainer:
-                        Height: =153
+                        Height: =150
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -312,8 +314,9 @@ HomePage As screen:
                             ZIndex: =2
 
                 "'Group,Tickets Approval' As groupContainer":
-                    Height: =155
-                    LayoutMinHeight: =112
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =150
+                    LayoutMinHeight: =150
                     LayoutMinWidth: =100
                     Visible: |-
                         =If(
@@ -334,7 +337,7 @@ HomePage As screen:
                     ZIndex: =5
 
                     Container41 As groupContainer.verticalAutoLayoutContainer:
-                        Height: =153
+                        Height: =150
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -354,7 +357,22 @@ HomePage As screen:
                             HoverFill: =TextBox2_10.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =560
-                            OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                            OnSelect: |-
+                                =If(
+                                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                                        Office365Users.MyProfile().JobTitle,
+                                        "Head of",
+                                        MatchOptions.Contains
+                                    ),
+                                    Navigate(
+                                        HODPage,
+                                        ScreenTransition.Fade
+                                    ),
+                                    Navigate(
+                                        ApprovalPage,
+                                        ScreenTransition.Fade
+                                    )
+                                )
                             PressedBorderColor: =TextBox2_10.BorderColor
                             PressedColor: =TextBox2_10.Color
                             PressedFill: =TextBox2_10.Fill
@@ -416,13 +434,13 @@ HomePage As screen:
                                         )
                                     )
                                 )
-                            Width: =168
+                            Width: =Parent.Width
                             X: =72
                             Y: =10
                             ZIndex: =1
 
                         TextBox2_11 As label:
-                            Align: =LayoutAlignItems.Center
+                            Align: =Align.Center
                             BorderColor: =RGBA(0, 0, 0, 1)
                             Color: =RGBA(128, 128, 128, 1)
                             FocusedBorderColor: =TextBox2_11.BorderColor
@@ -432,7 +450,22 @@ HomePage As screen:
                             HoverFill: =TextBox2_11.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =560
-                            OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                            OnSelect: |-
+                                =If(
+                                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                                        Office365Users.MyProfile().JobTitle,
+                                        "Head of",
+                                        MatchOptions.Contains
+                                    ),
+                                    Navigate(
+                                        HODPage,
+                                        ScreenTransition.Fade
+                                    ),
+                                    Navigate(
+                                        ApprovalPage,
+                                        ScreenTransition.Fade
+                                    )
+                                )
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -442,7 +475,7 @@ HomePage As screen:
                             PressedFill: =TextBox2_11.Fill
                             Size: =18
                             Text: ="Requests Approval"
-                            Width: =151
+                            Width: =Parent.Width
                             X: =9
                             Y: =71
                             ZIndex: =2
@@ -458,6 +491,7 @@ HomePage As screen:
                 ZIndex: =2
 
                 "'Group, on hold' As groupContainer":
+                    AlignInContainer: =AlignInContainer.Center
                     Height: =150
                     LayoutMinHeight: =112
                     LayoutMinWidth: =100
@@ -535,6 +569,7 @@ HomePage As screen:
                             ZIndex: =2
 
                 Group21 As groupContainer:
+                    AlignInContainer: =AlignInContainer.Center
                     Height: =150
                     LayoutMinHeight: =112
                     LayoutMinWidth: =100
@@ -694,6 +729,7 @@ HomePage As screen:
                         CollectRequest,
                         Request_Test
                     )
+                PressedColor: =ColorFade(Self.Color,90%)
                 Repeat: =true
                 Visible: =false
                 Width: =280
@@ -708,7 +744,7 @@ HomePage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            Visible: |-
+            Visible: |+
                 =If(
                     !IsBlank(
                         LookUp(
@@ -721,14 +757,18 @@ HomePage As screen:
                     true,
                     false
                 )
+                
+                
+                
             Width: =Parent.Width
-            ZIndex: =4
+            ZIndex: =3
 
             btn_approval As button:
                 Align: =Align.Left
                 BorderColor: =
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
+                DisabledFill: =
                 Fill: =RGBA(255, 255, 255, 1)
                 FocusedBorderColor: =
                 FocusedBorderThickness: =
@@ -737,10 +777,14 @@ HomePage As screen:
                 HoverFill: =
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
-                OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                OnSelect: |-
+                    =Navigate(
+                        ApprovalPage,
+                        ScreenTransition.Fade
+                    )
                 PaddingLeft: =25
                 PressedBorderColor: =
-                PressedColor: =
+                PressedColor: =ColorFade(Self.Color,90%)
                 PressedFill: =
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -756,7 +800,11 @@ HomePage As screen:
                 Color: =RGBA(166, 166, 166, 1)
                 Height: =50
                 Icon: =Icon.ChevronRight
-                OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
+                OnSelect: |-
+                    =Navigate(
+                        ApprovalPage,
+                        ScreenTransition.Fade
+                    )
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -778,7 +826,7 @@ HomePage As screen:
             LayoutMode: =LayoutMode.Auto
             Visible: |-
                 =If(
-                    IsMatch(
+                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
                         Office365Users.MyProfile().JobTitle,
                         "Head of",
                         MatchOptions.Contains
@@ -787,7 +835,7 @@ HomePage As screen:
                     false
                 )
             Width: =Parent.Width
-            ZIndex: =6
+            ZIndex: =4
 
             btn_HOD As button:
                 Align: =Align.Left
@@ -802,10 +850,18 @@ HomePage As screen:
                 HoverFill: =
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
-                OnSelect: =Navigate(HODPage,ScreenTransition.Fade)
+                OnSelect: |
+                    =Set(
+                        visibleHODPage,
+                        false
+                    );
+                    Navigate(
+                        HODPage,
+                        ScreenTransition.Fade
+                    );
                 PaddingLeft: =25
                 PressedBorderColor: =
-                PressedColor: =
+                PressedColor: =ColorFade(Self.Color,90%)
                 PressedFill: =
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -821,7 +877,190 @@ HomePage As screen:
                 Color: =RGBA(166, 166, 166, 1)
                 Height: =50
                 Icon: =Icon.ChevronRight
-                OnSelect: =Navigate(HODPage,ScreenTransition.Fade)
+                OnSelect: |
+                    =Set(
+                        visibleHODPage,
+                        false
+                    );
+                    Navigate(
+                        HODPage,
+                        ScreenTransition.Fade
+                    );
+                PaddingBottom: =12
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                Tooltip: ="View item details"
+                Width: =50
+                X: =
+                Y: =
+                ZIndex: =2
+
+        ContainerHistoryAppro As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: |+
+                =If(
+                    !IsBlank(
+                        LookUp(
+                            LevelApproveTest,
+                            IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                            IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                            IdUser.Email = User().Email && Level.Value = "Approver 3"
+                        )
+                    ),
+                    true,
+                    false
+                )
+                
+                
+                
+            Width: =Parent.Width
+            ZIndex: =5
+
+            btn_HOD_1 As button:
+                Align: =Align.Left
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledFill: =
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                FontWeight: =FontWeight.Normal
+                Height: =70
+                HoverColor: =
+                HoverFill: =
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnSelect: |-
+                    =Navigate(
+                        History_request_Approver,
+                        ScreenTransition.Fade
+                    )
+                PaddingLeft: =25
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Self.Color,90%)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Text: ="Requests history approved"
+                Visible: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                LevelApproveTest,
+                                IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                                IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                                IdUser.Email = User().Email && Level.Value = "Approver 3"
+                            )
+                        ),
+                        true,
+                        false
+                    )
+                Width: =Parent.Width-70
+                ZIndex: =1
+
+            NextArrow2_4 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.ChevronRight
+                OnSelect: |-
+                    =Navigate(
+                        History_request_Approver,
+                        ScreenTransition.Fade
+                    )
+                PaddingBottom: =12
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                Tooltip: ="View item details"
+                Width: =50
+                X: =
+                Y: =
+                ZIndex: =2
+
+        ContainerHistoryHOD As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: |-
+                =If(
+                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                        Office365Users.MyProfile().JobTitle,
+                        "Head of",
+                        MatchOptions.Contains
+                    ),
+                    true,
+                    false
+                )
+            Width: =Parent.Width
+            ZIndex: =6
+
+            btn_HOD_2 As button:
+                Align: =Align.Left
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledFill: =
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                FontWeight: =FontWeight.Normal
+                Height: =70
+                HoverColor: =
+                HoverFill: =
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnSelect: |-
+                    =Set(
+                        visiblehistoryHOD,
+                        false
+                    );
+                    Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    );
+                PaddingLeft: =25
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Self.Color,90%)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Text: ="Requests history HOD approved"
+                Width: =Parent.Width-70
+                ZIndex: =1
+
+            NextArrow2_5 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.ChevronRight
+                OnSelect: |
+                    =Set(
+                        visiblehistoryHOD,
+                        false
+                    );
+                    Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    );
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -840,7 +1079,7 @@ HomePage As screen:
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             Width: =Parent.Width
-            ZIndex: =8
+            ZIndex: =7
 
             "Gallery1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
                 DelayItemLoading: =true
@@ -861,9 +1100,8 @@ HomePage As screen:
                     Color: =RGBA(0, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =70
-                    OnSelect: |
-                        =//Select(Parent)
-                        If(
+                    OnSelect: |-
+                        =If(
                             ThisItem.Title = "All requests",
                             Navigate(
                                 TicketPage,
@@ -885,36 +1123,29 @@ HomePage As screen:
                                         {type: "In progress"}
                                     ),
                                     If(
-                                        ThisItem.Title = "Requests approval",
+                                        ThisItem.Title = "Requests closed",
                                         Navigate(
-                                            ApprovalPage,
+                                            TicketPage,
                                             ScreenTransition.Fade,
-                                            {type: "Approval"}
+                                            {type: "Closed"}
                                         ),
                                         If(
-                                            ThisItem.Title = "Requests closed",
+                                            ThisItem.Title = "Requests rejected",
                                             Navigate(
                                                 TicketPage,
                                                 ScreenTransition.Fade,
-                                                {type: "Closed"}
-                                            ),
-                                            If(
-                                                ThisItem.Title = "Requests rejected",
-                                                Navigate(
-                                                    TicketPage,
-                                                    ScreenTransition.Fade,
-                                                    {type: "Rejected"}
-                                                )
+                                                {type: "Rejected"}
                                             )
                                         )
                                     )
                                 )
                             )
-                        );
+                        )
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
+                    PressedColor: =ColorFade(Self.Color,90%)
                     Size: =25
                     Text: =ThisItem.Title
                     Width: =Parent.TemplateWidth - 86
@@ -927,9 +1158,8 @@ HomePage As screen:
                     Color: =RGBA(166, 166, 166, 1)
                     Height: =50
                     Icon: =Icon.ChevronRight
-                    OnSelect: |
-                        =//Select(Parent)
-                        If(
+                    OnSelect: |-
+                        =If(
                             ThisItem.Title = "All requests",
                             Navigate(
                                 TicketPage,
@@ -951,32 +1181,24 @@ HomePage As screen:
                                         {type: "In progress"}
                                     ),
                                     If(
-                                        ThisItem.Title = "Requests approval",
+                                        ThisItem.Title = "Requests closed",
                                         Navigate(
-                                            ApprovalPage,
+                                            TicketPage,
                                             ScreenTransition.Fade,
-                                            {type: "Approval"}
+                                            {type: "Closed"}
                                         ),
                                         If(
-                                            ThisItem.Title = "Requests closed",
+                                            ThisItem.Title = "Requests rejected",
                                             Navigate(
                                                 TicketPage,
                                                 ScreenTransition.Fade,
-                                                {type: "Closed"}
-                                            ),
-                                            If(
-                                                ThisItem.Title = "Requests rejected",
-                                                Navigate(
-                                                    TicketPage,
-                                                    ScreenTransition.Fade,
-                                                    {type: "Rejected"}
-                                                )
+                                                {type: "Rejected"}
                                             )
                                         )
                                     )
                                 )
                             )
-                        );
+                        )
                     PaddingBottom: =12
                     PaddingLeft: =12
                     PaddingRight: =12

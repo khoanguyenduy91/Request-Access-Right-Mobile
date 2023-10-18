@@ -16,11 +16,6 @@ History_request_Approver As screen:
                 visiblehistoryApprover,
                 false
             )
-        );
-        Refresh(Request_Test);
-        ClearCollect(
-            CollectRequest,
-            Request_Test
         )
 
     Container9_2 As groupContainer.verticalAutoLayoutContainer:
@@ -52,6 +47,7 @@ History_request_Approver As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -79,27 +75,27 @@ History_request_Approver As screen:
                 Width: =64
                 ZIndex: =3
 
+        Label5_1 As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Stretch
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =1
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =21
+            Text: ="No requests found"
+            Visible: =visiblehistoryApprover
+            Width: =560
+            ZIndex: =2
+
         Container22_1 As groupContainer.verticalAutoLayoutContainer:
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =4
-
-            Label5_1 As label:
-                Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Stretch
-                Fill: =RGBA(255, 255, 255, 1)
-                FillPortions: =1
-                Height: =70
-                LayoutMinHeight: =70
-                LayoutMinWidth: =560
-                Size: =21
-                Text: ="No requests found"
-                Visible: =visiblehistoryApprover
-                Width: =560
-                ZIndex: =2
+            ZIndex: =3
 
             TicketsGallery_history_approver As gallery.textualGalleryVertical:
                 AccessibleLabel: ="Tickets Gallery"
@@ -118,7 +114,10 @@ History_request_Approver As screen:
                             )
                         ),
                         SortByColumns(
-                            CollecRequestHistory_Approver1,
+                            Filter(
+                                Request_Test,
+                                User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            ),
                             "Created",
                             SortOrder.Descending
                         ),
@@ -130,7 +129,10 @@ History_request_Approver As screen:
                                 )
                             ),
                             SortByColumns(
-                                CollecRequestHistory_Approver2,
+                                Filter(
+                                    Request_Test,
+                                    User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                                ),
                                 "Created",
                                 SortOrder.Descending
                             ),
@@ -142,7 +144,10 @@ History_request_Approver As screen:
                                     )
                                 ),
                                 SortByColumns(
-                                    CollecRequestHistory_Approver3,
+                                    Filter(
+                                        Request_Test,
+                                        User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                                    ),
                                     "Created",
                                     SortOrder.Descending
                                 )
