@@ -89,7 +89,7 @@ History_request_Approver As screen:
                 LayoutMinWidth: =560
                 Size: =21
                 Text: ="No requests found"
-                Visible: =visiblehistoryApprover
+                Visible: =If(TicketsGallery_history_approver.AllItemsCount=0,true,false)
                 Width: =560
                 ZIndex: =2
 
@@ -110,7 +110,10 @@ History_request_Approver As screen:
                             )
                         ),
                         SortByColumns(
-                            CollecRequestHistory_Approver1,
+                            Filter(
+                                Request_Test,
+                                User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            ),
                             "Created",
                             SortOrder.Descending
                         ),
@@ -122,7 +125,10 @@ History_request_Approver As screen:
                                 )
                             ),
                             SortByColumns(
-                                CollecRequestHistory_Approver2,
+                                Filter(
+                                    Request_Test,
+                                    User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                                ),
                                 "Created",
                                 SortOrder.Descending
                             ),
@@ -134,7 +140,10 @@ History_request_Approver As screen:
                                     )
                                 ),
                                 SortByColumns(
-                                    CollecRequestHistory_Approver3,
+                                    Filter(
+                                        Request_Test,
+                                        User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                                    ),
                                     "Created",
                                     SortOrder.Descending
                                 )

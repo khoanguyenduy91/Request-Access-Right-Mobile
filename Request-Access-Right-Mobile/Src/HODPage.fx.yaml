@@ -87,18 +87,7 @@ HODPage As screen:
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
                 OnSelect: |
-                    =ClearCollect(
-                        CollecRequestHistory_HOD,
-                        Filter(
-                            Request_Test,
-                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    Set(
-                        visiblehistoryHOD,
-                        false
-                    );
-                    Navigate(
+                    =Navigate(
                         History_request_HOD,
                         ScreenTransition.Fade
                     );
@@ -131,7 +120,7 @@ HODPage As screen:
                 PaddingTop: =0
                 Size: =21
                 Text: ="No requests found"
-                Visible: =visibleHODPage
+                Visible: =If(TicketsGallery_HOD.AllItemsCount=0,true,false)
                 Width: =Parent.Width
                 ZIndex: =1
 

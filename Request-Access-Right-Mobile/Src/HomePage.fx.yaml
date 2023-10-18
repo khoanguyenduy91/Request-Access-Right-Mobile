@@ -364,18 +364,10 @@ HomePage As screen:
                                         "Head of",
                                         MatchOptions.Contains
                                     ),
-                                    Set(
-                                        visibleHODPage,
-                                        false
-                                    );
                                     Navigate(
                                         HODPage,
                                         ScreenTransition.Fade
                                     ),
-                                    Set(
-                                        visibleapprovalPage,
-                                        false
-                                    );
                                     Navigate(
                                         ApprovalPage,
                                         ScreenTransition.Fade
@@ -465,18 +457,10 @@ HomePage As screen:
                                         "Head of",
                                         MatchOptions.Contains
                                     ),
-                                    Set(
-                                        visibleHODPage,
-                                        false
-                                    );
                                     Navigate(
                                         HODPage,
                                         ScreenTransition.Fade
                                     ),
-                                    Set(
-                                        visibleapprovalPage,
-                                        false
-                                    );
                                     Navigate(
                                         ApprovalPage,
                                         ScreenTransition.Fade
@@ -794,11 +778,7 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =Set(
-                        visibleapprovalPage,
-                        false
-                    );
-                    Navigate(
+                    =Navigate(
                         ApprovalPage,
                         ScreenTransition.Fade
                     )
@@ -821,11 +801,7 @@ HomePage As screen:
                 Height: =50
                 Icon: =Icon.ChevronRight
                 OnSelect: |-
-                    =Set(
-                        visibleapprovalPage,
-                        false
-                    );
-                    Navigate(
+                    =Navigate(
                         ApprovalPage,
                         ScreenTransition.Fade
                     )
@@ -963,11 +939,7 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =Set(
-                        visiblehistoryApprover,
-                        false
-                    );
-                    Navigate(
+                    =Navigate(
                         History_request_Approver,
                         ScreenTransition.Fade
                     )
@@ -1003,11 +975,7 @@ HomePage As screen:
                 Height: =50
                 Icon: =Icon.ChevronRight
                 OnSelect: |-
-                    =Set(
-                        visiblehistoryApprover,
-                        false
-                    );
-                    Navigate(
+                    =Navigate(
                         History_request_Approver,
                         ScreenTransition.Fade
                     )

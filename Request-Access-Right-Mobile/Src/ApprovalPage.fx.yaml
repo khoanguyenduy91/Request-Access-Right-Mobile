@@ -95,34 +95,9 @@ ApprovalPage As screen:
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
                 OnSelect: |-
-                    =ClearCollect(
-                        CollecRequestHistory_Approver1,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver2,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver3,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    Navigate(
+                    =Navigate(
                         History_request_Approver,
                         ScreenTransition.Fade
-                    );
-                    Set(
-                        visiblehistoryApprover,
-                        false
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
@@ -149,7 +124,7 @@ ApprovalPage As screen:
                 LayoutMinWidth: =560
                 Size: =21
                 Text: ="No requests found"
-                Visible: =visibleapprovalPage
+                Visible: =If(TicketsGallery_approval.AllItemsCount=0,true,false)
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -214,6 +189,7 @@ ApprovalPage As screen:
             LayoutMinHeight: =287
             LayoutMinWidth: =320
             LoadingSpinnerColor: =TicketsGallery_approval.BorderColor
+            OnSelect: =
             PressedBorderColor: =TicketsGallery_approval.BorderColor
             PressedFill: =TicketsGallery_approval.Fill
             ShowScrollbar: =false

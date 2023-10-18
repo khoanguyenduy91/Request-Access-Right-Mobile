@@ -89,7 +89,7 @@ History_request_HOD As screen:
                 LayoutMinWidth: =560
                 Size: =21
                 Text: ="No requests found"
-                Visible: =visiblehistoryHOD
+                Visible: =If(TicketsGallery_history_HOD.AllItemsCount=0,true,false)
                 Width: =560
                 ZIndex: =2
 
@@ -110,7 +110,10 @@ History_request_HOD As screen:
                             )
                         ),
                         SortByColumns(
-                            CollecRequestHistory_HOD,
+                            Filter(
+                                Request_Test,
+                                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            ),
                             "Created",
                             SortOrder.Descending
                         )
