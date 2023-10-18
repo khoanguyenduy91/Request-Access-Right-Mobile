@@ -7454,6 +7454,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.visibleapprovalPage"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.visibleapprovalPage",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "visibleapprovalPage",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.visiblehistoryApprover"
                 }
               ],
@@ -7495,6 +7525,36 @@
               },
               "properties": {
                 "member": "visiblehistoryHOD",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.visibleHODPage"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.visibleHODPage",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "visibleHODPage",
                 "module": "App",
                 "type": "App"
               }
