@@ -11,7 +11,7 @@ ApprovalPage As screen:
             Set(
                 visibleapprovalPage,
                 true
-            );
+            ),
             Set(
                 visibleapprovalPage,
                 false
@@ -141,7 +141,7 @@ ApprovalPage As screen:
             Width: =Parent.Width
             ZIndex: =3
 
-            Label6 As label:
+            Label6_2 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Start
                 Fill: =RGBA(255, 255, 255, 1)

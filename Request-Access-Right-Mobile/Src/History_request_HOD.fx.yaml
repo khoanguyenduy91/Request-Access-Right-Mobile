@@ -114,10 +114,7 @@ History_request_HOD As screen:
                             )
                         ),
                         SortByColumns(
-                            Filter(
-                                Request_Test,
-                                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                            ),
+                            CollecRequestHistory_HOD,
                             "Created",
                             SortOrder.Descending
                         )
