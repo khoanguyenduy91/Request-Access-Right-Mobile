@@ -1,4 +1,42 @@
 {
+  "16c10c43-41c0-4dc1-9ed6-d0929d1ab26a": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "a965592d-aebd-42f7-bd1b-ab864595125d": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "d2a22812-8a6d-ee11-9ae7-6045bd5a2bd2"
+        },
+        "workflowName": {
+          "value": "bd72fc3f-56d2-e59a-993e-347921cbc647"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "a965592d-aebd-42f7-bd1b-ab864595125d"
+        },
+        "workflowEntityId": {
+          "value": "d2a22812-8a6d-ee11-9ae7-6045bd5a2bd2"
+        },
+        "workflowName": {
+          "value": "bd72fc3f-56d2-e59a-993e-347921cbc647"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "[SubFlow]Copy_Attachment"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "a965592d-aebd-42f7-bd1b-ab864595125d"
+    },
+    "dependents": [],
+    "id": "16c10c43-41c0-4dc1-9ed6-d0929d1ab26a"
+  },
   "2ff0eb24-3c0e-4e9e-9bd8-29c803fd0242": {
     "connectionRef": {
       "displayName": "Microsoft Teams",
@@ -289,7 +327,8 @@
     "dependencies": {},
     "dependents": [
       "97b26606-4c29-4c29-82c2-1f1a69a270a0",
-      "46f8a16e-87d7-4322-9120-f586541ca456"
+      "46f8a16e-87d7-4322-9120-f586541ca456",
+      "16c10c43-41c0-4dc1-9ed6-d0929d1ab26a"
     ],
     "id": "a965592d-aebd-42f7-bd1b-ab864595125d"
   },
