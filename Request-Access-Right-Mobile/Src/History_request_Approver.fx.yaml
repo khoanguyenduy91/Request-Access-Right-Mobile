@@ -16,6 +16,11 @@ History_request_Approver As screen:
                 visiblehistoryApprover,
                 false
             )
+        );
+        Refresh(Request_Test);
+        ClearCollect(
+            CollectRequest,
+            Request_Test
         )
 
     Container9_2 As groupContainer.verticalAutoLayoutContainer:
@@ -62,7 +67,7 @@ History_request_Approver As screen:
                 LayoutMinWidth: =300
                 Size: =28
                 Text: |
-                    ="Request history Approver"
+                    ="Request history approved"
                 Width: =560
                 ZIndex: =2
 
@@ -114,10 +119,7 @@ History_request_Approver As screen:
                             )
                         ),
                         SortByColumns(
-                            Filter(
-                                Request_Test,
-                                User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                            ),
+                            CollecRequestHistory_Approver1,
                             "Created",
                             SortOrder.Descending
                         ),
@@ -129,10 +131,7 @@ History_request_Approver As screen:
                                 )
                             ),
                             SortByColumns(
-                                Filter(
-                                    Request_Test,
-                                    User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                                ),
+                                CollecRequestHistory_Approver2,
                                 "Created",
                                 SortOrder.Descending
                             ),
@@ -144,10 +143,7 @@ History_request_Approver As screen:
                                     )
                                 ),
                                 SortByColumns(
-                                    Filter(
-                                        Request_Test,
-                                        User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                                    ),
+                                    CollecRequestHistory_Approver3,
                                     "Created",
                                     SortOrder.Descending
                                 )

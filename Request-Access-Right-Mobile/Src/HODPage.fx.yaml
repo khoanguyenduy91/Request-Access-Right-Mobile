@@ -1,19 +1,12 @@
 HODPage As screen:
-    OnHidden: |-
-        =Set(
-                visibleHODPage,
-                false
-            )
+    OnHidden: =
     OnVisible: |-
-        =If(
-            TicketsGallery_HOD.AllItemsCount = 0,
-            Set(
-                visibleHODPage,
-                true
-            ),
-            Set(
-                visibleHODPage,
-                false
+        =Refresh(Request_Test);
+        ClearCollect(
+            CollecRequestHistory_HOD,
+            Filter(
+                Request_Test,
+                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
             )
         )
 
@@ -99,33 +92,22 @@ HODPage As screen:
                 Width: =50
                 ZIndex: =1
 
-        Container2_15 As groupContainer.horizontalAutoLayoutContainer:
+        Label6_1 As label:
+            Align: =Align.Center
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =70
-            LayoutGap: =20
-            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-            LayoutMinHeight: =112
-            LayoutMinWidth: =250
-            LayoutMode: =LayoutMode.Auto
-            Visible: =visibleHODPage
+            FillPortions: =1
+            Height: =Parent.Height
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =21
+            Text: ="No requests found"
+            Visible: =If(TicketsGallery_HOD.AllItemsCount=0,true,false)
             Width: =Parent.Width
             ZIndex: =3
-
-            Label6_1 As label:
-                Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Stretch
-                Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height
-                LayoutMinHeight: =70
-                LayoutMinWidth: =560
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =21
-                Text: ="No requests found"
-                Width: =Parent.Width
-                ZIndex: =1
 
         TicketsGallery_HOD As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
@@ -146,7 +128,7 @@ HODPage As screen:
                     SortByColumns(
                         Filter(
                             Request_Test,
-                            User().Email = HOD.Email && Status.Value = "Created"
+                            Status.Value = "Created" && HOD.Email = User().Email
                         ),
                         "Created",
                         SortOrder.Descending
