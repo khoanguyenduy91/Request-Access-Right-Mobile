@@ -877,7 +877,7 @@ HomePage As screen:
                     =Navigate(
                         HODPage,
                         ScreenTransition.Fade
-                    );
+                    )
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -1070,7 +1070,7 @@ HomePage As screen:
                     Navigate(
                         History_request_HOD,
                         ScreenTransition.Fade
-                    );
+                    )
                 PaddingLeft: =25
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Self.Color,90%)
@@ -1100,7 +1100,7 @@ HomePage As screen:
                     Navigate(
                         History_request_HOD,
                         ScreenTransition.Fade
-                    );
+                    )
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
