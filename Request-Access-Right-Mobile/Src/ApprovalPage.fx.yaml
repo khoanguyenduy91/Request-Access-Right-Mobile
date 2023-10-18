@@ -6,18 +6,7 @@ ApprovalPage As screen:
                 false
             )
     OnVisible: |-
-        =If(
-            TicketsGallery_approval.AllItemsCount = 0,
-            Set(
-                visibleapprovalPage,
-                true
-            ),
-            Set(
-                visibleapprovalPage,
-                false
-            )
-        );
-        Refresh(Request_Test);
+        =Refresh(Request_Test);
         ClearCollect(
             CollecRequestHistory_Approver1,
             Filter(
@@ -72,7 +61,6 @@ ApprovalPage As screen:
                         HomePage,
                         ScreenTransition.Fade
                     )
-                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -116,42 +104,31 @@ ApprovalPage As screen:
 
             Icon1_11 As icon.Add:
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
+                Height: =60
                 Icon: =Icon.History
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
-                OnSelect: |-
-                    =Navigate(
-                        History_request_Approver,
-                        ScreenTransition.Fade
-                    )
-                PressedColor: =ColorFade(Self.Color,90%)
-                Width: =50
+                OnSelect: =Navigate(History_request_Approver,ScreenTransition.Fade)
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                Width: =60
                 ZIndex: =1
 
-        Container2_10 As groupContainer.horizontalAutoLayoutContainer:
+        Label6 As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Start
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =70
-            LayoutGap: =20
-            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-            LayoutMinHeight: =112
-            LayoutMinWidth: =250
-            LayoutMode: =LayoutMode.Auto
-            Visible: =visibleapprovalPage
+            FillPortions: =1
+            Height: =Parent.Height
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =21
+            Text: ="No requests found"
+            Visible: =If(TicketsGallery_approval.AllItemsCount=0,true,false)
             Width: =Parent.Width
             ZIndex: =3
-
-            Label6_2 As label:
-                Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Start
-                Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height
-                LayoutMinHeight: =70
-                LayoutMinWidth: =560
-                Size: =21
-                Text: ="No requests found"
-                Width: =Parent.Width
-                ZIndex: =1
 
         TicketsGallery_approval As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
@@ -214,7 +191,6 @@ ApprovalPage As screen:
             LayoutMinHeight: =287
             LayoutMinWidth: =320
             LoadingSpinnerColor: =TicketsGallery_approval.BorderColor
-            OnSelect: =
             PressedBorderColor: =TicketsGallery_approval.BorderColor
             PressedFill: =TicketsGallery_approval.Fill
             ShowScrollbar: =false

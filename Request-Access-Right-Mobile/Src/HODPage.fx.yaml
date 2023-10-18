@@ -1,22 +1,7 @@
 HODPage As screen:
-    OnHidden: |-
-        =Set(
-                visibleHODPage,
-                false
-            )
+    OnHidden: =
     OnVisible: |-
-        =If(
-            TicketsGallery_HOD.AllItemsCount = 0,
-            Set(
-                visibleHODPage,
-                true
-            ),
-            Set(
-                visibleHODPage,
-                false
-            )
-        );
-        Refresh(Request_Test);
+        =Refresh(Request_Test);
         ClearCollect(
             CollecRequestHistory_HOD,
             Filter(
@@ -120,7 +105,7 @@ HODPage As screen:
             PaddingTop: =0
             Size: =21
             Text: ="No requests found"
-            Visible: =visibleHODPage
+            Visible: =If(TicketsGallery_HOD.AllItemsCount=0,true,false)
             Width: =Parent.Width
             ZIndex: =3
 
