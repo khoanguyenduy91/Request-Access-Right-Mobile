@@ -11,6 +11,10 @@ History_request_HOD As screen:
             Set(
                 visiblehistoryHOD,
                 true
+            ),
+            Set(
+                visiblehistoryHOD,
+                false
             )
         )
 
@@ -89,7 +93,7 @@ History_request_HOD As screen:
                 LayoutMinWidth: =560
                 Size: =21
                 Text: ="No requests found"
-                Visible: =If(TicketsGallery_history_HOD.AllItemsCount=0,true,false)
+                Visible: =visiblehistoryHOD
                 Width: =560
                 ZIndex: =2
 

@@ -10,6 +10,10 @@ HODPage As screen:
             Set(
                 visibleHODPage,
                 true
+            ),
+            Set(
+                visibleHODPage,
+                false
             )
         )
 
@@ -103,7 +107,7 @@ HODPage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            Visible: =If(TicketsGallery_HOD.AllItemsCount=0,true,false)
+            Visible: =visibleHODPage
             Width: =Parent.Width
             ZIndex: =3
 
@@ -120,7 +124,6 @@ HODPage As screen:
                 PaddingTop: =0
                 Size: =21
                 Text: ="No requests found"
-                Visible: =
                 Width: =Parent.Width
                 ZIndex: =1
 
