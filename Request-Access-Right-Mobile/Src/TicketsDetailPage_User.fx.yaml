@@ -1454,13 +1454,19 @@ TicketsDetailPage_User As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
-                    =Set(Copyrequest,TicketsGallery.Selected);
+                    =Set(
+                        Copyrequest,
+                        TicketsGallery.Selected
+                    );
                     NewForm(Form1_3);
-                    Set(ButtonModeCopy,true);
+                    Set(
+                        ButtonModeCopy,
+                        true
+                    );
                     Navigate(
                         CopyRequestPage,
                         ScreenTransition.None
-                    );
+                    )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

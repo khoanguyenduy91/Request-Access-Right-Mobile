@@ -582,9 +582,15 @@ TicketPage As screen:
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =560
                                         OnSelect: |-
-                                            =Set(Copyrequest,TicketsGallery.Selected);
+                                            =Set(
+                                                Copyrequest,
+                                                TicketsGallery.Selected
+                                            );
                                             NewForm(Form1_3);
-                                            Set(ButtonModeCopy,true);
+                                            Set(
+                                                ButtonModeCopy,
+                                                true
+                                            );
                                             Navigate(
                                                 CopyRequestPage,
                                                 ScreenTransition.None
@@ -614,9 +620,15 @@ TicketPage As screen:
                                         Icon: =Icon.Copy
                                         LayoutMinWidth: =40
                                         OnSelect: |-
-                                            =Set(Copyrequest,TicketsGallery.Selected);
+                                            =Set(
+                                                Copyrequest,
+                                                TicketsGallery.Selected
+                                            );
                                             NewForm(Form1_3);
-                                            Set(ButtonModeCopy,true);
+                                            Set(
+                                                ButtonModeCopy,
+                                                true
+                                            );
                                             Navigate(
                                                 CopyRequestPage,
                                                 ScreenTransition.None
