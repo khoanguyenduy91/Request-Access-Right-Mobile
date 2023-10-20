@@ -94,6 +94,8 @@ HODPage As screen:
 
         Label6_1 As label:
             Align: =Align.Center
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =1
             Height: =Parent.Height
@@ -111,6 +113,8 @@ HODPage As screen:
 
         TicketsGallery_HOD As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
             DisabledBorderColor: =TicketsGallery_HOD.BorderColor
             DisabledFill: =TicketsGallery_HOD.Fill
             Fill: =RGBA(255, 255, 255, 1)

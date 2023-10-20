@@ -32,7 +32,7 @@ ApprovalPage As screen:
     Container9_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
-        LayoutGap: =0.5
+        LayoutGap: =1
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
@@ -119,6 +119,8 @@ ApprovalPage As screen:
         Label6 As label:
             Align: =Align.Center
             AlignInContainer: =AlignInContainer.Start
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =1
             Height: =Parent.Height
@@ -132,6 +134,8 @@ ApprovalPage As screen:
 
         TicketsGallery_approval As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
             DisabledBorderColor: =TicketsGallery_approval.BorderColor
             DisabledFill: =TicketsGallery_approval.Fill
             Fill: =RGBA(255, 255, 255, 1)

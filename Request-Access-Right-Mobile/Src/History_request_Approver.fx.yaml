@@ -83,6 +83,8 @@ History_request_Approver As screen:
         Label5_1 As label:
             Align: =Align.Center
             AlignInContainer: =AlignInContainer.Stretch
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =1
             Height: =70
@@ -95,6 +97,8 @@ History_request_Approver As screen:
             ZIndex: =2
 
         Container22_1 As groupContainer.verticalAutoLayoutContainer:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =112
