@@ -113,6 +113,41 @@ HomePage As screen:
                         CollectRequest,
                         Request_Test
                     );
+                    ClearCollect(
+                        CollectRequestAll,
+                        Filter(
+                            Request_Test,
+                            'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestNew,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestProcess,
+                        Filter(
+                            Request_Test,
+                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestClosed,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Done" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestRejected,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                        )
+                    );
                     Set(
                         autoRefresh,
                         false
@@ -719,7 +754,7 @@ HomePage As screen:
 
             Timer_Refresh As timer:
                 AutoStart: =autoRefresh
-                Duration: =120000
+                Duration: =180000
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
@@ -728,6 +763,41 @@ HomePage As screen:
                     ClearCollect(
                         CollectRequest,
                         Request_Test
+                    );
+                    ClearCollect(
+                        CollectRequestAll,
+                        Filter(
+                            Request_Test,
+                            'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestNew,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestProcess,
+                        Filter(
+                            Request_Test,
+                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestClosed,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Done" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestRejected,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                        )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Repeat: =true
