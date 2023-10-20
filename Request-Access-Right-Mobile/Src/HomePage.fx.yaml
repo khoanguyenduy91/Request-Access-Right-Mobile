@@ -86,11 +86,10 @@ HomePage As screen:
                 ZIndex: =1
 
             Image1 As image:
-                AlignInContainer: =AlignInContainer.Stretch
+                AlignInContainer: =AlignInContainer.Center
                 FillPortions: =1
-                Height: =Parent.Height
+                Height: =Parent.Height-20
                 Image: =logocochu
-                ImagePosition: =ImagePosition.Center
                 LayoutMinHeight: =60
                 LayoutMinWidth: =320
                 PaddingBottom: =10
