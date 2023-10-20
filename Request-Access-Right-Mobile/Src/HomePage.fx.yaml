@@ -7,10 +7,6 @@ HomePage As screen:
             CollectRequest,
             Request_Test
         );
-        Set(
-            autoRefresh,
-            true
-        );
         ClearCollect(
             CollectRequestAll,
             Filter(
@@ -45,6 +41,10 @@ HomePage As screen:
                 Request_Test,
                 Status.Value = "Rejected" && 'Created By'.Email = User().Email
             )
+        );
+        Set(
+            autoRefresh,
+            true
         )
     Orientation: =If(HomePage.Width < HomePage.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= HomePage.Width)
