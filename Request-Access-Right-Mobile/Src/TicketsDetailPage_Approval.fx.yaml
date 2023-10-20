@@ -1485,6 +1485,10 @@ TicketsDetailPage_Approval As screen:
                         3000
                     );
                     Refresh(Request_Test);
+                    ClearCollect(
+                        CollectRequest,
+                        Request_Test
+                    );
                     Navigate(ApprovalPage)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)

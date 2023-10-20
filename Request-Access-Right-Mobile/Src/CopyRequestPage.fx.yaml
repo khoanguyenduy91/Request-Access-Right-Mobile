@@ -83,6 +83,11 @@ CopyRequestPage As screen:
                         NotificationType.Success,
                         3000
                     );
+                    Refresh(Request_Test);
+                    ClearCollect(
+                        CollectRequest,
+                        Request_Test
+                    );
                     Navigate(
                         HomePage,
                         ScreenTransition.Cover

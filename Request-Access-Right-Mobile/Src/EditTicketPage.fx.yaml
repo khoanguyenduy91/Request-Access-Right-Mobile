@@ -85,6 +85,11 @@ EditTicketPage As screen:
                         NotificationType.Success,
                         3000
                     );
+                    Refresh(Request_Test);
+                    ClearCollect(
+                        CollectRequest,
+                        Request_Test
+                    );
                     '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
                     Navigate(
                         HomePage,

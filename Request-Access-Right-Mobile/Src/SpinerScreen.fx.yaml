@@ -1,0 +1,109 @@
+SpinerScreen As screen:
+    OnHidden: =Set(SpinnerRefresh,false)
+    OnVisible: |-
+        =Set(
+            SpinnerRefresh,
+            true
+        );
+        Refresh(Request_Test);
+        ClearCollect(
+            CollectRequest,
+            Request_Test
+        );
+        ClearCollect(
+            CollectRequestAll,
+            Filter(
+                Request_Test,
+                'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestNew,
+            Filter(
+                Request_Test,
+                Status.Value = "Created" && 'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestProcess,
+            Filter(
+                Request_Test,
+                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestClosed,
+            Filter(
+                Request_Test,
+                Status.Value = "Done" && 'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectRequestRejected,
+            Filter(
+                Request_Test,
+                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+            )
+        );
+        ClearCollect(
+            CollectFilterHome,
+            TableTicketTypes_Test
+        );
+        ClearCollect(
+            CollectFilterRequest,
+            FilterTickets
+        );
+        ClearCollect(
+            CollecRequestHistory_Approver1,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+            )
+        );
+        ClearCollect(
+            CollecRequestHistory_Approver2,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+            )
+        );
+        ClearCollect(
+            CollecRequestHistory_Approver3,
+            Filter(
+                Request_Test,
+                User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+            )
+        );
+        ClearCollect(
+            CollecRequestHistory_HOD,
+            Filter(
+                Request_Test,
+                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+            )
+        )
+
+    Spinner2 As Spinner:
+        AccessibleLabel: =""
+        Appearance: ='Spinner.Appearance'.Primary
+        DisplayMode: =DisplayMode.Edit
+        Height: =Parent.Height
+        Label: ="Please wait a moment!"
+        LabelPosition: ='Spinner.LabelPosition'.Above
+        SpinnerSize: ='Spinner.SpinnerSize'.Huge
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+    Timer2 As timer:
+        AutoStart: =SpinnerRefresh
+        Duration: =5000
+        Height: =70
+        OnTimerEnd: |-
+            =Set(SpinnerRefresh,false);
+            Navigate(HomePage)
+        Width: =280
+        X: =180
+        Y: =42
+        ZIndex: =2
+

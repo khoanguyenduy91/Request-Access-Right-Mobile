@@ -169,19 +169,34 @@ TicketPage As screen:
                     =Sort(
                         If(
                             type = "All",
-                            CollectRequestAll,
+                            Filter(
+                                Request_Test,
+                                'Created By'.Email = User().Email
+                            ),
                             If(
                                 type = "New",
-                                CollectRequestNew,
+                                Filter(
+                                    Request_Test,
+                                    Status.Value = "Created" && 'Created By'.Email = User().Email
+                                ),
                                 If(
                                     type = "In progress",
-                                    CollectRequestProcess,
+                                    Filter(
+                                        Request_Test,
+                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                                    ),
                                     If(
                                         type = "Closed",
-                                        CollectRequestClosed,
+                                        Filter(
+                                            Request_Test,
+                                            Status.Value = "Done" && 'Created By'.Email = User().Email
+                                        ),
                                         If(
                                             type = "Rejected",
-                                            CollectRequestRejected
+                                            Filter(
+                                                Request_Test,
+                                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                            )
                                         )
                                     )
                                 )
