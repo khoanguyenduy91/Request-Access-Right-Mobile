@@ -1,0 +1,1277 @@
+Screen1 As screen:
+
+    Container1_1 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(217, 216, 217, 1)
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =0.5
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container2_10 As groupContainer.horizontalAutoLayoutContainer:
+            BorderColor: =
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
+            PaddingRight: =20
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Icon2_1 As icon.Cancel:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Icon: =Icon.Leave
+                LayoutMinHeight: =50
+                OnSelect: =Exit()
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =50
+                ZIndex: =1
+
+            Image1_13 As image:
+                AlignInContainer: =AlignInContainer.Stretch
+                FillPortions: =1
+                Height: =Parent.Height-30
+                Image: =logocochu
+                LayoutMinHeight: =60
+                LayoutMinWidth: =320
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =250
+                ZIndex: =2
+
+            Icon3_1 As icon.Reload:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =50
+                Icon: =Icon.Reload
+                LayoutMinHeight: =50
+                OnSelect: |
+                    =Refresh(Request_Test);
+                    Refresh(LevelApproveTest);
+                    ClearCollect(
+                        CollectRequest,
+                        Request_Test
+                    );
+                    ClearCollect(
+                        CollectRequestAll,
+                        Filter(
+                            Request_Test,
+                            'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestNew,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestProcess,
+                        Filter(
+                            Request_Test,
+                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestClosed,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Done" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestRejected,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    Set(
+                        autoRefresh,
+                        false
+                    );
+                    Reset(Timer_Refresh_1);
+                    Set(
+                        autoRefresh,
+                        true
+                    );
+                Width: =50
+                ZIndex: =3
+
+            Icon1_16 As icon.Add:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Add
+                LayoutMinHeight: =50
+                OnSelect: |-
+                    =NewForm(Form1);
+                    Navigate(
+                        NewTicketPage,
+                        ScreenTransition.Fade
+                    )
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =50
+                ZIndex: =4
+
+        Container3_1 As groupContainer.verticalAutoLayoutContainer:
+            BorderColor: =
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =280
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =10
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =10
+            Width: =Parent.Width
+            ZIndex: =2
+
+            Container4_2 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =150
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                "'Group, All Ticket_1' As groupContainer":
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =150
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =100
+                    Width: =Parent.Width
+                    X: =109.5
+                    Y: =111
+                    ZIndex: =3
+
+                    Container39_1 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =150
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        TextBox2_12 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            FocusedBorderColor: =TextBox2_12.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_12.BorderColor
+                            HoverColor: =TextBox2_12.Color
+                            HoverFill: =TextBox2_12.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"All"})
+                            PressedBorderColor: =TextBox2_12.BorderColor
+                            PressedColor: =TextBox2_12.Color
+                            PressedFill: =TextBox2_12.Fill
+                            Size: =50
+                            Text: |-
+                                =CountRows(
+                                    Filter(
+                                        CollectRequest,
+                                        'Created By'.Email = User().Email
+                                    )
+                                )
+                            Width: =Parent.Width
+                            X: =56
+                            Y: =10
+                            ZIndex: =1
+
+                        TextBox2_13 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            FocusedBorderColor: =TextBox2_13.BorderColor
+                            Height: =80
+                            HoverBorderColor: =TextBox2_13.BorderColor
+                            HoverColor: =TextBox2_13.Color
+                            HoverFill: =TextBox2_13.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"All"})
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            PressedBorderColor: =TextBox2_13.BorderColor
+                            PressedColor: =TextBox2_13.Color
+                            PressedFill: =TextBox2_13.Fill
+                            Size: =18
+                            Text: ="All requests"
+                            Width: =Parent.Width
+                            X: =56
+                            Y: =76
+                            ZIndex: =2
+
+                "'Group ,New Tickets_1' As groupContainer":
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =150
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =100
+                    Width: =Parent.Width
+                    X: =340
+                    Y: =113
+                    ZIndex: =4
+
+                    Container40_1 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =150
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        TextBox2_14 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(56, 86, 153, 1)
+                            FocusedBorderColor: =TextBox2_14.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_14.BorderColor
+                            HoverColor: =TextBox2_14.Color
+                            HoverFill: =TextBox2_14.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"New"})
+                            PressedBorderColor: =TextBox2_14.BorderColor
+                            PressedColor: =TextBox2_14.Color
+                            PressedFill: =TextBox2_14.Fill
+                            Size: =50
+                            Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Created By'.Email = User().Email))
+                            Width: =Parent.Width
+                            X: =72
+                            Y: =10
+                            ZIndex: =1
+
+                        TextBox2_15 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(56, 86, 153, 1)
+                            FocusedBorderColor: =TextBox2_15.BorderColor
+                            Height: =80
+                            HoverBorderColor: =TextBox2_15.BorderColor
+                            HoverColor: =TextBox2_15.Color
+                            HoverFill: =TextBox2_15.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"New"})
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            PressedBorderColor: =TextBox2_15.BorderColor
+                            PressedColor: =TextBox2_15.Color
+                            PressedFill: =TextBox2_15.Fill
+                            Size: =18
+                            Text: =If(TextBox2_14.Text="1","New request","New requests")
+                            Width: =Parent.Width
+                            X: =81
+                            Y: =81
+                            ZIndex: =2
+
+                "'Group,Tickets Approval_1' As groupContainer":
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =150
+                    LayoutMinHeight: =150
+                    LayoutMinWidth: =100
+                    Visible: |-
+                        =If(
+                            !IsBlank(
+                                LookUp(
+                                    LevelApproveTest,
+                                    IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                                    IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                                    IdUser.Email = User().Email && Level.Value = "Approver 3"
+                                )
+                            ),
+                            true,
+                            false
+                        )
+                    Width: =Parent.Width
+                    X: =340
+                    Y: =113
+                    ZIndex: =5
+
+                    Container41_1 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =150
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        TextBox2_16 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(128, 128, 128, 1)
+                            FocusedBorderColor: =TextBox2_16.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_16.BorderColor
+                            HoverColor: =TextBox2_16.Color
+                            HoverFill: =TextBox2_16.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =If(
+                                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                                        Office365Users.MyProfile().JobTitle,
+                                        "Head of",
+                                        MatchOptions.Contains
+                                    ),
+                                    Navigate(
+                                        HODPage,
+                                        ScreenTransition.Fade
+                                    ),
+                                    Navigate(
+                                        ApprovalPage,
+                                        ScreenTransition.Fade
+                                    )
+                                )
+                            PressedBorderColor: =TextBox2_16.BorderColor
+                            PressedColor: =TextBox2_16.Color
+                            PressedFill: =TextBox2_16.Fill
+                            Size: =50
+                            Text: |-
+                                =If(
+                                    !IsBlank(
+                                        LookUp(
+                                            LevelApproveTest,
+                                            IdUser.Email = User().Email && Level.Value = "Approver 1"
+                                        )
+                                    ),
+                                    CountRows(
+                                        Filter(
+                                            CollectRequest,
+                                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                                        )
+                                    ),
+                                    If(
+                                        !IsBlank(
+                                            LookUp(
+                                                LevelApproveTest,
+                                                User().Email = IdUser.Email && Level.Value = "Approver 2"
+                                            )
+                                        ),
+                                        CountRows(
+                                            Filter(
+                                                CollectRequest,
+                                                Status.Value = "Approver 1 approved"
+                                            )
+                                        ),
+                                        If(
+                                            !IsBlank(
+                                                LookUp(
+                                                    LevelApproveTest,
+                                                    User().Email = IdUser.Email && Level.Value = "Approver 3"
+                                                )
+                                            ),
+                                            CountRows(
+                                                Filter(
+                                                    CollectRequest,
+                                                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                                                )
+                                            ),
+                                            If(
+                                                !IsBlank(
+                                                    LookUp(
+                                                        Request_Test,
+                                                        User().Email = HOD.Email
+                                                    )
+                                                ),
+                                                CountRows(
+                                                    Filter(
+                                                        CollectRequest,
+                                                        Status.Value = "Created" && HOD.Email = User().Email
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            Width: =Parent.Width
+                            X: =72
+                            Y: =10
+                            ZIndex: =1
+
+                        TextBox2_17 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(128, 128, 128, 1)
+                            FocusedBorderColor: =TextBox2_17.BorderColor
+                            Height: =80
+                            HoverBorderColor: =TextBox2_17.BorderColor
+                            HoverColor: =TextBox2_17.Color
+                            HoverFill: =TextBox2_17.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =If(
+                                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                                        Office365Users.MyProfile().JobTitle,
+                                        "Head of",
+                                        MatchOptions.Contains
+                                    ),
+                                    Navigate(
+                                        HODPage,
+                                        ScreenTransition.Fade
+                                    ),
+                                    Navigate(
+                                        ApprovalPage,
+                                        ScreenTransition.Fade
+                                    )
+                                )
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            PressedBorderColor: =TextBox2_17.BorderColor
+                            PressedColor: =TextBox2_17.Color
+                            PressedFill: =TextBox2_17.Fill
+                            Size: =18
+                            Text: ="Requests Approval"
+                            Width: =Parent.Width
+                            X: =9
+                            Y: =71
+                            ZIndex: =2
+
+            Container5_1 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =150
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =112
+                LayoutMinWidth: =100
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =2
+
+                "'Group, on hold_1' As groupContainer":
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =150
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =100
+                    Width: =Parent.Width
+                    X: =441
+                    Y: =275
+                    ZIndex: =1
+
+                    Container43_1 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        TextBox2_18 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(227,48,12,1)
+                            FocusedBorderColor: =TextBox2_18.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_18.BorderColor
+                            HoverColor: =TextBox2_18.Color
+                            HoverFill: =TextBox2_18.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(
+                                    TicketPage,
+                                    ScreenTransition.Fade,
+                                    {type: "Rejected"}
+                                )
+                            PaddingRight: =10
+                            PressedBorderColor: =TextBox2_18.BorderColor
+                            PressedColor: =TextBox2_18.Color
+                            PressedFill: =TextBox2_18.Fill
+                            Size: =44
+                            Text: |-
+                                =CountRows(
+                                    Filter(
+                                        CollectRequest,
+                                        Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                    )
+                                )
+                            Width: =179
+                            X: =12
+                            Y: =20
+                            ZIndex: =1
+
+                        TextBox2_19 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(227,48,12,1)
+                            FocusedBorderColor: =TextBox2_19.BorderColor
+                            Height: =56
+                            HoverBorderColor: =TextBox2_19.BorderColor
+                            HoverColor: =TextBox2_19.Color
+                            HoverFill: =TextBox2_19.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Rejected"})
+                            PaddingRight: =10
+                            PressedBorderColor: =TextBox2_19.BorderColor
+                            PressedColor: =TextBox2_19.Color
+                            PressedFill: =TextBox2_19.Fill
+                            Size: =18
+                            Text: ="Rejected"
+                            Width: =148
+                            X: =15
+                            Y: =60
+                            ZIndex: =2
+
+                Group21_1 As groupContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =150
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =100
+                    Width: =Parent.Width
+                    Y: =275
+                    ZIndex: =2
+
+                    Container44_1 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        TextBox2_20 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: |-
+                                =RGBA(
+                                            255,
+                                            153,
+                                            51,
+                                            1
+                                        )
+                            FocusedBorderColor: =TextBox2_20.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_20.BorderColor
+                            HoverColor: =TextBox2_20.Color
+                            HoverFill: =TextBox2_20.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"In progress"})
+                            PressedBorderColor: =TextBox2_20.BorderColor
+                            PressedColor: =TextBox2_20.Color
+                            PressedFill: =TextBox2_20.Fill
+                            Size: =44
+                            Text: |-
+                                =CountRows(
+                                    Filter(
+                                        CollectRequest,
+                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                                    )
+                                )
+                            Width: =148
+                            X: =13
+                            Y: =20
+                            ZIndex: =1
+
+                        TextBox2_21 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: |-
+                                =RGBA(
+                                            255,
+                                            153,
+                                            51,
+                                            1
+                                        )
+                            FocusedBorderColor: =TextBox2_21.BorderColor
+                            Height: =56
+                            HoverBorderColor: =TextBox2_21.BorderColor
+                            HoverColor: =TextBox2_21.Color
+                            HoverFill: =TextBox2_21.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Progress"})
+                            PressedBorderColor: =TextBox2_21.BorderColor
+                            PressedColor: =TextBox2_21.Color
+                            PressedFill: =TextBox2_21.Fill
+                            Size: =18
+                            Text: ="In progress"
+                            Width: =174
+                            X: =21
+                            Y: =60
+                            ZIndex: =2
+
+                Group6_1 As groupContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =150
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =100
+                    Width: =Parent.Width
+                    X: =228.5
+                    Y: =275
+                    ZIndex: =3
+
+                    Container45_1 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =153
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        TextBox2_22 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(71,185,50,1)
+                            FocusedBorderColor: =TextBox2_22.BorderColor
+                            FontWeight: =FontWeight.Lighter
+                            Height: =60
+                            HoverBorderColor: =TextBox2_22.BorderColor
+                            HoverColor: =TextBox2_22.Color
+                            HoverFill: =TextBox2_22.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Closed"})
+                            PressedBorderColor: =TextBox2_22.BorderColor
+                            PressedColor: =TextBox2_22.Color
+                            PressedFill: =TextBox2_22.Fill
+                            Size: =44
+                            Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Created By'.Email = User().Email))
+                            Width: =117
+                            X: =16
+                            Y: =20
+                            ZIndex: =1
+
+                        TextBox2_23 As label:
+                            Align: =LayoutAlignItems.Center
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(71,185,50,1)
+                            FocusedBorderColor: =TextBox2_23.BorderColor
+                            Height: =56
+                            HoverBorderColor: =TextBox2_23.BorderColor
+                            HoverColor: =TextBox2_23.Color
+                            HoverFill: =TextBox2_23.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =560
+                            OnSelect: |-
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Closed"})
+                            PressedBorderColor: =TextBox2_23.BorderColor
+                            PressedColor: =TextBox2_23.Color
+                            PressedFill: =TextBox2_23.Fill
+                            Size: =18
+                            Text: ="Closed"
+                            Width: =148
+                            X: =32
+                            Y: =60
+                            ZIndex: =2
+
+            Timer_Refresh_1 As timer:
+                AutoStart: =autoRefresh
+                Duration: =180000
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnTimerEnd: |-
+                    =Refresh(Request_Test);
+                    ClearCollect(
+                        CollectRequest,
+                        Request_Test
+                    );
+                    ClearCollect(
+                        CollectRequestAll,
+                        Filter(
+                            Request_Test,
+                            'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestNew,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestProcess,
+                        Filter(
+                            Request_Test,
+                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestClosed,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Done" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestRejected,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                        )
+                    )
+                PressedColor: =ColorFade(Self.Color,90%)
+                Repeat: =true
+                Visible: =false
+                Width: =280
+                ZIndex: =3
+
+        ContainerApproval_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: |+
+                =If(
+                    !IsBlank(
+                        LookUp(
+                            LevelApproveTest,
+                            IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                            IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                            IdUser.Email = User().Email && Level.Value = "Approver 3"
+                        )
+                    ),
+                    true,
+                    false
+                )
+                
+                
+                
+            Width: =Parent.Width
+            ZIndex: =3
+
+            btn_approval_3 As button:
+                Align: =Align.Left
+                BorderColor: =
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledFill: =
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                FontWeight: =FontWeight.Normal
+                Height: =70
+                HoverFill: =
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnSelect: |-
+                    =Navigate(
+                        ApprovalPage,
+                        ScreenTransition.Fade
+                    )
+                PaddingLeft: =25
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Self.Color,90%)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Text: ="Requests approval"
+                Width: =Parent.Width-70
+                ZIndex: =2
+
+            NextArrow2_6 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.ChevronRight
+                OnSelect: |-
+                    =Navigate(
+                        ApprovalPage,
+                        ScreenTransition.Fade
+                    )
+                PaddingBottom: =12
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                Tooltip: ="View item details"
+                Width: =50
+                X: =
+                Y: =
+                ZIndex: =3
+
+        ContainerHOD_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: |-
+                =If(
+                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                        Office365Users.MyProfile().JobTitle,
+                        "Head of",
+                        MatchOptions.Contains
+                    ),
+                    true,
+                    false
+                )
+            Width: =Parent.Width
+            ZIndex: =4
+
+            btn_HOD_3 As button:
+                Align: =Align.Left
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                FontWeight: =FontWeight.Normal
+                Height: =70
+                HoverColor: =
+                HoverFill: =
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnSelect: |
+                    =Navigate(
+                        HODPage,
+                        ScreenTransition.Fade
+                    )
+                PaddingLeft: =25
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Self.Color,90%)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Text: ="Requests HOD"
+                Width: =Parent.Width-70
+                ZIndex: =1
+
+            NextArrow2_7 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.ChevronRight
+                OnSelect: |
+                    =Navigate(
+                        HODPage,
+                        ScreenTransition.Fade
+                    )
+                PaddingBottom: =12
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                Tooltip: ="View item details"
+                Width: =50
+                X: =
+                Y: =
+                ZIndex: =2
+
+        ContainerHistoryAppro_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: |+
+                =If(
+                    !IsBlank(
+                        LookUp(
+                            LevelApproveTest,
+                            IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                            IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                            IdUser.Email = User().Email && Level.Value = "Approver 3"
+                        )
+                    ),
+                    true,
+                    false
+                )
+                
+                
+                
+            Width: =Parent.Width
+            ZIndex: =5
+
+            btn_HOD_4 As button:
+                Align: =Align.Left
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledFill: =
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                FontWeight: =FontWeight.Normal
+                Height: =70
+                HoverColor: =
+                HoverFill: =
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnSelect: |-
+                    =ClearCollect(
+                        CollecRequestHistory_Approver1,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    ClearCollect(
+                        CollecRequestHistory_Approver2,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    ClearCollect(
+                        CollecRequestHistory_Approver3,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    Navigate(
+                        History_request_Approver,
+                        ScreenTransition.Fade
+                    )
+                PaddingLeft: =25
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Self.Color,90%)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Text: ="Requests history approved"
+                Visible: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                LevelApproveTest,
+                                IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                                IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                                IdUser.Email = User().Email && Level.Value = "Approver 3"
+                            )
+                        ),
+                        true,
+                        false
+                    )
+                Width: =Parent.Width-70
+                ZIndex: =1
+
+            NextArrow2_8 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.ChevronRight
+                OnSelect: |-
+                    =ClearCollect(
+                        CollecRequestHistory_Approver1,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    ClearCollect(
+                        CollecRequestHistory_Approver2,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    ClearCollect(
+                        CollecRequestHistory_Approver3,
+                        Filter(
+                            Request_Test,
+                            User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    Navigate(
+                        History_request_Approver,
+                        ScreenTransition.Fade
+                    )
+                PaddingBottom: =12
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                Tooltip: ="View item details"
+                Width: =50
+                X: =
+                Y: =
+                ZIndex: =2
+
+        ContainerHistoryHOD_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: |-
+                =If(
+                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                        Office365Users.MyProfile().JobTitle,
+                        "Head of",
+                        MatchOptions.Contains
+                    ),
+                    true,
+                    false
+                )
+            Width: =Parent.Width
+            ZIndex: =6
+
+            btn_HOD_5 As button:
+                Align: =Align.Left
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledFill: =
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                FontWeight: =FontWeight.Normal
+                Height: =70
+                HoverColor: =
+                HoverFill: =
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnSelect: |-
+                    =ClearCollect(
+                        CollecRequestHistory_HOD,
+                        Filter(
+                            Request_Test,
+                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    )
+                PaddingLeft: =25
+                PressedBorderColor: =
+                PressedColor: =ColorFade(Self.Color,90%)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Text: ="Requests history HOD approved"
+                Width: =Parent.Width-70
+                ZIndex: =1
+
+            NextArrow2_9 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.ChevronRight
+                OnSelect: |-
+                    =ClearCollect(
+                        CollecRequestHistory_HOD,
+                        Filter(
+                            Request_Test,
+                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    );
+                    Navigate(
+                        History_request_HOD,
+                        ScreenTransition.Fade
+                    )
+                PaddingBottom: =12
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                Tooltip: ="View item details"
+                Width: =50
+                X: =
+                Y: =
+                ZIndex: =2
+
+        Container6_1 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =225
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =7
+
+            "Gallery1_1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+                DelayItemLoading: =true
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =Parent.Height
+                Items: =TableTicketTypes_Test
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =200
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =98
+                ZIndex: =1
+
+                Title2_1 As label:
+                    Color: =RGBA(0, 0, 0, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    OnSelect: |-
+                        =If(
+                            ThisItem.Title = "All requests",
+                            Navigate(
+                                TicketPage,
+                                ScreenTransition.Fade,
+                                {type: "All"}
+                            ),
+                            If(
+                                ThisItem.Title = "New requests",
+                                Navigate(
+                                    TicketPage,
+                                    ScreenTransition.Fade,
+                                    {type: "New"}
+                                ),
+                                If(
+                                    ThisItem.Title = "Requests in progress",
+                                    Navigate(
+                                        TicketPage,
+                                        ScreenTransition.Fade,
+                                        {type: "In progress"}
+                                    ),
+                                    If(
+                                        ThisItem.Title = "Requests closed",
+                                        Navigate(
+                                            TicketPage,
+                                            ScreenTransition.Fade,
+                                            {type: "Closed"}
+                                        ),
+                                        If(
+                                            ThisItem.Title = "Requests rejected",
+                                            Navigate(
+                                                TicketPage,
+                                                ScreenTransition.Fade,
+                                                {type: "Rejected"}
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    PressedColor: =ColorFade(Self.Color,90%)
+                    Size: =25
+                    Text: =ThisItem.Title
+                    Width: =Parent.TemplateWidth - 86
+                    X: =24
+                    Y: =13
+                    ZIndex: =1
+
+                NextArrow2_1 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.ChevronRight
+                    OnSelect: |-
+                        =If(
+                            ThisItem.Title = "All requests",
+                            Navigate(
+                                TicketPage,
+                                ScreenTransition.Fade,
+                                {type: "All"}
+                            ),
+                            If(
+                                ThisItem.Title = "New requests",
+                                Navigate(
+                                    TicketPage,
+                                    ScreenTransition.Fade,
+                                    {type: "New"}
+                                ),
+                                If(
+                                    ThisItem.Title = "Requests in progress",
+                                    Navigate(
+                                        TicketPage,
+                                        ScreenTransition.Fade,
+                                        {type: "In progress"}
+                                    ),
+                                    If(
+                                        ThisItem.Title = "Requests closed",
+                                        Navigate(
+                                            TicketPage,
+                                            ScreenTransition.Fade,
+                                            {type: "Closed"}
+                                        ),
+                                        If(
+                                            ThisItem.Title = "Requests rejected",
+                                            Navigate(
+                                                TicketPage,
+                                                ScreenTransition.Fade,
+                                                {type: "Rejected"}
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    PaddingBottom: =12
+                    PaddingLeft: =12
+                    PaddingRight: =12
+                    PaddingTop: =12
+                    Tooltip: ="View item details"
+                    Width: =50
+                    X: =Parent.TemplateWidth - Self.Width - 12
+                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                    ZIndex: =2
+
+                Separator2_1 As rectangle:
+                    Fill: =RGBA(230, 229, 229, 1)
+                    Height: =2
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =3
+

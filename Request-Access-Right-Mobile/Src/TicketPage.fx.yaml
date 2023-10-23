@@ -169,34 +169,19 @@ TicketPage As screen:
                     =Sort(
                         If(
                             type = "All",
-                            Filter(
-                                Request_Test,
-                                'Created By'.Email = User().Email
-                            ),
+                            CollectRequestAll,
                             If(
                                 type = "New",
-                                Filter(
-                                    Request_Test,
-                                    Status.Value = "Created" && 'Created By'.Email = User().Email
-                                ),
+                                CollectRequestNew,
                                 If(
                                     type = "In progress",
-                                    Filter(
-                                        Request_Test,
-                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-                                    ),
+                                    CollectRequestProcess,
                                     If(
                                         type = "Closed",
-                                        Filter(
-                                            Request_Test,
-                                            Status.Value = "Done" && 'Created By'.Email = User().Email
-                                        ),
+                                        CollectRequestClosed,
                                         If(
                                             type = "Rejected",
-                                            Filter(
-                                                Request_Test,
-                                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
-                                            )
+                                            CollectRequestRejected
                                         )
                                     )
                                 )

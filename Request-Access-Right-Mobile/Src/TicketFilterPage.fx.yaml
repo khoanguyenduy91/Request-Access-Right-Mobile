@@ -58,6 +58,7 @@ TicketFilterPage As screen:
                 ZIndex: =3
 
         Container14 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =112
@@ -66,196 +67,438 @@ TicketFilterPage As screen:
             Width: =Parent.Width
             ZIndex: =2
 
-            FilterByGallery As gallery.textualGalleryVertical:
-                AccessibleLabel: ="Filters List"
-                BorderColor: =RGBA(230, 230, 230, 1)
-                DisabledBorderColor: =FilterByGallery.BorderColor
-                DisabledFill: =FilterByGallery.Fill
+            ContainerAll_1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(15, 84, 140, 1)
+                BorderThickness: =1
                 Fill: =RGBA(255, 255, 255, 1)
-                Height: =1048
-                HoverBorderColor: =FilterByGallery.BorderColor
-                HoverFill: =FilterByGallery.Fill
-                Items: =FilterTickets
-                Layout: =Layout.Vertical
-                LayoutMinHeight: =287
-                LayoutMinWidth: =320
-                LoadingSpinnerColor: =FilterByGallery.BorderColor
-                PressedBorderColor: =FilterByGallery.BorderColor
-                PressedFill: =FilterByGallery.Fill
-                TemplatePadding: =0
-                TemplateSize: =100.7646657892906
-                Y: =88
-                ZIndex: =1
+                FillPortions: =0
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =2
 
-                Container46 As groupContainer.verticalAutoLayoutContainer:
-                    Height: =97
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =Parent.Width
-                    ZIndex: =7
+                Rectangle13_2 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
+                    DisabledFill: =Rectangle13_2.Fill
+                    Fill: |-
+                        =RGBA(
+                            128,
+                            128,
+                            128,
+                            1
+                        )
+                    FocusedBorderColor: =Rectangle13_2.BorderColor
+                    Height: =99
+                    HoverFill: =Rectangle13_2.Fill
+                    PressedFill: =Rectangle13_2.Fill
+                    Width: =8
+                    ZIndex: =1
 
-                    Container47 As groupContainer.horizontalAutoLayoutContainer:
-                        FillPortions: =0
-                        Height: =Parent.Height
-                        LayoutMinHeight: =112
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =Parent.Width
-                        ZIndex: =1
+                btn_HOD_11 As button:
+                    Align: =Align.Left
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderColor: =
+                    FocusedBorderThickness: =
+                    FontWeight: =FontWeight.Normal
+                    Height: =70
+                    HoverColor: =
+                    HoverFill: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "All"}
+                        )
+                    PaddingLeft: =25
+                    PressedBorderColor: =
+                    PressedColor: =ColorFade(Self.Color,90%)
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =25
+                    Text: ="All"
+                    Width: =Parent.Width-70
+                    ZIndex: =2
 
-                        Rectangle13_1 As rectangle:
-                            BorderColor: =RGBA(0, 0, 255, 1)
-                            DisabledFill: =Rectangle13_1.Fill
-                            Fill: |-
-                                =If(
-                                    ThisItem.Title = "Rejected",
-                                    RGBA(
-                                        227,
-                                        48,
-                                        12,
-                                        1
-                                    ),
-                                    If(
-                                        ThisItem.Title = "In progress",
-                                        RGBA(
-                                            255,
-                                            153,
-                                            51,
-                                            1
-                                        ),
-                                        If(
-                                            ThisItem.Title = "New",
-                                            RGBA(
-                                                56,
-                                                86,
-                                                153,
-                                                1
-                                            ),
-                                            If(
-                                                ThisItem.Title = "All",
-                                                RGBA(
-                                                    128,
-                                                    128,
-                                                    128,
-                                                    1
-                                                ),
-                                                RGBA(
-                                                    71,
-                                                    185,
-                                                    50,
-                                                    1
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            FocusedBorderColor: =Rectangle13_1.BorderColor
-                            Height: =99
-                            HoverFill: =Rectangle13_1.Fill
-                            PressedFill: =Rectangle13_1.Fill
-                            Width: =8
-                            ZIndex: =1
+                NextArrow2_15 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.Check
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "All"}
+                        )
+                    PaddingBottom: =12
+                    PaddingLeft: =12
+                    PaddingRight: =12
+                    PaddingTop: =12
+                    Tooltip: ="View item details"
+                    Visible: =If(btn_HOD_11.Text = Text(type),true,false)
+                    Width: =60
+                    X: =
+                    Y: =
+                    ZIndex: =3
 
-                        Container48 As groupContainer.verticalAutoLayoutContainer:
-                            Height: =Parent.Height
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutMinHeight: =97
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            Width: =Parent.Width
-                            ZIndex: =5
+            ContainerNew_1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(15, 84, 140, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =3
 
-                            Container49 As groupContainer.horizontalAutoLayoutContainer:
-                                FillPortions: =0
-                                Height: =Parent.Height
-                                LayoutAlignItems: =LayoutAlignItems.Center
-                                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                                LayoutMinHeight: =112
-                                LayoutMinWidth: =250
-                                LayoutMode: =LayoutMode.Auto
-                                PaddingLeft: =20
-                                PaddingRight: =10
-                                Width: =Parent.Width
-                                ZIndex: =1
+                Rectangle13_3 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
+                    DisabledFill: =Rectangle13_3.Fill
+                    Fill: |-
+                        =RGBA(
+                            56,
+                            86,
+                            153,
+                            1
+                        )
+                    FocusedBorderColor: =Rectangle13_3.BorderColor
+                    Height: =99
+                    HoverFill: =Rectangle13_3.Fill
+                    PressedFill: =Rectangle13_3.Fill
+                    Width: =8
+                    ZIndex: =1
 
-                                TextBox3_2 As label:
-                                    BorderColor: =RGBA(0, 0, 0, 1)
-                                    Color: =RGBA(29, 33, 35, 1)
-                                    FillPortions: =1
-                                    FocusedBorderColor: =TextBox3_2.BorderColor
-                                    FontWeight: =FontWeight.Semibold
-                                    Height: =80
-                                    HoverBorderColor: =TextBox3_2.BorderColor
-                                    HoverColor: =TextBox3_2.Color
-                                    HoverFill: =TextBox3_2.Fill
-                                    LayoutMinHeight: =70
-                                    LayoutMinWidth: =200
-                                    OnSelect: |-
-                                        =Navigate(TicketPage,ScreenTransition.Fade,{type:FilterByGallery.Selected.Title})
-                                    PaddingBottom: =0
-                                    PaddingLeft: =0
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    PressedBorderColor: =TextBox3_2.BorderColor
-                                    PressedColor: =ColorFade(Self.Color,90%)
-                                    PressedFill: =TextBox3_2.Fill
-                                    Size: =22
-                                    Text: =ThisItem.Title
-                                    Width: =Parent.Width-70
-                                    X: =28.2048192771084
-                                    ZIndex: =1
+                btn_HOD_12 As button:
+                    Align: =Align.Left
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderColor: =
+                    FocusedBorderThickness: =
+                    FontWeight: =FontWeight.Normal
+                    Height: =70
+                    HoverColor: =
+                    HoverFill: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "New"}
+                        )
+                    PaddingLeft: =25
+                    PressedBorderColor: =
+                    PressedColor: =ColorFade(Self.Color,90%)
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =25
+                    Text: ="New"
+                    Width: =Parent.Width-70
+                    ZIndex: =2
 
-                                icon3_2 As icon.Check:
-                                    AlignInContainer: =AlignInContainer.Stretch
-                                    BorderColor: =RGBA(0, 0, 0, 1)
-                                    Color: =RGBA(0, 0, 0, 1)
-                                    DisabledBorderColor: =RGBA(56, 56, 56, 1)
-                                    DisabledFill: =icon3_2.Fill
-                                    Fill: =RGBA(255, 255, 255, 1)
-                                    FocusedBorderColor: =icon3_2.BorderColor
-                                    Height: =39.20792079207921
-                                    HoverBorderColor: =ColorFade(icon3_2.BorderColor, 20%)
-                                    HoverColor: =ColorFade(icon3_2.Color, 20%)
-                                    HoverFill: =icon3_2.Fill
-                                    Icon: =Icon.Check
-                                    LayoutMinHeight: =50
-                                    OnSelect: |-
-                                        =Navigate(TicketPage,ScreenTransition.Fade,{type:FilterByGallery.Selected.Title})
-                                    PressedBorderColor: =ColorFade(icon3_2.BorderColor, -20%)
-                                    PressedColor: =ColorFade(icon3_2.Color, -20%)
-                                    PressedFill: =icon3_2.Fill
-                                    Visible: =If(ThisItem.Title = Text(type),true,false)
-                                    Width: =50
-                                    X: =544.1325301204826
-                                    Y: =30.36505940572657
-                                    ZIndex: =2
+                NextArrow2_16 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.Check
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "New"}
+                        )
+                    PaddingBottom: =12
+                    PaddingLeft: =12
+                    PaddingRight: =12
+                    PaddingTop: =12
+                    Tooltip: ="View item details"
+                    Visible: =If(btn_HOD_12.Text = Text(type),true,false)
+                    Width: =60
+                    X: =
+                    Y: =
+                    ZIndex: =3
 
-                            Rectangle7_1 As rectangle:
-                                AccessibleLabel: ="Click to Select"
-                                BorderColor: =RGBA(0, 0, 255, 1)
-                                DisabledFill: =Rectangle7_1.Fill
-                                Fill: =RGBA(0, 0, 0, 0)
-                                FocusedBorderColor: =Color.Black
-                                FocusedBorderThickness: =1
-                                Height: =Parent.Height
-                                HoverFill: =Rectangle7_1.Fill
-                                OnSelect: |-
-                                    =Navigate(TicketPage,ScreenTransition.Fade,{type:FilterByGallery.Selected.Title})
-                                PressedFill: =Rectangle7_1.Fill
-                                TabIndex: =0
-                                Width: =Parent.Width
-                                ZIndex: =2
+            ContainerProcess_1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(15, 84, 140, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =4
 
-                    Rectangle2_18 As rectangle:
-                        BorderColor: =RGBA(0, 0, 255, 1)
-                        BorderThickness: =1
-                        DisabledFill: =Rectangle2_18.Fill
-                        Fill: =RGBA(204, 204, 204, 1)
-                        FocusedBorderColor: =Rectangle2_18.BorderColor
-                        Height: =1
-                        HoverFill: =Rectangle2_18.Fill
-                        PressedFill: =Rectangle2_18.Fill
-                        Width: =Parent.Width
-                        Y: =98.7646657892906
-                        ZIndex: =2
+                Rectangle13_4 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
+                    DisabledFill: =Rectangle13_4.Fill
+                    Fill: |-
+                        =RGBA(
+                            255,
+                            153,
+                            51,
+                            1
+                        )
+                    FocusedBorderColor: =Rectangle13_4.BorderColor
+                    Height: =99
+                    HoverFill: =Rectangle13_4.Fill
+                    PressedFill: =Rectangle13_4.Fill
+                    Width: =8
+                    ZIndex: =1
+
+                btn_HOD_13 As button:
+                    Align: =Align.Left
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderColor: =
+                    FocusedBorderThickness: =
+                    FontWeight: =FontWeight.Normal
+                    Height: =70
+                    HoverColor: =
+                    HoverFill: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "In progress"}
+                        )
+                    PaddingLeft: =25
+                    PressedBorderColor: =
+                    PressedColor: =ColorFade(Self.Color,90%)
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =25
+                    Text: ="In progress"
+                    Width: =Parent.Width-70
+                    ZIndex: =2
+
+                NextArrow2_17 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.Check
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "In progress"}
+                        )
+                    PaddingBottom: =12
+                    PaddingLeft: =12
+                    PaddingRight: =12
+                    PaddingTop: =12
+                    Tooltip: ="View item details"
+                    Visible: =If(btn_HOD_13.Text = Text(type),true,false)
+                    Width: =60
+                    X: =
+                    Y: =
+                    ZIndex: =3
+
+            ContainerReject_1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(15, 84, 140, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =5
+
+                Rectangle13_5 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
+                    DisabledFill: =Rectangle13_5.Fill
+                    Fill: |-
+                        =RGBA(
+                            71,
+                            185,
+                            50,
+                            1
+                        )
+                    FocusedBorderColor: =Rectangle13_5.BorderColor
+                    Height: =99
+                    HoverFill: =Rectangle13_5.Fill
+                    PressedFill: =Rectangle13_5.Fill
+                    Width: =8
+                    ZIndex: =1
+
+                btn_HOD_14 As button:
+                    Align: =Align.Left
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderColor: =
+                    FocusedBorderThickness: =
+                    FontWeight: =FontWeight.Normal
+                    Height: =70
+                    HoverColor: =
+                    HoverFill: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "Closed"}
+                        )
+                    PaddingLeft: =25
+                    PressedBorderColor: =
+                    PressedColor: =ColorFade(Self.Color,90%)
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =25
+                    Text: ="Closed"
+                    Width: =Parent.Width-70
+                    ZIndex: =2
+
+                NextArrow2_18 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.Check
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "Closed"}
+                        )
+                    PaddingBottom: =12
+                    PaddingLeft: =12
+                    PaddingRight: =12
+                    PaddingTop: =12
+                    Tooltip: ="View item details"
+                    Visible: =If(btn_HOD_14.Text = Text(type),true,false)
+                    Width: =60
+                    X: =
+                    Y: =
+                    ZIndex: =3
+
+            ContainerClosed_1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(15, 84, 140, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =6
+
+                Rectangle13_6 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
+                    DisabledFill: =Rectangle13_6.Fill
+                    Fill: |-
+                        =RGBA(
+                            227,
+                            48,
+                            12,
+                            1
+                        )
+                    FocusedBorderColor: =Rectangle13_6.BorderColor
+                    Height: =99
+                    HoverFill: =Rectangle13_6.Fill
+                    PressedFill: =Rectangle13_6.Fill
+                    Width: =8
+                    ZIndex: =1
+
+                btn_HOD_15 As button:
+                    Align: =Align.Left
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderColor: =
+                    FocusedBorderThickness: =
+                    FontWeight: =FontWeight.Normal
+                    Height: =70
+                    HoverColor: =
+                    HoverFill: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "Rejected"}
+                        )
+                    PaddingLeft: =25
+                    PressedBorderColor: =
+                    PressedColor: =ColorFade(Self.Color,90%)
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =25
+                    Text: ="Rejected"
+                    Width: =Parent.Width-70
+                    ZIndex: =2
+
+                NextArrow2_19 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.Check
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "Rejected"}
+                        )
+                    PaddingBottom: =12
+                    PaddingLeft: =12
+                    PaddingRight: =12
+                    PaddingTop: =12
+                    Tooltip: ="View item details"
+                    Visible: =If(btn_HOD_15.Text = Text(type),true,false)
+                    Width: =60
+                    X: =
+                    Y: =
+                    ZIndex: =3
 
