@@ -283,12 +283,6 @@
     "datasets": {
       "https://pizzavietnam.sharepoint.com/sites/TESTSITE": {
         "dataSources": {
-          "Filter Permission form ReqType": {
-            "tableName": "22aee061-44b6-4f86-9ee4-88c284faba13"
-          },
-          "FilterTickets": {
-            "tableName": "386a3626-5064-46cc-9c79-a7de1c0e82cd"
-          },
           "LevelApproveTest": {
             "tableName": "dd7cd97e-921d-4872-b89e-b1b71ef6a046"
           },
@@ -306,23 +300,17 @@
           },
           "SettingTest": {
             "tableName": "0f22df83-74f4-4f09-92aa-f93279a5377b"
-          },
-          "TableTicketTypes_Test": {
-            "tableName": "742ee646-9bc4-4300-a672-c32d256e8520"
           }
         }
       }
     },
     "dataSources": [
-      "TableTicketTypes_Test",
       "Request_Test",
-      "FilterTickets",
       "LevelApproveTest",
       "ReqProcessTest",
       "ReqTypeTest",
       "Setting_LevelApprove",
-      "SettingTest",
-      "Filter Permission form ReqType"
+      "SettingTest"
     ],
     "dependencies": {},
     "dependents": [
