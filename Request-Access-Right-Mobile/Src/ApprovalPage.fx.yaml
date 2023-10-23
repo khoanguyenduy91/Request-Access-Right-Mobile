@@ -128,7 +128,7 @@ ApprovalPage As screen:
             LayoutMinWidth: =560
             Size: =21
             Text: ="No requests found"
-            Visible: =If(TicketsGallery_approval.AllItemsCount=0,true,false)
+            Visible: =If(TicketsGallery_approval.AllItemsCount>0,false,true)
             Width: =Parent.Width
             ZIndex: =3
 
