@@ -471,7 +471,8 @@ EditTicketPage As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.DisplayName
+                        Text: |-
+                            =Parent.DisplayName & ": " & CountRows(DataCardValue11_2.Attachments) &" File"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30

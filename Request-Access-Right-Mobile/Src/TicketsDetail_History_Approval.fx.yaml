@@ -1069,7 +1069,8 @@ TicketsDetail_History_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.DisplayName
+                        Text: |-
+                            =Parent.DisplayName & ": " & CountRows(DataCardValue7_1.Attachments) &" File"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
