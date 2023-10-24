@@ -2,30 +2,19 @@ ApprovalPage As screen:
     Fill: =RGBA(230, 229, 229, 1)
     OnHidden: |-
         =Set(
+            visibleapprovalPage,
+            false
+        )
+    OnVisible: |-
+        =If(
+            TicketsGallery_approval.AllItemsCount > 0,
+            Set(
                 visibleapprovalPage,
                 false
-            )
-    OnVisible: |-
-        =Refresh(Request_Test);
-        ClearCollect(
-            CollecRequestHistory_Approver1,
-            Filter(
-                Request_Test,
-                User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-            )
-        );
-        ClearCollect(
-            CollecRequestHistory_Approver2,
-            Filter(
-                Request_Test,
-                User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-            )
-        );
-        ClearCollect(
-            CollecRequestHistory_Approver3,
-            Filter(
-                Request_Test,
-                User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+            ),
+            Set(
+                visibleapprovalPage,
+                true
             )
         )
 
@@ -128,7 +117,7 @@ ApprovalPage As screen:
             LayoutMinWidth: =560
             Size: =21
             Text: ="No requests found"
-            Visible: =If(TicketsGallery_approval.AllItemsCount>0,false,true)
+            Visible: =visibleapprovalPage
             Width: =Parent.Width
             ZIndex: =3
 
@@ -151,10 +140,7 @@ ApprovalPage As screen:
                         )
                     ),
                     SortByColumns(
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                        ),
+                        CollectRequestApprover1,
                         "Created",
                         SortOrder.Descending
                     ),
@@ -166,10 +152,7 @@ ApprovalPage As screen:
                             )
                         ),
                         SortByColumns(
-                            Filter(
-                                Request_Test,
-                                Status.Value = "Approver 1 approved"
-                            ),
+                            CollectRequestApprover2,
                             "Created",
                             SortOrder.Descending
                         ),
@@ -181,10 +164,7 @@ ApprovalPage As screen:
                                 )
                             ),
                             SortByColumns(
-                                Filter(
-                                    Request_Test,
-                                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                                ),
+                                CollectRequestApprover3,
                                 "Created",
                                 SortOrder.Descending
                             )

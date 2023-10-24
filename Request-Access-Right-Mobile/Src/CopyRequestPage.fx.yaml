@@ -29,7 +29,8 @@ CopyRequestPage As screen:
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
-                OnSelect: =Back()
+                OnSelect: |
+                    =Back()
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
@@ -44,7 +45,8 @@ CopyRequestPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="New request"
+                Text: |
+                    ="New request"
                 Width: =560
                 ZIndex: =2
 
@@ -78,19 +80,9 @@ CopyRequestPage As screen:
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 OnSuccess: |-
-                    =Notify(
-                        "Successfully",
-                        NotificationType.Success,
-                        3000
-                    );
-                    Refresh(Request_Test);
-                    ClearCollect(
-                        CollectRequest,
-                        Request_Test
-                    );
-                    Navigate(
-                        HomePage,
-                        ScreenTransition.Cover
+                    =Navigate(
+                        SuccessScreen,
+                        ScreenTransition.Fade
                     )
                 Width: =Parent.Width
                 ZIndex: =1
@@ -482,7 +474,7 @@ CopyRequestPage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =295
                         IsInDataCard: =true
-                        Items: =Parent.Default
+                        Items: =Copyrequest.Attachments
                         PaddingBottom: =5
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PaddingRight: =5

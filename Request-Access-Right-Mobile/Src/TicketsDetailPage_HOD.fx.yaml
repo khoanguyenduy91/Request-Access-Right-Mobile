@@ -1423,13 +1423,10 @@ TicketsDetailPage_HOD As screen:
                             {'HOD Approved Date': Now()}
                         )
                     );
-                    Notify(
-                        "Successfully",
-                        NotificationType.Success,
-                        3000
-                    );
-                    Refresh(Request_Test);
-                    Navigate(HODPage)
+                    Navigate(
+                        SuccessScreen_HOD,
+                        ScreenTransition.Fade
+                    )
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
                 PressedFill: =ColorFade(Self.Fill, 50%)
@@ -1603,15 +1600,12 @@ TicketsDetailPage_HOD As screen:
                                             }
                                         }
                                     )
-                                );
-                                Notify(
-                                    "Successfully",
-                                    NotificationType.Success,
-                                    3000
-                                );
-                                Reset(TextInput1);
-                                Refresh(Request_Test);
-                                Navigate(HODPage)
+                                )
+                            );
+                            Reset(TextInput1);
+                            Navigate(
+                                SuccessScreen_HOD,
+                                ScreenTransition.Fade
                             )
                         PaddingBottom: =5.00
                         PaddingLeft: =5.00

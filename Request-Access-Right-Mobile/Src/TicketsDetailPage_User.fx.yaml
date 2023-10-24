@@ -1611,24 +1611,11 @@ TicketsDetailPage_User As screen:
                                     Request_Test,
                                     TicketsGallery.Selected
                                 );
-                                If (
-                                    IsEmpty(
-                                        Errors(
-                                            Request_Test,
-                                            TicketsGallery.Selected
-                                        )
-                                    ),
-                                    Notify(
-                                        "Delete Request Successfully",
-                                        NotificationType.Success,
-                                        3000
-                                    );
-                                    Set(
-                                        Dialogdelete,
-                                        false
-                                    );
-                                    Navigate(HomePage)
-                                )
+                                Set(
+                                    Dialogdelete,
+                                    false
+                                );
+                                Navigate(SuccessScreen)
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             RadiusBottomLeft: =5

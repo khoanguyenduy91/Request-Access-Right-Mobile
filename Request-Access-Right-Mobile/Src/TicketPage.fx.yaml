@@ -7,7 +7,11 @@ TicketPage As screen:
             )
     OnVisible: |-
         =If(
-            TicketsGallery.AllItemsCount = 0,
+            TicketsGallery.AllItemsCount > 0,
+            Set(
+                visibleticketpage,
+                false
+            ),
             Set(
                 visibleticketpage,
                 true
@@ -61,8 +65,7 @@ TicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: |
-                    ="Request page"
+                Text: ="Request page"
                 Width: =560
                 ZIndex: =2
 
@@ -271,6 +274,7 @@ TicketPage As screen:
                     ZIndex: =13
 
                 Container31 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(255, 0, 0, 1)
                     Height: =223.0699504854464
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
@@ -642,21 +646,29 @@ TicketPage As screen:
                                         Icon: =Icon.Copy
                                         LayoutMinWidth: =40
                                         OnSelect: |-
-                                            =//Patch('Request_Test',Defaults('Request_Test'),{Title:ThisItem.Title,ReqType:ThisItem.ReqType,ReqPermission:ThisItem.ReqPermission,ReqReason:ThisItem.ReqReason,ReqDescription:ThisItem.ReqDescription});'[SubFlow]Copy_Attachment_new'.Run(ThisItem.ID,Last(Request_Test).ID);EditForm(Form1_2);Set(ButtonModeEdit, true );Navigate(EditTicketPage,ScreenTransition.None)
-                                            
+                                            =Patch(
+                                                'Request_Test',
+                                                Defaults('Request_Test'),
+                                                {
+                                                    Title: ThisItem.Title,
+                                                    ReqType: ThisItem.ReqType,
+                                                    ReqPermission: ThisItem.ReqPermission,
+                                                    ReqReason: ThisItem.ReqReason,
+                                                    ReqDescription: ThisItem.ReqDescription
+                                                }
+                                            );
                                             Set(
                                                 Copyrequest,
                                                 TicketsGallery.Selected
                                             );
-                                            NewForm(Form1_3);
                                             Set(
-                                                ButtonModeCopy,
-                                                true
+                                                IDnewCopy,
+                                                '[SubFlow]Copy_Attachment_new'.Run(
+                                                    ThisItem.ID,
+                                                    Last(Request_Test).ID
+                                                )
                                             );
-                                            Navigate(
-                                                CopyRequestPage,
-                                                ScreenTransition.None
-                                            )
+                                            Navigate(SuccessScreen_copy,ScreenTransition.Fade)
                                         PressedBorderColor: =ColorFade(icon8_5.BorderColor, -20%)
                                         PressedColor: =ColorFade(Self.Color,90%)
                                         PressedFill: =icon8_5.Fill

@@ -78,19 +78,9 @@ NewTicketPage As screen:
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 OnSuccess: |-
-                    =Notify(
-                        "Successfully",
-                        NotificationType.Success,
-                        3000
-                    );
-                    Refresh(Request_Test);
-                    ClearCollect(
-                        CollectRequest,
-                        Request_Test
-                    );
-                    Navigate(
-                        HomePage,
-                        ScreenTransition.Cover
+                    =Navigate(
+                        SuccessScreen,
+                        ScreenTransition.Fade
                     )
                 Width: =Parent.Width
                 ZIndex: =1

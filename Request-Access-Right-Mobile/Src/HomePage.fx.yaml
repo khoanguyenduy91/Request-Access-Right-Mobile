@@ -1,46 +1,10 @@
 HomePage As screen:
-    Fill: =RGBA(139, 154, 159, 1)
     Height: =Max(App.Height, App.DesignHeight)
     OnVisible: |-
         =Refresh(Request_Test);
         ClearCollect(
             CollectRequest,
             Request_Test
-        );
-        ClearCollect(
-            CollectRequestAll,
-            Filter(
-                Request_Test,
-                'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
-            CollectRequestNew,
-            Filter(
-                Request_Test,
-                Status.Value = "Created" && 'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
-            CollectRequestProcess,
-            Filter(
-                Request_Test,
-                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
-            CollectRequestClosed,
-            Filter(
-                Request_Test,
-                Status.Value = "Done" && 'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
-            CollectRequestRejected,
-            Filter(
-                Request_Test,
-                Status.Value = "Rejected" && 'Created By'.Email = User().Email
-            )
         );
         Set(
             autoRefresh,
@@ -51,7 +15,7 @@ HomePage As screen:
     Width: =Max(App.Width, App.DesignWidth)
 
     Container1 As groupContainer.verticalAutoLayoutContainer:
-        Fill: =RGBA(214, 221, 224, 1)
+        Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =0.5
@@ -61,6 +25,7 @@ HomePage As screen:
 
         Container2 As groupContainer.horizontalAutoLayoutContainer:
             BorderColor: =
+            DropShadow: =DropShadow.Bold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =100
@@ -86,7 +51,7 @@ HomePage As screen:
                 ZIndex: =1
 
             Image1 As image:
-                AlignInContainer: =AlignInContainer.Stretch
+                AlignInContainer: =AlignInContainer.Center
                 FillPortions: =1
                 Height: =Parent.Height-30
                 Image: =logocochu
@@ -804,45 +769,37 @@ HomePage As screen:
                 Width: =280
                 ZIndex: =3
 
-        Container6 As groupContainer.verticalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.Start
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height
+        Container55 As groupContainer.verticalAutoLayoutContainer:
+            Height: =225
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =112
-            LayoutMinWidth: =1
+            LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            Width: =Parent.Width
-            ZIndex: =12
+            ZIndex: =7
 
             Container_User As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
-                FillPortions: =0
-                Height: =500
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =453.5
                 LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =1
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Rectangle2_21 As rectangle:
-                    BorderColor: =RGBA(0, 0, 0, 1)
-                    DisabledFill: =Rectangle2_21.Fill
-                    Fill: =
-                    FocusedBorderColor: =Rectangle2_21.BorderColor
-                    Height: =0.4
-                    HoverFill: =Rectangle2_21.Fill
-                    PressedFill: =Rectangle2_21.Fill
+                Rectangle1_5 As rectangle:
+                    Fill: =RGBA(0, 0, 0, 1)
+                    Height: =0.5
                     Width: =Parent.Width
-                    Y: =98.7646657892906
                     ZIndex: =1
 
                 ContainerAll As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =100
+                    Height: =90
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
@@ -904,23 +861,17 @@ HomePage As screen:
                         Y: =
                         ZIndex: =2
 
-                Rectangle2_22 As rectangle:
-                    BorderColor: =RGBA(0, 0, 0, 1)
-                    DisabledFill: =Rectangle2_22.Fill
-                    Fill: =
-                    FocusedBorderColor: =Rectangle2_22.BorderColor
-                    Height: =0.4
-                    HoverFill: =Rectangle2_22.Fill
-                    PressedFill: =Rectangle2_22.Fill
+                Rectangle1_4 As rectangle:
+                    Fill: =RGBA(0, 0, 0, 1)
+                    Height: =0.5
                     Width: =Parent.Width
-                    Y: =98.7646657892906
                     ZIndex: =3
 
                 ContainerNew As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =100
+                    Height: =90
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
@@ -982,23 +933,17 @@ HomePage As screen:
                         Y: =
                         ZIndex: =2
 
-                Rectangle2_18 As rectangle:
-                    BorderColor: =RGBA(0, 0, 0, 1)
-                    DisabledFill: =Rectangle2_18.Fill
-                    Fill: =
-                    FocusedBorderColor: =Rectangle2_18.BorderColor
-                    Height: =0.4
-                    HoverFill: =Rectangle2_18.Fill
-                    PressedFill: =Rectangle2_18.Fill
+                Rectangle1_1 As rectangle:
+                    Fill: =RGBA(0, 0, 0, 1)
+                    Height: =0.5
                     Width: =Parent.Width
-                    Y: =98.7646657892906
                     ZIndex: =5
 
                 ContainerProcess As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =100
+                    Height: =90
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
@@ -1060,23 +1005,17 @@ HomePage As screen:
                         Y: =
                         ZIndex: =2
 
-                Rectangle2_20 As rectangle:
-                    BorderColor: =RGBA(0, 0, 255, 1)
-                    DisabledFill: =Rectangle2_20.Fill
-                    Fill: =
-                    FocusedBorderColor: =Rectangle2_20.BorderColor
-                    Height: =0.4
-                    HoverFill: =Rectangle2_20.Fill
-                    PressedFill: =Rectangle2_20.Fill
+                Rectangle1_3 As rectangle:
+                    Fill: =RGBA(0, 0, 0, 1)
+                    Height: =0.5
                     Width: =Parent.Width
-                    Y: =98.7646657892906
                     ZIndex: =7
 
                 ContainerReject As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =100
+                    Height: =90
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
@@ -1138,23 +1077,18 @@ HomePage As screen:
                         Y: =
                         ZIndex: =2
 
-                Rectangle2_19 As rectangle:
+                Rectangle1 As rectangle:
                     BorderColor: =RGBA(0, 0, 0, 1)
-                    DisabledFill: =Rectangle2_19.Fill
-                    Fill: =
-                    FocusedBorderColor: =Rectangle2_19.BorderColor
-                    Height: =0.4
-                    HoverFill: =Rectangle2_19.Fill
-                    PressedFill: =Rectangle2_19.Fill
+                    Fill: =RGBA(0, 0, 0, 1)
+                    Height: =0.5
                     Width: =Parent.Width
-                    Y: =98.7646657892906
                     ZIndex: =9
 
                 ContainerClosed As groupContainer.horizontalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
+                    AlignInContainer: =AlignInContainer.Start
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =100
+                    Height: =85
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
@@ -1216,394 +1150,315 @@ HomePage As screen:
                         Y: =
                         ZIndex: =2
 
-            Container_Approver As groupContainer.verticalAutoLayoutContainer:
-                FillPortions: =0
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Visible: |-
-                    =If(
-                        !IsBlank(
-                            LookUp(
-                                LevelApproveTest,
-                                IdUser.Email = User().Email && Level.Value = "Approver 1" ||
-                                IdUser.Email = User().Email && Level.Value = "Approver 2" ||
-                                IdUser.Email = User().Email && Level.Value = "Approver 3"
-                            )
-                        ),
-                        true,
-                        false
-                    )
-                Width: =Parent.Width
-                ZIndex: =17
+                Rectangle1_2 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Fill: =RGBA(0, 0, 0, 0.4)
+                    Height: =1
+                    Width: =Parent.Width
+                    ZIndex: =11
 
-                ContainerApproval As groupContainer.horizontalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
+                Container_Approver As groupContainer.verticalAutoLayoutContainer:
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =100
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutMinHeight: =112
+                    Height: =180.5
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    Visible: =visibleBtnApprover
                     Width: =Parent.Width
-                    ZIndex: =1
+                    ZIndex: =12
 
-                    btn_approval As button:
-                        Align: =Align.Left
-                        BorderColor: =
-                        BorderThickness: =0
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledFill: =
+                    ContainerApproval As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         Fill: =RGBA(255, 255, 255, 1)
-                        FocusedBorderColor: =
-                        FocusedBorderThickness: =
-                        FontWeight: =FontWeight.Normal
-                        Height: =70
-                        HoverFill: =
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =280
-                        OnSelect: |-
-                            =Navigate(
-                                ApprovalPage,
-                                ScreenTransition.Fade
-                            )
-                        PaddingLeft: =25
-                        PressedBorderColor: =
-                        PressedColor: =ColorFade(Self.Color,90%)
-                        PressedFill: =
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =25
-                        Text: ="Requests approval"
-                        Width: =Parent.Width-70
+                        FillPortions: =0
+                        Height: =90
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =112
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        btn_approval As button:
+                            Align: =Align.Left
+                            BorderColor: =
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledFill: =
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderColor: =
+                            FocusedBorderThickness: =
+                            FontWeight: =FontWeight.Normal
+                            Height: =70
+                            HoverFill: =
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =280
+                            OnSelect: |-
+                                =Navigate(
+                                    ApprovalPage,
+                                    ScreenTransition.Fade
+                                )
+                            PaddingLeft: =25
+                            PressedBorderColor: =
+                            PressedColor: =ColorFade(Self.Color,90%)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =25
+                            Text: ="Requests approval"
+                            Width: =Parent.Width-70
+                            ZIndex: =2
+
+                        NextArrow2_3 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            Color: =RGBA(166, 166, 166, 1)
+                            Height: =50
+                            Icon: =Icon.ChevronRight
+                            OnSelect: |-
+                                =Navigate(
+                                    ApprovalPage,
+                                    ScreenTransition.Fade
+                                )
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            Tooltip: ="View item details"
+                            Width: =50
+                            X: =
+                            Y: =
+                            ZIndex: =3
+
+                    Rectangle1_6 As rectangle:
+                        Fill: =RGBA(0, 0, 0, 1)
+                        Height: =0.5
+                        Width: =Parent.Width
                         ZIndex: =2
 
-                    NextArrow2_3 As icon.ChevronRight:
-                        AccessibleLabel: =Self.Tooltip
-                        Color: =RGBA(166, 166, 166, 1)
-                        Height: =50
-                        Icon: =Icon.ChevronRight
-                        OnSelect: |-
-                            =Navigate(
-                                ApprovalPage,
-                                ScreenTransition.Fade
-                            )
-                        PaddingBottom: =12
-                        PaddingLeft: =12
-                        PaddingRight: =12
-                        PaddingTop: =12
-                        Tooltip: ="View item details"
-                        Width: =50
-                        X: =
-                        Y: =
+                    ContainerHistoryAppro As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =90
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =3
 
-                Rectangle2_23 As rectangle:
-                    BorderColor: =RGBA(0, 0, 0, 1)
-                    DisabledFill: =Rectangle2_23.Fill
-                    Fill: =
-                    FocusedBorderColor: =Rectangle2_23.BorderColor
-                    Height: =0.4
-                    HoverFill: =Rectangle2_23.Fill
-                    PressedFill: =Rectangle2_23.Fill
-                    Width: =Parent.Width
-                    Y: =98.7646657892906
-                    ZIndex: =2
+                        btn_HOD_1 As button:
+                            Align: =Align.Left
+                            AlignInContainer: =AlignInContainer.Center
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledFill: =
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderColor: =
+                            FocusedBorderThickness: =
+                            FontWeight: =FontWeight.Normal
+                            Height: =70
+                            HoverColor: =
+                            HoverFill: =
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =280
+                            OnSelect: |-
+                                =Navigate(
+                                    History_request_Approver,
+                                    ScreenTransition.Fade
+                                )
+                            PaddingLeft: =25
+                            PressedBorderColor: =
+                            PressedColor: =ColorFade(Self.Color,90%)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =25
+                            Text: ="Requests history approved"
+                            Visible: |-
+                                =If(
+                                    !IsBlank(
+                                        LookUp(
+                                            LevelApproveTest,
+                                            IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                                            IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                                            IdUser.Email = User().Email && Level.Value = "Approver 3"
+                                        )
+                                    ),
+                                    true,
+                                    false
+                                )
+                            Width: =Parent.Width-70
+                            ZIndex: =1
 
-                ContainerHistoryAppro As groupContainer.horizontalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
+                        NextArrow2_4 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            AlignInContainer: =AlignInContainer.Center
+                            Color: =RGBA(166, 166, 166, 1)
+                            Height: =50
+                            Icon: =Icon.ChevronRight
+                            OnSelect: |-
+                                =Navigate(
+                                    History_request_Approver,
+                                    ScreenTransition.Fade
+                                )
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            Tooltip: ="View item details"
+                            Width: =50
+                            X: =
+                            Y: =
+                            ZIndex: =2
+
+                Container_HOD As groupContainer.verticalAutoLayoutContainer:
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =100
-                    LayoutAlignItems: =LayoutAlignItems.Center
+                    Height: =180.5
+                    LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    Visible: =visibleBtnHOD
                     Width: =Parent.Width
-                    ZIndex: =3
+                    ZIndex: =13
 
-                    btn_HOD_1 As button:
-                        Align: =Align.Left
-                        AlignInContainer: =AlignInContainer.Center
-                        BorderThickness: =0
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledFill: =
+                    ContainerHOD As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         Fill: =RGBA(255, 255, 255, 1)
-                        FocusedBorderColor: =
-                        FocusedBorderThickness: =
-                        FontWeight: =FontWeight.Normal
-                        Height: =70
-                        HoverColor: =
-                        HoverFill: =
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =280
-                        OnSelect: |-
-                            =ClearCollect(
-                                CollecRequestHistory_Approver1,
-                                Filter(
-                                    Request_Test,
-                                    User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                                )
-                            );
-                            ClearCollect(
-                                CollecRequestHistory_Approver2,
-                                Filter(
-                                    Request_Test,
-                                    User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                                )
-                            );
-                            ClearCollect(
-                                CollecRequestHistory_Approver3,
-                                Filter(
-                                    Request_Test,
-                                    User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                                )
-                            );
-                            Navigate(
-                                History_request_Approver,
-                                ScreenTransition.Fade
-                            )
-                        PaddingLeft: =25
-                        PressedBorderColor: =
-                        PressedColor: =ColorFade(Self.Color,90%)
-                        PressedFill: =
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =25
-                        Text: ="Requests history approved"
-                        Visible: |-
-                            =If(
-                                !IsBlank(
-                                    LookUp(
-                                        LevelApproveTest,
-                                        IdUser.Email = User().Email && Level.Value = "Approver 1" ||
-                                        IdUser.Email = User().Email && Level.Value = "Approver 2" ||
-                                        IdUser.Email = User().Email && Level.Value = "Approver 3"
-                                    )
-                                ),
-                                true,
-                                false
-                            )
-                        Width: =Parent.Width-70
+                        FillPortions: =0
+                        Height: =90
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =1
 
-                    NextArrow2_4 As icon.ChevronRight:
-                        AccessibleLabel: =Self.Tooltip
-                        AlignInContainer: =AlignInContainer.Center
-                        Color: =RGBA(166, 166, 166, 1)
-                        Height: =50
-                        Icon: =Icon.ChevronRight
-                        OnSelect: |-
-                            =ClearCollect(
-                                CollecRequestHistory_Approver1,
-                                Filter(
-                                    Request_Test,
-                                    User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        btn_HOD As button:
+                            Align: =Align.Left
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderColor: =
+                            FocusedBorderThickness: =
+                            FontWeight: =FontWeight.Normal
+                            Height: =70
+                            HoverColor: =
+                            HoverFill: =
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =280
+                            OnSelect: |
+                                =Navigate(
+                                    HODPage,
+                                    ScreenTransition.Fade
                                 )
-                            );
-                            ClearCollect(
-                                CollecRequestHistory_Approver2,
-                                Filter(
-                                    Request_Test,
-                                    User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            PaddingLeft: =25
+                            PressedBorderColor: =
+                            PressedColor: =ColorFade(Self.Color,90%)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =25
+                            Text: ="Requests HOD"
+                            Width: =Parent.Width-70
+                            ZIndex: =1
+
+                        NextArrow2_2 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            Color: =RGBA(166, 166, 166, 1)
+                            Height: =50
+                            Icon: =Icon.ChevronRight
+                            OnSelect: |
+                                =Navigate(
+                                    HODPage,
+                                    ScreenTransition.Fade
                                 )
-                            );
-                            ClearCollect(
-                                CollecRequestHistory_Approver3,
-                                Filter(
-                                    Request_Test,
-                                    User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                                )
-                            );
-                            Navigate(
-                                History_request_Approver,
-                                ScreenTransition.Fade
-                            )
-                        PaddingBottom: =12
-                        PaddingLeft: =12
-                        PaddingRight: =12
-                        PaddingTop: =12
-                        Tooltip: ="View item details"
-                        Width: =50
-                        X: =
-                        Y: =
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            Tooltip: ="View item details"
+                            Width: =50
+                            X: =
+                            Y: =
+                            ZIndex: =2
+
+                    Rectangle1_7 As rectangle:
+                        Height: =0.5
+                        Width: =Parent.Width
                         ZIndex: =2
 
-            Container_HOD As groupContainer.verticalAutoLayoutContainer:
-                FillPortions: =0
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutMinHeight: =10
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Visible: |-
-                    =If(
-                        Office365Users.MyProfile().Department <> "DTS" && IsMatch(
-                            Office365Users.MyProfile().JobTitle,
-                            "Head of",
-                            MatchOptions.Contains
-                        ),
-                        true,
-                        false
-                    )
-                Width: =Parent.Width
-                ZIndex: =18
-
-                ContainerHOD As groupContainer.horizontalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    Fill: =RGBA(255, 255, 255, 1)
-                    FillPortions: =0
-                    Height: =100
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =Parent.Width
-                    ZIndex: =1
-
-                    btn_HOD As button:
-                        Align: =Align.Left
-                        BorderThickness: =0
-                        Color: =RGBA(0, 0, 0, 1)
+                    ContainerHistoryHOD As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         Fill: =RGBA(255, 255, 255, 1)
-                        FocusedBorderColor: =
-                        FocusedBorderThickness: =
-                        FontWeight: =FontWeight.Normal
-                        Height: =70
-                        HoverColor: =
-                        HoverFill: =
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =280
-                        OnSelect: |
-                            =Navigate(
-                                HODPage,
-                                ScreenTransition.Fade
-                            )
-                        PaddingLeft: =25
-                        PressedBorderColor: =
-                        PressedColor: =ColorFade(Self.Color,90%)
-                        PressedFill: =
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =25
-                        Text: ="Requests HOD"
-                        Width: =Parent.Width-70
-                        ZIndex: =1
+                        FillPortions: =0
+                        Height: =90
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
 
-                    NextArrow2_2 As icon.ChevronRight:
-                        AccessibleLabel: =Self.Tooltip
-                        Color: =RGBA(166, 166, 166, 1)
-                        Height: =50
-                        Icon: =Icon.ChevronRight
-                        OnSelect: |
-                            =Navigate(
-                                HODPage,
-                                ScreenTransition.Fade
-                            )
-                        PaddingBottom: =12
-                        PaddingLeft: =12
-                        PaddingRight: =12
-                        PaddingTop: =12
-                        Tooltip: ="View item details"
-                        Width: =50
-                        X: =
-                        Y: =
-                        ZIndex: =2
-
-                Rectangle2_24 As rectangle:
-                    BorderColor: =RGBA(0, 0, 0, 1)
-                    DisabledFill: =Rectangle2_24.Fill
-                    Fill: =
-                    FocusedBorderColor: =Rectangle2_24.BorderColor
-                    Height: =0.4
-                    HoverFill: =Rectangle2_24.Fill
-                    PressedFill: =Rectangle2_24.Fill
-                    Width: =Parent.Width
-                    Y: =98.7646657892906
-                    ZIndex: =2
-
-                ContainerHistoryHOD As groupContainer.horizontalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    Fill: =RGBA(255, 255, 255, 1)
-                    FillPortions: =0
-                    Height: =100
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =Parent.Width
-                    ZIndex: =3
-
-                    btn_HOD_2 As button:
-                        Align: =Align.Left
-                        BorderThickness: =0
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledFill: =
-                        Fill: =RGBA(255, 255, 255, 1)
-                        FocusedBorderColor: =
-                        FocusedBorderThickness: =
-                        FontWeight: =FontWeight.Normal
-                        Height: =70
-                        HoverColor: =
-                        HoverFill: =
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =280
-                        OnSelect: |-
-                            =ClearCollect(
-                                CollecRequestHistory_HOD,
-                                Filter(
-                                    Request_Test,
-                                    User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        btn_HOD_2 As button:
+                            Align: =Align.Left
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledFill: =
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderColor: =
+                            FocusedBorderThickness: =
+                            FontWeight: =FontWeight.Normal
+                            Height: =70
+                            HoverColor: =
+                            HoverFill: =
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =280
+                            OnSelect: |-
+                                =Navigate(
+                                    History_request_HOD,
+                                    ScreenTransition.Fade
                                 )
-                            );
-                            Navigate(
-                                History_request_HOD,
-                                ScreenTransition.Fade
-                            )
-                        PaddingLeft: =25
-                        PressedBorderColor: =
-                        PressedColor: =ColorFade(Self.Color,90%)
-                        PressedFill: =
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =25
-                        Text: ="Requests history HOD approved"
-                        Width: =Parent.Width-70
-                        ZIndex: =1
+                            PaddingLeft: =25
+                            PressedBorderColor: =
+                            PressedColor: =ColorFade(Self.Color,90%)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =25
+                            Text: ="Requests history HOD approved"
+                            Width: =Parent.Width-70
+                            ZIndex: =1
 
-                    NextArrow2_5 As icon.ChevronRight:
-                        AccessibleLabel: =Self.Tooltip
-                        Color: =RGBA(166, 166, 166, 1)
-                        Height: =50
-                        Icon: =Icon.ChevronRight
-                        OnSelect: |-
-                            =ClearCollect(
-                                CollecRequestHistory_HOD,
-                                Filter(
-                                    Request_Test,
-                                    User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        NextArrow2_5 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            Color: =RGBA(166, 166, 166, 1)
+                            Height: =50
+                            Icon: =Icon.ChevronRight
+                            OnSelect: |-
+                                =Navigate(
+                                    History_request_HOD,
+                                    ScreenTransition.Fade
                                 )
-                            );
-                            Navigate(
-                                History_request_HOD,
-                                ScreenTransition.Fade
-                            )
-                        PaddingBottom: =12
-                        PaddingLeft: =12
-                        PaddingRight: =12
-                        PaddingTop: =12
-                        Tooltip: ="View item details"
-                        Width: =50
-                        X: =
-                        Y: =
-                        ZIndex: =2
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            Tooltip: ="View item details"
+                            Width: =50
+                            X: =
+                            Y: =
+                            ZIndex: =2
 

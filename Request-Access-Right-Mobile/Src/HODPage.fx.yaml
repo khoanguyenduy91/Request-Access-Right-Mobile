@@ -1,13 +1,14 @@
 HODPage As screen:
-    OnHidden: =
+    OnHidden: |-
+        =Set(
+            visibleHODpage,
+            false
+        )
     OnVisible: |-
-        =Refresh(Request_Test);
-        ClearCollect(
-            CollecRequestHistory_HOD,
-            Filter(
-                Request_Test,
-                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-            )
+        =If(
+            TicketsGallery_HOD.AllItemsCount > 0,
+            Set(visibleHODpage,false),
+            Set(visibleHODpage,true)
         )
 
     Container19 As groupContainer.verticalAutoLayoutContainer:
@@ -107,7 +108,7 @@ HODPage As screen:
             PaddingTop: =0
             Size: =21
             Text: ="No requests found"
-            Visible: =If(TicketsGallery_HOD.AllItemsCount=0,true,false)
+            Visible: =visibleHODpage
             Width: =Parent.Width
             ZIndex: =3
 
@@ -130,10 +131,7 @@ HODPage As screen:
                         )
                     ),
                     SortByColumns(
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && HOD.Email = User().Email
-                        ),
+                        CollectRequestHOD,
                         "Created",
                         SortOrder.Descending
                     )

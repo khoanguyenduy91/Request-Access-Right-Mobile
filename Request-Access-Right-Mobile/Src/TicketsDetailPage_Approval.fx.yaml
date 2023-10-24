@@ -1480,17 +1480,10 @@ TicketsDetailPage_Approval As screen:
                             )
                         )
                     );
-                    Notify(
-                        "Successfully",
-                        NotificationType.Success,
-                        3000
-                    );
-                    Refresh(Request_Test);
-                    ClearCollect(
-                        CollectRequest,
-                        Request_Test
-                    );
-                    Navigate(ApprovalPage)
+                    Navigate(
+                        SuccessScreen_Approver,
+                        ScreenTransition.Fade
+                    )
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
                 PressedFill: =ColorFade(Self.Fill, 50%)
@@ -1772,15 +1765,12 @@ TicketsDetailPage_Approval As screen:
                                                 )
                                             )
                                         )
-                                    );
-                                    Notify(
-                                        "Successfully",
-                                        NotificationType.Success,
-                                        3000
-                                    );
-                                    Reset(TextInput1_1);
-                                    Refresh(Request_Test);
-                                    Navigate(ApprovalPage)
+                                    )
+                                );
+                                Reset(TextInput1_1);
+                                Navigate(
+                                    SuccessScreen_Approver,
+                                    ScreenTransition.Fade
                                 )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
@@ -1946,17 +1936,16 @@ TicketsDetailPage_Approval As screen:
                                     '[SubFlow]Feed_back_approver1'.Run(
                                         TicketsGallery_approval.Selected.ID,
                                         TextInput1_2.Text
-                                    );
-                                    Notify(
-                                        "Successfully",
-                                        NotificationType.Success,
-                                        3000
-                                    );
-                                    Reset(TextInput1_2);
-                                    Set(
-                                        DialogFeedback,
-                                        false
                                     )
+                                );
+                                Set(
+                                    DialogFeedback,
+                                    false
+                                );
+                                Reset(TextInput1_2);
+                                Navigate(
+                                    SuccessScreen_Approver,
+                                    ScreenTransition.Fade
                                 )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
