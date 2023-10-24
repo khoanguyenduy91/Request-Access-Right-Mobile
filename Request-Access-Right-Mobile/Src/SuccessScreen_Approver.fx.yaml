@@ -1,6 +1,8 @@
 SuccessScreen_Approver As screen:
+    OnHidden: =Set(VisibleSuccess3,false)
     OnVisible: |-
-        =Refresh(Request_Test);
+        =Set(VisibleSuccess3,true);
+        Refresh(Request_Test);
         ClearCollect(
             CollectRequestApprover1,
             Filter(
@@ -133,4 +135,15 @@ SuccessScreen_Approver As screen:
                 X: =590
                 Y: =664
                 ZIndex: =3
+
+    Timer1_2 As timer:
+        AutoStart: =VisibleSuccess3
+        Duration: =3000
+        Height: =70
+        OnTimerEnd: =Navigate(ApprovalPage)
+        Visible: =false
+        Width: =280
+        X: =180
+        Y: =1066
+        ZIndex: =2
 

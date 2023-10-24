@@ -1,6 +1,8 @@
 SuccessScreen_HOD As screen:
+    OnHidden: =Set(VisibleSuccess4,false);
     OnVisible: |-
-        =Refresh(Request_Test);
+        =Set(VisibleSuccess4,true);
+        Refresh(Request_Test);
         ClearCollect(
             CollectRequestHOD,
             Filter(
@@ -105,4 +107,15 @@ SuccessScreen_HOD As screen:
                 X: =590
                 Y: =664
                 ZIndex: =3
+
+    Timer1_3 As timer:
+        AutoStart: =VisibleSuccess4
+        Duration: =3000
+        Height: =70
+        OnTimerEnd: =Navigate(HODPage)
+        Visible: =false
+        Width: =280
+        X: =180
+        Y: =1066
+        ZIndex: =2
 

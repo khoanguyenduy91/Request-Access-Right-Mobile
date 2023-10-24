@@ -1,6 +1,8 @@
 "SuccessScreen_copy As screen.'phoneLayout_Success_ver3.0'":
+    OnHidden: =Set(VisibleSuccess2,false);
     OnVisible: |-
-        =If(
+        =Set(VisibleSuccess2,true);
+        If(
             !IsBlank(
                 LookUp(
                     LevelApproveTest,
@@ -166,4 +168,20 @@
                 X: =590
                 Y: =664
                 ZIndex: =3
+
+    Timer1_1 As timer:
+        AutoStart: =VisibleSuccess2
+        Duration: =3000
+        Height: =70
+        OnTimerEnd: |-
+            =Navigate(
+                TicketPage,
+                ScreenTransition.Fade,
+                {type: "New"}
+            )
+        Visible: =false
+        Width: =280
+        X: =180
+        Y: =1066
+        ZIndex: =5
 
