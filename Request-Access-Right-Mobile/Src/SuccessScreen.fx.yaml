@@ -1,6 +1,8 @@
 "SuccessScreen As screen.'phoneLayout_Success_ver3.0'":
+    OnHidden: =Set(VisibleSuccess1,false);
     OnVisible: |-
-        =If(
+        =Set(VisibleSuccess1,true);
+        If(
             !IsBlank(
                 LookUp(
                     LevelApproveTest,
@@ -95,17 +97,6 @@
             Width: =Parent.Width
             ZIndex: =1
 
-            Icon2_1 As icon.Cancel:
-                AlignInContainer: =AlignInContainer.Stretch
-                Color: =RGBA(0, 0, 0, 1)
-                Height: =50
-                Icon: =Icon.ChevronLeft
-                LayoutMinHeight: =50
-                OnSelect: =Navigate(HomePage)
-                PressedColor: =ColorFade(Self.Color,90%)
-                Width: =60
-                ZIndex: =1
-
             Image1_13 As image:
                 FillPortions: =1
                 Height: =Parent.Height-30
@@ -123,6 +114,7 @@
             Height: =Parent.Height
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =30
             LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =112
             LayoutMinWidth: =250
@@ -150,4 +142,35 @@
                 X: =Parent.Width/2 - Self.Width/2
                 Y: =
                 ZIndex: =2
+
+            Button_newticket_1 As button:
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(11, 128, 32, 1)
+                Height: =90
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(8, 103, 26,1)
+                OnSelect: =Navigate(HomePage)
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Size: =24
+                Text: ="Go back home"
+                Width: =500
+                X: =590
+                Y: =664
+                ZIndex: =3
+
+        Timer1 As timer:
+            AutoStart: =VisibleSuccess1
+            Duration: =3000
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =280
+            OnTimerEnd: =Navigate(HomePage)
+            Width: =280
+            ZIndex: =5
 

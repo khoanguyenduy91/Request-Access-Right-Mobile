@@ -638,8 +638,8 @@ HomePage As screen:
                             HoverFill: =TextBox2_2.Fill
                             LayoutMinHeight: =70
                             LayoutMinWidth: =560
-                            OnSelect: |-
-                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"Progress"})
+                            OnSelect: |
+                                =Navigate(TicketPage,ScreenTransition.Fade,{type:"In progress"})
                             PressedBorderColor: =TextBox2_2.BorderColor
                             PressedColor: =TextBox2_2.Color
                             PressedFill: =TextBox2_2.Fill
