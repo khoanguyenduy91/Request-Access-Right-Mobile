@@ -309,36 +309,57 @@
       "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
     },
     "datasets": {
-      "https://pizzavietnam.sharepoint.com/sites/TESTSITE": {
+      "https://pizzavietnam.sharepoint.com/sites/TESTSITE_pizzahut_DEV_SP_SITE": {
+        "datasetOverride": {
+          "environmentVariableName": "pizzahut_DEV_SP_SITE"
+        },
         "dataSources": {
-          "LevelApproveTest": {
-            "tableName": "dd7cd97e-921d-4872-b89e-b1b71ef6a046"
+          "SP_LEVELAPPROVER": {
+            "tableName": "dd7cd97e-921d-4872-b89e-b1b71ef6a046",
+            "tableNameOverride": {
+              "environmentVariableName": "pizzahut_SP_LEVELAPPROVER"
+            }
           },
-          "ReqProcessTest": {
-            "tableName": "89929e3a-61da-4916-b702-30a6748071b3"
+          "SP_REQUEST": {
+            "tableName": "ffa622b6-fe7d-4532-a5cd-3795b29db0ae",
+            "tableNameOverride": {
+              "environmentVariableName": "pizzahut_SP_REQUEST"
+            }
           },
-          "ReqTypeTest": {
-            "tableName": "9ac0d190-8ea5-4217-93ed-877ad37d407a"
+          "SP_REQUESTPROCESS": {
+            "tableName": "89929e3a-61da-4916-b702-30a6748071b3",
+            "tableNameOverride": {
+              "environmentVariableName": "pizzahut_SP_REQUESTPROCESS"
+            }
           },
-          "Request_Test": {
-            "tableName": "ffa622b6-fe7d-4532-a5cd-3795b29db0ae"
+          "SP_REQUESTTYPE": {
+            "tableName": "9ac0d190-8ea5-4217-93ed-877ad37d407a",
+            "tableNameOverride": {
+              "environmentVariableName": "pizzahut_SP_REQUESTTYPE"
+            }
           },
-          "Setting_LevelApprove": {
-            "tableName": "e76cdda1-3baa-4f90-a9af-4b8d0911fc84"
+          "SP_SETTINGLEVELAPPROVER": {
+            "tableName": "e76cdda1-3baa-4f90-a9af-4b8d0911fc84",
+            "tableNameOverride": {
+              "environmentVariableName": "pizzahut_SPLIST_SETTINGLEVELAPPROVER"
+            }
           },
-          "SettingTest": {
-            "tableName": "0f22df83-74f4-4f09-92aa-f93279a5377b"
+          "SP_SETTINGPROCESS": {
+            "tableName": "0f22df83-74f4-4f09-92aa-f93279a5377b",
+            "tableNameOverride": {
+              "environmentVariableName": "pizzahut_DEV_SPLIST_SETTINGPROCESS"
+            }
           }
         }
       }
     },
     "dataSources": [
-      "Request_Test",
-      "LevelApproveTest",
-      "ReqProcessTest",
-      "ReqTypeTest",
-      "Setting_LevelApprove",
-      "SettingTest"
+      "SP_SETTINGPROCESS",
+      "SP_REQUESTTYPE",
+      "SP_LEVELAPPROVER",
+      "SP_REQUESTPROCESS",
+      "SP_REQUEST",
+      "SP_SETTINGLEVELAPPROVER"
     ],
     "dependencies": {},
     "dependents": [

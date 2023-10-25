@@ -647,8 +647,8 @@ TicketPage As screen:
                                         LayoutMinWidth: =40
                                         OnSelect: |-
                                             =Patch(
-                                                Request_Test,
-                                                Defaults(Request_Test),
+                                                SP_REQUEST,
+                                                Defaults(SP_REQUEST),
                                                 {
                                                     Title: ThisItem.Title,
                                                     ReqType: ThisItem.ReqType,
@@ -665,7 +665,7 @@ TicketPage As screen:
                                                 IDnewCopy,
                                                 '[SubFlow]Copy_Attachment_new'.Run(
                                                     ThisItem.ID,
-                                                    Last(Request_Test).ID
+                                                    Last(SP_REQUEST).ID
                                                 )
                                             );
                                             Navigate(SuccessScreen_copy,ScreenTransition.Fade)

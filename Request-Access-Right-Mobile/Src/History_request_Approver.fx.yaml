@@ -13,10 +13,10 @@ History_request_Approver As screen:
                 true
             )
         );
-        Refresh(Request_Test);
+        Refresh(SP_REQUEST);
         ClearCollect(
             CollectRequest,
-            Request_Test
+            SP_REQUEST
         )
 
     Container9_2 As groupContainer.verticalAutoLayoutContainer:
@@ -114,7 +114,7 @@ History_request_Approver As screen:
                     =If(
                         !IsBlank(
                             LookUp(
-                                LevelApproveTest,
+                                SP_LEVELAPPROVER,
                                 IdUser.Email = User().Email && Level.Value = "Approver 1"
                             )
                         ),
@@ -126,7 +126,7 @@ History_request_Approver As screen:
                         If(
                             !IsBlank(
                                 LookUp(
-                                    LevelApproveTest,
+                                    SP_LEVELAPPROVER,
                                     User().Email = IdUser.Email && Level.Value = "Approver 2"
                                 )
                             ),
@@ -138,7 +138,7 @@ History_request_Approver As screen:
                             If(
                                 !IsBlank(
                                     LookUp(
-                                        LevelApproveTest,
+                                        SP_LEVELAPPROVER,
                                         User().Email = IdUser.Email && Level.Value = "Approver 3"
                                     )
                                 ),

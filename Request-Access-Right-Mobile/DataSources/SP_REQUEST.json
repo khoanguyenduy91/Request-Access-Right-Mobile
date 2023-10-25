@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2023-10-16T16:44:07.6790000Z",
+      "LastChangedTimeString": "2023-10-16T16:44:27.3370000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -66,13 +66,14 @@
       "SettingProcess@odata.type": "SettingProcess (SettingProcess@odata.type)",
       "Status": "Status",
       "Status#Id": "Status Id",
-      "Title": "Title"
+      "Title": "Title",
+      "TypeNewRequest": "TypeNewRequest"
     },
     "DatasetName": "https://pizzavietnam.sharepoint.com/sites/TESTSITE",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "Request_Test",
+    "Name": "SP_REQUEST",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

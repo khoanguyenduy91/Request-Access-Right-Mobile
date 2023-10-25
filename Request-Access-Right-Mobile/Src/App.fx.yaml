@@ -7,7 +7,7 @@ App As appinfo:
         =If(
             !IsBlank(
                 LookUp(
-                    LevelApproveTest,
+                    SP_LEVELAPPROVER,
                     IdUser.Email = User().Email && Level.Value = "Approver 1" || IdUser.Email = User().Email && Level.Value = "Approver 2" || IdUser.Email = User().Email && Level.Value = "Approver 3"
                 )
             ),
@@ -35,99 +35,99 @@ App As appinfo:
                 false
             )
         );
-        Refresh(Request_Test);
+        Refresh(SP_REQUEST);
         ClearCollect(
             CollectRequest,
-            Request_Test
+            SP_REQUEST
         );
         ClearCollect(
             CollectRequestAll,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 'Created By'.Email = User().Email
             )
         );
         ClearCollect(
             CollectRequestNew,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 Status.Value = "Created" && 'Created By'.Email = User().Email
             )
         );
         ClearCollect(
             CollectRequestProcess,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
             )
         );
         ClearCollect(
             CollectRequestClosed,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 Status.Value = "Done" && 'Created By'.Email = User().Email
             )
         );
         ClearCollect(
             CollectRequestRejected,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 Status.Value = "Rejected" && 'Created By'.Email = User().Email
             )
         );
         ClearCollect(
             CollectRequestApprover1,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
             )
         );
         ClearCollect(
             CollectRequestApprover2,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 Status.Value = "Approver 1 approved"
             )
         );
         ClearCollect(
             CollectRequestApprover3,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
             )
         );
         ClearCollect(
             CollectRequestHOD,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 Status.Value = "Created" && HOD.Email = User().Email
             )
         );
         ClearCollect(
             CollecRequestHistory_Approver1,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
             )
         );
         ClearCollect(
             CollecRequestHistory_Approver2,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
             )
         );
         ClearCollect(
             CollecRequestHistory_Approver3,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
             )
         );
         ClearCollect(
             CollecRequestHistory_HOD,
             Filter(
-                Request_Test,
+                SP_REQUEST,
                 User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
             )
         )

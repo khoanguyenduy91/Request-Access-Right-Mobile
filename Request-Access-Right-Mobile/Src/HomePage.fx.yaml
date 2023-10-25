@@ -1,10 +1,10 @@
 HomePage As screen:
     Height: =Max(App.Height, App.DesignHeight)
     OnVisible: |-
-        =Refresh(Request_Test);
+        =Refresh(SP_REQUEST);
         ClearCollect(
             CollectRequest,
-            Request_Test
+            SP_REQUEST
         );
         Set(
             autoRefresh,
@@ -71,44 +71,44 @@ HomePage As screen:
                 Icon: =Icon.Reload
                 LayoutMinHeight: =50
                 OnSelect: |
-                    =Refresh(Request_Test);
-                    Refresh(LevelApproveTest);
+                    =Refresh(SP_REQUEST);
+                    Refresh(SP_LEVELAPPROVER);
                     ClearCollect(
                         CollectRequest,
-                        Request_Test
+                        SP_REQUEST
                     );
                     ClearCollect(
                         CollectRequestAll,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             'Created By'.Email = User().Email
                         )
                     );
                     ClearCollect(
                         CollectRequestNew,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             Status.Value = "Created" && 'Created By'.Email = User().Email
                         )
                     );
                     ClearCollect(
                         CollectRequestProcess,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                         )
                     );
                     ClearCollect(
                         CollectRequestClosed,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             Status.Value = "Done" && 'Created By'.Email = User().Email
                         )
                     );
                     ClearCollect(
                         CollectRequestRejected,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             Status.Value = "Rejected" && 'Created By'.Email = User().Email
                         )
                     );
@@ -321,7 +321,7 @@ HomePage As screen:
                         =If(
                             !IsBlank(
                                 LookUp(
-                                    LevelApproveTest,
+                                    SP_LEVELAPPROVER,
                                     IdUser.Email = User().Email && Level.Value = "Approver 1" ||
                                     IdUser.Email = User().Email && Level.Value = "Approver 2" ||
                                     IdUser.Email = User().Email && Level.Value = "Approver 3"
@@ -380,7 +380,7 @@ HomePage As screen:
                                 =If(
                                     !IsBlank(
                                         LookUp(
-                                            LevelApproveTest,
+                                            SP_LEVELAPPROVER,
                                             IdUser.Email = User().Email && Level.Value = "Approver 1"
                                         )
                                     ),
@@ -393,7 +393,7 @@ HomePage As screen:
                                     If(
                                         !IsBlank(
                                             LookUp(
-                                                LevelApproveTest,
+                                                SP_LEVELAPPROVER,
                                                 User().Email = IdUser.Email && Level.Value = "Approver 2"
                                             )
                                         ),
@@ -406,7 +406,7 @@ HomePage As screen:
                                         If(
                                             !IsBlank(
                                                 LookUp(
-                                                    LevelApproveTest,
+                                                    SP_LEVELAPPROVER,
                                                     User().Email = IdUser.Email && Level.Value = "Approver 3"
                                                 )
                                             ),
@@ -419,7 +419,7 @@ HomePage As screen:
                                             If(
                                                 !IsBlank(
                                                     LookUp(
-                                                        Request_Test,
+                                                        SP_REQUEST,
                                                         User().Email = HOD.Email
                                                     )
                                                 ),
@@ -723,43 +723,43 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnTimerEnd: |-
-                    =Refresh(Request_Test);
+                    =Refresh(SP_REQUEST);
                     ClearCollect(
                         CollectRequest,
-                        Request_Test
+                        SP_REQUEST
                     );
                     ClearCollect(
                         CollectRequestAll,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             'Created By'.Email = User().Email
                         )
                     );
                     ClearCollect(
                         CollectRequestNew,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             Status.Value = "Created" && 'Created By'.Email = User().Email
                         )
                     );
                     ClearCollect(
                         CollectRequestProcess,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                         )
                     );
                     ClearCollect(
                         CollectRequestClosed,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             Status.Value = "Done" && 'Created By'.Email = User().Email
                         )
                     );
                     ClearCollect(
                         CollectRequestRejected,
                         Filter(
-                            Request_Test,
+                            SP_REQUEST,
                             Status.Value = "Rejected" && 'Created By'.Email = User().Email
                         )
                     )
@@ -1285,7 +1285,7 @@ HomePage As screen:
                                 =If(
                                     !IsBlank(
                                         LookUp(
-                                            LevelApproveTest,
+                                            SP_LEVELAPPROVER,
                                             IdUser.Email = User().Email && Level.Value = "Approver 1" ||
                                             IdUser.Email = User().Email && Level.Value = "Approver 2" ||
                                             IdUser.Email = User().Email && Level.Value = "Approver 3"

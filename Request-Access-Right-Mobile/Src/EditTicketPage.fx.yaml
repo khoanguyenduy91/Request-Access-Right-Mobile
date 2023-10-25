@@ -73,7 +73,7 @@ EditTicketPage As screen:
             ZIndex: =2
 
             Form1_2 As form:
-                DataSource: =Request_Test
+                DataSource: =SP_REQUEST
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Item: =TicketsGallery.Selected
@@ -93,7 +93,7 @@ EditTicketPage As screen:
                     DataField: ="ReqType"
                     Default: =ThisItem.ReqType
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqType")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqType")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =true
@@ -127,7 +127,7 @@ EditTicketPage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         IsSearchable: =false
-                        Items: =Choices([@Request_Test].ReqType)
+                        Items: =Choices([@SP_REQUEST].ReqType)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -176,7 +176,7 @@ EditTicketPage As screen:
                     DataField: ="ReqPermission"
                     Default: =ThisItem.ReqPermission
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqPermission")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqPermission")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =true
@@ -210,7 +210,7 @@ EditTicketPage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         IsSearchable: =false
-                        Items: =Choices(Request_Test.ReqPermission)
+                        Items: =Choices(SP_REQUEST.ReqPermission)
                         OnChange: |-
                             =If(
                                 DataCardValue8_1.Selected.Value = "Other",
@@ -265,10 +265,10 @@ EditTicketPage As screen:
                     DataField: ="ReqReason"
                     Default: =ThisItem.ReqReason
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqReason")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqReason")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =260
-                    MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqReason")
+                    MaxLength: =DataSourceInfo([@SP_REQUEST], DataSourceInfo.MaxLength, "ReqReason")
                     Required: =true
                     Update: =DataCardValue9_2.Text
                     Width: =Parent.Width
@@ -348,10 +348,10 @@ EditTicketPage As screen:
                     DataField: ="ReqDescription"
                     Default: =ThisItem.ReqDescription
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"ReqDescription")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqDescription")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =250
-                    MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "ReqDescription")
+                    MaxLength: =DataSourceInfo([@SP_REQUEST], DataSourceInfo.MaxLength, "ReqDescription")
                     Required: |-
                         =If(
                             DataCardValue8_1.Selected.Value = "Other",
@@ -442,7 +442,7 @@ EditTicketPage As screen:
                     DataField: ="{Attachments}"
                     Default: =ThisItem.Attachments
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"{Attachments}")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -522,10 +522,10 @@ EditTicketPage As screen:
                     DataField: ="Title"
                     Default: =ThisItem.Title
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"Title")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Title")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =133
-                    MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "Title")
+                    MaxLength: =DataSourceInfo([@SP_REQUEST], DataSourceInfo.MaxLength, "Title")
                     Required: =true
                     Update: =DataCardValue1_2.Text
                     Width: =Parent.Width

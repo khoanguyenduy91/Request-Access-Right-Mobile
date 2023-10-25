@@ -135,7 +135,7 @@ ApprovalPage As screen:
                 =If(
                     !IsBlank(
                         LookUp(
-                            LevelApproveTest,
+                            SP_LEVELAPPROVER,
                             IdUser.Email = User().Email && Level.Value = "Approver 1"
                         )
                     ),
@@ -147,7 +147,7 @@ ApprovalPage As screen:
                     If(
                         !IsBlank(
                             LookUp(
-                                LevelApproveTest,
+                                SP_LEVELAPPROVER,
                                 User().Email = IdUser.Email && Level.Value = "Approver 2"
                             )
                         ),
@@ -159,7 +159,7 @@ ApprovalPage As screen:
                         If(
                             !IsBlank(
                                 LookUp(
-                                    LevelApproveTest,
+                                    SP_LEVELAPPROVER,
                                     User().Email = IdUser.Email && Level.Value = "Approver 3"
                                 )
                             ),
