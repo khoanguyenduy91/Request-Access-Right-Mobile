@@ -311,43 +311,50 @@
     "datasets": {
       "https://pizzavietnam.sharepoint.com/sites/TESTSITE_pizzahut_DEV_SP_SITE": {
         "datasetOverride": {
-          "environmentVariableName": "pizzahut_DEV_SP_SITE"
+          "environmentVariableName": "pizzahut_DEV_SP_SITE",
+          "name": "https://pizzavietnam.sharepoint.com/sites/TESTSITE"
         },
         "dataSources": {
           "SP_LEVELAPPROVER": {
             "tableName": "dd7cd97e-921d-4872-b89e-b1b71ef6a046",
             "tableNameOverride": {
-              "environmentVariableName": "pizzahut_SP_LEVELAPPROVER"
+              "environmentVariableName": "pizzahut_SP_LEVELAPPROVER",
+              "name": "dd7cd97e-921d-4872-b89e-b1b71ef6a046"
             }
           },
           "SP_REQUEST": {
             "tableName": "ffa622b6-fe7d-4532-a5cd-3795b29db0ae",
             "tableNameOverride": {
-              "environmentVariableName": "pizzahut_SP_REQUEST"
+              "environmentVariableName": "pizzahut_SP_REQUEST",
+              "name": "ffa622b6-fe7d-4532-a5cd-3795b29db0ae"
             }
           },
           "SP_REQUESTPROCESS": {
             "tableName": "89929e3a-61da-4916-b702-30a6748071b3",
             "tableNameOverride": {
-              "environmentVariableName": "pizzahut_SP_REQUESTPROCESS"
+              "environmentVariableName": "pizzahut_SP_REQUESTPROCESS",
+              "name": "89929e3a-61da-4916-b702-30a6748071b3"
             }
           },
           "SP_REQUESTTYPE": {
             "tableName": "9ac0d190-8ea5-4217-93ed-877ad37d407a",
             "tableNameOverride": {
-              "environmentVariableName": "pizzahut_SP_REQUESTTYPE"
+              "environmentVariableName": "pizzahut_SP_REQUESTTYPE",
+              "name": "9ac0d190-8ea5-4217-93ed-877ad37d407a"
             }
           },
           "SP_SETTINGLEVELAPPROVER": {
             "tableName": "e76cdda1-3baa-4f90-a9af-4b8d0911fc84",
             "tableNameOverride": {
-              "environmentVariableName": "pizzahut_SPLIST_SETTINGLEVELAPPROVER"
+              "environmentVariableName": "pizzahut_SPLIST_SETTINGLEVELAPPROVER",
+              "name": "e76cdda1-3baa-4f90-a9af-4b8d0911fc84"
             }
           },
           "SP_SETTINGPROCESS": {
             "tableName": "0f22df83-74f4-4f09-92aa-f93279a5377b",
             "tableNameOverride": {
-              "environmentVariableName": "pizzahut_DEV_SPLIST_SETTINGPROCESS"
+              "environmentVariableName": "pizzahut_DEV_SPLIST_SETTINGPROCESS",
+              "name": "0f22df83-74f4-4f09-92aa-f93279a5377b"
             }
           }
         }
