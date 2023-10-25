@@ -99,21 +99,6 @@ TicketsDetailPage_User As screen:
                 Width: =50
                 ZIndex: =4
 
-            Image1_8 As image:
-                AlignInContainer: =AlignInContainer.Stretch
-                Height: =64
-                Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =50
-                LayoutMinWidth: =320
-                Visible: |-
-                    =If(
-                        DataCardValue16.Selected.Value <> "Created",
-                        true,
-                        false
-                    )
-                Width: =64
-                ZIndex: =5
-
         Container37 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =
             Fill: =RGBA(255, 255, 255, 1)

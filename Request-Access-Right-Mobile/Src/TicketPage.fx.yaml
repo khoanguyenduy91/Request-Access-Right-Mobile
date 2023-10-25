@@ -69,13 +69,20 @@ TicketPage As screen:
                 Width: =560
                 ZIndex: =2
 
-            Image1_2 As image:
+            Icon1_14 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
-                Height: =64
-                Image: ='Logo - PizzaHut'
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Add
                 LayoutMinHeight: =50
-                LayoutMinWidth: =320
-                Width: =64
+                OnSelect: |-
+                    =NewForm(Form1);
+                    Navigate(
+                        NewTicketPage,
+                        ScreenTransition.Fade
+                    )
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =50
                 ZIndex: =3
 
         Container22 As groupContainer.verticalAutoLayoutContainer:
@@ -123,24 +130,8 @@ TicketPage As screen:
                     PressedColor: =ColorFade(Self.Color,90%)
                     Size: =24
                     Text: =type
-                    Width: =560
+                    Width: =Parent.Width
                     ZIndex: =2
-
-                Icon1_14 As icon.Add:
-                    AlignInContainer: =AlignInContainer.Stretch
-                    Color: =RGBA(0, 0, 0, 1)
-                    Height: =40
-                    Icon: =Icon.Add
-                    LayoutMinHeight: =50
-                    OnSelect: |-
-                        =NewForm(Form1);
-                        Navigate(
-                            NewTicketPage,
-                            ScreenTransition.Fade
-                        )
-                    PressedColor: =ColorFade(Self.Color,90%)
-                    Width: =50
-                    ZIndex: =3
 
             Label5 As label:
                 Align: =Align.Center
@@ -647,28 +638,25 @@ TicketPage As screen:
                                         LayoutMinWidth: =40
                                         OnSelect: |-
                                             =Patch(
-                                                'Request_Test',
-                                                Defaults('Request_Test'),
+                                                Request_Test,
+                                                Defaults(Request_Test),
                                                 {
                                                     Title: ThisItem.Title,
                                                     ReqType: ThisItem.ReqType,
                                                     ReqPermission: ThisItem.ReqPermission,
                                                     ReqReason: ThisItem.ReqReason,
-                                                    ReqDescription: ThisItem.ReqDescription
+                                                    ReqDescription: ThisItem.ReqDescription,
+                                                    TypeNewRequest: "CopyRequest"
                                                 }
                                             );
-                                            Set(
-                                                Copyrequest,
-                                                TicketsGallery.Selected
+                                            '[SubFlow]Copy_Attachment_new'.Run(
+                                                ThisItem.ID,
+                                                Last(Request_Test).ID
                                             );
-                                            Set(
-                                                IDnewCopy,
-                                                '[SubFlow]Copy_Attachment_new'.Run(
-                                                    ThisItem.ID,
-                                                    Last(Request_Test).ID
-                                                )
-                                            );
-                                            Navigate(SuccessScreen_copy,ScreenTransition.Fade)
+                                            Navigate(
+                                                SuccessScreen_copy,
+                                                ScreenTransition.Fade
+                                            )
                                         PressedBorderColor: =ColorFade(icon8_5.BorderColor, -20%)
                                         PressedColor: =ColorFade(Self.Color,90%)
                                         PressedFill: =icon8_5.Fill

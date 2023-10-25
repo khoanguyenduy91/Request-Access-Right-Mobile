@@ -19,8 +19,8 @@ EditTicketPage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            PaddingLeft: =10
-            PaddingRight: =10
+            PaddingLeft: =15
+            PaddingRight: =15
             Width: =Parent.Width
             ZIndex: =1
 
@@ -49,14 +49,17 @@ EditTicketPage As screen:
                 Width: =560
                 ZIndex: =2
 
-            Image1_14 As image:
+            Icon1_21 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
-                Height: =64
-                Image: ='Logo - PizzaHut'
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Erase
                 LayoutMinHeight: =50
-                LayoutMinWidth: =320
-                OnSelect: =
-                Width: =64
+                OnSelect: |-
+                    =ResetForm(Form1_2);
+                    NewForm(Form1_2);
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =50
                 ZIndex: =3
 
         Container38_2 As groupContainer.verticalAutoLayoutContainer:
