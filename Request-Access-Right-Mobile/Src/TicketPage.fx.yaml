@@ -599,18 +599,25 @@ TicketPage As screen:
                                         LayoutMinWidth: =560
                                         OnSelect: |-
                                             =//Patch('Request_Test',Defaults('Request_Test'),{Title:ThisItem.Title,ReqType:ThisItem.ReqType,ReqPermission:ThisItem.ReqPermission,ReqReason:ThisItem.ReqReason,ReqDescription:ThisItem.ReqDescription});'[SubFlow]Copy_Attachment_new'.Run(ThisItem.ID,Last(Request_Test).ID);EditForm(Form1_2);Set(ButtonModeEdit, true );Navigate(EditTicketPage,ScreenTransition.None)
-                                            Set(
-                                                Copyrequest,
-                                                TicketsGallery.Selected
+                                            Patch(
+                                                Request_Test,
+                                                Defaults(Request_Test),
+                                                {
+                                                    Title: ThisItem.Title,
+                                                    ReqType: ThisItem.ReqType,
+                                                    ReqPermission: ThisItem.ReqPermission,
+                                                    ReqReason: ThisItem.ReqReason,
+                                                    ReqDescription: ThisItem.ReqDescription,
+                                                    TypeNewRequest: "CopyRequest"
+                                                }
                                             );
-                                            NewForm(Form1_3);
-                                            Set(
-                                                ButtonModeCopy,
-                                                true
+                                            '[SubFlow]Copy_Attachment_new'.Run(
+                                                ThisItem.ID,
+                                                Last(Request_Test).ID
                                             );
                                             Navigate(
-                                                CopyRequestPage,
-                                                ScreenTransition.None
+                                                SuccessScreen_copy,
+                                                ScreenTransition.Fade
                                             )
                                         PaddingBottom: =0
                                         PaddingLeft: =0

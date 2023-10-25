@@ -1440,18 +1440,25 @@ TicketsDetailPage_User As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
-                    =Set(
-                        Copyrequest,
-                        TicketsGallery.Selected
+                    =Patch(
+                        Request_Test,
+                        Defaults(Request_Test),
+                        {
+                            Title: TicketsGallery.Selected.Title,
+                            ReqType: TicketsGallery.Selected.ReqType,
+                            ReqPermission: TicketsGallery.Selected.ReqPermission,
+                            ReqReason: TicketsGallery.Selected.ReqReason,
+                            ReqDescription: TicketsGallery.Selected.ReqDescription,
+                            TypeNewRequest: "CopyRequest"
+                        }
                     );
-                    NewForm(Form1_3);
-                    Set(
-                        ButtonModeCopy,
-                        true
+                    '[SubFlow]Copy_Attachment_new'.Run(
+                        TicketsGallery.Selected.ID,
+                        Last(Request_Test).ID
                     );
                     Navigate(
-                        CopyRequestPage,
-                        ScreenTransition.None
+                        SuccessScreen_copy,
+                        ScreenTransition.Fade
                     )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
