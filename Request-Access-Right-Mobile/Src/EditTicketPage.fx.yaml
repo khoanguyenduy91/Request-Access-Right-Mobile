@@ -52,6 +52,12 @@ EditTicketPage As screen:
             Icon1_21 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |-
+                    =If(
+                        IsBlank(DataCardValue1_2.Text) && IsBlank(DataCardValue51.Selected.Value) && IsBlank(DataCardValue8_1.Selected.Value) && IsBlank(DataCardValue9_2.Text) && CountRows(DataCardValue11_2.Attachments) = 0,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
                 Height: =40
                 Icon: =Icon.Erase
                 LayoutMinHeight: =50

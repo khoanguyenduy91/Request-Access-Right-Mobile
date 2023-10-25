@@ -53,9 +53,9 @@ NewTicketPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: |-
                     =If(
-                        DataCardValue1.Text = Blank(),
-                        DisplayMode.Edit,
-                        DisplayMode.Disabled
+                        IsBlank(DataCardValue1.Text) && IsBlank(DataCardValue12.Selected.Value) && IsBlank(DataCardValue8.Selected.Value) && IsBlank(DataCardValue9.Text) && CountRows(DataCardValue11.Attachments) = 0,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
                     )
                 Height: =40
                 Icon: =Icon.Erase
