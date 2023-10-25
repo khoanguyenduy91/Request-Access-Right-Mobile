@@ -647,8 +647,8 @@ TicketPage As screen:
                                         LayoutMinWidth: =40
                                         OnSelect: |-
                                             =Patch(
-                                                'Request_Test',
-                                                Defaults('Request_Test'),
+                                                Request_Test,
+                                                Defaults(Request_Test),
                                                 {
                                                     Title: ThisItem.Title,
                                                     ReqType: ThisItem.ReqType,
