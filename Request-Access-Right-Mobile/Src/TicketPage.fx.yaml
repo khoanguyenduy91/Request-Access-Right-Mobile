@@ -594,7 +594,6 @@ TicketPage As screen:
 
                                     Label7 As label:
                                         Align: =Align.Center
-                                        AlignInContainer: =AlignInContainer.Stretch
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =560
                                         OnSelect: |-
@@ -630,7 +629,6 @@ TicketPage As screen:
 
                                     icon8_5 As icon.ChevronRight:
                                         AccessibleLabel: ="Ticket Details Button"
-                                        AlignInContainer: =AlignInContainer.Stretch
                                         BorderColor: =RGBA(0, 0, 0, 1)
                                         Color: =RGBA(115, 115, 115, 1)
                                         DisabledBorderColor: =RGBA(56, 56, 56, 1)
@@ -642,7 +640,6 @@ TicketPage As screen:
                                         HoverColor: =ColorFade(icon8_5.Color, 20%)
                                         HoverFill: =icon8_5.Fill
                                         Icon: =Icon.Copy
-                                        LayoutMinWidth: =40
                                         OnSelect: |-
                                             =Patch(
                                                 Request_Test,

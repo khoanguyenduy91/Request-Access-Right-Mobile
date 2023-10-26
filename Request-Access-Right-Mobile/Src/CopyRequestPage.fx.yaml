@@ -76,7 +76,7 @@ CopyRequestPage As screen:
                 DataSource: =Request_Test
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Item: =Copyrequest
+                Item: =Last(Request_Test)
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 OnSuccess: |-
@@ -121,7 +121,7 @@ CopyRequestPage As screen:
                     DataCardValue51_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(10, 128, 32, 1)
-                        DefaultSelectedItems: =Copyrequest.ReqType
+                        DefaultSelectedItems: =Last(Request_Test).ReqType
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -204,7 +204,7 @@ CopyRequestPage As screen:
                     DataCardValue8_2 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(10, 128, 32, 1)
-                        DefaultSelectedItems: =Copyrequest.ReqPermission
+                        DefaultSelectedItems: =Last(Request_Test).ReqPermission
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -293,7 +293,7 @@ CopyRequestPage As screen:
 
                     DataCardValue9_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Copyrequest.ReqReason
+                        Default: =Last(Request_Test).ReqReason
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
@@ -387,7 +387,7 @@ CopyRequestPage As screen:
 
                     DataCardValue10_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Copyrequest.ReqDescription
+                        Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -474,7 +474,7 @@ CopyRequestPage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =295
                         IsInDataCard: =true
-                        Items: =Copyrequest.Attachments
+                        Items: =Last(Request_Test).Attachments
                         PaddingBottom: =5
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PaddingRight: =5
@@ -550,7 +550,7 @@ CopyRequestPage As screen:
 
                     DataCardValue1_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Copyrequest.Title
+                        Default: =Last(Request_Test).Title
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
