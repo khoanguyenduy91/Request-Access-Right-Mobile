@@ -54,6 +54,7 @@ ApprovalPage As screen:
                         HomePage,
                         ScreenTransition.Fade
                     )
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
 
@@ -151,6 +152,7 @@ ApprovalPage As screen:
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =5
+                PressedColor: =ColorFade(Self.Color,90%)
                 Width: =60
                 ZIndex: =1
 
