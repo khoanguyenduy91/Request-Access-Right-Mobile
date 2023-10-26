@@ -1,4 +1,5 @@
 HODPage As screen:
+    Fill: =RGBA(230, 229, 229, 1)
     OnHidden: |-
         =Set(
             visibleHODpage,
@@ -7,26 +8,38 @@ HODPage As screen:
     OnVisible: |-
         =If(
             TicketsGallery_HOD.AllItemsCount > 0,
-            Set(visibleHODpage,false),
-            Set(visibleHODpage,true)
+            Set(
+                visibleHODpage,
+                false
+            ),
+            Set(
+                visibleHODpage,
+                true
+            )
+        );
+        Set(
+            CollectionTicketsGalleryHOD,
+            TicketsGallery_HOD.Selected
         )
 
     Container19 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =1
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
 
         Container2_8 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =100
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            PaddingLeft: =10
-            PaddingRight: =10
+            PaddingLeft: =15
+            PaddingRight: =15
             Width: =Parent.Width
             ZIndex: =1
 
@@ -55,19 +68,39 @@ HODPage As screen:
                 Width: =560
                 ZIndex: =2
 
-            Image1_5 As image:
+            Icon1_24 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
-                Height: =50
-                Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =64
-                LayoutMinWidth: =320
-                Width: =64
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Reload
+                LayoutMinHeight: =50
+                OnSelect: |-
+                    =Refresh(Request_Test);
+                    ClearCollect(
+                        CollectRequestHOD,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && HOD.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollecRequestHistory_HOD,
+                        Filter(
+                            Request_Test,
+                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                        )
+                    )
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =50
                 ZIndex: =3
 
         Container53 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =60
+            Height: =70
+            LayoutAlignItems: =LayoutAlignItems.End
             LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -78,9 +111,8 @@ HODPage As screen:
             ZIndex: =2
 
             Icon1_17 As icon.Add:
-                AlignInContainer: =AlignInContainer.End
                 Color: =RGBA(0, 0, 0, 1)
-                Height: =50
+                Height: =60
                 Icon: =Icon.History
                 LayoutMinHeight: =50
                 LayoutMinWidth: =40
@@ -89,8 +121,12 @@ HODPage As screen:
                         History_request_HOD,
                         ScreenTransition.Fade
                     );
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
                 PressedColor: =ColorFade(Self.Color,90%)
-                Width: =50
+                Width: =60
                 ZIndex: =1
 
         Label6_1 As label:

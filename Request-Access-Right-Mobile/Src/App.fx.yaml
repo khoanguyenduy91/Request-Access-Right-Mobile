@@ -35,11 +35,6 @@ App As appinfo:
                 false
             )
         );
-        Refresh(SP_REQUEST);
-        ClearCollect(
-            CollectRequest,
-            SP_REQUEST
-        );
         ClearCollect(
             CollectRequestAll,
             Filter(

@@ -12,6 +12,10 @@ History_request_HOD As screen:
                 visiblehistoryHOD,
                 true
             )
+        );
+        Set(
+            CollectionTicketGalleryHistoryHOD,
+            TicketsGallery_history_HOD.Selected
         )
 
     Container9_3 As groupContainer.verticalAutoLayoutContainer:
@@ -61,15 +65,6 @@ History_request_HOD As screen:
                     ="Request history HOD"
                 Width: =560
                 ZIndex: =2
-
-            Image1_10 As image:
-                AlignInContainer: =AlignInContainer.Stretch
-                Height: =64
-                Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =50
-                LayoutMinWidth: =320
-                Width: =64
-                ZIndex: =3
 
         Label5_2 As label:
             Align: =Align.Center

@@ -13,10 +13,9 @@ History_request_Approver As screen:
                 true
             )
         );
-        Refresh(SP_REQUEST);
-        ClearCollect(
-            CollectRequest,
-            SP_REQUEST
+        Set(
+            CollectionTicketGalleryHistoryApproval,
+            TicketsGallery_history_approver.Selected
         )
 
     Container9_2 As groupContainer.verticalAutoLayoutContainer:
@@ -66,15 +65,6 @@ History_request_Approver As screen:
                     ="Request history approved"
                 Width: =560
                 ZIndex: =2
-
-            Image1_9 As image:
-                AlignInContainer: =AlignInContainer.Stretch
-                Height: =64
-                Image: ='Logo - PizzaHut'
-                LayoutMinHeight: =50
-                LayoutMinWidth: =320
-                Width: =64
-                ZIndex: =3
 
         Label5_1 As label:
             Align: =Align.Center

@@ -2,42 +2,7 @@
     OnHidden: =Set(VisibleSuccess1,false);
     OnVisible: |-
         =Set(VisibleSuccess1,true);
-        If(
-            !IsBlank(
-                LookUp(
-                    SP_LEVELAPPROVER,
-                    IdUser.Email = User().Email && Level.Value = "Approver 1" || IdUser.Email = User().Email && Level.Value = "Approver 2" || IdUser.Email = User().Email && Level.Value = "Approver 3"
-                )
-            ),
-            Set(
-                visibleBtnApprover,
-                true
-            ),
-            Set(
-                visibleBtnApprover,
-                false
-            )
-        );
-        If(
-            Office365Users.MyProfile().Department <> "DTS" && IsMatch(
-                Office365Users.MyProfile().JobTitle,
-                "Head of",
-                MatchOptions.Contains
-            ),
-            Set(
-                visibleBtnHOD,
-                true
-            ),
-            Set(
-                visibleBtnHOD,
-                false
-            )
-        );
-        Refresh(SP_REQUEST);
-        ClearCollect(
-            CollectRequest,
-            SP_REQUEST
-        );
+        Refresh(Request_Test);
         ClearCollect(
             CollectRequestAll,
             Filter(
@@ -83,22 +48,22 @@
         ZIndex: =4
 
         Container2_10 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
             BorderColor: =
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =100
             LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
-            PaddingRight: =50
+            PaddingRight: =10
             Width: =Parent.Width
             ZIndex: =1
 
             Image1_13 As image:
-                FillPortions: =1
                 Height: =Parent.Height-30
                 Image: =logocochu
                 LayoutMinHeight: =60
@@ -107,7 +72,7 @@
                 PaddingLeft: =10
                 PaddingRight: =10
                 PaddingTop: =10
-                Width: =250
+                Width: =Parent.Width
                 ZIndex: =2
 
         Container54 As groupContainer.verticalAutoLayoutContainer:
@@ -142,27 +107,6 @@
                 X: =Parent.Width/2 - Self.Width/2
                 Y: =
                 ZIndex: =2
-
-            Button_newticket_1 As button:
-                Color: =RGBA(255, 255, 255, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Fill: =RGBA(11, 128, 32, 1)
-                Height: =90
-                HoverColor: =RGBA(255, 255, 255, 1)
-                HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: =Navigate(HomePage)
-                RadiusBottomLeft: =5
-                RadiusBottomRight: =5
-                RadiusTopLeft: =5
-                RadiusTopRight: =5
-                Size: =24
-                Text: ="Go back home"
-                Width: =500
-                X: =590
-                Y: =664
-                ZIndex: =3
 
         Timer1 As timer:
             AutoStart: =VisibleSuccess1
