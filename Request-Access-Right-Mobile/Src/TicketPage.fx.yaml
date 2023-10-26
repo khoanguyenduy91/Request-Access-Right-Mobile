@@ -15,11 +15,22 @@ TicketPage As screen:
             Set(
                 visibleticketpage,
                 true
+            );
+            Set(
+                visibleCheckbox,
+                false
             )
         );
-        Set(
-            CollectionTicketGallery,
-            TicketsGallery.Selected
+        If(
+            type = "New" && TicketsGallery.AllItemsCount > 0,
+            Set(
+                visibleCheckbox,
+                true
+            ),
+            Set(
+                visibleCheckbox,
+                false
+            )
         )
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
@@ -161,7 +172,7 @@ TicketPage As screen:
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                Visible: =If(type="New",true,false)
+                Visible: =visibleCheckbox
                 Width: =Parent.Width
                 ZIndex: =2
 
