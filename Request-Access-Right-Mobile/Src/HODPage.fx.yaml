@@ -8,8 +8,18 @@ HODPage As screen:
     OnVisible: |-
         =If(
             TicketsGallery_HOD.AllItemsCount > 0,
-            Set(visibleHODpage,false),
-            Set(visibleHODpage,true)
+            Set(
+                visibleHODpage,
+                false
+            ),
+            Set(
+                visibleHODpage,
+                true
+            )
+        );
+        Set(
+            CollectionTicketsGalleryHOD,
+            TicketsGallery_HOD.Selected
         )
 
     Container19 As groupContainer.verticalAutoLayoutContainer:

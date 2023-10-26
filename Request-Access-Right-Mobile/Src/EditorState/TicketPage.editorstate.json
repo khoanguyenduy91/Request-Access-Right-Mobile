@@ -5172,7 +5172,8 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnSelect"
+        "OnSelect",
+        "FocusedBorderThickness"
       ],
       "DynamicProperties": [
         {
@@ -5390,6 +5391,11 @@
           "Category": "Design",
           "PropertyName": "Size",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "FocusedBorderThickness",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",

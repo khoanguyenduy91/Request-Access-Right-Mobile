@@ -1,12 +1,7 @@
 HomePage As screen:
     Height: =Max(App.Height, App.DesignHeight)
     OnVisible: |-
-        =Refresh(Request_Test);
-        ClearCollect(
-            CollectRequest,
-            Request_Test
-        );
-        Set(
+        =Set(
             autoRefresh,
             true
         )
@@ -72,11 +67,6 @@ HomePage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |
                     =Refresh(Request_Test);
-                    Refresh(LevelApproveTest);
-                    ClearCollect(
-                        CollectRequest,
-                        Request_Test
-                    );
                     ClearCollect(
                         CollectRequestAll,
                         Filter(
@@ -110,6 +100,34 @@ HomePage As screen:
                         Filter(
                             Request_Test,
                             Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestApprover1,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestApprover2,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Approver 1 approved"
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestApprover3,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestHOD,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && HOD.Email = User().Email
                         )
                     );
                     Set(
@@ -203,13 +221,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_5.Color
                             PressedFill: =TextBox2_5.Fill
                             Size: =50
-                            Text: |-
-                                =CountRows(
-                                    Filter(
-                                        CollectRequest,
-                                        'Created By'.Email = User().Email
-                                    )
-                                )
+                            Text: =CountRows(CollectRequestAll)
                             Width: =Parent.Width
                             X: =56
                             Y: =10
@@ -279,7 +291,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_6.Color
                             PressedFill: =TextBox2_6.Fill
                             Size: =50
-                            Text: =CountRows(Filter(CollectRequest,Status.Value="Created" && 'Created By'.Email = User().Email))
+                            Text: =CountRows(CollectRequestNew)
                             Width: =Parent.Width
                             X: =72
                             Y: =10
@@ -384,12 +396,7 @@ HomePage As screen:
                                             IdUser.Email = User().Email && Level.Value = "Approver 1"
                                         )
                                     ),
-                                    CountRows(
-                                        Filter(
-                                            CollectRequest,
-                                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                                        )
-                                    ),
+                                    CountRows(CollectRequestApprover1),
                                     If(
                                         !IsBlank(
                                             LookUp(
@@ -397,12 +404,7 @@ HomePage As screen:
                                                 User().Email = IdUser.Email && Level.Value = "Approver 2"
                                             )
                                         ),
-                                        CountRows(
-                                            Filter(
-                                                CollectRequest,
-                                                Status.Value = "Approver 1 approved"
-                                            )
-                                        ),
+                                        CountRows(CollectRequestApprover2),
                                         If(
                                             !IsBlank(
                                                 LookUp(
@@ -410,12 +412,7 @@ HomePage As screen:
                                                     User().Email = IdUser.Email && Level.Value = "Approver 3"
                                                 )
                                             ),
-                                            CountRows(
-                                                Filter(
-                                                    CollectRequest,
-                                                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                                                )
-                                            ),
+                                            CountRows(CollectRequestApprover3),
                                             If(
                                                 !IsBlank(
                                                     LookUp(
@@ -423,12 +420,7 @@ HomePage As screen:
                                                         User().Email = HOD.Email
                                                     )
                                                 ),
-                                                CountRows(
-                                                    Filter(
-                                                        CollectRequest,
-                                                        Status.Value = "Created" && HOD.Email = User().Email
-                                                    )
-                                                )
+                                                CountRows(CollectRequestHOD)
                                             )
                                         )
                                     )
@@ -531,13 +523,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_9.Color
                             PressedFill: =TextBox2_9.Fill
                             Size: =44
-                            Text: |-
-                                =CountRows(
-                                    Filter(
-                                        CollectRequest,
-                                        Status.Value = "Rejected" && 'Created By'.Email = User().Email
-                                    )
-                                )
+                            Text: =CountRows(CollectRequestRejected)
                             Width: =179
                             X: =12
                             Y: =20
@@ -609,13 +595,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_7.Color
                             PressedFill: =TextBox2_7.Fill
                             Size: =44
-                            Text: |-
-                                =CountRows(
-                                    Filter(
-                                        CollectRequest,
-                                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-                                    )
-                                )
+                            Text: =CountRows(CollectRequestProcess)
                             Width: =148
                             X: =13
                             Y: =20
@@ -687,7 +667,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_8.Color
                             PressedFill: =TextBox2_8.Fill
                             Size: =44
-                            Text: =CountRows(Filter(CollectRequest,Status.Value="Done"&&'Created By'.Email = User().Email))
+                            Text: =CountRows(CollectRequestClosed)
                             Width: =117
                             X: =16
                             Y: =20
@@ -725,9 +705,41 @@ HomePage As screen:
                 OnTimerEnd: |-
                     =Refresh(Request_Test);
                     ClearCollect(
-                        CollectRequest,
-                        Request_Test
+                        CollectRequestAll,
+                        Filter(
+                            Request_Test,
+                            'Created By'.Email = User().Email
+                        )
                     );
+                    ClearCollect(
+                        CollectRequestNew,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestProcess,
+                        Filter(
+                            Request_Test,
+                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestClosed,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Done" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestRejected,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    Refresh(Request_Test);
                     ClearCollect(
                         CollectRequestAll,
                         Filter(
@@ -761,6 +773,34 @@ HomePage As screen:
                         Filter(
                             Request_Test,
                             Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestApprover1,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestApprover2,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Approver 1 approved"
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestApprover3,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                        )
+                    );
+                    ClearCollect(
+                        CollectRequestHOD,
+                        Filter(
+                            Request_Test,
+                            Status.Value = "Created" && HOD.Email = User().Email
                         )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)

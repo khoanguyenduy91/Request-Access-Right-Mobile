@@ -13,10 +13,9 @@ History_request_Approver As screen:
                 true
             )
         );
-        Refresh(Request_Test);
-        ClearCollect(
-            CollectRequest,
-            Request_Test
+        Set(
+            CollectionTicketGalleryHistoryApproval,
+            TicketsGallery_history_approver.Selected
         )
 
     Container9_2 As groupContainer.verticalAutoLayoutContainer:
