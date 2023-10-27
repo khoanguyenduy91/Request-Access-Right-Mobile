@@ -5,6 +5,11 @@ App As appinfo:
     MinScreenWidth: =320
     OnStart: |-
         =If(
+            !IsBlank(Acceleration.X),
+            Launch("ms-apps:///providers/Microsoft.PowerApps/apps/7487cbe6-b4c6-4674-902a-c100353f7044"),
+            Launch("https://apps.powerapps.com/play/e/aafbded5-2635-e4ae-a5d7-aa27ed798f8b/a/dd71c6c2-f9bd-47d1-a9d3-cfaf1c2da60e?tenantId=788a39cf-8ee1-43f8-87ed-0c9b40249af3&hint=4054a7b6-6181-4718-ba3f-20ed328f2d7e&sourcetime=1698373386603")
+        );
+        If(
             !IsBlank(
                 LookUp(
                     LevelApproveTest,
