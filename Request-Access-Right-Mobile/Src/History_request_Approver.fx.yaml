@@ -104,7 +104,7 @@ History_request_Approver As screen:
                     =If(
                         !IsBlank(
                             LookUp(
-                                SP_LEVELAPPROVER,
+                                LevelApproveTest,
                                 IdUser.Email = User().Email && Level.Value = "Approver 1"
                             )
                         ),
@@ -116,7 +116,7 @@ History_request_Approver As screen:
                         If(
                             !IsBlank(
                                 LookUp(
-                                    SP_LEVELAPPROVER,
+                                    LevelApproveTest,
                                     User().Email = IdUser.Email && Level.Value = "Approver 2"
                                 )
                             ),
@@ -128,7 +128,7 @@ History_request_Approver As screen:
                             If(
                                 !IsBlank(
                                     LookUp(
-                                        SP_LEVELAPPROVER,
+                                        LevelApproveTest,
                                         User().Email = IdUser.Email && Level.Value = "Approver 3"
                                     )
                                 ),

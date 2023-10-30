@@ -76,18 +76,20 @@ HODPage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =Refresh(Request_Test);
-                    ClearCollect(
-                        CollectRequestHOD,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && HOD.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_HOD,
-                        Filter(
-                            Request_Test,
-                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    Concurrent(
+                        ClearCollect(
+                            CollectRequestHOD,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Created" && HOD.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollecRequestHistory_HOD,
+                            Filter(
+                                Request_Test,
+                                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            )
                         )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
@@ -162,7 +164,7 @@ HODPage As screen:
                 =If(
                     !IsBlank(
                         LookUp(
-                            SP_REQUEST,
+                            Request_Test,
                             User().Email = HOD.Email
                         )
                     ),

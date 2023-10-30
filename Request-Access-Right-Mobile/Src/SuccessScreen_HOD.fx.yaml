@@ -1,20 +1,25 @@
 SuccessScreen_HOD As screen:
     OnHidden: =Set(VisibleSuccess4,false);
     OnVisible: |-
-        =Set(VisibleSuccess4,true);
-        Refresh(SP_REQUEST);
-        ClearCollect(
-            CollectRequestHOD,
-            Filter(
-                SP_REQUEST,
-                Status.Value = "Created" && HOD.Email = User().Email
-            )
+        =Set(
+            VisibleSuccess4,
+            true
         );
-        ClearCollect(
-            CollecRequestHistory_HOD,
-            Filter(
-                SP_REQUEST,
-                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+        Refresh(Request_Test);
+        Concurrent(
+            ClearCollect(
+                CollectRequestHOD,
+                Filter(
+                    Request_Test,
+                    Status.Value = "Created" && HOD.Email = User().Email
+                )
+            ),
+            ClearCollect(
+                CollecRequestHistory_HOD,
+                Filter(
+                    Request_Test,
+                    User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                )
             )
         )
 

@@ -104,7 +104,7 @@ History_request_HOD As screen:
                     =If(
                         !IsBlank(
                             LookUp(
-                                SP_REQUEST,
+                                Request_Test,
                                 User().Email = HOD.Email
                             )
                         ),
