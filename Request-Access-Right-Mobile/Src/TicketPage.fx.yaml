@@ -31,6 +31,10 @@ TicketPage As screen:
                 visibleCheckbox,
                 false
             )
+        );
+        Set(
+            CollectionTicketGallery,
+            TicketsGallery.Selected
         )
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
