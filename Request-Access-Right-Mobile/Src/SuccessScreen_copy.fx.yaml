@@ -5,40 +5,40 @@
             VisibleSuccess2,
             true
         );
-        Refresh(Request_Test);
+        Refresh(SP_REQUEST);
         Concurrent(
             ClearCollect(
                 CollectRequestAll,
                 Filter(
-                    Request_Test,
+                    SP_REQUEST,
                     'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestNew,
                 Filter(
-                    Request_Test,
+                    SP_REQUEST,
                     Status.Value = "Created" && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestProcess,
                 Filter(
-                    Request_Test,
+                    SP_REQUEST,
                     (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestClosed,
                 Filter(
-                    Request_Test,
+                    SP_REQUEST,
                     Status.Value = "Done" && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestRejected,
                 Filter(
-                    Request_Test,
+                    SP_REQUEST,
                     Status.Value = "Rejected" && 'Created By'.Email = User().Email
                 )
             )

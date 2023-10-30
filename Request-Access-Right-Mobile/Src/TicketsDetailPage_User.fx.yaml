@@ -1443,8 +1443,8 @@ TicketsDetailPage_User As screen:
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
                     =Patch(
-                        Request_Test,
-                        Defaults(Request_Test),
+                        SP_REQUEST,
+                        Defaults(SP_REQUEST),
                         {
                             Title: TicketsGallery.Selected.Title,
                             ReqType: TicketsGallery.Selected.ReqType,
@@ -1456,7 +1456,7 @@ TicketsDetailPage_User As screen:
                     );
                     '[SubFlow]Copy_Attachment_new'.Run(
                         TicketsGallery.Selected.ID,
-                        Last(Request_Test).ID
+                        Last(SP_REQUEST).ID
                     );
                     Navigate(
                         SuccessScreen_copy,

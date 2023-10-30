@@ -601,10 +601,10 @@ TicketPage As screen:
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =560
                                         OnSelect: |-
-                                            =//Patch('Request_Test',Defaults('Request_Test'),{Title:ThisItem.Title,ReqType:ThisItem.ReqType,ReqPermission:ThisItem.ReqPermission,ReqReason:ThisItem.ReqReason,ReqDescription:ThisItem.ReqDescription});'[SubFlow]Copy_Attachment_new'.Run(ThisItem.ID,Last(Request_Test).ID);EditForm(Form1_2);Set(ButtonModeEdit, true );Navigate(EditTicketPage,ScreenTransition.None)
+                                            =//Patch('SP_REQUEST',Defaults('SP_REQUEST'),{Title:ThisItem.Title,ReqType:ThisItem.ReqType,ReqPermission:ThisItem.ReqPermission,ReqReason:ThisItem.ReqReason,ReqDescription:ThisItem.ReqDescription});'[SubFlow]Copy_Attachment_new'.Run(ThisItem.ID,Last(SP_REQUEST).ID);EditForm(Form1_2);Set(ButtonModeEdit, true );Navigate(EditTicketPage,ScreenTransition.None)
                                             Patch(
-                                                Request_Test,
-                                                Defaults(Request_Test),
+                                                SP_REQUEST,
+                                                Defaults(SP_REQUEST),
                                                 {
                                                     Title: ThisItem.Title,
                                                     ReqType: ThisItem.ReqType,
@@ -616,7 +616,7 @@ TicketPage As screen:
                                             );
                                             '[SubFlow]Copy_Attachment_new'.Run(
                                                 ThisItem.ID,
-                                                Last(Request_Test).ID
+                                                Last(SP_REQUEST).ID
                                             );
                                             Navigate(
                                                 SuccessScreen_copy,
@@ -659,7 +659,7 @@ TicketPage As screen:
                                             );
                                             '[SubFlow]Copy_Attachment_new'.Run(
                                                 ThisItem.ID,
-                                                Last(Request_Test).ID
+                                                Last(SP_REQUEST).ID
                                             );
                                             Navigate(
                                                 SuccessScreen_copy,

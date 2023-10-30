@@ -515,10 +515,10 @@ NewTicketPage As screen:
                     DataField: ="TypeNewRequest"
                     Default: =ThisItem.TypeNewRequest
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"TypeNewRequest")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"TypeNewRequest")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    MaxLength: =DataSourceInfo([@Request_Test], DataSourceInfo.MaxLength, "TypeNewRequest")
+                    MaxLength: =DataSourceInfo([@SP_REQUEST], DataSourceInfo.MaxLength, "TypeNewRequest")
                     Required: =false
                     Update: =DataCardValue52.Text
                     Visible: =false

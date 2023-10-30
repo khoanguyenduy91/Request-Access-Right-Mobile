@@ -5,19 +5,19 @@ SuccessScreen_HOD As screen:
             VisibleSuccess4,
             true
         );
-        Refresh(Request_Test);
+        Refresh(SP_REQUEST);
         Concurrent(
             ClearCollect(
                 CollectRequestHOD,
                 Filter(
-                    Request_Test,
+                    SP_REQUEST,
                     Status.Value = "Created" && HOD.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_HOD,
                 Filter(
-                    Request_Test,
+                    SP_REQUEST,
                     User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
             )
