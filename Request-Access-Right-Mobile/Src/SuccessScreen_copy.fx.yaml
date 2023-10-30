@@ -1,41 +1,46 @@
 "SuccessScreen_copy As screen.'phoneLayout_Success_ver3.0'":
     OnHidden: =Set(VisibleSuccess2,false);
     OnVisible: |-
-        =Set(VisibleSuccess2,true);
+        =Set(
+            VisibleSuccess2,
+            true
+        );
         Refresh(Request_Test);
-        ClearCollect(
-            CollectRequestAll,
-            Filter(
-                Request_Test,
-                'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
-            CollectRequestNew,
-            Filter(
-                Request_Test,
-                Status.Value = "Created" && 'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
-            CollectRequestProcess,
-            Filter(
-                Request_Test,
-                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
-            CollectRequestClosed,
-            Filter(
-                Request_Test,
-                Status.Value = "Done" && 'Created By'.Email = User().Email
-            )
-        );
-        ClearCollect(
-            CollectRequestRejected,
-            Filter(
-                Request_Test,
-                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+        Concurrent(
+            ClearCollect(
+                CollectRequestAll,
+                Filter(
+                    Request_Test,
+                    'Created By'.Email = User().Email
+                )
+            ),
+            ClearCollect(
+                CollectRequestNew,
+                Filter(
+                    Request_Test,
+                    Status.Value = "Created" && 'Created By'.Email = User().Email
+                )
+            ),
+            ClearCollect(
+                CollectRequestProcess,
+                Filter(
+                    Request_Test,
+                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                )
+            ),
+            ClearCollect(
+                CollectRequestClosed,
+                Filter(
+                    Request_Test,
+                    Status.Value = "Done" && 'Created By'.Email = User().Email
+                )
+            ),
+            ClearCollect(
+                CollectRequestRejected,
+                Filter(
+                    Request_Test,
+                    Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                )
             )
         )
 

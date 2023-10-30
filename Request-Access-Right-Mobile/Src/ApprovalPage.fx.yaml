@@ -80,46 +80,48 @@ ApprovalPage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =Refresh(Request_Test);
-                    ClearCollect(
-                        CollectRequestApprover1,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover2,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 1 approved"
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover3,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver1,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver2,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                        )
-                    );
-                    ClearCollect(
-                        CollecRequestHistory_Approver3,
-                        Filter(
-                            Request_Test,
-                            User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    Concurrent(
+                        ClearCollect(
+                            CollectRequestApprover1,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover2,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Approver 1 approved"
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover3,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                            )
+                        ),
+                        ClearCollect(
+                            CollecRequestHistory_Approver1,
+                            Filter(
+                                Request_Test,
+                                User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            )
+                        ),
+                        ClearCollect(
+                            CollecRequestHistory_Approver2,
+                            Filter(
+                                Request_Test,
+                                User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            )
+                        ),
+                        ClearCollect(
+                            CollecRequestHistory_Approver3,
+                            Filter(
+                                Request_Test,
+                                User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            )
                         )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
