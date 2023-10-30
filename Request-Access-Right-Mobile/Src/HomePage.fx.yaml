@@ -67,67 +67,69 @@ HomePage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |
                     =Refresh(Request_Test);
-                    ClearCollect(
-                        CollectRequestAll,
-                        Filter(
-                            Request_Test,
-                            'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestNew,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestProcess,
-                        Filter(
-                            Request_Test,
-                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestClosed,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Done" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestRejected,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover1,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover2,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 1 approved"
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover3,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestHOD,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && HOD.Email = User().Email
+                    Concurrent(
+                        ClearCollect(
+                            CollectRequestAll,
+                            Filter(
+                                Request_Test,
+                                'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestNew,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Created" && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestProcess,
+                            Filter(
+                                Request_Test,
+                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestClosed,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Done" && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestRejected,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover1,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover2,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Approver 1 approved"
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover3,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestHOD,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Created" && HOD.Email = User().Email
+                            )
                         )
                     );
                     Set(
@@ -703,104 +705,69 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnTimerEnd: |-
-                    =Refresh(Request_Test);
-                    ClearCollect(
-                        CollectRequestAll,
-                        Filter(
-                            Request_Test,
-                            'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestNew,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestProcess,
-                        Filter(
-                            Request_Test,
-                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestClosed,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Done" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestRejected,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    Refresh(Request_Test);
-                    ClearCollect(
-                        CollectRequestAll,
-                        Filter(
-                            Request_Test,
-                            'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestNew,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestProcess,
-                        Filter(
-                            Request_Test,
-                            (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestClosed,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Done" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestRejected,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Rejected" && 'Created By'.Email = User().Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover1,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover2,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 1 approved"
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestApprover3,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                        )
-                    );
-                    ClearCollect(
-                        CollectRequestHOD,
-                        Filter(
-                            Request_Test,
-                            Status.Value = "Created" && HOD.Email = User().Email
+                    =Concurrent(
+                        ClearCollect(
+                            CollectRequestAll,
+                            Filter(
+                                Request_Test,
+                                'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestNew,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Created" && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestProcess,
+                            Filter(
+                                Request_Test,
+                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestClosed,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Done" && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestRejected,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover1,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover2,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Approver 1 approved"
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover3,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestHOD,
+                            Filter(
+                                Request_Test,
+                                Status.Value = "Created" && HOD.Email = User().Email
+                            )
                         )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
