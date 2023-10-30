@@ -14,25 +14,37 @@ App As appinfo:
             Set(
                 visibleBtnApprover,
                 true
-            ),
+            );
             Set(
-                visibleBtnApprover,
-                false
-            )
-        );
-        If(
-            Office365Users.MyProfile().Department <> "DTS" && IsMatch(
-                Office365Users.MyProfile().JobTitle,
-                "Head of",
-                MatchOptions.Contains
-            ),
-            Set(
-                visibleBtnHOD,
+                visiblecountticketApprover,
                 true
             ),
-            Set(
-                visibleBtnHOD,
-                false
+            If(
+                Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                    Office365Users.MyProfile().JobTitle,
+                    "Head of",
+                    MatchOptions.Contains
+                ),
+                Set(
+                    visibleBtnHOD,
+                    true
+                );
+                Set(
+                    visiblecountticketApprover,
+                    true
+                ),
+                Set(
+                    visibleBtnApprover,
+                    false
+                );
+                Set(
+                    visibleBtnHOD,
+                    false
+                );
+                Set(
+                    visiblecountticketApprover,
+                    false
+                )
             )
         );
         Concurrent(

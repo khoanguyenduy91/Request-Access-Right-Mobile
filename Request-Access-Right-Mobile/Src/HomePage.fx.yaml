@@ -331,19 +331,7 @@ HomePage As screen:
                     Height: =150
                     LayoutMinHeight: =150
                     LayoutMinWidth: =100
-                    Visible: |-
-                        =If(
-                            !IsBlank(
-                                LookUp(
-                                    LevelApproveTest,
-                                    IdUser.Email = User().Email && Level.Value = "Approver 1" ||
-                                    IdUser.Email = User().Email && Level.Value = "Approver 2" ||
-                                    IdUser.Email = User().Email && Level.Value = "Approver 3"
-                                )
-                            ),
-                            true,
-                            false
-                        )
+                    Visible: =visiblecountticketApprover
                     Width: =Parent.Width
                     X: =340
                     Y: =113
@@ -705,7 +693,8 @@ HomePage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnTimerEnd: |-
-                    =Concurrent(
+                    =Refresh(Request_Test);
+                    Concurrent(
                         ClearCollect(
                             CollectRequestAll,
                             Filter(
