@@ -829,11 +829,11 @@ TicketPage As screen:
             =Switch(
                 TicketPage.Size,
                 1,
-                Parent.Width - 500,
+                Parent.Width - 450,
                 2,
-                Parent.Width - 1050,
+                Parent.Width - 900,
                 3,
-                Parent.Width - 1800,
+                Parent.Width - 1500,
                 4,
                 Parent.Width - 2450
             )
@@ -841,11 +841,11 @@ TicketPage As screen:
             =Switch(
                 TicketPage.Size,
                 1,
-                500,
+                450,
                 2,
-                1050,
+                900,
                 3,
-                1800,
+                1500,
                 4,
                 2450
             )
