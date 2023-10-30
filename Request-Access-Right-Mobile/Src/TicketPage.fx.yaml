@@ -2,9 +2,10 @@ TicketPage As screen:
     Fill: =RGBA(255, 255, 255, 1)
     OnHidden: |-
         =Set(
-                visibleticketpage,
-                false
-            )
+            visibleticketpage,
+            false
+        );
+        UpdateContext({displaymenu: false})
     OnVisible: |-
         =If(
             TicketsGallery.AllItemsCount > 0,
@@ -135,6 +136,22 @@ TicketPage As screen:
                 Width: =50
                 ZIndex: =4
 
+            Icon1_26 As icon.Add:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Settings
+                LayoutMinHeight: =40
+                OnSelect: |-
+                    =If(
+                        displaymenu,
+                        UpdateContext({displaymenu: false}),
+                        UpdateContext({displaymenu: true})
+                    )
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =40
+                ZIndex: =5
+
         Container22 As groupContainer.verticalAutoLayoutContainer:
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
@@ -184,13 +201,12 @@ TicketPage As screen:
                     ZIndex: =2
 
             Container2_19 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.Start
+                AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.Light
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =80
                 LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutGap: =10
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
@@ -199,6 +215,7 @@ TicketPage As screen:
                 ZIndex: =2
 
                 Checkbox1 As checkbox:
+                    AlignInContainer: =AlignInContainer.Start
                     Default: =CountRows(itemSelected)=CountRows(CollectRequestNew)
                     FocusedBorderThickness: =0
                     Height: =75
@@ -210,6 +227,21 @@ TicketPage As screen:
                     Text: =""
                     Width: =75
                     ZIndex: =1
+
+                Label8 As label:
+                    AlignInContainer: =AlignInContainer.End
+                    FillPortions: =1
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =24
+                    Text: ="Select All"
+                    Width: =560
+                    ZIndex: =2
 
             Label5 As label:
                 Align: =Align.Center
@@ -780,4 +812,183 @@ TicketPage As screen:
                                                 X: =403
                                                 Y: =91.78571428571428
                                                 ZIndex: =2
+
+    Container13_11 As groupContainer.verticalAutoLayoutContainer:
+        Height: =254
+        LayoutAlignItems: =LayoutAlignItems.End
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutWrap: =true
+        PaddingRight: =10
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =displaymenu
+        Width: |-
+            =Switch(
+                TicketPage.Size,
+                1,
+                Parent.Width - 500,
+                2,
+                Parent.Width - 1050,
+                3,
+                Parent.Width - 1800,
+                4,
+                Parent.Width - 2450
+            )
+        X: |-
+            =Switch(
+                TicketPage.Size,
+                1,
+                500,
+                2,
+                1050,
+                3,
+                1800,
+                4,
+                2450
+            )
+        Y: =105
+        ZIndex: =2
+
+        Container42_8 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.End
+            BorderColor: =RGBA(214, 221, 224, 1)
+            BorderThickness: =1
+            DropShadow: =DropShadow.Semibold
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =250
+            LayoutAlignItems: =LayoutAlignItems.End
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =250
+            ZIndex: =6
+
+            Container46_6 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =225
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =55
+                LayoutMinWidth: =100
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =20
+                ZIndex: =1
+
+                Icon4_11 As icon.OptionsList:
+                    Color: =RGBA(0, 0, 0, 1)
+                    Height: =35
+                    Icon: =Icon.Trash
+                    OnSelect: |-
+                        =UpdateContext({displaymenu:false})
+                    Visible: =displaymenu
+                    Width: =40
+                    X: =97
+                    Y: =6
+                    ZIndex: =1
+
+                Label9_11 As label:
+                    Align: =Align.Center
+                    Height: =41
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    OnSelect: |-
+                        =UpdateContext({displaymenu:false})
+                    Size: =18
+                    Text: ="Delete"
+                    Visible: =displaymenu
+                    Width: =131
+                    X: =54
+                    Y: =127
+                    ZIndex: =2
+
+            Rectangle4_4 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(40, 134, 222, 1)
+                Fill: =RGBA(0, 0, 0, 1)
+                Height: =0.2
+                Width: =Parent.Width-10
+                ZIndex: =2
+
+            Container46_7 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =225
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =50
+                LayoutMinWidth: =100
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =20
+                ZIndex: =3
+
+                Icon4_12 As icon.OptionsList:
+                    Color: =RGBA(0, 0, 0, 1)
+                    Height: =35
+                    Icon: =Icon.Save
+                    OnSelect: |-
+                        =UpdateContext({displaymenu:false})
+                    Visible: =displaymenu
+                    Width: =40
+                    X: =97
+                    Y: =5
+                    ZIndex: =1
+
+                Label9_12 As label:
+                    Align: =Align.Center
+                    Height: =41
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    OnSelect: |-
+                        =UpdateContext({displaymenu:false})
+                    Size: =18
+                    Text: ="Save"
+                    Visible: =displaymenu
+                    Width: =134
+                    X: =51
+                    Y: =168
+                    ZIndex: =2
+
+            Rectangle4_5 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(40, 134, 222, 1)
+                Fill: =RGBA(0, 0, 0, 1)
+                Height: =0.2
+                Width: =Parent.Width-10
+                ZIndex: =4
+
+            Container46_8 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =225
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =50
+                LayoutMinWidth: =100
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =20
+                ZIndex: =5
+
+                Icon4_13 As icon.OptionsList:
+                    Color: =RGBA(0, 0, 0, 1)
+                    Height: =35
+                    Icon: =Icon.Edit
+                    OnSelect: |-
+                        =UpdateContext({displaymenu:false})
+                    Visible: =displaymenu
+                    Width: =40
+                    X: =97
+                    Y: =5
+                    ZIndex: =1
+
+                Label9_13 As label:
+                    Align: =Align.Center
+                    Height: =41
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    OnSelect: |-
+                        =UpdateContext({displaymenu:false})
+                    Size: =18
+                    Text: ="Edit"
+                    Visible: =displaymenu
+                    Width: =134
+                    X: =51
+                    Y: =210
+                    ZIndex: =2
 
