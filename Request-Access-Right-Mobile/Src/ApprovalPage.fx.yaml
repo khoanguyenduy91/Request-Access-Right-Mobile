@@ -73,7 +73,7 @@ ApprovalPage As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
-                Icon: =Icon.Reload
+                Icon: =Icon.Sync
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =Refresh(SP_REQUEST);

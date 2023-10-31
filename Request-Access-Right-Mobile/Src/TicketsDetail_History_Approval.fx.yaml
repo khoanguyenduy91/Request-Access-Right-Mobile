@@ -70,6 +70,49 @@ TicketsDetail_History_Approval As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
+                "'Approver 1 Feedback_DataCard4' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Approver1Feedback"
+                    Default: =ThisItem.'Approver 1 Feedback'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver1Feedback")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Visible: =If(IsBlank(DataCardValue56.Text),false,true)
+                    Width: =640
+                    X: =0
+                    Y: =10
+                    ZIndex: =1
+
+                    DataCardKey56 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue56 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey56.Y + DataCardKey56.Height + 5
+                        ZIndex: =2
+
                 "'Created By_DataCard1_3' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Author"
@@ -507,7 +550,7 @@ TicketsDetail_History_Approval As screen:
                         )
                     Width: =640
                     X: =0
-                    Y: =10
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey31_1 As label:
@@ -587,7 +630,7 @@ TicketsDetail_History_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue32_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =11
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey32_1 As label:
@@ -632,7 +675,7 @@ TicketsDetail_History_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue33_1.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =12
+                    Y: =13
                     ZIndex: =1
 
                     DataCardKey33_1 As label:
@@ -712,7 +755,7 @@ TicketsDetail_History_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue34_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =13
+                    Y: =14
                     ZIndex: =1
 
                     DataCardKey34_1 As label:
@@ -757,7 +800,7 @@ TicketsDetail_History_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue35_1.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =14
+                    Y: =15
                     ZIndex: =1
 
                     DataCardKey35_1 As label:
@@ -837,7 +880,7 @@ TicketsDetail_History_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue36_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =15
+                    Y: =16
                     ZIndex: =1
 
                     DataCardKey36_1 As label:
@@ -882,7 +925,7 @@ TicketsDetail_History_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue37_1.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =16
+                    Y: =17
                     ZIndex: =1
 
                     DataCardKey37_1 As label:
@@ -962,7 +1005,7 @@ TicketsDetail_History_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue38_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =17
+                    Y: =18
                     ZIndex: =1
 
                     DataCardKey38_1 As label:
@@ -1006,7 +1049,7 @@ TicketsDetail_History_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue39_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =18
+                    Y: =19
                     ZIndex: =1
 
                     DataCardKey39_1 As label:
@@ -1050,7 +1093,7 @@ TicketsDetail_History_Approval As screen:
                     Update: =DataCardValue7_1.Attachments
                     Width: =Parent.Width
                     X: =0
-                    Y: =19
+                    Y: =20
                     ZIndex: =1
 
                     DataCardKey7_1 As label:

@@ -58,7 +58,7 @@ NewTicketPage As screen:
                         DisplayMode.Edit
                     )
                 Height: =40
-                Icon: =Icon.Erase
+                Icon: =Icon.Reload
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =Set(

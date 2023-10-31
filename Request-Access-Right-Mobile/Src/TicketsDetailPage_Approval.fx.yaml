@@ -491,6 +491,49 @@ TicketsDetailPage_Approval As screen:
                         Y: =DataCardKey30.Y + DataCardKey30.Height + 5
                         ZIndex: =2
 
+                "'Approver 1 Feedback_DataCard2' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Approver1Feedback"
+                    Default: =ThisItem.'Approver 1 Feedback'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver1Feedback")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Visible: =If(IsBlank(DataCardValue54.Text),false,true)
+                    Width: =640
+                    X: =0
+                    Y: =10
+                    ZIndex: =1
+
+                    DataCardKey54 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue54 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey54.Y + DataCardKey54.Height + 5
+                        ZIndex: =2
+
                 "'Approver 1_DataCard2' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Approver1"
@@ -509,7 +552,7 @@ TicketsDetailPage_Approval As screen:
                         )
                     Width: =640
                     X: =0
-                    Y: =10
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey31 As label:
@@ -589,7 +632,7 @@ TicketsDetailPage_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue32.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =11
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey32 As label:
@@ -634,7 +677,7 @@ TicketsDetailPage_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue33.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =12
+                    Y: =13
                     ZIndex: =1
 
                     DataCardKey33 As label:
@@ -714,7 +757,7 @@ TicketsDetailPage_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue34.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =13
+                    Y: =14
                     ZIndex: =1
 
                     DataCardKey34 As label:
@@ -759,7 +802,7 @@ TicketsDetailPage_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue35.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =14
+                    Y: =15
                     ZIndex: =1
 
                     DataCardKey35 As label:
@@ -839,7 +882,7 @@ TicketsDetailPage_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue36.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =15
+                    Y: =16
                     ZIndex: =1
 
                     DataCardKey36 As label:
@@ -884,7 +927,7 @@ TicketsDetailPage_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue37.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =16
+                    Y: =17
                     ZIndex: =1
 
                     DataCardKey37 As label:
@@ -964,7 +1007,7 @@ TicketsDetailPage_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue38.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =17
+                    Y: =18
                     ZIndex: =1
 
                     DataCardKey38 As label:
@@ -1008,7 +1051,7 @@ TicketsDetailPage_Approval As screen:
                     Visible: =If(IsBlank(DataCardValue39.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =18
+                    Y: =19
                     ZIndex: =1
 
                     DataCardKey39 As label:
@@ -1052,7 +1095,7 @@ TicketsDetailPage_Approval As screen:
                     Update: =DataCardValue7.Attachments
                     Width: =Parent.Width
                     X: =0
-                    Y: =19
+                    Y: =20
                     ZIndex: =1
 
                     DataCardKey7 As label:
@@ -1761,6 +1804,7 @@ TicketsDetailPage_Approval As screen:
                                     )
                                 );
                                 Reset(TextInput1_1);
+                                Set(DialogCommentapproval,false);
                                 Navigate(
                                     SuccessScreen_Approver,
                                     ScreenTransition.Fade
