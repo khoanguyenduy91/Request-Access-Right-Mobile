@@ -306,54 +306,23 @@ TicketPage As screen:
                 HoverFill: =TicketsGallery.Fill
                 Items: |-
                     =Sort(
-                        If(
-                            type = "All",
-                            Filter(
+                        Filter(
+                            Switch(
+                                type,
+                                "All",
                                 CollectRequestAll,
-                                StartsWith(
-                                    Title,
-                                    Text_search.Text
-                                )
+                                "New",
+                                CollectRequestNew,
+                                "In progress",
+                                CollectRequestProcess,
+                                "Closed",
+                                CollectRequestClosed,
+                                "Rejected",
+                                CollectRequestRejected
                             ),
-                            If(
-                                type = "New",
-                                Filter(
-                                    CollectRequestNew,
-                                    StartsWith(
-                                        Title,
-                                        Text_search.Text
-                                    )
-                                ),
-                                If(
-                                    type = "In progress",
-                                    Filter(
-                                        CollectRequestProcess,
-                                        StartsWith(
-                                            Title,
-                                            Text_search.Text
-                                        )
-                                    ),
-                                    If(
-                                        type = "Closed",
-                                        Filter(
-                                            CollectRequestClosed,
-                                            StartsWith(
-                                                Title,
-                                                Text_search.Text
-                                            )
-                                        ),
-                                        If(
-                                            type = "Rejected",
-                                            Filter(
-                                                CollectRequestRejected,
-                                                StartsWith(
-                                                    Title,
-                                                    Text_search.Text
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
+                            StartsWith(
+                                Title,
+                                Text_search.Text
                             )
                         ),
                         Created,
