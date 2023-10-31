@@ -115,8 +115,8 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Item: |-
-                    =//TicketsGallery.Selected
-                    CollectionTicketGallery
+                    =TicketsGallery.Selected
+                    //CollectionTicketGallery
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 Width: =Parent.Width
