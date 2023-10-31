@@ -402,17 +402,18 @@ TicketPage As screen:
                             Width: =75
                             ZIndex: =1
 
-                        Container32 As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =Parent.Height
+                        Container31_3 As groupContainer.verticalAutoLayoutContainer:
+                            BorderColor: =RGBA(255, 0, 0, 1)
+                            Height: =223.0699504854464
                             LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
                             LayoutMinHeight: =112
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            X: =Parent.X
                             ZIndex: =2
 
-                            Container32_3 As groupContainer.horizontalAutoLayoutContainer:
+                            Container32 As groupContainer.horizontalAutoLayoutContainer:
                                 FillPortions: =0
                                 Height: =50
                                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -424,6 +425,60 @@ TicketPage As screen:
                                 Width: =Parent.Width
                                 ZIndex: =1
 
+                                Heading1 As label:
+                                    Color: =RGBA(40, 40, 40, 1)
+                                    FillPortions: =1
+                                    FocusedBorderColor: =Heading1.BorderColor
+                                    Height: =50
+                                    HoverBorderColor: =Heading1.BorderColor
+                                    HoverColor: =Heading1.Color
+                                    HoverFill: =Heading1.Fill
+                                    LayoutMinHeight: =70
+                                    LayoutMinWidth: =300
+                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =10
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    PressedBorderColor: =Heading1.BorderColor
+                                    PressedColor: =Heading1.Color
+                                    PressedFill: =Heading1.Fill
+                                    Size: =16
+                                    Text: |-
+                                        ="Created by: "& ThisItem.'Created By'.DisplayName
+                                    Width: =217
+                                    Wrap: =false
+                                    X: =19
+                                    Y: =8.881784197001252E-16
+                                    ZIndex: =1
+
+                                Heading1_2 As label:
+                                    Align: =TextPosition.Right
+                                    Color: =RGBA(40, 40, 40, 1)
+                                    FillPortions: =1
+                                    FocusedBorderColor: =Heading1_2.BorderColor
+                                    Height: =50
+                                    HoverBorderColor: =Heading1_2.BorderColor
+                                    HoverColor: =Heading1_2.Color
+                                    HoverFill: =Heading1_2.Fill
+                                    LayoutMinHeight: =70
+                                    LayoutMinWidth: =300
+                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    PressedBorderColor: =Heading1_2.BorderColor
+                                    PressedColor: =Heading1_2.Color
+                                    PressedFill: =Heading1_2.Fill
+                                    Size: =16
+                                    Text: =ThisItem.Created
+                                    Width: =217
+                                    Wrap: =false
+                                    X: =262
+                                    Y: =3.954081632653028
+                                    ZIndex: =2
+
                             Container33 As groupContainer.verticalAutoLayoutContainer:
                                 Height: =225
                                 LayoutDirection: =LayoutDirection.Vertical
@@ -432,6 +487,328 @@ TicketPage As screen:
                                 LayoutMode: =LayoutMode.Auto
                                 Width: =Parent.Width
                                 ZIndex: =2
+
+                                Container34 As groupContainer.horizontalAutoLayoutContainer:
+                                    Height: =225
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutMinHeight: =112
+                                    LayoutMinWidth: =250
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingRight: =10
+                                    Width: =Parent.Width
+                                    ZIndex: =1
+
+                                    Container35 As groupContainer.verticalAutoLayoutContainer:
+                                        AlignInContainer: =AlignInContainer.SetByContainer
+                                        Height: =Parent.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =112
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingLeft: =10
+                                        Width: =Parent.Width
+                                        ZIndex: =1
+
+                                        Subtitle1 As label:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            Color: =RGBA(29, 33, 35, 1)
+                                            FillPortions: =1
+                                            FocusedBorderColor: =Subtitle1.BorderColor
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =58
+                                            HoverBorderColor: =Subtitle1.BorderColor
+                                            HoverColor: =Subtitle1.Color
+                                            HoverFill: =Subtitle1.Fill
+                                            LayoutMinHeight: =60
+                                            LayoutMinWidth: =200
+                                            OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                            PaddingBottom: =0
+                                            PaddingLeft: =10
+                                            PaddingRight: =0
+                                            PaddingTop: =0
+                                            PressedBorderColor: =Subtitle1.BorderColor
+                                            PressedColor: =Subtitle1.Color
+                                            PressedFill: =Subtitle1.Fill
+                                            Size: =22
+                                            Text: |-
+                                                ="Title: "& ThisItem.Title
+                                            Width: =Parent.Width
+                                            Wrap: =false
+                                            X: =19
+                                            Y: =47
+                                            ZIndex: =1
+
+                                        Subtitle1_7 As label:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            Color: =RGBA(29, 33, 35, 1)
+                                            FocusedBorderColor: =Subtitle1_7.BorderColor
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =50
+                                            HoverBorderColor: =Subtitle1_7.BorderColor
+                                            HoverColor: =Subtitle1_7.Color
+                                            HoverFill: =Subtitle1_7.Fill
+                                            LayoutMinHeight: =50
+                                            LayoutMinWidth: =200
+                                            OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                            PaddingBottom: =0
+                                            PaddingLeft: =10
+                                            PaddingRight: =0
+                                            PaddingTop: =0
+                                            PressedBorderColor: =Subtitle1_7.BorderColor
+                                            PressedColor: =Subtitle1_7.Color
+                                            PressedFill: =Subtitle1_7.Fill
+                                            Size: =18
+                                            Text: |-
+                                                ="Request Type: "& ThisItem.ReqType.Value
+                                            Width: =Parent.Width
+                                            Wrap: =false
+                                            X: =10
+                                            Y: =58
+                                            ZIndex: =2
+
+                                        Container36 As groupContainer.horizontalAutoLayoutContainer:
+                                            FillPortions: =0
+                                            Height: =50
+                                            LayoutAlignItems: =LayoutAlignItems.Center
+                                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                                            LayoutMinHeight: =112
+                                            LayoutMinWidth: =250
+                                            LayoutMode: =LayoutMode.Auto
+                                            ZIndex: =3
+
+                                            Subtitle1_6 As label:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                Color: =RGBA(29, 33, 35, 1)
+                                                FocusedBorderColor: =Subtitle1_6.BorderColor
+                                                Height: =50
+                                                HoverBorderColor: =Subtitle1_6.BorderColor
+                                                HoverColor: =Subtitle1_6.Color
+                                                HoverFill: =Subtitle1_6.Fill
+                                                LayoutMinHeight: =70
+                                                LayoutMinWidth: =120
+                                                OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                                PaddingBottom: =0
+                                                PaddingLeft: =10
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                PressedBorderColor: =Subtitle1_6.BorderColor
+                                                PressedColor: =Subtitle1_6.Color
+                                                PressedFill: =Subtitle1_6.Fill
+                                                Size: =18
+                                                Text: |-
+                                                    ="Status: "
+                                                Width: =120
+                                                Wrap: =false
+                                                X: =10
+                                                Y: =108.06995048544641
+                                                ZIndex: =1
+
+                                            Subtitle1_1 As label:
+                                                AlignInContainer: =AlignInContainer.Stretch
+                                                Color: |-
+                                                    =If(
+                                                        ThisItem.Status.Value = "Rejected",
+                                                        RGBA(
+                                                            227,
+                                                            48,
+                                                            12,
+                                                            1
+                                                        ),
+                                                        If(
+                                                            ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                                                            RGBA(
+                                                                255,
+                                                                153,
+                                                                51,
+                                                                1
+                                                            ),
+                                                            If(
+                                                                ThisItem.Status.Value = "Created",
+                                                                RGBA(
+                                                                    56,
+                                                                    86,
+                                                                    153,
+                                                                    1
+                                                                ),
+                                                                If(
+                                                                    ThisItem.Status.Value = "Done",
+                                                                    RGBA(
+                                                                        8,
+                                                                        103,
+                                                                        26,
+                                                                        1
+                                                                    ),
+                                                                    RGBA(
+                                                                        71,
+                                                                        185,
+                                                                        50,
+                                                                        1
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                FillPortions: =1
+                                                FocusedBorderColor: =Subtitle1_1.BorderColor
+                                                FontWeight: =FontWeight.Bold
+                                                Height: =50
+                                                HoverBorderColor: =Subtitle1_1.BorderColor
+                                                HoverColor: =Subtitle1_1.Color
+                                                HoverFill: =Subtitle1_1.Fill
+                                                LayoutMinHeight: =50
+                                                LayoutMinWidth: =200
+                                                OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                PressedBorderColor: =Subtitle1_1.BorderColor
+                                                PressedColor: =Subtitle1_1.Color
+                                                PressedFill: =Subtitle1_1.Fill
+                                                Size: =18
+                                                Text: =ThisItem.Status.Value
+                                                Width: =Parent.Width
+                                                Wrap: =false
+                                                X: =94
+                                                Y: =108.06995048544641
+                                                ZIndex: =2
+
+                                    Container52 As groupContainer.verticalAutoLayoutContainer:
+                                        AlignInContainer: =AlignInContainer.Center
+                                        FillPortions: =0
+                                        Height: =Parent.Height
+                                        LayoutAlignItems: =LayoutAlignItems.Center
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                        LayoutMinHeight: =8
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        Width: =110
+                                        ZIndex: =2
+
+                                        icon8 As icon.ChevronRight:
+                                            AccessibleLabel: ="Ticket Details Button"
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 1)
+                                            Color: =RGBA(115, 115, 115, 1)
+                                            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                                            DisabledFill: =icon8.Fill
+                                            FillPortions: =1
+                                            FocusedBorderColor: =Color.Black
+                                            FocusedBorderThickness: =0
+                                            Height: =40
+                                            HoverBorderColor: =ColorFade(icon8.BorderColor, 20%)
+                                            HoverColor: =ColorFade(icon8.Color, 20%)
+                                            HoverFill: =icon8.Fill
+                                            Icon: =Icon.ChevronRight
+                                            LayoutMinHeight: =60
+                                            LayoutMinWidth: =40
+                                            OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                            PaddingBottom: =35
+                                            PaddingLeft: =35
+                                            PaddingRight: =35
+                                            PaddingTop: =35
+                                            PressedBorderColor: =ColorFade(icon8.BorderColor, -20%)
+                                            PressedColor: |-
+                                                =//ColorFade(icon8.Color, -20%)
+                                                ColorFade(Self.Color,90%)
+                                            PressedFill: =icon8.Fill
+                                            TabIndex: =0
+                                            Width: =40
+                                            X: =393
+                                            Y: =33.78571428571428
+                                            ZIndex: =1
+
+                                        Container51 As groupContainer.horizontalAutoLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.SetByContainer
+                                            FillPortions: =0
+                                            Height: =70
+                                            LayoutAlignItems: =LayoutAlignItems.Center
+                                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                                            LayoutMinHeight: =112
+                                            LayoutMinWidth: =100
+                                            LayoutMode: =LayoutMode.Auto
+                                            Visible: =If(ThisItem.Status.Value="Rejected",true,false)
+                                            Width: =110
+                                            ZIndex: =4
+
+                                            Label7 As label:
+                                                Align: =Align.Center
+                                                LayoutMinHeight: =70
+                                                LayoutMinWidth: =560
+                                                OnSelect: |-
+                                                    =//Patch('SP_REQUEST',Defaults('SP_REQUEST'),{Title:ThisItem.Title,ReqType:ThisItem.ReqType,ReqPermission:ThisItem.ReqPermission,ReqReason:ThisItem.ReqReason,ReqDescription:ThisItem.ReqDescription});'[SubFlow]Copy_Attachment_new'.Run(ThisItem.ID,Last(SP_REQUEST).ID);EditForm(Form1_2);Set(ButtonModeEdit, true );Navigate(EditTicketPage,ScreenTransition.None)
+                                                    Patch(
+                                                        Request_Test,
+                                                        Defaults(Request_Test),
+                                                        {
+                                                            Title: ThisItem.Title,
+                                                            ReqType: ThisItem.ReqType,
+                                                            ReqPermission: ThisItem.ReqPermission,
+                                                            ReqReason: ThisItem.ReqReason,
+                                                            ReqDescription: ThisItem.ReqDescription,
+                                                            TypeNewRequest: "CopyRequest"
+                                                        }
+                                                    );
+                                                    '[SubFlow]Copy_Attachment_new'.Run(
+                                                        ThisItem.ID,
+                                                        Last(Request_Test).ID
+                                                    );
+                                                    Navigate(
+                                                        SuccessScreen_copy,
+                                                        ScreenTransition.Fade
+                                                    )
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =18
+                                                Text: ="Copy"
+                                                Width: =70
+                                                ZIndex: =1
+
+                                            icon8_5 As icon.ChevronRight:
+                                                AccessibleLabel: ="Ticket Details Button"
+                                                BorderColor: =RGBA(0, 0, 0, 1)
+                                                Color: =RGBA(115, 115, 115, 1)
+                                                DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                                                DisabledFill: =icon8_5.Fill
+                                                FocusedBorderColor: =Color.Black
+                                                FocusedBorderThickness: =0
+                                                Height: =40
+                                                HoverBorderColor: =ColorFade(icon8_5.BorderColor, 20%)
+                                                HoverColor: =ColorFade(icon8_5.Color, 20%)
+                                                HoverFill: =icon8_5.Fill
+                                                Icon: =Icon.Copy
+                                                OnSelect: |-
+                                                    =Patch(
+                                                        Request_Test,
+                                                        Defaults(Request_Test),
+                                                        {
+                                                            Title: ThisItem.Title,
+                                                            ReqType: ThisItem.ReqType,
+                                                            ReqPermission: ThisItem.ReqPermission,
+                                                            ReqReason: ThisItem.ReqReason,
+                                                            ReqDescription: ThisItem.ReqDescription,
+                                                            TypeNewRequest: "CopyRequest"
+                                                        }
+                                                    );
+                                                    '[SubFlow]Copy_Attachment_new'.Run(
+                                                        ThisItem.ID,
+                                                        Last(Request_Test).ID
+                                                    );
+                                                    Navigate(
+                                                        SuccessScreen_copy,
+                                                        ScreenTransition.Fade
+                                                    )
+                                                PressedBorderColor: =ColorFade(icon8_5.BorderColor, -20%)
+                                                PressedColor: =ColorFade(Self.Color,90%)
+                                                PressedFill: =icon8_5.Fill
+                                                TabIndex: =0
+                                                Width: =40
+                                                X: =403
+                                                Y: =91.78571428571428
+                                                ZIndex: =2
 
     Container13_11 As groupContainer.verticalAutoLayoutContainer:
         Height: =254
