@@ -40,10 +40,6 @@ TicketPage As screen:
                 visibleCheckbox1,
                 false
             )
-        );
-        Set(
-            CollectionTicketGallery,
-            TicketsGallery.Selected
         )
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
@@ -881,8 +877,10 @@ TicketPage As screen:
                     Color: =RGBA(0, 0, 0, 1)
                     Height: =35
                     Icon: =Icon.Trash
-                    OnSelect: |-
-                        =UpdateContext({displaymenu:false})
+                    OnSelect: |+
+                        =UpdateContext({displaymenu: false})
+                        
+                        
                     Visible: =displaymenu
                     Width: =40
                     X: =97
@@ -895,7 +893,7 @@ TicketPage As screen:
                     LayoutMinHeight: =70
                     LayoutMinWidth: =560
                     OnSelect: |-
-                        =UpdateContext({displaymenu:false})
+                        =UpdateContext({displaymenu: false})
                     Size: =18
                     Text: ="Delete"
                     Visible: =displaymenu
@@ -924,9 +922,14 @@ TicketPage As screen:
                 Icon4_12 As icon.OptionsList:
                     Color: =RGBA(0, 0, 0, 1)
                     Height: =35
-                    Icon: =Icon.Save
+                    Icon: =Icon.Add
                     OnSelect: |-
-                        =UpdateContext({displaymenu:false})
+                        =NewForm(Form1);
+                        UpdateContext({displaymenu:false});
+                        Navigate(
+                            NewTicketPage,
+                            ScreenTransition.Fade
+                        )
                     Visible: =displaymenu
                     Width: =40
                     X: =97
@@ -939,9 +942,14 @@ TicketPage As screen:
                     LayoutMinHeight: =70
                     LayoutMinWidth: =560
                     OnSelect: |-
-                        =UpdateContext({displaymenu:false})
+                        =NewForm(Form1);
+                        UpdateContext({displaymenu:false});
+                        Navigate(
+                            NewTicketPage,
+                            ScreenTransition.Fade
+                        )
                     Size: =18
-                    Text: ="Save"
+                    Text: ="New"
                     Visible: =displaymenu
                     Width: =134
                     X: =51
