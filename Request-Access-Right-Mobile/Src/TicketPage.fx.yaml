@@ -5,7 +5,8 @@ TicketPage As screen:
             visibleticketpage,
             false
         );
-        UpdateContext({displaymenu: false})
+        UpdateContext({displaymenu: false});
+        Reset(Text_search)
     OnVisible: |-
         =If(
             TicketsGallery.AllItemsCount > 0,
