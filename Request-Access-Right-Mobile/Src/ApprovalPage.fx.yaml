@@ -129,6 +129,22 @@ ApprovalPage As screen:
                 Width: =50
                 ZIndex: =3
 
+            Icon1_11 As icon.Add:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =60
+                Icon: =Icon.History
+                LayoutMinHeight: =50
+                LayoutMinWidth: =40
+                OnSelect: =Navigate(History_request_Approver,ScreenTransition.Fade)
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =60
+                ZIndex: =4
+
         Label6 As label:
             Align: =Align.Center
             AlignInContainer: =AlignInContainer.Start
