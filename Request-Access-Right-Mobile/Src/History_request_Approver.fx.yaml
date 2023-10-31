@@ -46,7 +46,7 @@ History_request_Approver As screen:
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
-                OnSelect: =Navigate(HomePage,ScreenTransition.Fade)
+                OnSelect: =Navigate(ApprovalPage,ScreenTransition.Fade)
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
