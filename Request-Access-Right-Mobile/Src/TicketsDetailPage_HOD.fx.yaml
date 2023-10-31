@@ -72,49 +72,6 @@ TicketsDetailPage_HOD As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                "'Approver 1 Feedback_DataCard3' As typedDataCard.textualViewCard":
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Approver1Feedback"
-                    Default: =ThisItem.'Approver 1 Feedback'
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver1Feedback")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Required: =false
-                    Visible: =If(IsBlank(DataCardValue55.Text),false,true)
-                    Width: =640
-                    X: =0
-                    Y: =10
-                    ZIndex: =1
-
-                    DataCardKey55 As label:
-                        AutoHeight: =true
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue55 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey55.Y + DataCardKey55.Height + 5
-                        ZIndex: =2
-
                 "'Created By_DataCard1_2' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Author"
@@ -532,6 +489,49 @@ TicketsDetailPage_HOD As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey41.Y + DataCardKey41.Height + 5
+                        ZIndex: =2
+
+                "'Approver 1 Feedback_DataCard3' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Approver1Feedback"
+                    Default: =ThisItem.'Approver 1 Feedback'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver1Feedback")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Visible: =If(IsBlank(DataCardValue55.Text),false,true)
+                    Width: =640
+                    X: =0
+                    Y: =10
+                    ZIndex: =1
+
+                    DataCardKey55 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue55 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey55.Y + DataCardKey55.Height + 5
                         ZIndex: =2
 
                 "'Approver 1_DataCard3' As typedDataCard.comboBoxViewCard":
