@@ -16,10 +16,6 @@ TicketPage As screen:
                 visibleticketpage,
                 true
             )
-        );
-        Set(
-            CollectionTicketGallery,
-            TicketsGallery.Selected
         )
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
