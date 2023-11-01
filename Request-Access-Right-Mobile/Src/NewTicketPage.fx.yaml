@@ -44,7 +44,8 @@ NewTicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="New request"
+                Text: |
+                    ="New request"
                 Width: =560
                 ZIndex: =2
 
@@ -674,6 +675,91 @@ NewTicketPage As screen:
                         Y: =DataCardKey1.Y
                         ZIndex: =4
 
+            Form_Attachment As form:
+                DataSource: =Request_Test
+                LayoutMinHeight: =250
+                LayoutMinWidth: =320
+                Visible: =false
+                Width: =640
+                ZIndex: =2
+
+                Attachments_DataCard2 As typedDataCard.attachmentsEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="{Attachments}"
+                    Default: =ThisItem.Attachments
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Request_Test],DataSourceInfo.DisplayName,"{Attachments}")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue60.Attachments
+                    Width: =620
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey61 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue60 As attachments:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =520
+                        IsInDataCard: =true
+                        Items: =CollectAttachment
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey61.Y + DataCardKey61.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage39 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue60.Y + DataCardValue60.Height
+                        ZIndex: =3
+
+                    StarVisible39 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey61.Height
+                        PaddingBottom: =DataCardKey61.PaddingBottom
+                        PaddingLeft: =DataCardKey61.PaddingLeft
+                        PaddingRight: =DataCardKey61.PaddingRight
+                        PaddingTop: =DataCardKey61.PaddingTop
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey61.Y
+                        ZIndex: =4
+
         Container11 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
             DropShadow: =DropShadow.Light
@@ -706,7 +792,32 @@ NewTicketPage As screen:
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
                     =//test.Run(DataCardValue1.Text,DataCardValue8.Selected.Value,DataCardValue9.Text,DataCardValue10.Text,DataCardValue12.Selected.Id,{file:{contentBytes:Last(DataCardValue11.Attachments).Value,name:Last(DataCardValue11.Attachments).Name}})
-                    SubmitForm(Form1)
+                    Set(
+                        IDitem,
+                        test.Run(
+                            DataCardValue1.Text,
+                            DataCardValue8.Selected.Value,
+                            DataCardValue9.Text,
+                            DataCardValue10.Text,
+                            DataCardValue12.Selected.Id
+                        )
+                    );
+                    ClearCollect(
+                        CollectAttachment,
+                        DataCardValue11.Attachments
+                    );
+                    Patch(
+                        Request_Test,
+                        LookUp(
+                            Request_Test,
+                            ID = Value(IDitem.idrequest)
+                        ),
+                        Form_Attachment.Updates
+                    );
+                    Navigate(
+                        SuccessScreen,
+                        ScreenTransition.Fade
+                    )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

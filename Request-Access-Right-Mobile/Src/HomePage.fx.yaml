@@ -152,6 +152,7 @@ HomePage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =NewForm(Form1);
+                    NewForm(Form_Attachment);
                     Navigate(
                         NewTicketPage,
                         ScreenTransition.Fade
