@@ -89,11 +89,7 @@ NewTicketPage As screen:
                 Height: =Parent.Height
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
-                OnSuccess: |-
-                    =Navigate(
-                        SuccessScreen,
-                        ScreenTransition.Fade
-                    )
+                OnSuccess: =
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -792,31 +788,35 @@ NewTicketPage As screen:
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
                     =//test.Run(DataCardValue1.Text,DataCardValue8.Selected.Value,DataCardValue9.Text,DataCardValue10.Text,DataCardValue12.Selected.Id,{file:{contentBytes:Last(DataCardValue11.Attachments).Value,name:Last(DataCardValue11.Attachments).Name}})
-                    Set(
-                        IDitem,
-                        test.Run(
-                            DataCardValue1.Text,
-                            DataCardValue8.Selected.Value,
-                            DataCardValue9.Text,
-                            DataCardValue10.Text,
-                            DataCardValue12.Selected.Id
-                        )
-                    );
-                    ClearCollect(
-                        CollectAttachment,
-                        DataCardValue11.Attachments
-                    );
-                    Patch(
-                        Request_Test,
-                        LookUp(
+                    If(
+                        IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text),
+                        SubmitForm(Form1),
+                        Set(
+                            IDitem,
+                            test.Run(
+                                DataCardValue1.Text,
+                                DataCardValue8.Selected.Value,
+                                DataCardValue9.Text,
+                                DataCardValue10.Text,
+                                DataCardValue12.Selected.Id
+                            )
+                        );
+                        ClearCollect(
+                            CollectAttachment,
+                            DataCardValue11.Attachments
+                        );
+                        Patch(
                             Request_Test,
-                            ID = Value(IDitem.idrequest)
-                        ),
-                        Form_Attachment.Updates
-                    );
-                    Navigate(
-                        SuccessScreen,
-                        ScreenTransition.Fade
+                            LookUp(
+                                Request_Test,
+                                ID = Value(IDitem.idrequest)
+                            ),
+                            Form_Attachment.Updates
+                        );
+                        Navigate(
+                            SuccessScreen,
+                            ScreenTransition.Fade
+                        )
                     )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
