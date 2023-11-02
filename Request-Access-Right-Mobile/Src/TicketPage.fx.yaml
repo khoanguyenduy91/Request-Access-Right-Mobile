@@ -563,7 +563,8 @@ TicketPage As screen:
                                     Icon: =Icon.ChevronRight
                                     LayoutMinHeight: =60
                                     LayoutMinWidth: =40
-                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
+                                    OnSelect: |-
+                                        =Navigate(TicketsDetailPage_User,ScreenTransition.Fade,{accountVal:ThisItem})
                                     PaddingBottom: =35
                                     PaddingLeft: =35
                                     PaddingRight: =35

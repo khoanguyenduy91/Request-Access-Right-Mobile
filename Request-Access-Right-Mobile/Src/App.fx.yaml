@@ -139,6 +139,17 @@ App As appinfo:
                     User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
             )
+        );
+        Set(
+            AppID,
+            "GUID"
+        );
+        If(
+            Not(IsBlank(Param("accountId"))),
+            Set(
+                accountId,
+                Param("accountId")
+            )
         )
     StartScreen: =
     Theme: =PowerAppsTheme
