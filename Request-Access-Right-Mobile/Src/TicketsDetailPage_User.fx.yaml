@@ -10,6 +10,17 @@ TicketsDetailPage_User As screen:
                 visiblebtnCopy,
                 false
             )
+        );
+        If(
+            Not(IsBlank(varRecord)),
+            UpdateContext(
+                {
+                    recordItem: LookUp(
+                        SP_REQUEST,
+                        ID = varRecord
+                    )
+                }
+            )
         )
 
     Container10 As groupContainer.verticalAutoLayoutContainer:
@@ -115,7 +126,7 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Item: |-
-                    =accountVal
+                    =recordItem
                     //TicketsGallery.Selected
                     //CollectionTicketGallery
                 LayoutMinHeight: =250

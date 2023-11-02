@@ -142,16 +142,21 @@ App As appinfo:
         );
         Set(
             AppID,
-            "GUID"
+            "5865e1b0-bb50-4a05-867c-f959ef896d7c"
         );
         If(
-            Not(IsBlank(Param("accountId"))),
+            Not(IsBlank(Param("recordId"))),
             Set(
-                accountId,
-                Param("accountId")
+                varRecord,
+                Param("recordId")
             )
         )
-    StartScreen: =
+    StartScreen: |-
+        =If(
+            Not(IsBlank(Param("recordId"))),
+            TicketsDetailPage_User,
+            TicketPage
+        )
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

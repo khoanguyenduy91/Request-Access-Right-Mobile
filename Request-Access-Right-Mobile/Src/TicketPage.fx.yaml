@@ -564,7 +564,7 @@ TicketPage As screen:
                                     LayoutMinHeight: =60
                                     LayoutMinWidth: =40
                                     OnSelect: |-
-                                        =Navigate(TicketsDetailPage_User,ScreenTransition.Fade,{accountVal:ThisItem})
+                                        =Navigate(TicketsDetailPage_User,ScreenTransition.Fade,{recordItem:ThisItem})
                                     PaddingBottom: =35
                                     PaddingLeft: =35
                                     PaddingRight: =35
