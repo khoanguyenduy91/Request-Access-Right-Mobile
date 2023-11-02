@@ -1,6 +1,6 @@
 {
   "ControlStates": {
-    "Container2_22": {
+    "Container2_10": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -150,7 +150,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Container2_22",
+      "Name": "Container2_10",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -268,7 +268,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "Container49_4": {
+    "Container49": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "BorderColor",
@@ -314,7 +314,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Container49_4",
+      "Name": "Container49",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -345,12 +345,12 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Height",
+          "PropertyName": "Width",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
-          "PropertyName": "Width",
+          "PropertyName": "Height",
           "RuleProviderType": "Unknown"
         },
         {
@@ -417,7 +417,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "Container54_4": {
+    "Container54": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "BorderColor",
@@ -508,7 +508,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Container54_4",
+      "Name": "Container54",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -611,7 +611,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "Image1_14": {
+    "Image1_13": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -727,7 +727,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Image1_14",
+      "Name": "Image1_13",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -850,7 +850,7 @@
       "StyleName": "defaultImageStyle",
       "Type": "ControlInfo"
     },
-    "Image3_4": {
+    "Image3": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -948,7 +948,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Image3_4",
+      "Name": "Image3",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1051,7 +1051,7 @@
       "StyleName": "defaultImageStyle",
       "Type": "ControlInfo"
     },
-    "LblSuccessMsg1_4": {
+    "LblSuccessMsg1": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -1146,7 +1146,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "LblSuccessMsg1_4",
+      "Name": "LblSuccessMsg1",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1304,7 +1304,7 @@
       "StyleName": "defaultLabelStyle",
       "Type": "ControlInfo"
     },
-    "SuccessScreen_edit": {
+    "SuccessScreen": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Fill",
@@ -1326,28 +1326,13 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "SuccessScreen_edit",
+      "Name": "SuccessScreen",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
           "Category": "Design",
-          "PropertyName": "LoadingSpinnerColor",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "LoadingSpinner",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Fill",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "ImagePosition",
+          "PropertyName": "Width",
           "RuleProviderType": "Unknown"
         },
         {
@@ -1357,7 +1342,22 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Width",
+          "PropertyName": "ImagePosition",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Fill",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "LoadingSpinner",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "LoadingSpinnerColor",
           "RuleProviderType": "Unknown"
         },
         {
@@ -1373,7 +1373,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnVisible",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -1384,7 +1384,7 @@
       "StyleName": "defaultScreenStyle",
       "Type": "ControlInfo"
     },
-    "Timer1_4": {
+    "Timer1": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Text",
@@ -1464,7 +1464,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Timer1_4",
+      "Name": "Timer1",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1618,5 +1618,5 @@
       "Type": "ControlInfo"
     }
   },
-  "TopParentName": "SuccessScreen_edit"
+  "TopParentName": "SuccessScreen"
 }

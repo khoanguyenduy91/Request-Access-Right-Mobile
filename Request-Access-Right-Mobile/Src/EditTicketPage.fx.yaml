@@ -94,7 +94,7 @@ EditTicketPage As screen:
                 OnSuccess: |-
                     ='[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
                     Navigate(
-                        SuccessScreen_edit,
+                        SuccessScreen,
                         ScreenTransition.Fade
                     )
                 Width: =Parent.Width

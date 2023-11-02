@@ -116,9 +116,9 @@ TicketPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: |-
                     =If(
-                        CountRows(itemSelected)<>0,
-                        DisplayMode.Edit,
-                        DisplayMode.Disabled
+                        CountRows(TicketsGallery.AllItems) = 0 || CountRows(itemSelected) = 0,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
                     )
                 Height: =40
                 Icon: =Icon.Trash
@@ -128,7 +128,7 @@ TicketPage As screen:
                         Request_Test,
                         ID in itemSelected.ID
                     );
-                    Navigate(SuccessScreen_edit)
+                    Navigate(SuccessScreen)
                 PressedColor: =ColorFade(Self.Color,90%)
                 Visible: =visibleCheckbox1
                 Width: =50
@@ -257,6 +257,7 @@ TicketPage As screen:
                 Checkbox1 As checkbox:
                     AlignInContainer: =AlignInContainer.Start
                     Default: =CountRows(itemSelected)=CountRows(CollectRequestNew)
+                    DisplayMode: =If(CountRows(TicketsGallery.AllItems)=0,DisplayMode.Disabled,DisplayMode.Edit)
                     FocusedBorderThickness: =0
                     Height: =75
                     LayoutMinHeight: =85
