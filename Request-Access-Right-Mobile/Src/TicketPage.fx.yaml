@@ -128,7 +128,7 @@ TicketPage As screen:
                         Request_Test,
                         ID in itemSelected.ID
                     );
-                    Navigate(SuccessScreen)
+                    Navigate(SuccessScreen_edit)
                 PressedColor: =ColorFade(Self.Color,90%)
                 Visible: =visibleCheckbox1
                 Width: =50

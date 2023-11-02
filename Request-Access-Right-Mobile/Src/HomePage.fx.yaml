@@ -42,6 +42,7 @@ HomePage As screen:
                 LayoutMinHeight: =50
                 OnSelect: =Exit()
                 PressedColor: =ColorFade(Self.Color,90%)
+                Rotation: =180
                 Width: =50
                 ZIndex: =1
 
@@ -63,7 +64,7 @@ HomePage As screen:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =50
-                Icon: =Icon.Reload
+                Icon: =Icon.Sync
                 LayoutMinHeight: =50
                 OnSelect: |
                     =Refresh(Request_Test);

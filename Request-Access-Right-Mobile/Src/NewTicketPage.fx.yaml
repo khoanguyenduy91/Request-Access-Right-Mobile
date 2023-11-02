@@ -1,5 +1,6 @@
 NewTicketPage As screen:
     OnHidden: =ResetForm(Form1)
+    OnVisible: =Clear(CollectAttachment)
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -59,7 +60,7 @@ NewTicketPage As screen:
                         DisplayMode.Edit
                     )
                 Height: =40
-                Icon: =Icon.Erase
+                Icon: =Icon.Reload
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =Set(
@@ -787,13 +788,12 @@ NewTicketPage As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
-                    =//test.Run(DataCardValue1.Text,DataCardValue8.Selected.Value,DataCardValue9.Text,DataCardValue10.Text,DataCardValue12.Selected.Id,{file:{contentBytes:Last(DataCardValue11.Attachments).Value,name:Last(DataCardValue11.Attachments).Name}})
-                    If(
+                    =If(
                         IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text),
                         SubmitForm(Form1),
                         Set(
                             IDitem,
-                            test.Run(
+                            FlowResponseRequest.Run(
                                 DataCardValue1.Text,
                                 DataCardValue8.Selected.Value,
                                 DataCardValue9.Text,
@@ -814,7 +814,7 @@ NewTicketPage As screen:
                             Form_Attachment.Updates
                         );
                         Navigate(
-                            SuccessScreen,
+                            SuccessScreen_new,
                             ScreenTransition.Fade
                         )
                     )

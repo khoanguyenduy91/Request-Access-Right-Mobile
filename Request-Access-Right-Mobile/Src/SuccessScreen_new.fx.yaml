@@ -1,4 +1,4 @@
-"SuccessScreen As screen.'phoneLayout_Success_ver3.0'":
+"SuccessScreen_new As screen.'phoneLayout_Success_ver3.0'":
     OnHidden: =Set(VisibleSuccess1,false);
     OnVisible: |-
         =Set(
@@ -41,7 +41,8 @@
                     Request_Test,
                     Status.Value = "Rejected" && 'Created By'.Email = User().Email
                 )
-            )
+            );
+            Test_new_request.Run(IDitem.idrequest)
         )
 
     Container49 As groupContainer.verticalAutoLayoutContainer:

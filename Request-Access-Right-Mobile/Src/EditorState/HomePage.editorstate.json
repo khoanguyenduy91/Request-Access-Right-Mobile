@@ -9594,7 +9594,8 @@
         "HoverBorderColor",
         "FocusedBorderColor",
         "ZIndex",
-        "OnSelect"
+        "OnSelect",
+        "Rotation"
       ],
       "DynamicProperties": [
         {
@@ -9767,6 +9768,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Design",
+          "PropertyName": "Rotation",
+          "RuleProviderType": "User"
+        },
+        {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
           "RuleProviderType": "User"
@@ -9778,7 +9784,14 @@
     "Icon3": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "Icon",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Icon",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
