@@ -303,9 +303,9 @@ TicketPage As screen:
                             PressedBorderColor: =Heading1.BorderColor
                             PressedColor: =Heading1.Color
                             PressedFill: =Heading1.Fill
-                            Size: =16
+                            Size: =20
                             Text: |-
-                                ="Created by: "& ThisItem.'Created By'.DisplayName
+                                ="ID: "& ThisItem.ID
                             Width: =217
                             Wrap: =false
                             X: =19

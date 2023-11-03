@@ -71,6 +71,49 @@ TicketsDetail_History_HOD As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
+                ID_DataCard6 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="ID"
+                    Default: =ThisItem.ID
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ID")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =640
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey63 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue63 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey63.Y + DataCardKey63.Height + 5
+                        ZIndex: =2
+
                 "'Created By_DataCard1_4' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Author"
@@ -83,7 +126,7 @@ TicketsDetail_History_HOD As screen:
                     Update: =DataCardValue26_4.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =0
+                    Y: =1
                     ZIndex: =1
 
                     DataCardKey27_4 As label:
@@ -162,7 +205,7 @@ TicketsDetail_History_HOD As screen:
                     Required: =false
                     Width: =Parent.Width
                     X: =0
-                    Y: =1
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey26_4 As label:
@@ -206,7 +249,7 @@ TicketsDetail_History_HOD As screen:
                     Update: =DataCardValue21_4.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =4
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey22_4 As label:
@@ -284,7 +327,7 @@ TicketsDetail_History_HOD As screen:
                     Required: =false
                     Width: =Parent.Width
                     X: =0
-                    Y: =5
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey23_4 As label:
@@ -328,7 +371,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue23_4.Text),false,true)
                     Width: =Parent.Width
                     X: =0
-                    Y: =6
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey24_4 As label:
@@ -378,7 +421,7 @@ TicketsDetail_History_HOD As screen:
                         )
                     Width: =640
                     X: =0
-                    Y: =8
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey40_1 As label:
@@ -458,7 +501,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue41_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =9
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey41_1 As label:
@@ -502,7 +545,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue57.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =10
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey57 As label:
@@ -551,7 +594,7 @@ TicketsDetail_History_HOD As screen:
                         )
                     Width: =640
                     X: =0
-                    Y: =11
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey42_1 As label:
@@ -631,7 +674,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue43_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =12
+                    Y: =13
                     ZIndex: =1
 
                     DataCardKey43_1 As label:
@@ -676,7 +719,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue44_1.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =13
+                    Y: =14
                     ZIndex: =1
 
                     DataCardKey44_1 As label:
@@ -756,7 +799,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue45_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =14
+                    Y: =15
                     ZIndex: =1
 
                     DataCardKey45_1 As label:
@@ -801,7 +844,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue46_1.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =15
+                    Y: =16
                     ZIndex: =1
 
                     DataCardKey46_1 As label:
@@ -881,7 +924,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue47_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =16
+                    Y: =17
                     ZIndex: =1
 
                     DataCardKey47_1 As label:
@@ -926,7 +969,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue48_1.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =17
+                    Y: =18
                     ZIndex: =1
 
                     DataCardKey48_1 As label:
@@ -1006,7 +1049,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue49_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =18
+                    Y: =19
                     ZIndex: =1
 
                     DataCardKey49_1 As label:
@@ -1050,7 +1093,7 @@ TicketsDetail_History_HOD As screen:
                     Visible: =If(IsBlank(DataCardValue50_1.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =19
+                    Y: =20
                     ZIndex: =1
 
                     DataCardKey50_1 As label:
@@ -1094,7 +1137,7 @@ TicketsDetail_History_HOD As screen:
                     Update: =DataCardValue6_1.Attachments
                     Width: =Parent.Width
                     X: =0
-                    Y: =20
+                    Y: =21
                     ZIndex: =1
 
                     DataCardKey6_1 As label:
@@ -1170,7 +1213,7 @@ TicketsDetail_History_HOD As screen:
                     Required: =true
                     Width: =Parent.Width
                     X: =0
-                    Y: =2
+                    Y: =3
                     ZIndex: =3
 
                     DataCardKey14_4 As label:
@@ -1214,7 +1257,7 @@ TicketsDetail_History_HOD As screen:
                     Update: =DataCardValue19_4.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =3
+                    Y: =4
                     ZIndex: =3
 
                     DataCardKey20_4 As label:
@@ -1293,7 +1336,7 @@ TicketsDetail_History_HOD As screen:
                     Update: =DataCardValue16_4.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =7
+                    Y: =8
                     ZIndex: =3
 
                     DataCardKey17_4 As label:

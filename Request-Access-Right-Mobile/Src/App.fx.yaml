@@ -151,12 +151,7 @@ App As appinfo:
                 Param("recordId")
             )
         )
-    StartScreen: |-
-        =If(
-            Not(IsBlank(Param("recordId"))),
-            TicketsDetailPage_User,
-            TicketPage
-        )
+    StartScreen: =
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

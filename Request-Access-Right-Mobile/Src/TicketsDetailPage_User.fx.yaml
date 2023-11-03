@@ -1,6 +1,7 @@
 TicketsDetailPage_User As screen:
     OnVisible: |-
-        =If(
+        =//If(Not(IsBlank(varRecord)),UpdateContext({recordItem:LookUp(SP_REQUEST,ID=varRecord)}))
+        If(
             DataCardValue16.Selected.Value = "Rejected",
             Set(
                 visiblebtnCopy,
@@ -11,17 +12,6 @@ TicketsDetailPage_User As screen:
                 false
             )
         );
-        If(
-            Not(IsBlank(varRecord)),
-            UpdateContext(
-                {
-                    recordItem: LookUp(
-                        SP_REQUEST,
-                        ID = varRecord
-                    )
-                }
-            )
-        )
 
     Container10 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.ExtraBold
@@ -126,13 +116,56 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Item: |-
-                    =recordItem
-                    //TicketsGallery.Selected
+                    =//recordItem
+                    TicketsGallery.Selected
                     //CollectionTicketGallery
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 Width: =Parent.Width
                 ZIndex: =1
+
+                ID_DataCard2 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="ID"
+                    Default: =ThisItem.ID
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ID")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =640
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey59 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue59 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey59.Y + DataCardKey59.Height + 5
+                        ZIndex: =2
 
                 "'Created By_DataCard1' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
@@ -146,7 +179,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue26.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =0
+                    Y: =1
                     ZIndex: =1
 
                     DataCardKey27 As label:
@@ -225,7 +258,7 @@ TicketsDetailPage_User As screen:
                     Required: =false
                     Width: =Parent.Width
                     X: =0
-                    Y: =1
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey26 As label:
@@ -268,7 +301,7 @@ TicketsDetailPage_User As screen:
                     Required: =false
                     Width: =Parent.Width
                     X: =0
-                    Y: =4
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey23 As label:
@@ -312,7 +345,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue21.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =5
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey22 As label:
@@ -391,7 +424,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue23.Text),false,true)
                     Width: =Parent.Width
                     X: =0
-                    Y: =6
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey24 As label:
@@ -441,7 +474,7 @@ TicketsDetailPage_User As screen:
                         )
                     Width: =640
                     X: =0
-                    Y: =8
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey18 As label:
@@ -520,7 +553,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue20.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =9
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey19 As label:
@@ -564,7 +597,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue53.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =10
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey53 As label:
@@ -613,7 +646,7 @@ TicketsDetailPage_User As screen:
                         )
                     Width: =640
                     X: =0
-                    Y: =11
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey2 As label:
@@ -693,7 +726,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue3.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =12
+                    Y: =13
                     ZIndex: =1
 
                     DataCardKey3 As label:
@@ -738,7 +771,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue4.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =13
+                    Y: =14
                     ZIndex: =1
 
                     DataCardKey4 As label:
@@ -818,7 +851,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue14.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =14
+                    Y: =15
                     ZIndex: =1
 
                     DataCardKey8 As label:
@@ -863,7 +896,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue15.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =15
+                    Y: =16
                     ZIndex: =1
 
                     DataCardKey15 As label:
@@ -943,7 +976,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue17.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =16
+                    Y: =17
                     ZIndex: =1
 
                     DataCardKey16 As label:
@@ -988,7 +1021,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue27.SelectedItems),false,true)
                     Width: =640
                     X: =0
-                    Y: =17
+                    Y: =18
                     ZIndex: =1
 
                     DataCardKey25 As label:
@@ -1068,7 +1101,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue28.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =18
+                    Y: =19
                     ZIndex: =1
 
                     DataCardKey28 As label:
@@ -1112,7 +1145,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue24.Text),false,true)
                     Width: =640
                     X: =0
-                    Y: =19
+                    Y: =20
                     ZIndex: =1
 
                     DataCardKey21 As label:
@@ -1156,7 +1189,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue5.Attachments
                     Width: =Parent.Width
                     X: =0
-                    Y: =20
+                    Y: =21
                     ZIndex: =1
 
                     DataCardKey5 As label:
@@ -1232,7 +1265,7 @@ TicketsDetailPage_User As screen:
                     Required: =true
                     Width: =Parent.Width
                     X: =0
-                    Y: =2
+                    Y: =3
                     ZIndex: =3
 
                     DataCardKey14 As label:
@@ -1276,7 +1309,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue19.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =3
+                    Y: =4
                     ZIndex: =3
 
                     DataCardKey20 As label:
@@ -1355,7 +1388,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue16.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =7
+                    Y: =8
                     ZIndex: =3
 
                     DataCardKey17 As label:

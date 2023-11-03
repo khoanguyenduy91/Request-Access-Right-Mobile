@@ -261,16 +261,42 @@ History_request_Approver As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
+                        Heading1_12 As label:
+                            Color: =RGBA(40, 40, 40, 1)
+                            FocusedBorderColor: =Heading1_12.BorderColor
+                            Height: =50
+                            HoverBorderColor: =Heading1_12.BorderColor
+                            HoverColor: =Heading1_12.Color
+                            HoverFill: =Heading1_12.Fill
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =300
+                            OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
+                            PaddingBottom: =0
+                            PaddingLeft: =10
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            PressedBorderColor: =Heading1_12.BorderColor
+                            PressedColor: =Heading1_12.Color
+                            PressedFill: =Heading1_12.Fill
+                            Size: =16
+                            Text: |-
+                                ="ID: "& ThisItem.ID
+                            Width: =100
+                            Wrap: =false
+                            X: =19
+                            Y: =8.881784197001252E-16
+                            ZIndex: =1
+
                         Heading1_6 As label:
                             Color: =RGBA(40, 40, 40, 1)
-                            FillPortions: =1
+                            FillPortions: =1.5
                             FocusedBorderColor: =Heading1_6.BorderColor
                             Height: =50
                             HoverBorderColor: =Heading1_6.BorderColor
                             HoverColor: =Heading1_6.Color
                             HoverFill: =Heading1_6.Fill
                             LayoutMinHeight: =70
-                            LayoutMinWidth: =300
+                            LayoutMinWidth: =100
                             OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                             PaddingBottom: =0
                             PaddingLeft: =10
@@ -286,7 +312,7 @@ History_request_Approver As screen:
                             Wrap: =false
                             X: =19
                             Y: =8.881784197001252E-16
-                            ZIndex: =1
+                            ZIndex: =2
 
                         Heading1_7 As label:
                             Align: =TextPosition.Right
@@ -298,7 +324,7 @@ History_request_Approver As screen:
                             HoverColor: =Heading1_7.Color
                             HoverFill: =Heading1_7.Fill
                             LayoutMinHeight: =70
-                            LayoutMinWidth: =300
+                            LayoutMinWidth: =80
                             OnSelect: =Navigate(TicketsDetail_History_Approval,ScreenTransition.Fade)
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -313,7 +339,7 @@ History_request_Approver As screen:
                             Wrap: =false
                             X: =262
                             Y: =3.954081632653028
-                            ZIndex: =2
+                            ZIndex: =3
 
                     Container33_1 As groupContainer.verticalAutoLayoutContainer:
                         Height: =225
