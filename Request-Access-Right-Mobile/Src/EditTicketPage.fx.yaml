@@ -530,6 +530,85 @@ EditTicketPage As screen:
                         Y: =DataCardKey12_2.Y
                         ZIndex: =4
 
+                Status_DataCard1 As typedDataCard.comboBoxEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Status"
+                    Default: =ThisItem.Status
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Status")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue58.Selected
+                    Visible: =false
+                    Width: =620
+                    X: =0
+                    Y: =6
+                    ZIndex: =1
+
+                    DataCardKey58 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue58 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =70
+                        Items: =Choices([@SP_REQUEST].Status)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(SP_REQUEST.Status,DataCardValue58.SearchText)
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey58.Y + DataCardKey58.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage31 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue58.Y + DataCardValue58.Height
+                        ZIndex: =3
+
+                    StarVisible31 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey58.Height
+                        PaddingBottom: =DataCardKey58.PaddingBottom
+                        PaddingLeft: =DataCardKey58.PaddingLeft
+                        PaddingRight: =DataCardKey58.PaddingRight
+                        PaddingTop: =DataCardKey58.PaddingTop
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey58.Y
+                        ZIndex: =4
+
                 Title_DataCard1_2 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Title"
@@ -644,8 +723,19 @@ EditTicketPage As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
-                    =SubmitForm(Form1_2);
-                    Set(ButtonModeEdit,false);
+                    =Refresh(SP_REQUEST);
+                    If(
+                        DataCardValue58.Selected.Value = "Created",
+                        SubmitForm(Form1_2);
+                        Set(
+                            ButtonModeEdit,
+                            false
+                        ),
+                        Notify(
+                            "Cập nhật thất bại",
+                            NotificationType.Warning
+                        )
+                    )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
