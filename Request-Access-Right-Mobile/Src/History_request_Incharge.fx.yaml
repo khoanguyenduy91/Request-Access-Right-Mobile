@@ -7,7 +7,7 @@ History_request_Incharge As screen:
             )
     OnVisible: |-
         =If(
-            TicketsGallery_history_HOD_1.AllItemsCount = 0,
+            TicketsGallery_history_incharge.AllItemsCount = 0,
             Set(
                 visiblehistoryHOD,
                 true
@@ -87,14 +87,14 @@ History_request_Incharge As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
 
-            TicketsGallery_history_HOD_1 As gallery.textualGalleryVertical:
+            TicketsGallery_history_incharge As gallery.textualGalleryVertical:
                 AccessibleLabel: ="Tickets Gallery"
-                DisabledBorderColor: =TicketsGallery_history_HOD_1.BorderColor
-                DisabledFill: =TicketsGallery_history_HOD_1.Fill
+                DisabledBorderColor: =TicketsGallery_history_incharge.BorderColor
+                DisabledFill: =TicketsGallery_history_incharge.Fill
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                HoverBorderColor: =TicketsGallery_history_HOD_1.BorderColor
-                HoverFill: =TicketsGallery_history_HOD_1.Fill
+                HoverBorderColor: =TicketsGallery_history_incharge.BorderColor
+                HoverFill: =TicketsGallery_history_incharge.Fill
                 Items: |-
                     =If(
                         !IsBlank(
@@ -112,9 +112,9 @@ History_request_Incharge As screen:
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
-                LoadingSpinnerColor: =TicketsGallery_history_HOD_1.BorderColor
-                PressedBorderColor: =TicketsGallery_history_HOD_1.BorderColor
-                PressedFill: =TicketsGallery_history_HOD_1.Fill
+                LoadingSpinnerColor: =TicketsGallery_history_incharge.BorderColor
+                PressedBorderColor: =TicketsGallery_history_incharge.BorderColor
+                PressedFill: =TicketsGallery_history_incharge.Fill
                 ShowScrollbar: =false
                 TemplatePadding: =0
                 TemplateSize: =223.0699504854464

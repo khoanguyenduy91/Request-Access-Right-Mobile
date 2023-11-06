@@ -195,49 +195,6 @@ TicketsDetailPage_Approval As screen:
                         Y: =DataCardKey27_1.Y
                         ZIndex: =4
 
-                Created_DataCard1_1 As typedDataCard.textualViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Created"
-                    Default: =ThisItem.Created
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Created")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =123
-                    Required: =false
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =7
-                    ZIndex: =1
-
-                    DataCardKey26_1 As label:
-                        AutoHeight: =true
-                        FontWeight: =FontWeight.Semibold
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue25_1 As label:
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =70
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 5
-                        ZIndex: =2
-
                 ReqReason_DataCard2_1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqReason"
@@ -359,6 +316,49 @@ TicketsDetailPage_Approval As screen:
                         Wrap: =false
                         Y: =DataCardKey22_1.Y
                         ZIndex: =4
+
+                Created_DataCard1_1 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Created"
+                    Default: =ThisItem.Created
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Created")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =123
+                    Required: =false
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =7
+                    ZIndex: =1
+
+                    DataCardKey26_1 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue25_1 As label:
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =70
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 5
+                        ZIndex: =2
 
                 ReqDescription_DataCard2_1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
@@ -1844,13 +1844,16 @@ TicketsDetailPage_Approval As screen:
                                                 )
                                             )
                                         )
+                                    );
+                                    Navigate(
+                                        SuccessScreen_Approver,
+                                        ScreenTransition.Fade
                                     )
                                 );
                                 Reset(TextInput1_1);
-                                Set(DialogCommentapproval,false);
-                                Navigate(
-                                    SuccessScreen_Approver,
-                                    ScreenTransition.Fade
+                                Set(
+                                    DialogCommentapproval,
+                                    false
                                 )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
@@ -2016,17 +2019,17 @@ TicketsDetailPage_Approval As screen:
                                     '[SubFlow]Feed_back_approver1'.Run(
                                         TicketsGallery_approval.Selected.ID,
                                         TextInput1_2.Text
+                                    );
+                                    Navigate(
+                                        SuccessScreen_Approver,
+                                        ScreenTransition.Fade
                                     )
                                 );
                                 Set(
                                     DialogFeedback,
                                     false
                                 );
-                                Reset(TextInput1_2);
-                                Navigate(
-                                    SuccessScreen_Approver,
-                                    ScreenTransition.Fade
-                                )
+                                Reset(TextInput1_2)
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             PaddingRight: =5.21

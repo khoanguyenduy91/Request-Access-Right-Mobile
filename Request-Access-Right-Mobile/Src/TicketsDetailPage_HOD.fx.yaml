@@ -1679,16 +1679,16 @@ TicketsDetailPage_HOD As screen:
                                             }
                                         }
                                     )
+                                );
+                                Navigate(
+                                    SuccessScreen_HOD,
+                                    ScreenTransition.Fade
                                 )
                             );
                             Reset(TextInput1);
                             Set(
                                 DialogCommentHOD,
                                 false
-                            );
-                            Navigate(
-                                SuccessScreen_HOD,
-                                ScreenTransition.Fade
                             )
                         PaddingBottom: =5.00
                         PaddingLeft: =5.00

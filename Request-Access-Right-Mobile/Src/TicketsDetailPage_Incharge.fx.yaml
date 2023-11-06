@@ -65,7 +65,7 @@ TicketsDetailPage_Incharge As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Item: |-
-                    =TicketsGallery_approval.Selected
+                    =TicketsGallery_incharge.Selected
                     //CollectionTicketsGalleryApproval
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
@@ -1469,112 +1469,6 @@ TicketsDetailPage_Incharge As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            btn_approval_3 As button:
-                AlignInContainer: =AlignInContainer.Center
-                BorderColor: =
-                BorderThickness: =0
-                Color: =RGBA(255, 255, 255, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Fill: =RGBA(10, 128, 32, 1)
-                FillPortions: =1
-                FocusedBorderThickness: =0
-                FontWeight: =FontWeight.Bold
-                Height: =70
-                HoverBorderColor: =
-                HoverFill: =ColorFade(Self.Fill, 50%)
-                OnSelect: |-
-                    =If(
-                        !IsBlank(
-                            LookUp(
-                                SP_LEVELAPPROVER,
-                                IdUser.Email = User().Email && Level.Value = "Approver 1"
-                            )
-                        ),
-                        Patch(
-                            SP_REQUEST,
-                            LookUp(
-                                SP_REQUEST,
-                                ID = TicketsGallery_approval.Selected.ID
-                            ),
-                            {Status: {Value: "Approver 1 approved"}},
-                            {'Approved Date 1': Now()}
-                        ),
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    SP_LEVELAPPROVER,
-                                    User().Email = IdUser.Email && Level.Value = "Approver 2"
-                                )
-                            ),
-                            Patch(
-                                SP_REQUEST,
-                                LookUp(
-                                    SP_REQUEST,
-                                    ID = TicketsGallery_approval.Selected.ID
-                                ),
-                                {Status: {Value: "Approver 2 approved"}},
-                                {'Approved Date 2': Now()},
-                                {
-                                    'Approver 2': {
-                                        '@odata.type': User().Email,
-                                        Claims: User().Email,
-                                        Department: "",
-                                        DisplayName: User().FullName,
-                                        Email: User().Email,
-                                        JobTitle: "",
-                                        Picture: ""
-                                    }
-                                }
-                                
-                            ),
-                            If(
-                                !IsBlank(
-                                    LookUp(
-                                        SP_LEVELAPPROVER,
-                                        User().Email = IdUser.Email && Level.Value = "Approver 3"
-                                    )
-                                ),
-                                Patch(
-                                    SP_REQUEST,
-                                    LookUp(
-                                        SP_REQUEST,
-                                        ID = TicketsGallery_approval.Selected.ID
-                                    ),
-                                    {Status: {Value: "Approver 3 approved"}},
-                                    {'Approved Date 3': Now()},
-                                    {
-                                        'Approver 3': {
-                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                            Claims: "",
-                                            Department: "",
-                                            DisplayName: User().FullName,
-                                            Email: User().Email,
-                                            JobTitle: "",
-                                            Picture: ""
-                                        }
-                                    }
-                                )
-                            )
-                        )
-                    );
-                    Navigate(
-                        SuccessScreen_Approver,
-                        ScreenTransition.Fade
-                    )
-                PressedBorderColor: =
-                PressedColor: =ColorFade(Color.Black, 50%)
-                PressedFill: =ColorFade(Self.Fill, 50%)
-                RadiusBottomLeft: =5
-                RadiusBottomRight: =5
-                RadiusTopLeft: =5
-                RadiusTopRight: =5
-                Size: =18
-                Text: ="Approval"
-                Width: =200
-                ZIndex: =1
-
             btn_reject_2 As button:
                 BorderThickness: =0
                 Color: =RGBA(255, 255, 255, 1)
@@ -1590,9 +1484,9 @@ TicketsDetailPage_Incharge As screen:
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: |-
                     =Set(
-                        DialogCommentapproval,
+                        DialogCommentincharge,
                         true
-                    );
+                    )
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
                 PressedFill: =ColorFade(Self.Fill, 50%)
@@ -1601,7 +1495,7 @@ TicketsDetailPage_Incharge As screen:
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
                 Size: =18
-                Text: ="Reject"
+                Text: ="Closed"
                 Width: =200
                 ZIndex: =2
 
@@ -1643,14 +1537,14 @@ TicketsDetailPage_Incharge As screen:
                 Width: =200
                 ZIndex: =3
 
-    Dialog_commentapproval_1 As groupContainer.manualLayoutContainer:
+    Dialog_comment_closed As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =Parent.Height
         PaddingBottom: =0.00
         PaddingLeft: =0.00
         PaddingRight: =0.00
         PaddingTop: =0.00
-        Visible: =DialogCommentapproval
+        Visible: =DialogCommentincharge
         Width: =Parent.Width
         ZIndex: =2
 
@@ -1755,102 +1649,36 @@ TicketsDetailPage_Incharge As screen:
                                 =If(
                                     Len(TextInput1_3.Text) = 0,
                                     Notify(
-                                        "Please enter the reason for the reject",
+                                        "Please enter the comment for the closed",
                                         NotificationType.Error
                                     ),
                                     If(
                                         !IsBlank(
                                             LookUp(
-                                                SP_LEVELAPPROVER,
-                                                User().Email = IdUser.Email && Level.Value = "Approver 1"
+                                                SP_REQUEST,
+                                                User().Email in 'Incharge Person'.Email
                                             )
                                         ),
                                         Patch(
                                             SP_REQUEST,
                                             LookUp(
                                                 SP_REQUEST,
-                                                ID = TicketsGallery_approval.Selected.ID
+                                                ID = TicketsGallery_incharge.Selected.ID
                                             ),
-                                            {Status: {Value: "Rejected"}},
-                                            {'Rejected Date': Now()},
-                                            {'Reason Reject': User().FullName & " Comment: " & TextInput1_3.Text},
-                                            {
-                                                'Rejected By': {
-                                                    '@odata.type': User().Email,
-                                                    Claims: User().Email,
-                                                    Department: "",
-                                                    DisplayName: User().FullName,
-                                                    Email: User().Email,
-                                                    JobTitle: "",
-                                                    Picture: ""
-                                                }
-                                            }
-                                        ),
-                                        If(
-                                            !IsBlank(
-                                                LookUp(
-                                                    SP_LEVELAPPROVER,
-                                                    User().Email = IdUser.Email && Level.Value = "Approver 2"
-                                                )
-                                            ),
-                                            Patch(
-                                                SP_REQUEST,
-                                                LookUp(
-                                                    SP_REQUEST,
-                                                    ID = TicketsGallery_approval.Selected.ID
-                                                ),
-                                                {Status: {Value: "Rejected"}},
-                                                {'Rejected Date': Now()},
-                                                {'Reason Reject': User().FullName & " Comment: " & TextInput1_3.Text},
-                                                {
-                                                    'Rejected By': {
-                                                        '@odata.type': User().Email,
-                                                        Claims: User().Email,
-                                                        Department: "",
-                                                        DisplayName: User().FullName,
-                                                        Email: User().Email,
-                                                        JobTitle: "",
-                                                        Picture: ""
-                                                    }
-                                                }
-                                            ),
-                                            If(
-                                                !IsBlank(
-                                                    LookUp(
-                                                        SP_LEVELAPPROVER,
-                                                        User().Email = IdUser.Email && Level.Value = "Approver 3"
-                                                    )
-                                                ),
-                                                Patch(
-                                                    SP_REQUEST,
-                                                    LookUp(
-                                                        SP_REQUEST,
-                                                        ID = TicketsGallery_approval.Selected.ID
-                                                    ),
-                                                    {Status: {Value: "Rejected"}},
-                                                    {'Rejected Date': Now()},
-                                                    {'Reason Reject': User().FullName & " Comment: " & TextInput1_3.Text},
-                                                    {
-                                                        'Rejected By': {
-                                                            '@odata.type': User().Email,
-                                                            Claims: User().Email,
-                                                            Department: "",
-                                                            DisplayName: User().FullName,
-                                                            Email: User().Email,
-                                                            JobTitle: "",
-                                                            Picture: ""
-                                                        }
-                                                    }
-                                                )
-                                            )
+                                            {Status: {Value: "Closed"}},
+                                            {'Incharge Person Approved Date': Now()},
+                                            {'Incharge Person Comment': User().FullName & " is the Incharge Person Comment: " & TextInput1_3.Text}
                                         )
+                                    );
+                                    Navigate(
+                                        SuccessScreen_Incharge,
+                                        ScreenTransition.Fade
                                     )
                                 );
                                 Reset(TextInput1_3);
-                                Set(DialogCommentapproval,false);
-                                Navigate(
-                                    SuccessScreen_Approver,
-                                    ScreenTransition.Fade
+                                Set(
+                                    DialogCommentincharge,
+                                    false
                                 )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
@@ -1878,184 +1706,9 @@ TicketsDetailPage_Incharge As screen:
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            OnSelect: |
-                                =Set(
-                                    DialogCommentapproval,
-                                    false
-                                )
-                            PaddingBottom: =5.00
-                            PaddingLeft: =5.00
-                            PaddingRight: =5.21
-                            PaddingTop: =5.21
-                            RadiusBottomLeft: =5
-                            RadiusBottomRight: =5
-                            RadiusTopLeft: =5
-                            RadiusTopRight: =5
-                            Size: =20
-                            Text: ="Cancel"
-                            Width: =200
-                            X: =142
-                            Y: =213
-                            ZIndex: =2
-
-    Dialog_feedback_1 As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Light
-        Height: =Parent.Height
-        PaddingBottom: =0.00
-        PaddingLeft: =0.00
-        PaddingRight: =0.00
-        PaddingTop: =0.00
-        Visible: =DialogFeedback
-        Width: =Parent.Width
-        ZIndex: =3
-
-        Container10_10 As groupContainer.verticalAutoLayoutContainer:
-            DropShadow: =DropShadow.Light
-            Fill: =RGBA(0, 0, 0, 0.44)
-            Height: =Parent.Height
-            LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutJustifyContent: =LayoutJustifyContent.Center
-            LayoutMode: =LayoutMode.Auto
-            Width: =Parent.Width
-            ZIndex: =8
-
-            Container16_6 As groupContainer.verticalAutoLayoutContainer:
-                FillPortions: =0
-                Height: =Parent.Height
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutJustifyContent: =LayoutJustifyContent.Center
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width
-                ZIndex: =5
-
-                Container50_3 As groupContainer.verticalAutoLayoutContainer:
-                    Height: =450
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutJustifyContent: =LayoutJustifyContent.Center
-                    LayoutMinHeight: =112
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =600
-                    ZIndex: =1
-
-                    Label3_3 As label:
-                        Align: =Align.Center
-                        Fill: =RGBA(255, 255, 255, 1)
-                        FontWeight: =FontWeight.Semibold
-                        Height: =70
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =560
-                        Size: =30
-                        Text: ="Feedback"
-                        Width: =600
-                        ZIndex: =1
-
-                    TextInput1_7 As text:
-                        BorderColor: =RGBA(0, 18, 107, 1)
-                        BorderThickness: =0
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: =""
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        FocusedBorderThickness: =Self.BorderThickness
-                        Height: =350
-                        HintText: ="Comment"
-                        HoverBorderColor: =RGBA(0, 18, 107, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(255, 255, 255, 1)
-                        Mode: =TextMode.MultiLine
-                        RadiusBottomLeft: =
-                        RadiusBottomRight: =
-                        RadiusTopLeft: =
-                        RadiusTopRight: =
-                        Size: =25
-                        Width: =600
-                        ZIndex: =2
-
-                    Container15_6 As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.Center
-                        BorderColor: =RGBA(0, 18, 107, 1)
-                        Fill: =RGBA(255, 255, 255, 1)
-                        FillPortions: =0
-                        Height: =100
-                        LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutGap: =10
-                        LayoutJustifyContent: =LayoutJustifyContent.Center
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        PaddingLeft: =10
-                        PaddingRight: =10
-                        Width: =600
-                        ZIndex: =3
-
-                        Button_OK_15 As button:
-                            BorderThickness: =0
-                            Color: =RGBA(255, 255, 255, 1)
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Fill: =RGBA(54, 176, 75, 1)
-                            FillPortions: =1
-                            Height: =70
-                            HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
                             OnSelect: |-
-                                =If(
-                                    Len(TextInput1_7.Text) = 0,
-                                    Notify(
-                                        "Please enter the feedback for the request",
-                                        NotificationType.Error
-                                    ),
-                                    '[SubFlow]Feed_back_approver1'.Run(
-                                        TicketsGallery_approval.Selected.ID,
-                                        TextInput1_7.Text
-                                    )
-                                );
-                                Set(
-                                    DialogFeedback,
-                                    false
-                                );
-                                Reset(TextInput1_7);
-                                Navigate(
-                                    SuccessScreen_Approver,
-                                    ScreenTransition.Fade
-                                )
-                            PaddingBottom: =5.00
-                            PaddingLeft: =5.00
-                            PaddingRight: =5.21
-                            PaddingTop: =5.21
-                            RadiusBottomLeft: =5
-                            RadiusBottomRight: =5
-                            RadiusTopLeft: =5
-                            RadiusTopRight: =5
-                            Size: =20
-                            Text: ="Send"
-                            Width: =200
-                            X: =176
-                            Y: =213
-                            ZIndex: =1
-
-                        Button_Cancel_17 As button:
-                            BorderThickness: =0
-                            Color: =RGBA(255, 255, 255, 1)
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Fill: =RGBA(56, 96, 178, 1)
-                            FillPortions: =1
-                            Height: =70
-                            HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            OnSelect: |
                                 =Set(
-                                    DialogFeedback,
+                                    DialogCommentincharge,
                                     false
                                 )
                             PaddingBottom: =5.00

@@ -1,0 +1,107 @@
+SuccessScreen_Incharge As screen:
+    OnHidden: =Set(VisibleSuccess4,false);
+    OnVisible: |-
+        =Set(
+            VisibleSuccess4,
+            true
+        );
+        Refresh(SP_REQUEST);
+        Concurrent(
+            ClearCollect(
+                CollectRequestIncharge,
+                Filter(
+                    SP_REQUEST,
+                    Status.Value = "Done" && User().Email in 'Incharge Person'.Email
+                )
+            ),
+            ClearCollect(
+                CollecRequestHistory_Incharge,
+                Filter(
+                    SP_REQUEST,
+                    User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
+                )
+            )
+        )
+
+    Container49_4 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container2_23 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =20
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Image1_19 As image:
+                FillPortions: =1
+                Height: =Parent.Height-30
+                Image: =logocochu
+                LayoutMinHeight: =60
+                LayoutMinWidth: =320
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =Parent.Width
+                ZIndex: =2
+
+        Container54_4 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =30
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =4
+
+            Image3_4 As image:
+                Height: =120
+                Image: =iconcheck
+                LayoutMinHeight: =320
+                LayoutMinWidth: =320
+                Width: =120
+                ZIndex: =1
+
+            LblSuccessMsg1_4 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =21
+                Text: ="This was successfully completed!"
+                Width: =Parent.Width * 0.75
+                X: =Parent.Width/2 - Self.Width/2
+                Y: =
+                ZIndex: =2
+
+    Timer1_4 As timer:
+        AutoStart: =VisibleSuccess4
+        Duration: =3000
+        Height: =70
+        OnTimerEnd: =Navigate(InchargePage)
+        Visible: =false
+        Width: =280
+        X: =180
+        Y: =1066
+        ZIndex: =2
+

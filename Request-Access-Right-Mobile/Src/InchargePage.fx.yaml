@@ -7,7 +7,7 @@ InchargePage As screen:
         )
     OnVisible: |-
         =If(
-            TicketsGallery_approval_1.AllItemsCount > 0,
+            TicketsGallery_incharge.AllItemsCount > 0,
             Set(
                 visibleapprovalPage,
                 false
@@ -157,16 +157,16 @@ InchargePage As screen:
             Width: =Parent.Width
             ZIndex: =3
 
-        TicketsGallery_approval_1 As gallery.textualGalleryVertical:
+        TicketsGallery_incharge As gallery.textualGalleryVertical:
             AccessibleLabel: ="Tickets Gallery"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
-            DisabledBorderColor: =TicketsGallery_approval_1.BorderColor
-            DisabledFill: =TicketsGallery_approval_1.Fill
+            DisabledBorderColor: =TicketsGallery_incharge.BorderColor
+            DisabledFill: =TicketsGallery_incharge.Fill
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height
-            HoverBorderColor: =TicketsGallery_approval_1.BorderColor
-            HoverFill: =TicketsGallery_approval_1.Fill
+            HoverBorderColor: =TicketsGallery_incharge.BorderColor
+            HoverFill: =TicketsGallery_incharge.Fill
             Items: |-
                 =If(
                     !IsBlank(
@@ -184,9 +184,9 @@ InchargePage As screen:
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =320
-            LoadingSpinnerColor: =TicketsGallery_approval_1.BorderColor
-            PressedBorderColor: =TicketsGallery_approval_1.BorderColor
-            PressedFill: =TicketsGallery_approval_1.Fill
+            LoadingSpinnerColor: =TicketsGallery_incharge.BorderColor
+            PressedBorderColor: =TicketsGallery_incharge.BorderColor
+            PressedFill: =TicketsGallery_incharge.Fill
             ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =223.0699504854
@@ -315,7 +315,7 @@ InchargePage As screen:
                         HoverFill: =Heading1_14.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                        OnSelect: =Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -342,7 +342,7 @@ InchargePage As screen:
                         HoverFill: =Heading1_15.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                        OnSelect: =Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -370,7 +370,7 @@ InchargePage As screen:
                         HoverFill: =Heading1_16.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                        OnSelect: =Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -424,7 +424,7 @@ InchargePage As screen:
                                 HoverFill: =Subtitle1_20.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                                OnSelect: =Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -451,7 +451,7 @@ InchargePage As screen:
                                 HoverFill: =Subtitle1_21.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                                OnSelect: =Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -488,7 +488,7 @@ InchargePage As screen:
                                     HoverFill: =Subtitle1_22.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =50
-                                    OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                                    OnSelect: =Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0
@@ -558,7 +558,7 @@ InchargePage As screen:
                                     HoverFill: =Subtitle1_23.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                                    OnSelect: =Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0
@@ -588,7 +588,7 @@ InchargePage As screen:
                             HoverColor: =ColorFade(icon8_6.Color, 20%)
                             HoverFill: =icon8_6.Fill
                             Icon: =Icon.ChevronRight
-                            OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                            OnSelect: =Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
                             PressedBorderColor: =ColorFade(icon8_6.BorderColor, -20%)
                             PressedColor: =ColorFade(icon8_6.Color, -20%)
                             PressedFill: =icon8_6.Fill
