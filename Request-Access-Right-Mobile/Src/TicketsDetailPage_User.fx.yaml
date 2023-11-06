@@ -177,9 +177,10 @@ TicketsDetailPage_User As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue26.Selected
+                    Visible: =If(ThisItem.'Created By'.Email = User().Email,false,true)
                     Width: =Parent.Width
                     X: =0
-                    Y: =1
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey27 As label:
@@ -258,7 +259,7 @@ TicketsDetailPage_User As screen:
                     Required: =false
                     Width: =Parent.Width
                     X: =0
-                    Y: =2
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey26 As label:
@@ -301,7 +302,7 @@ TicketsDetailPage_User As screen:
                     Required: =false
                     Width: =Parent.Width
                     X: =0
-                    Y: =5
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey23 As label:
@@ -345,7 +346,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue21.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =6
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey22 As label:
@@ -424,7 +425,7 @@ TicketsDetailPage_User As screen:
                     Visible: =If(IsBlank(DataCardValue23.Text),false,true)
                     Width: =Parent.Width
                     X: =0
-                    Y: =7
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey24 As label:
@@ -1265,7 +1266,7 @@ TicketsDetailPage_User As screen:
                     Required: =true
                     Width: =Parent.Width
                     X: =0
-                    Y: =3
+                    Y: =1
                     ZIndex: =3
 
                     DataCardKey14 As label:
@@ -1309,7 +1310,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue19.Selected
                     Width: =Parent.Width
                     X: =0
-                    Y: =4
+                    Y: =2
                     ZIndex: =3
 
                     DataCardKey20 As label:
@@ -1689,9 +1690,13 @@ TicketsDetailPage_User As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
                             OnSelect: |-
-                                =Remove(
+                                =Patch(
                                     SP_REQUEST,
-                                    TicketsGallery.Selected
+                                    LookUp(
+                                        SP_REQUEST,
+                                        ID = TicketsGallery.Selected.ID
+                                    ),
+                                    {isDelete: true}
                                 );
                                 Set(
                                     Dialogdelete,
