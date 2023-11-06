@@ -1459,3 +1459,162 @@ HomePage As screen:
                             Y: =
                             ZIndex: =2
 
+                Container_InchargePerson As groupContainer.verticalAutoLayoutContainer:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =0
+                    Height: =180.5
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =visibleBtnIncharge
+                    Width: =Parent.Width
+                    ZIndex: =14
+
+                    ContainerInchargePerson As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =90
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =112
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        btn_inchargePerson As button:
+                            Align: =Align.Left
+                            BorderColor: =
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledFill: =
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderColor: =
+                            FocusedBorderThickness: =
+                            FontWeight: =FontWeight.Normal
+                            Height: =70
+                            HoverFill: =
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =280
+                            OnSelect: |-
+                                =Navigate(
+                                    InchargePage,
+                                    ScreenTransition.Fade
+                                )
+                            PaddingLeft: =25
+                            PressedBorderColor: =
+                            PressedColor: =ColorFade(Self.Color,90%)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =25
+                            Text: ="Requests Incharge Person"
+                            Width: =Parent.Width-70
+                            ZIndex: =2
+
+                        NextArrow2_6 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            Color: =RGBA(166, 166, 166, 1)
+                            Height: =50
+                            Icon: =Icon.ChevronRight
+                            OnSelect: |-
+                                =Navigate(
+                                    InchargePage,
+                                    ScreenTransition.Fade
+                                )
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            Tooltip: ="View item details"
+                            Width: =50
+                            X: =
+                            Y: =
+                            ZIndex: =3
+
+                    Rectangle1_8 As rectangle:
+                        Fill: =RGBA(0, 0, 0, 1)
+                        Height: =0.5
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                    ContainerHistoryInchargePerson As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =90
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        btn_HistoryInchargePerson As button:
+                            Align: =Align.Left
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledFill: =
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderColor: =
+                            FocusedBorderThickness: =
+                            FontWeight: =FontWeight.Normal
+                            Height: =70
+                            HoverColor: =
+                            HoverFill: =
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =280
+                            OnSelect: |-
+                                =Navigate(
+                                    History_request_Incharge,
+                                    ScreenTransition.Fade
+                                )
+                            PaddingLeft: =25
+                            PressedBorderColor: =
+                            PressedColor: =ColorFade(Self.Color,90%)
+                            PressedFill: =
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =25
+                            Text: ="Requests history Incharge"
+                            Visible: |-
+                                =If(
+                                    !IsBlank(
+                                        LookUp(
+                                            SP_LEVELAPPROVER,
+                                            IdUser.Email = User().Email && Level.Value = "Approver 1" ||
+                                            IdUser.Email = User().Email && Level.Value = "Approver 2" ||
+                                            IdUser.Email = User().Email && Level.Value = "Approver 3"
+                                        )
+                                    ),
+                                    true,
+                                    false
+                                )
+                            Width: =Parent.Width-70
+                            ZIndex: =1
+
+                        NextArrow2_7 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            Color: =RGBA(166, 166, 166, 1)
+                            Height: =50
+                            Icon: =Icon.ChevronRight
+                            OnSelect: |-
+                                =Navigate(
+                                    History_request_Incharge,
+                                    ScreenTransition.Fade
+                                )
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            Tooltip: ="View item details"
+                            Width: =50
+                            X: =
+                            Y: =
+                            ZIndex: =2
+

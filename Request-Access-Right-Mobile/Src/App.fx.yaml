@@ -33,17 +33,33 @@ App As appinfo:
                     visiblecountticketApprover,
                     true
                 ),
-                Set(
-                    visibleBtnApprover,
-                    false
-                );
-                Set(
-                    visibleBtnHOD,
-                    false
-                );
-                Set(
-                    visiblecountticketApprover,
-                    false
+                If(
+                    !IsBlank(
+                        LookUp(
+                            SP_REQUESTPROCESS,
+                            User().Email in 'Incharge Person'.Email
+                        )
+                    ),
+                    Set(
+                        visibleBtnIncharge,
+                        true
+                    ),
+                    Set(
+                        visibleBtnApprover,
+                        false
+                    );
+                    Set(
+                        visibleBtnHOD,
+                        false
+                    );
+                    Set(
+                        visiblecountticketApprover,
+                        false
+                    );
+                    Set(
+                        visibleBtnIncharge,
+                        false
+                    )
                 )
             )
         );
@@ -112,6 +128,13 @@ App As appinfo:
                 )
             ),
             ClearCollect(
+                CollectRequestIncharge,
+                Filter(
+                    SP_REQUEST,
+                    Status.Value = "Done" && User().Email in 'Incharge Person'.Email
+                )
+            ),
+            ClearCollect(
                 CollecRequestHistory_Approver1,
                 Filter(
                     SP_REQUEST,
@@ -137,6 +160,13 @@ App As appinfo:
                 Filter(
                     SP_REQUEST,
                     User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                )
+            ),
+            ClearCollect(
+                CollecRequestHistory_Incharge,
+                Filter(
+                    SP_REQUEST,
+                    User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
                 )
             )
         );
