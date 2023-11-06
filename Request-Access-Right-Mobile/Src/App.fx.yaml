@@ -52,7 +52,7 @@ App As appinfo:
                 CollectRequestAll,
                 Filter(
                     SP_REQUEST,
-                    'Created By'.Email = User().Email && isDelete = false
+                    'Created By'.Email = User().Email && isDelete = true
                 )
             ),
             ClearCollect(
