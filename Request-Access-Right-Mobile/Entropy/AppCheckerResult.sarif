@@ -4004,6 +4004,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.'Incharge Person_DataCard3'.DataCardValue70.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.'Incharge Person_DataCard3'.DataCardValue70.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TicketsDetail_History_HOD",
+                "type": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.'Incharge Person_DataCard3'.DataCardValue70"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "TicketsDetailPage_Incharge.Container10_8.Container20_2.btn_reject_2.FocusedBorderThickness"
                 }
               ],
@@ -4118,6 +4148,66 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketsDetail_History_Approval.Container10_6.Container13_1.FormDetail_approval_1.'Incharge Person_DataCard2'.DataCardValue67.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketsDetail_History_Approval.Container10_6.Container13_1.FormDetail_approval_1.'Incharge Person_DataCard2'.DataCardValue67.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TicketsDetail_History_Approval",
+                "type": "TicketsDetail_History_Approval.Container10_6.Container13_1.FormDetail_approval_1.'Incharge Person_DataCard2'.DataCardValue67"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketsDetail_History_Incharge.Container10_11.Container13_3.FormDetail_approval_3.'Incharge Person_DataCard1'.DataCardValue64.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketsDetail_History_Incharge.Container10_11.Container13_3.FormDetail_approval_3.'Incharge Person_DataCard1'.DataCardValue64.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TicketsDetail_History_Incharge",
+                "type": "TicketsDetail_History_Incharge.Container10_11.Container13_3.FormDetail_approval_3.'Incharge Person_DataCard1'.DataCardValue64"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -10448,6 +10538,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketsDetailPage_User.Container10.Container37.FormDetail_user.'Incharge Person_DataCard4'.DataCardValue73.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketsDetailPage_User.Container10.Container37.FormDetail_user.'Incharge Person_DataCard4'.DataCardValue73.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TicketsDetailPage_User",
+                "type": "TicketsDetailPage_User.Container10.Container37.FormDetail_user.'Incharge Person_DataCard4'.DataCardValue73"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
         },
         {
           "locations": [

@@ -1124,6 +1124,174 @@ TicketsDetail_History_Approval As screen:
                         Y: =DataCardKey39_1.Y + DataCardKey39_1.Height + 5
                         ZIndex: =2
 
+                "'Incharge Person_DataCard2' As typedDataCard.comboBoxMultiSelectViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Approver4"
+                    Default: =ThisItem.'Incharge Person'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver4")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue67.SelectedItems
+                    Visible: =If(IsBlank(DataCardValue68),false,true)
+                    Width: =640
+                    X: =0
+                    Y: =21
+                    ZIndex: =1
+
+                    DataCardKey67 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue67 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =70
+                        Items: =Choices([@SP_REQUEST].Approver4)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["DisplayName"]
+                        SearchItems: =Choices(SP_REQUEST.Approver4,DataCardValue67.SearchText)
+                        Size: =20
+                        Template: =ListItemTemplate.Person
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey67.Y + DataCardKey67.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage33 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue67.Y + DataCardValue67.Height
+                        ZIndex: =3
+
+                    StarVisible33 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey67.Height
+                        PaddingBottom: =DataCardKey67.PaddingBottom
+                        PaddingLeft: =DataCardKey67.PaddingLeft
+                        PaddingRight: =DataCardKey67.PaddingRight
+                        PaddingTop: =DataCardKey67.PaddingTop
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey67.Y
+                        ZIndex: =4
+
+                "'Incharge Person Approved Date_DataCard2' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="ApprovedDate4"
+                    Default: =ThisItem.'Incharge Person Approved Date'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ApprovedDate4")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Visible: =If(IsBlank(DataCardValue68.Text),false,true)
+                    Width: =640
+                    X: =0
+                    Y: =22
+                    ZIndex: =1
+
+                    DataCardKey68 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue68 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey68.Y + DataCardKey68.Height + 5
+                        ZIndex: =2
+
+                "'Incharge Person Comment_DataCard2' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="InchargePersonComment"
+                    Default: =ThisItem.'Incharge Person Comment'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePersonComment")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Visible: =If(IsBlank(DataCardValue69.Text),false,true)
+                    Width: =640
+                    X: =0
+                    Y: =23
+                    ZIndex: =1
+
+                    DataCardKey69 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue69 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey69.Y + DataCardKey69.Height + 5
+                        ZIndex: =2
+
                 Attachments_DataCard7_1 As typedDataCard.attachmentsViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
@@ -1136,7 +1304,7 @@ TicketsDetail_History_Approval As screen:
                     Update: =DataCardValue7_1.Attachments
                     Width: =Parent.Width
                     X: =0
-                    Y: =21
+                    Y: =24
                     ZIndex: =1
 
                     DataCardKey7_1 As label:
