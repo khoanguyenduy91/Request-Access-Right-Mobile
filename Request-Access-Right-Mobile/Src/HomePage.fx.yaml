@@ -87,14 +87,14 @@ HomePage As screen:
                             CollectRequestProcess,
                             Filter(
                                 SP_REQUEST,
-                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved" || Status.Value = "Done") && 'Created By'.Email = User().Email
                             )
                         ),
                         ClearCollect(
                             CollectRequestClosed,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Done" && 'Created By'.Email = User().Email
+                                Status.Value = "Closed" && 'Created By'.Email = User().Email
                             )
                         ),
                         ClearCollect(
@@ -756,14 +756,14 @@ HomePage As screen:
                             CollectRequestProcess,
                             Filter(
                                 SP_REQUEST,
-                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
+                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved"|| Status.Value = "Done") && 'Created By'.Email = User().Email
                             )
                         ),
                         ClearCollect(
                             CollectRequestClosed,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Done" && 'Created By'.Email = User().Email
+                                Status.Value = "Closed" && 'Created By'.Email = User().Email
                             )
                         ),
                         ClearCollect(
