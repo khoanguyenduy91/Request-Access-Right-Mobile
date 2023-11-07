@@ -1628,16 +1628,8 @@ TicketsDetailPage_Approval As screen:
                 Size: =18
                 Text: ="Feedback"
                 Visible: |-
-                    =If(
-                        !IsBlank(
-                            LookUp(
-                                SP_LEVELAPPROVER,
-                                IdUser.Email = User().Email && Level.Value = "Approver 1"
-                            )
-                        ),
-                        true,
-                        false
-                    )
+                    =//If(!IsBlank(LookUp(SP_LEVELAPPROVER,IdUser.Email=User().Email&&Level.Value="Approver 1")), true , false )
+                    false
                 Width: =200
                 ZIndex: =3
 
@@ -1906,7 +1898,7 @@ TicketsDetailPage_Approval As screen:
         PaddingLeft: =0.00
         PaddingRight: =0.00
         PaddingTop: =0.00
-        Visible: =false
+        Visible: =DialogFeedback
         Width: =Parent.Width
         ZIndex: =3
 
