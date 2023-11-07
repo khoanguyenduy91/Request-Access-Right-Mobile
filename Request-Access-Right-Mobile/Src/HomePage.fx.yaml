@@ -411,7 +411,19 @@ HomePage As screen:
                                                         User().Email = HOD.Email
                                                     )
                                                 ),
-                                                CountRows(CollectRequestHOD)
+                                                CountRows(CollectRequestHOD),
+                                                If(
+                                                    !IsBlank(
+                                                        LookUp(
+                                                            CollectionRequestTest,
+                                                            User().Email in Concat(
+                                                                'Incharge Person',
+                                                                Email & ";"
+                                                            )
+                                                        )
+                                                    ),
+                                                    CountRows(CollectRequestIncharge)
+                                                )
                                             )
                                         )
                                     )
