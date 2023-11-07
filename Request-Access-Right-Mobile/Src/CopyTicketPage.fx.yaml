@@ -1,8 +1,8 @@
-EditTicketPage As screen:
-    OnHidden: =ResetForm(Form1_2)
+CopyTicketPage As screen:
+    OnHidden: =ResetForm(Form1_3)
     OnVisible: =
 
-    Container7_2 As groupContainer.verticalAutoLayoutContainer:
+    Container7_3 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
@@ -11,7 +11,7 @@ EditTicketPage As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        Container2_16 As groupContainer.horizontalAutoLayoutContainer:
+        Container2_24 As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -24,7 +24,7 @@ EditTicketPage As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            Icon1_18 As icon.Add:
+            Icon1_30 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
@@ -88,7 +88,7 @@ EditTicketPage As screen:
                 Width: =50
                 ZIndex: =1
 
-            Label1_15 As label:
+            Label1_22 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
@@ -105,12 +105,12 @@ EditTicketPage As screen:
                 Width: =560
                 ZIndex: =2
 
-            Icon1_21 As icon.Add:
+            Icon1_31 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: |-
                     =If(
-                        IsBlank(DataCardValue1_2.Text) && IsBlank(DataCardValue51.Selected.Value) && IsBlank(DataCardValue8_1.Selected.Value) && IsBlank(DataCardValue9_2.Text) && CountRows(DataCardValue11_2.Attachments) = 0,
+                        IsBlank(DataCardValue1_3.Text) && IsBlank(DataCardValue51_1.Selected.Value) && IsBlank(DataCardValue8_2.Selected.Value) && IsBlank(DataCardValue9_3.Text) && CountRows(DataCardValue11_3.Attachments) = 0,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -126,7 +126,7 @@ EditTicketPage As screen:
                 Width: =50
                 ZIndex: =3
 
-        Container38_2 As groupContainer.verticalAutoLayoutContainer:
+        Container38_3 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height
@@ -139,15 +139,15 @@ EditTicketPage As screen:
             Width: =Parent.Width
             ZIndex: =2
 
-            Form1_2 As form:
+            Form1_3 As form:
                 DataSource: =SP_REQUEST
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Item: =TicketsGallery.Selected
+                Item: =Itemcopyrequest
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 OnSuccess: |-
-                    ='[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
+                    ='[SubFlow]Noti_User_Edit'.Run(Itemcopyrequest.ID);
                     Navigate(
                         SuccessScreen,
                         ScreenTransition.Fade
@@ -155,7 +155,7 @@ EditTicketPage As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                ReqType_DataCard2 As typedDataCard.comboBoxEditCard:
+                ReqType_DataCard2_1 As typedDataCard.comboBoxEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqType"
                     Default: =ThisItem.ReqType
@@ -164,13 +164,13 @@ EditTicketPage As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =true
-                    Update: =DataCardValue51.Selected
+                    Update: =DataCardValue51_1.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =1
                     ZIndex: =1
 
-                    DataCardKey51 As label:
+                    DataCardKey51_1 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -186,10 +186,10 @@ EditTicketPage As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue51 As combobox:
+                    DataCardValue51_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(10, 128, 32, 1)
-                        DefaultSelectedItems: =Parent.Default
+                        DefaultSelectedItems: =Itemcopyrequest.ReqType
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -204,10 +204,10 @@ EditTicketPage As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey51.Y + DataCardKey51.Height + 5
+                        Y: =DataCardKey51_1.Y + DataCardKey51_1.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage29 As label:
+                    ErrorMessage29_1 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -220,25 +220,25 @@ EditTicketPage As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue51.Y + DataCardValue51.Height
+                        Y: =DataCardValue51_1.Y + DataCardValue51_1.Height
                         ZIndex: =3
 
-                    StarVisible29 As label:
+                    StarVisible29_1 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey51.Height
-                        PaddingBottom: =DataCardKey51.PaddingBottom
-                        PaddingLeft: =DataCardKey51.PaddingLeft
-                        PaddingRight: =DataCardKey51.PaddingRight
-                        PaddingTop: =DataCardKey51.PaddingTop
+                        Height: =DataCardKey51_1.Height
+                        PaddingBottom: =DataCardKey51_1.PaddingBottom
+                        PaddingLeft: =DataCardKey51_1.PaddingLeft
+                        PaddingRight: =DataCardKey51_1.PaddingRight
+                        PaddingTop: =DataCardKey51_1.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey51.Y
+                        Y: =DataCardKey51_1.Y
                         ZIndex: =4
 
-                ReqPermission_DataCard1_2 As typedDataCard.comboBoxEditCard:
+                ReqPermission_DataCard1_3 As typedDataCard.comboBoxEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqPermission"
                     Default: =ThisItem.ReqPermission
@@ -247,13 +247,13 @@ EditTicketPage As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =true
-                    Update: =DataCardValue8_1.Selected
+                    Update: =DataCardValue8_2.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =2
                     ZIndex: =1
 
-                    DataCardKey9_2 As label:
+                    DataCardKey9_3 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -269,10 +269,10 @@ EditTicketPage As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue8_1 As combobox:
+                    DataCardValue8_2 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(10, 128, 32, 1)
-                        DefaultSelectedItems: =Parent.Default
+                        DefaultSelectedItems: =Itemcopyrequest.ReqPermission
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -280,9 +280,9 @@ EditTicketPage As screen:
                         Items: =Choices(SP_REQUEST.ReqPermission)
                         OnChange: |-
                             =If(
-                                DataCardValue8_1.Selected.Value = "Other",
+                                DataCardValue8_2.Selected.Value = "Other",
                                 false,
-                                Reset(DataCardValue10_2)
+                                Reset(DataCardValue10_3)
                             )
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
@@ -293,10 +293,10 @@ EditTicketPage As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey9_2.Y + DataCardKey9_2.Height + 5
+                        Y: =DataCardKey9_3.Y + DataCardKey9_3.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage9_2 As label:
+                    ErrorMessage9_3 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -309,25 +309,25 @@ EditTicketPage As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue8_1.Y + DataCardValue8_1.Height
+                        Y: =DataCardValue8_2.Y + DataCardValue8_2.Height
                         ZIndex: =3
 
-                    StarVisible9_2 As label:
+                    StarVisible9_3 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey9_2.Height
-                        PaddingBottom: =DataCardKey9_2.PaddingBottom
-                        PaddingLeft: =DataCardKey9_2.PaddingLeft
-                        PaddingRight: =DataCardKey9_2.PaddingRight
-                        PaddingTop: =DataCardKey9_2.PaddingTop
+                        Height: =DataCardKey9_3.Height
+                        PaddingBottom: =DataCardKey9_3.PaddingBottom
+                        PaddingLeft: =DataCardKey9_3.PaddingLeft
+                        PaddingRight: =DataCardKey9_3.PaddingRight
+                        PaddingTop: =DataCardKey9_3.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey9_2.Y
+                        Y: =DataCardKey9_3.Y
                         ZIndex: =4
 
-                ReqReason_DataCard1_2 As typedDataCard.textualEditCard:
+                ReqReason_DataCard1_3 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqReason"
                     Default: =ThisItem.ReqReason
@@ -337,13 +337,13 @@ EditTicketPage As screen:
                     Height: =260
                     MaxLength: =DataSourceInfo([@SP_REQUEST], DataSourceInfo.MaxLength, "ReqReason")
                     Required: =true
-                    Update: =DataCardValue9_2.Text
+                    Update: =DataCardValue9_3.Text
                     Width: =Parent.Width
                     X: =0
                     Y: =3
                     ZIndex: =1
 
-                    DataCardKey10_2 As label:
+                    DataCardKey10_3 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -359,9 +359,9 @@ EditTicketPage As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue9_2 As text:
+                    DataCardValue9_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =Itemcopyrequest.ReqReason
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -376,10 +376,10 @@ EditTicketPage As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey10_2.Y + DataCardKey10_2.Height + 5
+                        Y: =DataCardKey10_3.Y + DataCardKey10_3.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage10_2 As label:
+                    ErrorMessage10_3 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -392,25 +392,25 @@ EditTicketPage As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue9_2.Y + DataCardValue9_2.Height
+                        Y: =DataCardValue9_3.Y + DataCardValue9_3.Height
                         ZIndex: =3
 
-                    StarVisible10_2 As label:
+                    StarVisible10_3 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey10_2.Height
-                        PaddingBottom: =DataCardKey10_2.PaddingBottom
-                        PaddingLeft: =DataCardKey10_2.PaddingLeft
-                        PaddingRight: =DataCardKey10_2.PaddingRight
-                        PaddingTop: =DataCardKey10_2.PaddingTop
+                        Height: =DataCardKey10_3.Height
+                        PaddingBottom: =DataCardKey10_3.PaddingBottom
+                        PaddingLeft: =DataCardKey10_3.PaddingLeft
+                        PaddingRight: =DataCardKey10_3.PaddingRight
+                        PaddingTop: =DataCardKey10_3.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey10_2.Y
+                        Y: =DataCardKey10_3.Y
                         ZIndex: =4
 
-                ReqDescription_DataCard1_2 As typedDataCard.textualEditCard:
+                ReqDescription_DataCard1_3 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqDescription"
                     Default: =ThisItem.ReqDescription
@@ -421,14 +421,14 @@ EditTicketPage As screen:
                     MaxLength: =DataSourceInfo([@SP_REQUEST], DataSourceInfo.MaxLength, "ReqDescription")
                     Required: |-
                         =If(
-                            DataCardValue8_1.Selected.Value = "Other",
+                            DataCardValue8_2.Selected.Value = "Other",
                             true,
                             false
                         )
-                    Update: =DataCardValue10_2.Text
+                    Update: =DataCardValue10_3.Text
                     Visible: |-
                         =If(
-                            DataCardValue8_1.Selected.Value = "Other",
+                            DataCardValue8_2.Selected.Value = "Other",
                             true,
                             false
                         )
@@ -437,7 +437,7 @@ EditTicketPage As screen:
                     Y: =4
                     ZIndex: =1
 
-                    DataCardKey11_2 As label:
+                    DataCardKey11_3 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -453,9 +453,9 @@ EditTicketPage As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue10_2 As text:
+                    DataCardValue10_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =Itemcopyrequest.ReqDescription
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -470,10 +470,10 @@ EditTicketPage As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey11_2.Y + DataCardKey11_2.Height + 5
+                        Y: =DataCardKey11_3.Y + DataCardKey11_3.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage11_2 As label:
+                    ErrorMessage11_3 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -486,25 +486,25 @@ EditTicketPage As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue10_2.Y + DataCardValue10_2.Height
+                        Y: =DataCardValue10_3.Y + DataCardValue10_3.Height
                         ZIndex: =3
 
-                    StarVisible11_2 As label:
+                    StarVisible11_3 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey11_2.Height
-                        PaddingBottom: =DataCardKey11_2.PaddingBottom
-                        PaddingLeft: =DataCardKey11_2.PaddingLeft
-                        PaddingRight: =DataCardKey11_2.PaddingRight
-                        PaddingTop: =DataCardKey11_2.PaddingTop
+                        Height: =DataCardKey11_3.Height
+                        PaddingBottom: =DataCardKey11_3.PaddingBottom
+                        PaddingLeft: =DataCardKey11_3.PaddingLeft
+                        PaddingRight: =DataCardKey11_3.PaddingRight
+                        PaddingTop: =DataCardKey11_3.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey11_2.Y
+                        Y: =DataCardKey11_3.Y
                         ZIndex: =4
 
-                Attachments_DataCard1_2 As typedDataCard.attachmentsEditCard:
+                Attachments_DataCard1_3 As typedDataCard.attachmentsEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
                     Default: =ThisItem.Attachments
@@ -513,13 +513,13 @@ EditTicketPage As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue11_2.Attachments
+                    Update: =DataCardValue11_3.Attachments
                     Width: =Parent.Width
                     X: =0
                     Y: =5
                     ZIndex: =1
 
-                    DataCardKey12_2 As label:
+                    DataCardKey12_3 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -529,20 +529,20 @@ EditTicketPage As screen:
                         PaddingTop: =0
                         Size: =21
                         Text: |-
-                            =Parent.DisplayName & ": " & CountRows(DataCardValue11_2.Attachments) &" File"
+                            =Parent.DisplayName & ": " & CountRows(DataCardValue11_3.Attachments) &" File"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue11_2 As attachments:
+                    DataCardValue11_3 As attachments:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =2
                         DisplayMode: =Parent.DisplayMode
                         Height: =295
                         IsInDataCard: =true
-                        Items: =Parent.Default
+                        Items: =Itemcopyrequest.Attachments
                         PaddingBottom: =5
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PaddingRight: =5
@@ -550,10 +550,10 @@ EditTicketPage As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey12_2.Y + DataCardKey12_2.Height + 5
+                        Y: =DataCardKey12_3.Y + DataCardKey12_3.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage12_2 As label:
+                    ErrorMessage12_3 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -566,25 +566,25 @@ EditTicketPage As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue11_2.Y + DataCardValue11_2.Height
+                        Y: =DataCardValue11_3.Y + DataCardValue11_3.Height
                         ZIndex: =3
 
-                    StarVisible12_2 As label:
+                    StarVisible12_3 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey12_2.Height
-                        PaddingBottom: =DataCardKey12_2.PaddingBottom
-                        PaddingLeft: =DataCardKey12_2.PaddingLeft
-                        PaddingRight: =DataCardKey12_2.PaddingRight
-                        PaddingTop: =DataCardKey12_2.PaddingTop
+                        Height: =DataCardKey12_3.Height
+                        PaddingBottom: =DataCardKey12_3.PaddingBottom
+                        PaddingLeft: =DataCardKey12_3.PaddingLeft
+                        PaddingRight: =DataCardKey12_3.PaddingRight
+                        PaddingTop: =DataCardKey12_3.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey12_2.Y
+                        Y: =DataCardKey12_3.Y
                         ZIndex: =4
 
-                Status_DataCard1 As typedDataCard.comboBoxEditCard:
+                Status_DataCard1_1 As typedDataCard.comboBoxEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Status"
                     Default: =ThisItem.Status
@@ -593,14 +593,14 @@ EditTicketPage As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue58.Selected
+                    Update: =DataCardValue58_1.Selected
                     Visible: =false
                     Width: =620
                     X: =0
                     Y: =6
                     ZIndex: =1
 
-                    DataCardKey58 As label:
+                    DataCardKey58_1 As label:
                         AutoHeight: =true
                         Height: =48
                         PaddingBottom: =0
@@ -615,7 +615,7 @@ EditTicketPage As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue58 As combobox:
+                    DataCardValue58_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
@@ -624,15 +624,15 @@ EditTicketPage As screen:
                         Items: =Choices([@SP_REQUEST].Status)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(SP_REQUEST.Status,DataCardValue58.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.Status,DataCardValue58_1.SearchText)
                         SelectMultiple: =false
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey58.Y + DataCardKey58.Height + 5
+                        Y: =DataCardKey58_1.Y + DataCardKey58_1.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage31 As label:
+                    ErrorMessage31_1 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -645,25 +645,25 @@ EditTicketPage As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue58.Y + DataCardValue58.Height
+                        Y: =DataCardValue58_1.Y + DataCardValue58_1.Height
                         ZIndex: =3
 
-                    StarVisible31 As label:
+                    StarVisible31_1 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey58.Height
-                        PaddingBottom: =DataCardKey58.PaddingBottom
-                        PaddingLeft: =DataCardKey58.PaddingLeft
-                        PaddingRight: =DataCardKey58.PaddingRight
-                        PaddingTop: =DataCardKey58.PaddingTop
+                        Height: =DataCardKey58_1.Height
+                        PaddingBottom: =DataCardKey58_1.PaddingBottom
+                        PaddingLeft: =DataCardKey58_1.PaddingLeft
+                        PaddingRight: =DataCardKey58_1.PaddingRight
+                        PaddingTop: =DataCardKey58_1.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey58.Y
+                        Y: =DataCardKey58_1.Y
                         ZIndex: =4
 
-                Title_DataCard1_2 As typedDataCard.textualEditCard:
+                Title_DataCard1_3 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Title"
                     Default: =ThisItem.Title
@@ -673,13 +673,13 @@ EditTicketPage As screen:
                     Height: =133
                     MaxLength: =DataSourceInfo([@SP_REQUEST], DataSourceInfo.MaxLength, "Title")
                     Required: =true
-                    Update: =DataCardValue1_2.Text
+                    Update: =DataCardValue1_3.Text
                     Width: =Parent.Width
                     X: =0
                     Y: =0
                     ZIndex: =2
 
-                    DataCardKey1_2 As label:
+                    DataCardKey1_3 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -695,9 +695,9 @@ EditTicketPage As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue1_2 As text:
+                    DataCardValue1_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =Itemcopyrequest.Title
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -711,10 +711,10 @@ EditTicketPage As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey1_2.Y + DataCardKey1_2.Height + 5
+                        Y: =DataCardKey1_3.Y + DataCardKey1_3.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage1_2 As label:
+                    ErrorMessage1_3 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -727,25 +727,25 @@ EditTicketPage As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue1_2.Y + DataCardValue1_2.Height
+                        Y: =DataCardValue1_3.Y + DataCardValue1_3.Height
                         ZIndex: =3
 
-                    StarVisible1_2 As label:
+                    StarVisible1_3 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey1_2.Height
-                        PaddingBottom: =DataCardKey1_2.PaddingBottom
-                        PaddingLeft: =DataCardKey1_2.PaddingLeft
-                        PaddingRight: =DataCardKey1_2.PaddingRight
-                        PaddingTop: =DataCardKey1_2.PaddingTop
+                        Height: =DataCardKey1_3.Height
+                        PaddingBottom: =DataCardKey1_3.PaddingBottom
+                        PaddingLeft: =DataCardKey1_3.PaddingLeft
+                        PaddingRight: =DataCardKey1_3.PaddingRight
+                        PaddingTop: =DataCardKey1_3.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey1_2.Y
+                        Y: =DataCardKey1_3.Y
                         ZIndex: =4
 
-        Container11_2 As groupContainer.verticalAutoLayoutContainer:
+        Container11_3 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
             DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
@@ -766,7 +766,7 @@ EditTicketPage As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            Button_editticket As button:
+            Button_editticket_1 As button:
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -776,28 +776,8 @@ EditTicketPage As screen:
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: |-
-                    =Refresh(SP_REQUEST);
-                    Set(
-                        Editticket,
-                        LookUp(
-                            SP_REQUEST,
-                            ThisRecord.ID = TicketsGallery.Selected.ID
-                        )
-                    );
-                    If(
-                        Editticket.Status.Value = "Created",
-                        SubmitForm(Form1_2);
-                        Set(
-                            ButtonModeEdit,
-                            false
-                        ),
-                        Notify(
-                            "The request has been modified, please refresh the data!",
-                            NotificationType.Error,
-                            3000
-                        )
-                    )
+                OnSelect: |
+                    =SubmitForm(Form1_3);
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
@@ -809,7 +789,7 @@ EditTicketPage As screen:
                 Y: =664
                 ZIndex: =1
 
-    Dialog_clear_edit As groupContainer.manualLayoutContainer:
+    Dialog_clear_edit_1 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =Parent.Height
         PaddingBottom: =0.00
@@ -820,7 +800,7 @@ EditTicketPage As screen:
         Width: =Parent.Width
         ZIndex: =2
 
-        Container13_8 As groupContainer.verticalAutoLayoutContainer:
+        Container13_11 As groupContainer.verticalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 0, 0, 0.46)
             Height: =Parent.Height
@@ -833,7 +813,7 @@ EditTicketPage As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            Container42_6 As groupContainer.verticalAutoLayoutContainer:
+            Container42_10 As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
                 Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -849,7 +829,7 @@ EditTicketPage As screen:
                 Width: =Parent.Width
                 ZIndex: =5
 
-                Container42_2 As groupContainer.verticalAutoLayoutContainer:
+                Container42_11 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
                     BorderColor: =RGBA(0, 18, 107, 1)
                     DropShadow: =DropShadow.Light
@@ -864,7 +844,7 @@ EditTicketPage As screen:
                     Width: =600
                     ZIndex: =1
 
-                    Label1_17 As label:
+                    Label1_23 As label:
                         Align: =Align.Center
                         Fill: =RGBA(255, 255, 255, 1)
                         FontWeight: =FontWeight.Semibold
@@ -876,7 +856,7 @@ EditTicketPage As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
-                    TextInput1_6 As text:
+                    TextInput1_9 As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 18, 107, 1)
                         Color: =RGBA(0, 0, 0, 1)
@@ -905,7 +885,7 @@ EditTicketPage As screen:
                         Y: =238
                         ZIndex: =2
 
-                    Container28_6 As groupContainer.horizontalAutoLayoutContainer:
+                    Container28_9 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 18, 107, 1)
                         Fill: =RGBA(255, 255, 255, 1)
@@ -925,7 +905,7 @@ EditTicketPage As screen:
                         Width: =Parent.Width
                         ZIndex: =3
 
-                        Button_OK_14 As button:
+                        Button_OK_17 As button:
                             BorderThickness: =0
                             Color: =RGBA(255, 255, 255, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -937,8 +917,8 @@ EditTicketPage As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
                             OnSelect: |-
-                                =ResetForm(Form1_2);
-                                NewForm(Form1_2);
+                                =ResetForm(Form1_3);
+                                NewForm(Form1_3);
                                 Set(
                                     Dialogclearedit,
                                     false
@@ -956,7 +936,7 @@ EditTicketPage As screen:
                             Y: =195
                             ZIndex: =1
 
-                        Button_Cancel_16 As button:
+                        Button_Cancel_19 As button:
                             BorderThickness: =0
                             Color: =RGBA(255, 255, 255, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)

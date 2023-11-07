@@ -42,6 +42,13 @@
                     Status.Value = "Rejected" && 'Created By'.Email = User().Email
                 )
             )
+        );
+        Set(
+            Itemcopyrequest,
+            LookUp(
+                SP_REQUEST,
+                ThisRecord.ID = Value(IDcopyTicket.resultid)
+            )
         )
 
     Container49_3 As groupContainer.verticalAutoLayoutContainer:
@@ -120,10 +127,12 @@
         Duration: =3000
         Height: =70
         OnTimerEnd: |-
-            =Navigate(
-                TicketPage,
-                ScreenTransition.Fade,
-                {type: "New"}
+            =//Navigate(TicketPage,ScreenTransition.Fade,{type:"New"})
+            EditForm(Form1_3);
+            Set(ButtonModeEdit,true);
+            Navigate(
+                CopyTicketPage,
+                ScreenTransition.Fade
             )
         Visible: =false
         Width: =280

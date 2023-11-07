@@ -2030,7 +2030,8 @@ TicketsDetailPage_User As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
                             OnSelect: |-
-                                =Patch(
+                                =//Patch(SP_REQUEST,Defaults(SP_REQUEST),{Title:TicketsGallery.Selected.Title,ReqType:TicketsGallery.Selected.ReqType,ReqPermission:TicketsGallery.Selected.ReqPermission,ReqReason:TicketsGallery.Selected.ReqReason,ReqDescription:TicketsGallery.Selected.ReqDescription,TypeNewRequest:"CopyRequest"});'[SubFlow]Copy_Attachment_new'.Run(TicketsGallery.Selected.ID,Last(SP_REQUEST).ID);Set(Dialogcopy, false );Navigate(SuccessScreen_copy,ScreenTransition.Fade)
+                                Patch(
                                     SP_REQUEST,
                                     Defaults(SP_REQUEST),
                                     {
@@ -2042,11 +2043,17 @@ TicketsDetailPage_User As screen:
                                         TypeNewRequest: "CopyRequest"
                                     }
                                 );
-                                '[SubFlow]Copy_Attachment_new'.Run(
-                                    TicketsGallery.Selected.ID,
-                                    Last(SP_REQUEST).ID
+                                Set(
+                                    IDcopyTicket,
+                                    '[SubFlow]Copy_Attachment_new'.Run(
+                                        TicketsGallery.Selected.ID,
+                                        Last(SP_REQUEST).ID
+                                    )
                                 );
-                                Set(Dialogcopy,false);
+                                Set(
+                                    Dialogcopy,
+                                    false
+                                );
                                 Navigate(
                                     SuccessScreen_copy,
                                     ScreenTransition.Fade
