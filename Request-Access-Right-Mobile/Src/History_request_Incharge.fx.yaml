@@ -99,8 +99,11 @@ History_request_Incharge As screen:
                     =If(
                         !IsBlank(
                             LookUp(
-                                SP_REQUEST,
-                                User().Email in 'Incharge Person'.Email
+                                CollectionRequestTest,
+                                User().Email in Concat(
+                                    'Incharge Person',
+                                    Email & ";"
+                                )
                             )
                         ),
                         SortByColumns(

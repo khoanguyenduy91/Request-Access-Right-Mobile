@@ -1162,10 +1162,10 @@ TicketsDetail_History_Approval As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@SP_REQUEST].Approver4)
+                        Items: =Choices([@SP_REQUEST].'Incharge Person')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.Approver4,DataCardValue67.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.'Incharge Person',DataCardValue67.SearchText)
                         Size: =20
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60

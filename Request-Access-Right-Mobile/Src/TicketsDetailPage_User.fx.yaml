@@ -1221,10 +1221,10 @@ TicketsDetailPage_User As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@SP_REQUEST].Approver4)
+                        Items: =Choices([@SP_REQUEST].'Incharge Person')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.Approver4,DataCardValue73.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.'Incharge Person',DataCardValue73.SearchText)
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30

@@ -6,18 +6,22 @@ SuccessScreen_Incharge As screen:
             true
         );
         Refresh(SP_REQUEST);
+        ClearCollect(
+            CollectionRequestTest,
+            SP_REQUEST
+        );
         Concurrent(
             ClearCollect(
                 CollectRequestIncharge,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     Status.Value = "Done" && User().Email in 'Incharge Person'.Email
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Incharge,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
                 )
             )

@@ -4,7 +4,15 @@ App As appinfo:
     MinScreenHeight: =320
     MinScreenWidth: =320
     OnStart: |-
-        =If(
+        =ClearCollect(
+            CollectionRequestTest,
+            SP_REQUEST
+        );
+        ClearCollect(
+            CollectionReqProcess,
+            SP_REQUESTPROCESS
+        );
+        If(
             !IsBlank(
                 LookUp(
                     SP_LEVELAPPROVER,
@@ -36,8 +44,11 @@ App As appinfo:
                 If(
                     !IsBlank(
                         LookUp(
-                            SP_REQUESTPROCESS,
-                            User().Email in 'Incharge Person'.Email
+                            CollectionReqProcess,
+                            User().Email in Concat(
+                                'Incharge Person',
+                                Email & ";"
+                            )
                         )
                     ),
                     Set(
@@ -67,106 +78,112 @@ App As appinfo:
             ClearCollect(
                 CollectRequestAll,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestNew,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     Status.Value = "Created" && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestProcess,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved") && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestClosed,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     Status.Value = "Done" && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestRejected,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     Status.Value = "Rejected" && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestApprover1,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
                 )
             ),
             ClearCollect(
                 CollectRequestApprover2,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     Status.Value = "Approver 1 approved"
                 )
             ),
             ClearCollect(
                 CollectRequestApprover3,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
                 )
             ),
             ClearCollect(
                 CollectRequestHOD,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     Status.Value = "Created" && HOD.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestIncharge,
                 Filter(
-                    SP_REQUEST,
-                    Status.Value = "Done" && User().Email in 'Incharge Person'.Email
+                    CollectionRequestTest,
+                    Status.Value = "Done" && User().Email in Concat(
+                        'Incharge Person',
+                        Email & ";"
+                    )
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Approver1,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Approver2,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Approver3,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_HOD,
                 Filter(
-                    SP_REQUEST,
+                    CollectionRequestTest,
                     User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Incharge,
                 Filter(
-                    SP_REQUEST,
-                    User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
+                    CollectionRequestTest,
+                    User().Email in Concat(
+                        'Incharge Person',
+                        Email & ";"
+                    ) && 'Incharge Person Approved Date' <> Blank()
                 )
             )
         );

@@ -77,47 +77,23 @@ InchargePage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =Refresh(SP_REQUEST);
+                    ClearCollect(
+                        CollectionRequestTest,
+                        SP_REQUEST
+                    );
                     Concurrent(
                         ClearCollect(
-                            CollectRequestApprover1,
+                            CollectRequestIncharge,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                                CollectionRequestTest,
+                                Status.Value = "Done" && User().Email in 'Incharge Person'.Email
                             )
                         ),
                         ClearCollect(
-                            CollectRequestApprover2,
+                            CollecRequestHistory_Incharge,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Approver 1 approved"
-                            )
-                        ),
-                        ClearCollect(
-                            CollectRequestApprover3,
-                            Filter(
-                                SP_REQUEST,
-                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
-                            )
-                        ),
-                        ClearCollect(
-                            CollecRequestHistory_Approver1,
-                            Filter(
-                                SP_REQUEST,
-                                User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                            )
-                        ),
-                        ClearCollect(
-                            CollecRequestHistory_Approver2,
-                            Filter(
-                                SP_REQUEST,
-                                User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
-                            )
-                        ),
-                        ClearCollect(
-                            CollecRequestHistory_Approver3,
-                            Filter(
-                                SP_REQUEST,
-                                User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                                CollectionRequestTest,
+                                User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
                             )
                         )
                     )
@@ -171,8 +147,11 @@ InchargePage As screen:
                 =If(
                     !IsBlank(
                         LookUp(
-                            SP_REQUEST,
-                            User().Email in 'Incharge Person'.Email
+                            CollectionRequestTest,
+                            User().Email in Concat(
+                                'Incharge Person',
+                                Email & ";"
+                            )
                         )
                     ),
                     SortByColumns(
