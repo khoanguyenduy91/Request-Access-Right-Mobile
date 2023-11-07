@@ -1225,6 +1225,7 @@ TicketsDetailPage_User As screen:
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(SP_REQUEST.'Incharge Person',DataCardValue73.SearchText)
+                        Size: =20
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
