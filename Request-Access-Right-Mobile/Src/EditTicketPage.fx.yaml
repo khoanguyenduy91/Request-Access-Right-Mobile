@@ -794,8 +794,9 @@ EditTicketPage As screen:
                             false
                         ),
                         Notify(
-                            "Cập nhật thất bại",
-                            NotificationType.Error
+                            "The request has been modified, please refresh the data!",
+                            NotificationType.Error,
+                            3000
                         )
                     )
                 RadiusBottomLeft: =5
