@@ -58,7 +58,8 @@ TicketsDetailPage_User As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Request details"
+                Text: |
+                    ="Request details"
                 Width: =560
                 ZIndex: =2
 
@@ -1187,7 +1188,8 @@ TicketsDetailPage_User As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue73.SelectedItems
+                    Update: |
+                        =DataCardValue73.SelectedItems
                     Visible: |-
                         =If(
                             IsBlank(DataCardValue74),
