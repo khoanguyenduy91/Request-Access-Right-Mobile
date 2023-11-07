@@ -1220,7 +1220,6 @@ TicketsDetailPage_User As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
-                        FontWeight: =FontWeight.Bold
                         Height: =70
                         IsSearchable: =false
                         Items: |
