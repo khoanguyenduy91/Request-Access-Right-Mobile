@@ -2174,36 +2174,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "HomePage.Container1.Container3.Container4.'Group,Tickets Approval'.Container41.TextBox2_10.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "HomePage.Container1.Container3.Container4.'Group,Tickets Approval'.Container41.TextBox2_10.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "HomePage",
-                "type": "HomePage.Container1.Container3.Container4.'Group,Tickets Approval'.Container41.TextBox2_10"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "HomePage.Container1.Container3.Container4.'Group,Tickets Approval'.Container41.TextBox2_10.TabIndex"
                 }
               ],
@@ -2228,6 +2198,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "HomePage.Container1.Container3.Container4.'Group,Tickets Approval'.Container41.TextBox2_10.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "HomePage.Container1.Container3.Container4.'Group,Tickets Approval'.Container41.TextBox2_10.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "HomePage",
+                "type": "HomePage.Container1.Container3.Container4.'Group,Tickets Approval'.Container41.TextBox2_10"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
         },
         {
           "locations": [

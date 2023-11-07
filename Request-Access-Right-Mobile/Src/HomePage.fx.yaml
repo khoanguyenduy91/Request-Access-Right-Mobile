@@ -370,9 +370,24 @@ HomePage As screen:
                                         HODPage,
                                         ScreenTransition.Fade
                                     ),
-                                    Navigate(
-                                        ApprovalPage,
-                                        ScreenTransition.Fade
+                                    If(
+                                        !IsBlank(
+                                            LookUp(
+                                                CollectionReqProcess,
+                                                User().Email in Concat(
+                                                    'Incharge Person',
+                                                    Email & ";"
+                                                )
+                                            )
+                                        ),
+                                        Navigate(
+                                            InchargePage,
+                                            ScreenTransition.Fade
+                                        ),
+                                        Navigate(
+                                            ApprovalPage,
+                                            ScreenTransition.Fade
+                                        )
                                     )
                                 )
                             PressedBorderColor: =TextBox2_10.BorderColor
@@ -455,9 +470,24 @@ HomePage As screen:
                                         HODPage,
                                         ScreenTransition.Fade
                                     ),
-                                    Navigate(
-                                        ApprovalPage,
-                                        ScreenTransition.Fade
+                                    If(
+                                        !IsBlank(
+                                            LookUp(
+                                                CollectionReqProcess,
+                                                User().Email in Concat(
+                                                    'Incharge Person',
+                                                    Email & ";"
+                                                )
+                                            )
+                                        ),
+                                        Navigate(
+                                            InchargePage,
+                                            ScreenTransition.Fade
+                                        ),
+                                        Navigate(
+                                            ApprovalPage,
+                                            ScreenTransition.Fade
+                                        )
                                     )
                                 )
                             PaddingBottom: =0
