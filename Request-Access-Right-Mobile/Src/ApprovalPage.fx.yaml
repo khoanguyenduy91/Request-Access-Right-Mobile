@@ -360,7 +360,7 @@ ApprovalPage As screen:
 
                     Heading1_1 As label:
                         Color: =RGBA(40, 40, 40, 1)
-                        FillPortions: =1.5
+                        FillPortions: =1.2
                         FocusedBorderColor: =Heading1_1.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_1.BorderColor
@@ -405,7 +405,8 @@ ApprovalPage As screen:
                         PressedColor: =Heading1_3.Color
                         PressedFill: =Heading1_3.Fill
                         Size: =16
-                        Text: =ThisItem.Created
+                        Text: |-
+                            =Text(DateTimeValue(ThisItem.Created), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =80
                         Wrap: =false
                         X: =(Parent.X) + 415

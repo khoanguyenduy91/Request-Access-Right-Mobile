@@ -232,7 +232,8 @@ TicketsDetailPage_Incharge As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey26_5.Y + DataCardKey26_5.Height + 5
@@ -528,7 +529,8 @@ TicketsDetailPage_Incharge As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey30_2.Y + DataCardKey30_2.Height + 5
@@ -701,7 +703,8 @@ TicketsDetailPage_Incharge As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey32_2.Y + DataCardKey32_2.Height + 5
@@ -826,7 +829,8 @@ TicketsDetailPage_Incharge As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey34_2.Y + DataCardKey34_2.Height + 5
@@ -951,7 +955,8 @@ TicketsDetailPage_Incharge As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey36_2.Y + DataCardKey36_2.Height + 5
@@ -1076,7 +1081,8 @@ TicketsDetailPage_Incharge As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey38_2.Y + DataCardKey38_2.Height + 5

@@ -263,7 +263,7 @@ History_request_HOD As screen:
 
                         Heading1_8 As label:
                             Color: =RGBA(40, 40, 40, 1)
-                            FillPortions: =1.5
+                            FillPortions: =1.2
                             FocusedBorderColor: =Heading1_8.BorderColor
                             Height: =50
                             HoverBorderColor: =Heading1_8.BorderColor
@@ -308,7 +308,8 @@ History_request_HOD As screen:
                             PressedColor: =Heading1_9.Color
                             PressedFill: =Heading1_9.Fill
                             Size: =16
-                            Text: =ThisItem.Created
+                            Text: |-
+                                =Text(DateTimeValue(ThisItem.Created), "dd/mm/yyyy hh:mm AM/PM")
                             Width: =217
                             Wrap: =false
                             X: =262

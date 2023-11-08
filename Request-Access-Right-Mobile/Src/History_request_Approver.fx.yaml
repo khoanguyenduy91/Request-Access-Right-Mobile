@@ -289,7 +289,7 @@ History_request_Approver As screen:
 
                         Heading1_6 As label:
                             Color: =RGBA(40, 40, 40, 1)
-                            FillPortions: =1.5
+                            FillPortions: =1.2
                             FocusedBorderColor: =Heading1_6.BorderColor
                             Height: =50
                             HoverBorderColor: =Heading1_6.BorderColor
@@ -334,7 +334,8 @@ History_request_Approver As screen:
                             PressedColor: =Heading1_7.Color
                             PressedFill: =Heading1_7.Fill
                             Size: =16
-                            Text: =ThisItem.Created
+                            Text: |-
+                                =Text(DateTimeValue(ThisItem.Created), "dd/mm/yyyy hh:mm AM/PM")
                             Width: =217
                             Wrap: =false
                             X: =262

@@ -231,7 +231,8 @@ TicketsDetail_History_HOD As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey26_4.Y + DataCardKey26_4.Height + 5
@@ -527,7 +528,8 @@ TicketsDetail_History_HOD As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey41_1.Y + DataCardKey41_1.Height + 5
@@ -700,7 +702,8 @@ TicketsDetail_History_HOD As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey43_1.Y + DataCardKey43_1.Height + 5
@@ -825,7 +828,8 @@ TicketsDetail_History_HOD As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey45_1.Y + DataCardKey45_1.Height + 5
@@ -950,7 +954,8 @@ TicketsDetail_History_HOD As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey47_1.Y + DataCardKey47_1.Height + 5
@@ -1075,7 +1080,8 @@ TicketsDetail_History_HOD As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey49_1.Y + DataCardKey49_1.Height + 5
@@ -1243,7 +1249,8 @@ TicketsDetail_History_HOD As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey71.Y + DataCardKey71.Height + 5

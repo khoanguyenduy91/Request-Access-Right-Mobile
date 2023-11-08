@@ -332,7 +332,8 @@ TicketPage As screen:
                             PressedColor: =Heading1_2.Color
                             PressedFill: =Heading1_2.Fill
                             Size: =16
-                            Text: =ThisItem.Created
+                            Text: |-
+                                =Text(DateTimeValue(ThisItem.Created), "dd/mm/yyyy hh:mm AM/PM")
                             Width: =217
                             Wrap: =false
                             X: =262

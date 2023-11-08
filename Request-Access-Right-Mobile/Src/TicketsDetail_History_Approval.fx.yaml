@@ -230,7 +230,8 @@ TicketsDetail_History_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey26_3.Y + DataCardKey26_3.Height + 5
@@ -526,7 +527,8 @@ TicketsDetail_History_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey30_1.Y + DataCardKey30_1.Height + 5
@@ -699,7 +701,8 @@ TicketsDetail_History_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey32_1.Y + DataCardKey32_1.Height + 5
@@ -824,7 +827,8 @@ TicketsDetail_History_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey34_1.Y + DataCardKey34_1.Height + 5
@@ -949,7 +953,8 @@ TicketsDetail_History_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey36_1.Y + DataCardKey36_1.Height + 5
@@ -1074,7 +1079,8 @@ TicketsDetail_History_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey38_1.Y + DataCardKey38_1.Height + 5
@@ -1242,7 +1248,8 @@ TicketsDetail_History_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.Default
+                        Text: |-
+                            =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey68.Y + DataCardKey68.Height + 5

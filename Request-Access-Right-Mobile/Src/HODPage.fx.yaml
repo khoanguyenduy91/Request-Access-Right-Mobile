@@ -308,7 +308,7 @@ HODPage As screen:
 
                     Heading1_5 As label:
                         Color: =RGBA(40, 40, 40, 1)
-                        FillPortions: =1.5
+                        FillPortions: =1.2
                         FocusedBorderColor: =Heading1_5.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_5.BorderColor
@@ -353,7 +353,8 @@ HODPage As screen:
                         PressedColor: =Heading1_4.Color
                         PressedFill: =Heading1_4.Fill
                         Size: =16
-                        Text: =ThisItem.Created
+                        Text: |-
+                            =Text(DateTimeValue(ThisItem.Created), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =204
                         Wrap: =false
                         X: =381

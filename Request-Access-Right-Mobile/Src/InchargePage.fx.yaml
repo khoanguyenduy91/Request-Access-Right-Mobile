@@ -313,7 +313,7 @@ InchargePage As screen:
 
                     Heading1_15 As label:
                         Color: =RGBA(40, 40, 40, 1)
-                        FillPortions: =1.5
+                        FillPortions: =1.2
                         FocusedBorderColor: =Heading1_15.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_15.BorderColor
@@ -358,7 +358,8 @@ InchargePage As screen:
                         PressedColor: =Heading1_16.Color
                         PressedFill: =Heading1_16.Fill
                         Size: =16
-                        Text: =ThisItem.Created
+                        Text: |-
+                            =Text(DateTimeValue(ThisItem.Created), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =80
                         Wrap: =false
                         X: =(Parent.X) + 415
