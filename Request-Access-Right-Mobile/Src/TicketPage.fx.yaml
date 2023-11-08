@@ -91,7 +91,15 @@ TicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Request page"
+                Text: |-
+                    =//"Request page"
+                    Text(
+                        (DatePicker1.SelectedDate),
+                        "dd/mm/yyyy"
+                    ) = Text(
+                        DateTimeValue(TicketsGallery.Selected.Created),
+                        "dd/mm/yyyy"
+                    )
                 Width: =560
                 ZIndex: =2
 
@@ -336,7 +344,13 @@ TicketPage As screen:
                                 "Rejected",
                                 CollectRequestRejected
                             ),
-                            Text_search.Text in Title || Text_search.Text in ReqType.Value || Created = DatePicker1.SelectedDate
+                            Text_search.Text in Title || Text_search.Text in ReqType.Value || Text(
+                                DateTimeValue(Created),
+                                "dd/mm/yyyy"
+                            ) = Text(
+                                (DatePicker1.SelectedDate),
+                                "dd/mm/yyyy"
+                            )
                         ),
                         Created,
                         SortOrder.Descending
@@ -523,7 +537,9 @@ TicketPage As screen:
                                     PressedColor: =Heading1_2.Color
                                     PressedFill: =Heading1_2.Fill
                                     Size: =16
-                                    Text: =ThisItem.Created
+                                    Text: |-
+                                        =//Text(DateTimeValue(ThisItem.Created), "dd/mm/yyyy hh:mm AM/PM")
+                                        Text(DateTimeValue(ThisItem.Created), "dd/mm/yyyy")
                                     Width: =217
                                     Wrap: =false
                                     X: =262
@@ -1053,199 +1069,13 @@ TicketPage As screen:
                     ZIndex: =2
 
     DatePicker1 As datepicker:
+        DateTimeZone: =Text(DateTimeZone.Local,"dd/mm/yyyy")
+        DefaultDate: =
+        Format: = "dd/mm/yyyy"
         Height: =70
         Visible: =VisibleSearchDate
         Width: =575
         X: =48
         Y: =264
         ZIndex: =3
-
-    Dialog_search_date As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Light
-        Height: =Parent.Height
-        PaddingBottom: =0.00
-        PaddingLeft: =0.00
-        PaddingRight: =0.00
-        PaddingTop: =0.00
-        Visible: =false
-        Width: =Parent.Width
-        ZIndex: =4
-
-        Container13_9 As groupContainer.verticalAutoLayoutContainer:
-            DropShadow: =DropShadow.Light
-            Fill: =RGBA(0, 0, 0, 0.46)
-            Height: =Parent.Height
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutMode: =LayoutMode.Auto
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
-            Width: =Parent.Width
-            ZIndex: =1
-
-            Container42_7 As groupContainer.verticalAutoLayoutContainer:
-                DropShadow: =DropShadow.Light
-                Height: =Parent.Height
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutJustifyContent: =LayoutJustifyContent.Center
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
-                Width: =Parent.Width
-                ZIndex: =5
-
-                Container42_3 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.Center
-                    BorderColor: =RGBA(0, 18, 107, 1)
-                    DropShadow: =DropShadow.Light
-                    FillPortions: =0
-                    Height: =450
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutJustifyContent: =LayoutJustifyContent.Center
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =600
-                    ZIndex: =1
-
-                    Container8 As groupContainer.horizontalAutoLayoutContainer:
-                        Fill: =RGBA(255, 255, 255, 1)
-                        FillPortions: =0
-                        Height: =70
-                        LayoutMinHeight: =80
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        ZIndex: =1
-
-                        Label1_18 As label:
-                            Align: =Align.Center
-                            Fill: =RGBA(255, 255, 255, 1)
-                            FillPortions: =1
-                            FontWeight: =FontWeight.Semibold
-                            Height: =70
-                            LayoutMinHeight: =70
-                            LayoutMinWidth: =200
-                            Size: =25
-                            Text: ="Confirm Clear"
-                            Width: =Parent.Width
-                            ZIndex: =1
-
-                        Icon4 As icon.Cancel:
-                            AlignInContainer: =AlignInContainer.Center
-                            Color: =RGBA(0, 0, 0, 1)
-                            Fill: =RGBA(255, 255, 255, 1)
-                            Height: =40
-                            Icon: =Icon.Cancel
-                            Width: =40
-                            ZIndex: =2
-
-                    TextInput1_7 As text:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 18, 107, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: ="Are you sure you want to reset the data you've entered?"
-                        DisabledBorderColor: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(0, 0, 0, 1)
-                        DisabledFill: =RGBA(0, 0, 0, 1)
-                        DisplayMode: =DisplayMode.View
-                        FocusedBorderThickness: =Self.BorderThickness
-                        FontWeight: =FontWeight.Semibold
-                        Height: =250
-                        HintText: =""
-                        HoverBorderColor: =RGBA(0, 18, 107, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(186, 202, 226, 1)
-                        Mode: =TextMode.MultiLine
-                        PaddingLeft: =5
-                        PaddingTop: =50
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =25
-                        Width: =Parent.Width
-                        X: =418
-                        Y: =238
-                        ZIndex: =3
-
-                    Container28_7 As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 18, 107, 1)
-                        Fill: =RGBA(255, 255, 255, 1)
-                        FillPortions: =0
-                        Height: |
-                            =100
-                        LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutGap: =10
-                        LayoutJustifyContent: =LayoutJustifyContent.Center
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        PaddingLeft: =10
-                        PaddingRight: =10
-                        RadiusBottomRight: =2
-                        RadiusTopLeft: =2
-                        Width: =Parent.Width
-                        ZIndex: =4
-
-                        Button_OK_15 As button:
-                            BorderThickness: =0
-                            Color: =RGBA(255, 255, 255, 1)
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Fill: =RGBA(255, 0, 0, 1)
-                            FillPortions: =1
-                            Height: =70
-                            HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
-                            OnSelect: =
-                            PaddingBottom: =5.00
-                            PaddingLeft: =5.00
-                            RadiusBottomLeft: =5
-                            RadiusBottomRight: =5
-                            RadiusTopLeft: =5
-                            RadiusTopRight: =5
-                            Size: =20
-                            Text: ="Clear"
-                            Width: =180
-                            X: =62
-                            Y: =195
-                            ZIndex: =1
-
-                        Button_Cancel_17 As button:
-                            BorderThickness: =0
-                            Color: =RGBA(255, 255, 255, 1)
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Fill: =RGBA(56, 96, 178, 1)
-                            FillPortions: =1
-                            Height: =70
-                            HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            OnSelect: |-
-                                =Set(
-                                    Dialogclearedit,
-                                    false
-                                )
-                            PaddingBottom: =5.00
-                            PaddingLeft: =5.00
-                            RadiusBottomLeft: =5
-                            RadiusBottomRight: =5
-                            RadiusTopLeft: =5
-                            RadiusTopRight: =5
-                            Size: =20
-                            Text: ="Cancel"
-                            Width: =180
-                            X: =184
-                            Y: =195
-                            ZIndex: =2
 
