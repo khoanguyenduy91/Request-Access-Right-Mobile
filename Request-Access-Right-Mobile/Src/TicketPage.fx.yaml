@@ -1,10 +1,7 @@
 TicketPage As screen:
     Fill: =RGBA(255, 255, 255, 1)
     OnHidden: |-
-        =Set(
-            visibleticketpage,
-            false
-        );
+        =UpdateContext({visibleticketpage:false});
         UpdateContext({displaymenu: false});
         Reset(Text_search)
     OnVisible: |-
@@ -41,7 +38,8 @@ TicketPage As screen:
                 visibleCheckbox1,
                 false
             )
-        )
+        );
+        Set(VisibleSearchDate,false)
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(214, 221, 224, 1)
@@ -91,15 +89,9 @@ TicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: |-
+                Text: |
                     =//"Request page"
-                    Text(
-                        (DatePicker1.SelectedDate),
-                        "dd/mm/yyyy"
-                    ) = Text(
-                        DateTimeValue(TicketsGallery.Selected.Created),
-                        "dd/mm/yyyy"
-                    )
+                    CountRows(TicketsGallery.AllItems)
                 Width: =560
                 ZIndex: =2
 
@@ -233,6 +225,7 @@ TicketPage As screen:
                     HoverFill: =
                     LayoutMinHeight: =70
                     LayoutMinWidth: =400
+                    OnChange: =
                     Size: =21
                     Width: =Parent.Width-60
                     ZIndex: =2
@@ -253,7 +246,7 @@ TicketPage As screen:
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
                     Icon: =Icon.CalendarBlank
-                    OnSelect: =Set(VisibleSearchDate,true)
+                    OnSelect: =Set(VisibleSearchDate,!VisibleSearchDate)
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
                     ZIndex: =4
@@ -329,31 +322,54 @@ TicketPage As screen:
                 HoverBorderColor: =TicketsGallery.BorderColor
                 HoverFill: =TicketsGallery.Fill
                 Items: |-
-                    =Sort(
-                        Filter(
-                            Switch(
-                                type,
-                                "All",
-                                CollectRequestAll,
-                                "New",
-                                CollectRequestNew,
-                                "In progress",
-                                CollectRequestProcess,
-                                "Closed",
-                                CollectRequestClosed,
-                                "Rejected",
-                                CollectRequestRejected
+                    =If(
+                        VisibleSearchDate = true,
+                        Sort(
+                            Filter(
+                                Switch(
+                                    type,
+                                    "All",
+                                    CollectRequestAll,
+                                    "New",
+                                    CollectRequestNew,
+                                    "In progress",
+                                    CollectRequestProcess,
+                                    "Closed",
+                                    CollectRequestClosed,
+                                    "Rejected",
+                                    CollectRequestRejected
+                                ),
+                                Text_search.Text in Title && Text(
+                                    (DatePicker1.SelectedDate),
+                                    "dd/mm/yyyy"
+                                ) = Text(
+                                    DateTimeValue(Created),
+                                    "dd/mm/yyyy"
+                                )
                             ),
-                            Text_search.Text in Title || Text_search.Text in ReqType.Value || Text(
-                                DateTimeValue(Created),
-                                "dd/mm/yyyy"
-                            ) = Text(
-                                (DatePicker1.SelectedDate),
-                                "dd/mm/yyyy"
-                            )
+                            Created,
+                            SortOrder.Descending
                         ),
-                        Created,
-                        SortOrder.Descending
+                        Sort(
+                            Filter(
+                                Switch(
+                                    type,
+                                    "All",
+                                    CollectRequestAll,
+                                    "New",
+                                    CollectRequestNew,
+                                    "In progress",
+                                    CollectRequestProcess,
+                                    "Closed",
+                                    CollectRequestClosed,
+                                    "Rejected",
+                                    CollectRequestRejected
+                                ),
+                                Text_search.Text in Title
+                            ),
+                            Created,
+                            SortOrder.Descending
+                        )
                     )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =100
@@ -1071,11 +1087,31 @@ TicketPage As screen:
     DatePicker1 As datepicker:
         DateTimeZone: =Text(DateTimeZone.Local,"dd/mm/yyyy")
         DefaultDate: =
+        EndYear: =2024
         Format: = "dd/mm/yyyy"
         Height: =70
+        OnChange: |-
+            =//If(TicketsGallery.AllItemsCount>0,UpdateContext({visibleticketpage: false }),UpdateContext({visibleticketpage: true });UpdateContext({visibleCheckbox: false }));
+            
+            If(
+                TicketsGallery.AllItemsCount > 0,
+                Set(
+                    visibleticketpage,
+                    false
+                ),
+                Set(
+                    visibleticketpage,
+                    true
+                );
+                Set(
+                    visibleCheckbox,
+                    false
+                )
+            )
+        StartYear: =2023
         Visible: =VisibleSearchDate
         Width: =575
-        X: =48
-        Y: =264
+        X: =32
+        Y: =562
         ZIndex: =3
 
