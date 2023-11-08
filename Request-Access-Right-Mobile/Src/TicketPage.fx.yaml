@@ -346,7 +346,7 @@ TicketPage As screen:
                                     "Rejected",
                                     CollectRequestRejected
                                 ),
-                                Text_search.Text in Title && Text(
+                                (Text_search.Text in Title || Text_search.Text in ReqType.Value )&& Text(
                                     (DatePicker1.SelectedDate),
                                     "dd/mm/yyyy"
                                 ) = Text(
@@ -372,7 +372,7 @@ TicketPage As screen:
                                     "Rejected",
                                     CollectRequestRejected
                                 ),
-                                Text_search.Text in Title
+                                (Text_search.Text in Title || Text_search.Text in ReqType.Value ) 
                             ),
                             Created,
                             SortOrder.Descending
