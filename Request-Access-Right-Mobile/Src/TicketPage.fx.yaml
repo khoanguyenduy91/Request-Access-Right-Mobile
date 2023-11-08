@@ -230,7 +230,7 @@ TicketPage As screen:
                     HintText: ="Search"
                     HoverFill: =
                     LayoutMinHeight: =70
-                    LayoutMinWidth: =400
+                    LayoutMinWidth: =300
                     OnChange: |
                         =
                     Size: =21
@@ -257,6 +257,39 @@ TicketPage As screen:
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
                     ZIndex: =4
+
+                Icon4 As icon.Export:
+                    Height: =50
+                    Icon: =Icon.Export
+                    OnSelect: |-
+                        =ForAll(
+                            TicketsGallery.AllItems,
+                            Collect(
+                                colAllitem,
+                                {
+                                    Title: ThisRecord.Title,
+                                    Created: Text(
+                                        ThisRecord.Created,
+                                        "dd/mm/yy"
+                                    ),
+                                    'Created By': ThisRecord.'Created By'.Email,
+                                    Status: ThisRecord.Status.Value
+                                }
+                            )
+                        );
+                        Set(
+                            varLinkDocument,
+                            ExportExcel.Run(
+                                JSON(
+                                    colAllitem,
+                                    JSONFormat.IncludeBinaryData & JSONFormat.IgnoreUnsupportedTypes
+                                )
+                            ).varlink
+                        );
+                        Launch(varLinkDocument);
+                        Clear(colAllitem)
+                    Width: =50
+                    ZIndex: =5
 
             Container2_19 As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
