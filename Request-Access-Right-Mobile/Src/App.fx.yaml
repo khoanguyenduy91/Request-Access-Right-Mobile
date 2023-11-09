@@ -83,7 +83,7 @@ App As appinfo:
                 CollectRequestAll,
                 Filter(
                     CollectionRequestTest,
-                    'Created By'.Email = User().Email
+                    'Created By'.Email = User().Email && isDelete = false
                 )
             ),
             ClearCollect(

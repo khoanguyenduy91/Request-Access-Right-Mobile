@@ -119,7 +119,15 @@
             Height: =70
             LayoutMinHeight: =70
             LayoutMinWidth: =280
-            OnTimerEnd: =Navigate(HomePage)
+            OnTimerEnd: |
+                =Navigate(HomePage);
+                ClearCollect(
+                    CollectRequestAll,
+                    Filter(
+                        CollectRequestAll,
+                        'Created By'.Email = User().Email && isDelete = false
+                    )
+                );
             Visible: =false
             Width: =280
             ZIndex: =5
