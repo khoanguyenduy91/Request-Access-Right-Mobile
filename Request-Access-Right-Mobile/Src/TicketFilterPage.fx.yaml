@@ -104,7 +104,8 @@ TicketFilterPage As screen:
                     LayoutMinHeight: =70
                     LayoutMinWidth: =280
                     OnSelect: |-
-                        =Navigate(
+                        =Set(onResetDate,true);Set(checksort,false);Set(VisibleSearchDate,false);Reset(DatePicker1);
+                        Navigate(
                             TicketPage,
                             ScreenTransition.Fade,
                             {type: "All"}
