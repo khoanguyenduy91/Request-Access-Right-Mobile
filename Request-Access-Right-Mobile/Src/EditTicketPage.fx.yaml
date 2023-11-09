@@ -795,7 +795,7 @@ EditTicketPage As screen:
                         If(
                             Editticket.Status.Value = "Rejected",
                             Notify(
-                                "The request has been reject, please refresh the data!",
+                                "The request has been rejected, please refresh the data!",
                                 NotificationType.Error,
                                 3000
                             ),
