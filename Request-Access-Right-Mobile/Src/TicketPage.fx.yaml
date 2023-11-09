@@ -69,24 +69,7 @@ TicketPage As screen:
                     =Navigate(
                         HomePage,
                         ScreenTransition.Fade
-                    );
-                    Set(
-                        ResetDatepicker,
-                        true
-                    );
-                    Set(
-                        onResetDate,
-                        true
-                    );
-                    Set(
-                        checksort,
-                        false
-                    );
-                    Set(
-                        VisibleSearchDate,
-                        false
-                    );
-                    Reset(DatePicker1);
+                    )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
