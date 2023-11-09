@@ -119,7 +119,7 @@
             Height: =70
             LayoutMinHeight: =70
             LayoutMinWidth: =280
-            OnTimerEnd: |
+            OnTimerEnd: |-
                 =Navigate(HomePage);
                 ClearCollect(
                     CollectRequestAll,
@@ -128,6 +128,20 @@
                         'Created By'.Email = User().Email && isDelete = false
                     )
                 );
+                ClearCollect(
+                    CollectRequestNew,
+                    Filter(
+                        CollectionRequestTest,
+                        Status.Value = "Created" && 'Created By'.Email = User().Email && isDelete = false
+                    )
+                );
+                ClearCollect(
+                    CollectionReqProcess,
+                    Filter(
+                        CollectionRequestTest,
+                        (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved" || Status.Value = "Done") && 'Created By'.Email = User().Email && isDelete = false
+                    )
+                )
             Visible: =false
             Width: =280
             ZIndex: =5
