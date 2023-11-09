@@ -188,6 +188,8 @@ TicketPage As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =320
                 LoadingSpinnerColor: =TicketsGallery.BorderColor
+                OnSelect: |-
+                    =Navigate(TicketsDetailPage_User,ScreenTransition.Fade,{accountVal:ThisItem})
                 PressedBorderColor: =TicketsGallery.BorderColor
                 PressedFill: =TicketsGallery.Fill
                 ShowScrollbar: =false
@@ -564,8 +566,7 @@ TicketPage As screen:
                                     Icon: =Icon.ChevronRight
                                     LayoutMinHeight: =60
                                     LayoutMinWidth: =40
-                                    OnSelect: |-
-                                        =Navigate(TicketsDetailPage_User,ScreenTransition.Fade,{recordItem:ThisItem})
+                                    OnSelect: =Navigate(TicketsDetailPage_User,ScreenTransition.Fade)
                                     PaddingBottom: =35
                                     PaddingLeft: =35
                                     PaddingRight: =35

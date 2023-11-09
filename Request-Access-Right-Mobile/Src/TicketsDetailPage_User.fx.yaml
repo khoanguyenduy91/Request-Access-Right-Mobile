@@ -117,7 +117,7 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Item: |-
-                    =//recordItem
+                    =//accountVal
                     TicketsGallery.Selected
                     //CollectionTicketGallery
                 LayoutMinHeight: =250
@@ -1280,7 +1280,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ApprovedDate4")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue74.Text),false,true)
                     Width: =640
@@ -1305,8 +1305,8 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue74 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -1325,7 +1325,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePersonComment")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =150
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue75.Text),false,true)
                     Width: =640
@@ -1350,8 +1350,8 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue75 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =97
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
