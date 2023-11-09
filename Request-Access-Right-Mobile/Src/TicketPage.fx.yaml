@@ -2,6 +2,7 @@ TicketPage As screen:
     Fill: =RGBA(255, 255, 255, 1)
     OnHidden: |-
         =UpdateContext({displaymenu: false});
+        Set(VisibleSearchDate,false);
         Reset(Text_search)
     OnVisible: |-
         =If(
@@ -58,7 +59,8 @@ TicketPage As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: |-
-                    =Navigate(
+                    =Set(ResetDatepicker,true);
+                    Navigate(
                         HomePage,
                         ScreenTransition.Fade
                     )
@@ -196,8 +198,7 @@ TicketPage As screen:
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
                     Icon: =Icon.Search
-                    OnSelect: |-
-                        =Navigate(TicketFilterPage,ScreenTransition.None,{type:type})
+                    OnSelect: =If(TicketsGallery.AllItemsCount=0,
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
                     ZIndex: =1
@@ -212,8 +213,7 @@ TicketPage As screen:
                     HoverFill: =
                     LayoutMinHeight: =70
                     LayoutMinWidth: =300
-                    OnChange: |
-                        =
+                    OnChange: =
                     Size: =21
                     Width: =Parent.Width-60
                     ZIndex: =2
@@ -234,7 +234,9 @@ TicketPage As screen:
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
                     Icon: =Icon.CalendarBlank
-                    OnSelect: =Set(VisibleSearchDate,!VisibleSearchDate)
+                    OnSelect: |-
+                        =//Set(VisibleSearchDate,!VisibleSearchDate)
+                        Set(VisibleSearchDate,true)
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
                     ZIndex: =4
@@ -327,54 +329,31 @@ TicketPage As screen:
                 HoverBorderColor: =TicketsGallery.BorderColor
                 HoverFill: =TicketsGallery.Fill
                 Items: |-
-                    =If(
-                        VisibleSearchDate = false,
-                        Sort(
-                            Filter(
-                                Switch(
-                                    type,
-                                    "All",
-                                    CollectRequestAll,
-                                    "New",
-                                    CollectRequestNew,
-                                    "In progress",
-                                    CollectRequestProcess,
-                                    "Closed",
-                                    CollectRequestClosed,
-                                    "Rejected",
-                                    CollectRequestRejected
-                                ),
-                                (Text_search.Text in Title || Text_search.Text in ReqType.Value)
+                    =Sort(
+                        Filter(
+                            Switch(
+                                type,
+                                "All",
+                                CollectRequestAll,
+                                "New",
+                                CollectRequestNew,
+                                "In progress",
+                                CollectRequestProcess,
+                                "Closed",
+                                CollectRequestClosed,
+                                "Rejected",
+                                CollectRequestRejected
                             ),
-                            Created,
-                            SortOrder.Descending
+                            (Text_search.Text in Title || Text_search.Text in ReqType.Value) && Text(
+                                (DatePicker1.SelectedDate),
+                                "dd/mm/yyyy"
+                            ) = Text(
+                                DateTimeValue(Created),
+                                "dd/mm/yyyy"
+                            )
                         ),
-                        Sort(
-                            Filter(
-                                Switch(
-                                    type,
-                                    "All",
-                                    CollectRequestAll,
-                                    "New",
-                                    CollectRequestNew,
-                                    "In progress",
-                                    CollectRequestProcess,
-                                    "Closed",
-                                    CollectRequestClosed,
-                                    "Rejected",
-                                    CollectRequestRejected
-                                ),
-                                (Text_search.Text in Title || Text_search.Text in ReqType.Value) && Text(
-                                    (DatePicker1.SelectedDate),
-                                    "dd/mm/yyyy"
-                                ) = Text(
-                                    DateTimeValue(Created),
-                                    "dd/mm/yyyy"
-                                )
-                            ),
-                            Created,
-                            SortOrder.Descending
-                        )
+                        Created,
+                        SortOrder.Descending
                     )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =100
@@ -1094,7 +1073,8 @@ TicketPage As screen:
         EndYear: =2024
         Format: = "dd/mm/yyyy"
         Height: =70
-        OnChange: =
+        OnChange: =Set(ResetDatepicker,false);Set(VisibleSearchDate,false)
+        Reset: =ResetDatepicker
         StartYear: =2023
         Visible: =VisibleSearchDate
         Width: =575
@@ -1111,11 +1091,8 @@ TicketPage As screen:
         Size: =21
         Text: ="No requests found"
         Visible: |-
-            =If(
-                TicketsGallery.AllItemsCount = 0,
-                true,
-                false
-            )
+            =//If(TicketsGallery.AllItemsCount=0, true , false )
+            visibleticketpage
         Width: =Parent.Width
         X: =Parent.Width/2-Self.Width/2
         Y: =Parent.Height/4.9-Self.Height/2
