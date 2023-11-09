@@ -85,8 +85,8 @@ InchargePage As screen:
                         ClearCollect(
                             CollectRequestIncharge,
                             Filter(
-                                CollectionRequestTest,
-                                Status.Value = "Done" && User().Email in 'Incharge Person'.Email
+                                CollectionRequestTest, 
+                                Status.Value = "Done" && User().Email in 'Incharge Person'.Email && isDelete = false
                             )
                         ),
                         ClearCollect(

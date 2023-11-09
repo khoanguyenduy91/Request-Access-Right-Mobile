@@ -92,9 +92,8 @@ TicketsDetailPage_User As screen:
                 LayoutMinHeight: =50
                 OnSelect: =Set(Dialogdelete,true)
                 PressedColor: =ColorFade(Self.Color,90%)
-                Visible: |-
-                    =//If(DataCardValue16.Selected.Value="Created", true , false )
-                    false
+                Visible: |
+                    =If(DataCardValue16.Selected.Value="Created", true , false )
                 Width: =50
                 ZIndex: =4
 

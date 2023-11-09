@@ -118,28 +118,28 @@ App As appinfo:
                 CollectRequestApprover1,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                    Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
                 )
             ),
             ClearCollect(
                 CollectRequestApprover2,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Approver 1 approved"
+                    Status.Value = "Approver 1 approved" && isDelete = false
                 )
             ),
             ClearCollect(
                 CollectRequestApprover3,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2" && isDelete = false
                 )
             ),
             ClearCollect(
                 CollectRequestHOD,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Created" && HOD.Email = User().Email
+                    Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
                 )
             ),
             ClearCollect(
@@ -149,14 +149,14 @@ App As appinfo:
                     Status.Value = "Done" && User().Email in Concat(
                         'Incharge Person',
                         Email & ";"
-                    )
+                    ) && isDelete = false
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Approver1,
                 Filter(
                     CollectionRequestTest,
-                    User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank() 
                 )
             ),
             ClearCollect(
@@ -170,7 +170,7 @@ App As appinfo:
                 CollecRequestHistory_Approver3,
                 Filter(
                     CollectionRequestTest,
-                    User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank() 
                 )
             ),
             ClearCollect(
