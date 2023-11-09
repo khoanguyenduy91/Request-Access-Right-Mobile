@@ -792,10 +792,18 @@ EditTicketPage As screen:
                             ButtonModeEdit,
                             false
                         ),
-                        Notify(
-                            "The request has been modified, please refresh the data!",
-                            NotificationType.Error,
-                            3000
+                        If(
+                            Editticket.Status.Value = "Rejected",
+                            Notify(
+                                "The request has been reject, please refresh the data!",
+                                NotificationType.Error,
+                                3000
+                            ),
+                            Notify(
+                                "The request has been approved, please refresh the data!",
+                                NotificationType.Error,
+                                3000
+                            )
                         )
                     )
                 RadiusBottomLeft: =5
