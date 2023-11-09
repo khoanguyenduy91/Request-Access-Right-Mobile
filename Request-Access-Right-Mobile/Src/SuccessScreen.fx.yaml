@@ -120,7 +120,7 @@
             LayoutMinHeight: =70
             LayoutMinWidth: =280
             OnTimerEnd: |-
-                =Navigate(HomePage);
+                =Refresh(SP_REQUEST);
                 Concurrent(
                     ClearCollect(
                         CollectRequestAll,
@@ -143,7 +143,8 @@
                             (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved" || Status.Value = "Done") && 'Created By'.Email = User().Email && isDelete = false
                         )
                     )
-                )
+                );
+                Navigate(HomePage)
             Visible: =false
             Width: =280
             ZIndex: =5
