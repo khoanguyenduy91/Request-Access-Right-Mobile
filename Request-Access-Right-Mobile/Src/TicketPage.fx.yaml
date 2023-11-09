@@ -773,11 +773,17 @@ TicketPage As screen:
                                         TypeNewRequest: "CopyRequest"
                                     }
                                 );
-                                '[SubFlow]Copy_Attachment_new'.Run(
-                                    TicketsGallery.Selected.ID,
-                                    Last(SP_REQUEST).ID
+                                Set(
+                                    IDcopyTicket,
+                                    '[SubFlow]Copy_Attachment_new'.Run(
+                                        TicketsGallery.Selected.ID,
+                                        Last(SP_REQUEST).ID
+                                    )
                                 );
-                                Set(Dialogcopy1,false);
+                                Set(
+                                    Dialogcopy1,
+                                    false
+                                );
                                 Navigate(
                                     SuccessScreen_copy,
                                     ScreenTransition.Fade
