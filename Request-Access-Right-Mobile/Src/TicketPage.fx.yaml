@@ -476,7 +476,9 @@ TicketPage As screen:
                         Container31_3 As groupContainer.verticalAutoLayoutContainer:
                             BorderColor: =RGBA(255, 0, 0, 1)
                             Height: =223.0699504854464
+                            LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutDirection: =LayoutDirection.Vertical
+                            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                             LayoutMinHeight: =112
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
@@ -485,6 +487,7 @@ TicketPage As screen:
                             ZIndex: =2
 
                             Container32 As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
                                 FillPortions: =0
                                 Height: =50
                                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -552,8 +555,11 @@ TicketPage As screen:
                                     ZIndex: =2
 
                             Container33 As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
                                 Height: =225
+                                LayoutAlignItems: =LayoutAlignItems.Stretch
                                 LayoutDirection: =LayoutDirection.Vertical
+                                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                                 LayoutMinHeight: =112
                                 LayoutMinWidth: =250
                                 LayoutMode: =LayoutMode.Auto
@@ -561,8 +567,10 @@ TicketPage As screen:
                                 ZIndex: =2
 
                                 Container34 As groupContainer.horizontalAutoLayoutContainer:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
                                     Height: =225
-                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                                     LayoutMinHeight: =112
                                     LayoutMinWidth: =250
                                     LayoutMode: =LayoutMode.Auto
@@ -746,7 +754,7 @@ TicketPage As screen:
                                                 ZIndex: =2
 
                                     Container52 As groupContainer.verticalAutoLayoutContainer:
-                                        AlignInContainer: =AlignInContainer.Center
+                                        AlignInContainer: =AlignInContainer.SetByContainer
                                         FillPortions: =0
                                         Height: =Parent.Height
                                         LayoutAlignItems: =LayoutAlignItems.Center
