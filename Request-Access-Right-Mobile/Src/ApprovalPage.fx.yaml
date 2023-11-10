@@ -351,8 +351,8 @@ ApprovalPage As screen:
                         PressedFill: =Heading1_1.Fill
                         Size: =16
                         Text: |-
-                            ="Created by: " & ThisItem.'Created By'.DisplayName
-                        Width: =386
+                            ="ID: " & ThisItem.ID
+                        Width: =100
                         Wrap: =false
                         X: =Parent.X
                         Y: =8.881784197001252E-16
@@ -361,6 +361,7 @@ ApprovalPage As screen:
                     Heading1_3 As label:
                         Align: =TextPosition.Right
                         Color: =RGBA(40, 40, 40, 1)
+                        FillPortions: =1
                         FocusedBorderColor: =Heading1_3.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_3.BorderColor

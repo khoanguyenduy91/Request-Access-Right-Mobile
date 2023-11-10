@@ -282,7 +282,6 @@ HODPage As screen:
 
                     Heading1_5 As label:
                         Color: =RGBA(40, 40, 40, 1)
-                        FillPortions: =1
                         FocusedBorderColor: =Heading1_5.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_5.BorderColor
@@ -300,8 +299,8 @@ HODPage As screen:
                         PressedFill: =Heading1_5.Fill
                         Size: =16
                         Text: |-
-                            ="Created by: "& ThisItem.'Created By'.DisplayName
-                        Width: =386
+                            ="ID: "& ThisItem.ID
+                        Width: =100
                         Wrap: =false
                         X: =34
                         Y: =3
@@ -310,6 +309,7 @@ HODPage As screen:
                     Heading1_4 As label:
                         Align: =TextPosition.Right
                         Color: =RGBA(40, 40, 40, 1)
+                        FillPortions: =1
                         FocusedBorderColor: =Heading1_4.BorderColor
                         Height: =Parent.Height
                         HoverBorderColor: =Heading1_4.BorderColor

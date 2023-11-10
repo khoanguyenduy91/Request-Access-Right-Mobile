@@ -3,14 +3,22 @@ TicketPage As screen:
     OnHidden: |-
         =UpdateContext({displaymenu: false});
         Set(
+            visibleCheckbox,
+            false
+        );
+        Reset(Text_search);
+        Set(
             VisibleSearchDate,
             false
         );
         Set(
-            visibleCheckbox,
-            false
+            ResetDatepicker,
+            true
         );
-        Reset(Text_search)
+        Set(
+            checksort,
+            false
+        )
     OnVisible: |-
         =If(
             type = "New",
@@ -32,7 +40,7 @@ TicketPage As screen:
             )
         );
         Set(
-            VisibleSearchDate,
+            onResetDate,
             false
         )
 
@@ -486,7 +494,6 @@ TicketPage As screen:
 
                                 Heading1 As label:
                                     Color: =RGBA(40, 40, 40, 1)
-                                    FillPortions: =1
                                     FocusedBorderColor: =Heading1.BorderColor
                                     Height: =50
                                     HoverBorderColor: =Heading1.BorderColor
@@ -504,8 +511,8 @@ TicketPage As screen:
                                     PressedFill: =Heading1.Fill
                                     Size: =16
                                     Text: |-
-                                        ="Created by: "& ThisItem.'Created By'.DisplayName
-                                    Width: =217
+                                        ="ID: "& ThisItem.ID
+                                    Width: =100
                                     Wrap: =false
                                     X: =19
                                     Y: =8.881784197001252E-16

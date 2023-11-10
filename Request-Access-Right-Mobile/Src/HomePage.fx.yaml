@@ -4,24 +4,7 @@ HomePage As screen:
         =Set(
             autoRefresh,
             true
-        );
-        Set(
-            ResetDatepicker,
-            true
-        );
-        Set(
-            onResetDate,
-            false
-        );
-        Set(
-            checksort,
-            false
-        );
-        Set(
-            VisibleSearchDate,
-            false
-        );
-        Reset(DatePicker1);
+        )
     Orientation: =If(HomePage.Width < HomePage.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= HomePage.Width)
     Width: =Max(App.Width, App.DesignWidth)
