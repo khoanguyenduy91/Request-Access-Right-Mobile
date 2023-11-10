@@ -299,6 +299,7 @@ TicketPage As screen:
 
             TicketsGallery As gallery.textualGalleryVertical:
                 AccessibleLabel: ="Tickets Gallery"
+                AlignInContainer: =AlignInContainer.Center
                 BorderColor: =RGBA(255, 255, 255, 1)
                 BorderThickness: =1
                 DisabledBorderColor: =TicketsGallery.BorderColor
@@ -1157,7 +1158,7 @@ TicketPage As screen:
         ZIndex: =5
 
         DatePicker1 As datepicker:
-            AlignInContainer: =AlignInContainer.Stretch
+            AlignInContainer: =AlignInContainer.Center
             BorderColor: =RGBA(39, 113, 194, 1)
             Color: =RGBA(0, 0, 0, 1)
             DateTimeZone: =Text(DateTimeZone.Local,"dd/mm/yyyy")
