@@ -202,7 +202,8 @@ App As appinfo:
             )
         )
     StartScreen: |-
-        =If(
+        =//Switch(Param("screenname");"requestdetail";TicketsDetailPage_User;"ticketpage";TicketPage;"ticketfilter";///TicketFilterPage;HomePage)
+        If(
             !IsBlank(Param("ID")) && !IsBlank(
                 LookUp(
                     SP_REQUEST,
