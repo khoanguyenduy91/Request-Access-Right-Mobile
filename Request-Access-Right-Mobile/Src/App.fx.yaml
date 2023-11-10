@@ -192,13 +192,26 @@ App As appinfo:
             )
         );
         If(
-            Not(IsBlank(Param("recordId"))),
+            Not(IsBlank(Param("ID"))),
             Set(
                 varRecord,
-                Param("recordId")
+                LookUp(
+                    SP_REQUEST,
+                    ID = Value(Param("ID"))
+                )
             )
         )
-    StartScreen: =
+    StartScreen: |-
+        =If(
+            !IsBlank(Param("ID")) && !IsBlank(
+                LookUp(
+                    SP_REQUEST,
+                    ID = Value(Param("ID"))
+                )
+            ),
+            TicketsDetailPage_User,
+            TicketPage
+        )
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
