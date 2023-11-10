@@ -1158,7 +1158,6 @@ TicketPage As screen:
         ZIndex: =5
 
         DatePicker1 As datepicker:
-            AlignInContainer: =AlignInContainer.Center
             BorderColor: =RGBA(39, 113, 194, 1)
             Color: =RGBA(0, 0, 0, 1)
             DateTimeZone: =Text(DateTimeZone.Local,"dd/mm/yyyy")
@@ -1194,7 +1193,7 @@ TicketPage As screen:
             Reset: =ResetDatepicker
             StartYear: =2023
             Width: =575
-            ZIndex: =1
+            ZIndex: =2
 
         Button1 As button:
             BorderThickness: =1
