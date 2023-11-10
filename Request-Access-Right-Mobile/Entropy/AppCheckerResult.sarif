@@ -10604,6 +10604,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.varMode"
+                }
+              ],
+              "properties": {
+                "member": "varMode",
+                "module": "App",
+                "type": "App"
+              },
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varMode",
+                  "relativeAddress": 0
+                }
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.varRecord"
                 }
               ],

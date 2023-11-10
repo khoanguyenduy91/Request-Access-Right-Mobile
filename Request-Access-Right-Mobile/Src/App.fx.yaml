@@ -199,6 +199,10 @@ App As appinfo:
                     SP_REQUEST,
                     ID = Value(Param("ID"))
                 )
+            ),
+            Set(
+                varMode,
+                FormMode.View
             )
         )
     StartScreen: |-
@@ -210,7 +214,7 @@ App As appinfo:
                     ID = Value(Param("ID"))
                 )
             ),
-            TicketsDetailPage_User,
+            TicketsDetailPage_Approval,
             TicketPage
         )
     Theme: =PowerAppsTheme
