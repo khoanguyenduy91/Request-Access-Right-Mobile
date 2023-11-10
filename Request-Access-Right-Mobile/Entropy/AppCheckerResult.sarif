@@ -10604,66 +10604,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.varMode"
-                }
-              ],
-              "properties": {
-                "member": "varMode",
-                "module": "App",
-                "type": "App"
-              },
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varMode",
-                  "relativeAddress": 0
-                }
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varRecord"
-                }
-              ],
-              "properties": {
-                "member": "varRecord",
-                "module": "App",
-                "type": "App"
-              },
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varRecord",
-                  "relativeAddress": 0
-                }
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.OnStart"
                 }
               ],
@@ -10687,7 +10627,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 4
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -10717,7 +10657,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 4
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -10747,7 +10687,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 4
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -10777,67 +10717,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TicketsDetailPage_User.accountVal"
-                }
-              ],
-              "properties": {
-                "member": "accountVal",
-                "module": "TicketsDetailPage_User",
-                "type": "TicketsDetailPage_User"
-              },
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TicketsDetailPage_User.accountVal",
-                  "relativeAddress": 0
-                }
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
           "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TicketsDetailPage_User.Container10.Container37.FormDetail_user.Item"
-                }
-              ],
-              "properties": {
-                "member": "Item",
-                "module": "TicketsDetailPage_User",
-                "type": "TicketsDetailPage_User.Container10.Container37.FormDetail_user"
-              },
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TicketsDetailPage_User.Container10.Container37.FormDetail_user.Item",
-                  "relativeAddress": 0
-                }
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 5
         },
         {
           "locations": [
@@ -10867,7 +10747,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 5
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -10897,7 +10777,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 5
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -10927,7 +10807,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 5
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -10957,7 +10837,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 5
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -10987,7 +10867,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 5
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -11017,7 +10897,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 5
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -11047,7 +10927,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 5
+          "ruleIndex": 4
         }
       ],
       "tool": {
@@ -11104,23 +10984,6 @@
                 "level": "Medium",
                 "primaryCategory": "accessibility",
                 "whyFix": "If the focus isn't visible, people who don't use a mouse won't be able to see it when they're interacting with the app."
-              }
-            },
-            {
-              "id": "app-UnusedVariables",
-              "messageStrings": {
-                "issue": {
-                  "text": "Biến không được sử dụng"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Loại bỏ biến không được sử dụng."
-                ],
-                "level": "Medium",
-                "primaryCategory": "performance",
-                "whyFix": "Biến này được công bố nhưng không được tham chiếu bởi bất kỳ điều khiển nào, vì vậy không cần biến này."
               }
             },
             {

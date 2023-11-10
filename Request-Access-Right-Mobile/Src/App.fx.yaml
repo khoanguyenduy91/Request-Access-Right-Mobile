@@ -192,31 +192,37 @@ App As appinfo:
             )
         );
         If(
-            Not(IsBlank(Param("ID"))),
+            !IsBlank(Param("ID")),
             Set(
-                varRecord,
+                varItem,
                 LookUp(
                     SP_REQUEST,
                     ID = Value(Param("ID"))
                 )
             ),
-            Set(
-                varMode,
-                FormMode.View
-            )
+            FormDetail_user
         )
     StartScreen: |-
-        =//Switch(Param("screenname");"requestdetail";TicketsDetailPage_User;"ticketpage";TicketPage;"ticketfilter";///TicketFilterPage;HomePage)
-        If(
-            !IsBlank(Param("ID")) && !IsBlank(
-                LookUp(
-                    SP_REQUEST,
-                    ID = Value(Param("ID"))
-                )
-            ),
-            TicketsDetailPage_Approval,
+        =Switch(
+            Param("screenname"),
+            "requestdetail",
+            TicketsDetailPage_User,
+            "ticketpage",
+            TicketPage,
+            "ticketfilter",
+            TicketFilterPage,
             HomePage
         )
+        //If(
+        //    !IsBlank(Param("ID")) && !IsBlank(
+        //        LookUp(
+        //            SP_REQUEST;
+        //            ID = Value(Param("ID"))
+        //        )
+        //    );
+        //    TicketsDetailPage_Approval;
+        //    HomePage
+        //)
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
