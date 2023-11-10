@@ -1,0 +1,17 @@
+"Screen1 As screen.'printableLayout_A4Landscape_ver1.0'":
+    Fill: =Switch(Slider1.Value,1,Color.White,2,Color.Blue,3,Color.Green,4,Color.Violet,5,Color.Orange)
+    Height: =794
+    Width: =1123
+
+    Slider1 As Slider:
+        DisplayMode: =DisplayMode.Edit
+        Height: =59
+        Max: =5
+        Min: =1
+        Size: ='Slider.Size'.Medium
+        Value: =1
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =1
+
