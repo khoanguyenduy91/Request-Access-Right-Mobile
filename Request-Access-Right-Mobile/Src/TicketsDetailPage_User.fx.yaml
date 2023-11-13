@@ -324,6 +324,7 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue22 As label:
+                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0
@@ -773,7 +774,7 @@ TicketsDetailPage_User As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue4.Selected
-                    Visible: =If(IsBlank(DataCardValue4.SelectedItems),false,true)
+                    Visible: =If(IsBlank(DataCardValue14),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -899,7 +900,7 @@ TicketsDetailPage_User As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue15.Selected
-                    Visible: =If(IsBlank(DataCardValue15.SelectedItems),false,true)
+                    Visible: =If(IsBlank(DataCardValue17),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1470,6 +1471,7 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue13 As label:
+                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0
@@ -1568,7 +1570,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Status")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =If(IsBlank(Label8),100,200)
                     Required: =false
                     Update: =DataCardValue16.Selected
                     Width: =Parent.Width
@@ -1683,6 +1685,54 @@ TicketsDetailPage_User As screen:
                         Wrap: =false
                         Y: =DataCardKey17.Y
                         ZIndex: =4
+
+                    Label8 As label:
+                        Height: =70
+                        PaddingLeft: =0
+                        Size: =21
+                        Text: |-
+                            =If(
+                                Office365Users.MyProfile().Department = "DTS",
+                                Switch(
+                                    ThisItem.Status.Value,
+                                    "Created",
+                                    "Waiting for: " & ThisItem.'Approver 1'.DisplayName,
+                                    "Approver 1 approved",
+                                    "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
+                                    "Approver 2 approved",
+                                    "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
+                                    "Done",
+                                    "Waiting for: " & Concat(
+                                        ThisItem.'Incharge Person',
+                                        DisplayName,
+                                        " ; "
+                                    ),
+                                    ""
+                                ),
+                                Switch(
+                                    ThisItem.Status.Value,
+                                    "Created",
+                                    "Waiting for: " & ThisItem.HOD.DisplayName,
+                                    "HOD approved",
+                                    "Waiting for: " & ThisItem.'Approver 1'.DisplayName,
+                                    "Approver 1 approved",
+                                    "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
+                                    "Approver 2 approved",
+                                    "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
+                                    "Done",
+                                    "Waiting for: " & Concat(
+                                        ThisItem.'Incharge Person',
+                                        DisplayName,
+                                        " ; "
+                                    ),
+                                    ""
+                                )
+                            )
+                        Visible: =If(IsBlank(Label8),false,true)
+                        Width: =Parent.Width-60
+                        X: =30
+                        Y: =130
+                        ZIndex: =5
 
         Container11_4 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
