@@ -615,7 +615,7 @@ ApprovalPage As screen:
                             HoverColor: =ColorFade(icon8_1.Color, 20%)
                             HoverFill: =icon8_1.Fill
                             Icon: =Icon.ChevronRight
-                            OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                            OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                             PressedBorderColor: =ColorFade(icon8_1.BorderColor, -20%)
                             PressedColor: =ColorFade(icon8_1.Color, -20%)
                             PressedFill: =icon8_1.Fill
