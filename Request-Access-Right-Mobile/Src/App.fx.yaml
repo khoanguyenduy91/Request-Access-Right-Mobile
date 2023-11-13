@@ -208,11 +208,40 @@ App As appinfo:
             "requestdetail",
             TicketsDetailPage_User,
             "requestapproval",
-            TicketsDetailPage_Approval,
+            If(
+                !IsBlank(
+                    LookUp(
+                        SP_LEVELAPPROVER,
+                        IdUser.Email = User().Email && Level.Value = "Approver 1" || IdUser.Email = User().Email && Level.Value = "Approver 2" || IdUser.Email = User().Email && Level.Value = "Approver 3"
+                    )
+                ),
+                TicketsDetailPage_Approval,
+                HomePage
+            ),
             "requestHOD",
-            TicketsDetailPage_HOD,
+            If(
+                Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                    Office365Users.MyProfile().JobTitle,
+                    "Head of",
+                    MatchOptions.Contains
+                ),
+                TicketsDetailPage_HOD,
+                HomePage
+            ),
             "requestIncharge",
-            TicketsDetailPage_Incharge,
+            If(
+                !IsBlank(
+                    LookUp(
+                        SP_REQUESTPROCESS,
+                        User().Email in Concat(
+                            'Incharge Person',
+                            Email & ";"
+                        )
+                    )
+                ),
+                TicketsDetailPage_Incharge,
+                HomePage
+            ),
             HomePage
         )
         //If(
