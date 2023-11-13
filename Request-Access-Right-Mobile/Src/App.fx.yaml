@@ -207,10 +207,12 @@ App As appinfo:
             Param("screenname"),
             "requestdetail",
             TicketsDetailPage_User,
-            "ticketpage",
-            TicketPage,
-            "ticketfilter",
-            TicketFilterPage,
+            "requestapproval",
+            TicketsDetailPage_Approval,
+            "requestHOD",
+            TicketsDetailPage_HOD,
+            "requestIncharge",
+            TicketsDetailPage_Incharge,
             HomePage
         )
         //If(
