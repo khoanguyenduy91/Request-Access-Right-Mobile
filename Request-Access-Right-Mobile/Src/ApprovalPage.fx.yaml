@@ -341,7 +341,7 @@ ApprovalPage As screen:
                         HoverFill: =Heading1_10.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -368,7 +368,7 @@ ApprovalPage As screen:
                         HoverFill: =Heading1_1.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -396,7 +396,7 @@ ApprovalPage As screen:
                         HoverFill: =Heading1_3.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -515,7 +515,7 @@ ApprovalPage As screen:
                                     HoverFill: =Subtitle1_10.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =50
-                                    OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                                    OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0
@@ -585,7 +585,7 @@ ApprovalPage As screen:
                                     HoverFill: =Subtitle1_3.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
+                                    OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Approval,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0
