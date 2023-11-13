@@ -2,7 +2,7 @@ SuccessScreen_Incharge As screen:
     OnHidden: =Set(VisibleSuccess4,false);
     OnVisible: |-
         =Set(
-            VisibleSuccess4,
+            VisibleSuccess5,
             true
         );
         Refresh(SP_REQUEST);
