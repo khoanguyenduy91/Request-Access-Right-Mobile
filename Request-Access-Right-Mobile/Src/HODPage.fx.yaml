@@ -289,7 +289,7 @@ HODPage As screen:
                         HoverFill: =Heading1_11.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =200
-                        OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -316,7 +316,7 @@ HODPage As screen:
                         HoverFill: =Heading1_5.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =200
-                        OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -344,7 +344,7 @@ HODPage As screen:
                         HoverFill: =Heading1_4.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -398,7 +398,7 @@ HODPage As screen:
                                 HoverFill: =Subtitle1_9.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                                OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -425,7 +425,7 @@ HODPage As screen:
                                 HoverFill: =Subtitle1_4.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                                OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -460,7 +460,7 @@ HODPage As screen:
                                     HoverFill: =Subtitle1_11.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =560
-                                    OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                                    OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =10
                                     PaddingRight: =0
@@ -530,7 +530,7 @@ HODPage As screen:
                                     HoverFill: =Subtitle1_5.Fill
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =200
-                                    OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                                    OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                                     PaddingBottom: =0
                                     PaddingLeft: =0
                                     PaddingRight: =0
@@ -560,7 +560,7 @@ HODPage As screen:
                             HoverColor: =ColorFade(icon8_2.Color, 20%)
                             HoverFill: =icon8_2.Fill
                             Icon: =Icon.ChevronRight
-                            OnSelect: =Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
+                            OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_HOD,ScreenTransition.Fade)
                             PressedBorderColor: =ColorFade(icon8_2.BorderColor, -20%)
                             PressedColor: =ColorFade(icon8_2.Color, -20%)
                             PressedFill: =icon8_2.Fill
