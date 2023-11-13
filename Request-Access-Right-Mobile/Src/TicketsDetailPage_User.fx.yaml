@@ -92,8 +92,12 @@ TicketsDetailPage_User As screen:
                 LayoutMinHeight: =50
                 OnSelect: =Set(Dialogdelete,true)
                 PressedColor: =ColorFade(Self.Color,90%)
-                Visible: |
-                    =If(DataCardValue16.Selected.Value="Created", true , false )
+                Visible: |-
+                    =If(
+                        DataCardValue16.Selected.Value = "Created",
+                        true,
+                        false
+                    )
                 Width: =50
                 ZIndex: =4
 
@@ -113,8 +117,8 @@ TicketsDetailPage_User As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Item: |-
-                    =//accountVal
-                    TicketsGallery.Selected
+                    =varItem
+                    //TicketsGallery.Selected
                     //CollectionTicketGallery
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
@@ -320,7 +324,6 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue22 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0
@@ -1347,7 +1350,6 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue75 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =97
                         PaddingLeft: =0
@@ -1468,7 +1470,6 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue13 As label:
-                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0

@@ -96,7 +96,8 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "46f8a16e-87d7-4322-9120-f586541ca456"
+      "46f8a16e-87d7-4322-9120-f586541ca456",
+      "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc"
     ],
     "id": "561eed9b-f844-4091-9e91-cf3f3c5fe3c4"
   },
@@ -274,7 +275,8 @@
     "dependents": [
       "97b26606-4c29-4c29-82c2-1f1a69a270a0",
       "46f8a16e-87d7-4322-9120-f586541ca456",
-      "a747395e-95e8-4440-b77b-dba36e779b5d"
+      "a747395e-95e8-4440-b77b-dba36e779b5d",
+      "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc"
     ],
     "id": "a965592d-aebd-42f7-bd1b-ab864595125d"
   },
@@ -305,5 +307,50 @@
       "46f8a16e-87d7-4322-9120-f586541ca456"
     ],
     "id": "dc6c076d-5391-474f-b343-47633c59ce30"
+  },
+  "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "561eed9b-f844-4091-9e91-cf3f3c5fe3c4": {
+          "value": "shared_office365"
+        },
+        "a965592d-aebd-42f7-bd1b-ab864595125d": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "946fe273-737f-ee11-8179-000d3a808ed2"
+        },
+        "workflowName": {
+          "value": "ca9970ff-74ac-96c7-9a1a-7c219e46b380"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "561eed9b-f844-4091-9e91-cf3f3c5fe3c4"
+        },
+        "shared_sharepointonline": {
+          "value": "a965592d-aebd-42f7-bd1b-ab864595125d"
+        },
+        "workflowEntityId": {
+          "value": "946fe273-737f-ee11-8179-000d3a808ed2"
+        },
+        "workflowName": {
+          "value": "ca9970ff-74ac-96c7-9a1a-7c219e46b380"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Getrequestdetailpage"
+    ],
+    "dependencies": {
+      "shared_office365": "561eed9b-f844-4091-9e91-cf3f3c5fe3c4",
+      "shared_sharepointonline": "a965592d-aebd-42f7-bd1b-ab864595125d"
+    },
+    "dependents": [],
+    "id": "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc"
   }
 }

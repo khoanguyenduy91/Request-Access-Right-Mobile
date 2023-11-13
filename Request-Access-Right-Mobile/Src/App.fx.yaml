@@ -118,28 +118,28 @@ App As appinfo:
                 CollectRequestApprover1,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
+                    Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
                 )
             ),
             ClearCollect(
                 CollectRequestApprover2,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Approver 1 approved" && isDelete = false
+                    Status.Value = "Approver 1 approved"
                 )
             ),
             ClearCollect(
                 CollectRequestApprover3,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2" && isDelete = false
+                    Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
                 )
             ),
             ClearCollect(
                 CollectRequestHOD,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
+                    Status.Value = "Created" && HOD.Email = User().Email
                 )
             ),
             ClearCollect(
@@ -149,14 +149,14 @@ App As appinfo:
                     Status.Value = "Done" && User().Email in Concat(
                         'Incharge Person',
                         Email & ";"
-                    ) && isDelete = false
+                    )
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Approver1,
                 Filter(
                     CollectionRequestTest,
-                    User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank() 
+                    User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
             ),
             ClearCollect(
@@ -170,7 +170,7 @@ App As appinfo:
                 CollecRequestHistory_Approver3,
                 Filter(
                     CollectionRequestTest,
-                    User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank() 
+                    User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
             ),
             ClearCollect(
@@ -192,13 +192,68 @@ App As appinfo:
             )
         );
         If(
-            Not(IsBlank(Param("recordId"))),
+            !IsBlank(Param("ID")),
             Set(
-                varRecord,
-                Param("recordId")
-            )
+                varItem,
+                LookUp(
+                    SP_REQUEST,
+                    ID = Value(Param("ID"))
+                )
+            ),
+            FormDetail_approval
         )
-    StartScreen: =
+    StartScreen: |-
+        =Switch(
+            Param("screenname"),
+            "requestdetail",
+            TicketsDetailPage_User,
+            "requestapproval",
+            If(
+                !IsBlank(
+                    LookUp(
+                        SP_LEVELAPPROVER,
+                        IdUser.Email = User().Email && Level.Value = "Approver 1" || IdUser.Email = User().Email && Level.Value = "Approver 2" || IdUser.Email = User().Email && Level.Value = "Approver 3"
+                    )
+                ),
+                TicketsDetailPage_Approval,
+                HomePage
+            ),
+            "requestHOD",
+            If(
+                Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                    Office365Users.MyProfile().JobTitle,
+                    "Head of",
+                    MatchOptions.Contains
+                ),
+                TicketsDetailPage_HOD,
+                HomePage
+            ),
+            "requestIncharge",
+            If(
+                !IsBlank(
+                    LookUp(
+                        SP_REQUESTPROCESS,
+                        User().Email in Concat(
+                            'Incharge Person',
+                            Email & ";"
+                        )
+                    )
+                ),
+                TicketsDetailPage_Incharge,
+                HomePage
+            ),
+            HomePage
+        )
+        //If(
+        //    !IsBlank(Param("ID")) && !IsBlank(
+        //        LookUp(
+        //            SP_REQUEST;
+        //            ID = Value(Param("ID"))
+        //        )
+        //    );
+        //    TicketsDetailPage_Approval;
+        //    HomePage
+        //)
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
