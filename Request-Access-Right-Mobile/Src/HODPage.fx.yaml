@@ -78,14 +78,14 @@ HODPage As screen:
                             CollectRequestHOD,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Created" && HOD.Email = User().Email
+                                Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollecRequestHistory_HOD,
                             Filter(
                                 SP_REQUEST,
-                                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                                User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank() 
                             )
                         )
                     )
