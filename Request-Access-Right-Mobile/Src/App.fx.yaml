@@ -200,7 +200,7 @@ App As appinfo:
                     ID = Value(Param("ID"))
                 )
             ),
-            FormDetail_user
+            FormDetail_approval
         )
     StartScreen: |-
         =Switch(
