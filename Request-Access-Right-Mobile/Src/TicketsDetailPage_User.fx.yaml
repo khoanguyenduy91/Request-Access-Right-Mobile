@@ -1351,6 +1351,7 @@ TicketsDetailPage_User As screen:
                         ZIndex: =1
 
                     DataCardValue75 As label:
+                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =97
                         PaddingLeft: =0
