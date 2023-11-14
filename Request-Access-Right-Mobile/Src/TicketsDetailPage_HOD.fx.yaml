@@ -1503,7 +1503,7 @@ TicketsDetailPage_HOD As screen:
                             SP_REQUEST,
                             LookUp(
                                 SP_REQUEST,
-                                ID = TicketsGallery_HOD.Selected.ID
+                                ID = varItem.ID
                             ),
                             {Status: {Value: "HOD approved"}},
                             {'HOD Approved Date': Now()}

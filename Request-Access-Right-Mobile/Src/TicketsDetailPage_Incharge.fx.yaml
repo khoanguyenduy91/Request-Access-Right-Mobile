@@ -1676,7 +1676,7 @@ TicketsDetailPage_Incharge As screen:
                                             SP_REQUEST,
                                             LookUp(
                                                 SP_REQUEST,
-                                                ID = TicketsGallery_incharge.Selected.ID
+                                                ID = varItem.ID
                                             ),
                                             {Status: {Value: "Closed"}},
                                             {'Incharge Person Approved Date': Now()},
