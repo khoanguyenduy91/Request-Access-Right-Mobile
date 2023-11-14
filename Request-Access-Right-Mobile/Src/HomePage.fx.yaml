@@ -332,7 +332,8 @@ HomePage As screen:
                     Height: =150
                     LayoutMinHeight: =150
                     LayoutMinWidth: =100
-                    Visible: =visiblecountticketApprover
+                    Visible: |
+                        =visiblecountticketApprover
                     Width: =Parent.Width
                     X: =340
                     Y: =113
@@ -498,7 +499,20 @@ HomePage As screen:
                             PressedColor: =TextBox2_11.Color
                             PressedFill: =TextBox2_11.Fill
                             Size: =18
-                            Text: ="Requests Approval"
+                            Text: |-
+                                =If(
+                                    !IsBlank(
+                                        LookUp(
+                                            CollectionReqProcess,
+                                            User().Email in Concat(
+                                                'Incharge Person',
+                                                Email & ";"
+                                            )
+                                        )
+                                    ),
+                                    "Incharge Person Request",
+                                    "Requests Approval"
+                                )
                             Width: =Parent.Width
                             X: =9
                             Y: =71
