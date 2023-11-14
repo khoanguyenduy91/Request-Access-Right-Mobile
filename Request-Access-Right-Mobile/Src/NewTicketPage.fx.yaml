@@ -92,7 +92,9 @@ NewTicketPage As screen:
                     =Navigate(
                         SuccessScreen,
                         ScreenTransition.Fade
-                    )
+                    );
+                    Set(varApproval, LookUp(SP_REQUEST, ID = Form1.LastSubmit.ID));
+                    Getrequestdetailpage.Run("RequestDetail", varApproval.ID);
                 Width: =Parent.Width
                 ZIndex: =1
 
