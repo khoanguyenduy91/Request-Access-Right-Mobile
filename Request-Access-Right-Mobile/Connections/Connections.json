@@ -1,4 +1,42 @@
 {
+  "075a7537-2c3d-4828-91e1-9cf8f416d09e": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "a965592d-aebd-42f7-bd1b-ab864595125d": {
+          "value": "shared_sharepointonline_1"
+        },
+        "workflowEntityId": {
+          "value": "9c64bd23-ca68-ee11-9ae6-000d3a808875"
+        },
+        "workflowName": {
+          "value": "07267b7c-efc7-45f9-cba4-3a8afe73d62e"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline_1": {
+          "value": "a965592d-aebd-42f7-bd1b-ab864595125d"
+        },
+        "workflowEntityId": {
+          "value": "9c64bd23-ca68-ee11-9ae6-000d3a808875"
+        },
+        "workflowName": {
+          "value": "07267b7c-efc7-45f9-cba4-3a8afe73d62e"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "[SubFlow]Noti_User_Edit"
+    ],
+    "dependencies": {
+      "shared_sharepointonline_1": "a965592d-aebd-42f7-bd1b-ab864595125d"
+    },
+    "dependents": [],
+    "id": "075a7537-2c3d-4828-91e1-9cf8f416d09e"
+  },
   "2ff0eb24-3c0e-4e9e-9bd8-29c803fd0242": {
     "connectionRef": {
       "displayName": "Microsoft Teams",
@@ -27,65 +65,6 @@
     "dependents": [],
     "id": "38e06757-82fb-4679-ac8e-ca5ed276e924"
   },
-  "46f8a16e-87d7-4322-9120-f586541ca456": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "561eed9b-f844-4091-9e91-cf3f3c5fe3c4": {
-          "value": "shared_office365"
-        },
-        "99817fed-12fc-49a8-aaf9-31bad465fb2e": {
-          "value": "shared_teams"
-        },
-        "a965592d-aebd-42f7-bd1b-ab864595125d": {
-          "value": "shared_sharepointonline"
-        },
-        "dc6c076d-5391-474f-b343-47633c59ce30": {
-          "value": "shared_office365users"
-        },
-        "workflowEntityId": {
-          "value": "9c64bd23-ca68-ee11-9ae6-000d3a808875"
-        },
-        "workflowName": {
-          "value": "07267b7c-efc7-45f9-cba4-3a8afe73d62e"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_office365": {
-          "value": "561eed9b-f844-4091-9e91-cf3f3c5fe3c4"
-        },
-        "shared_office365users": {
-          "value": "dc6c076d-5391-474f-b343-47633c59ce30"
-        },
-        "shared_sharepointonline": {
-          "value": "a965592d-aebd-42f7-bd1b-ab864595125d"
-        },
-        "shared_teams": {
-          "value": "99817fed-12fc-49a8-aaf9-31bad465fb2e"
-        },
-        "workflowEntityId": {
-          "value": "9c64bd23-ca68-ee11-9ae6-000d3a808875"
-        },
-        "workflowName": {
-          "value": "07267b7c-efc7-45f9-cba4-3a8afe73d62e"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "[SubFlow]Noti_User_Edit"
-    ],
-    "dependencies": {
-      "shared_office365": "561eed9b-f844-4091-9e91-cf3f3c5fe3c4",
-      "shared_office365users": "dc6c076d-5391-474f-b343-47633c59ce30",
-      "shared_sharepointonline": "a965592d-aebd-42f7-bd1b-ab864595125d",
-      "shared_teams": "99817fed-12fc-49a8-aaf9-31bad465fb2e"
-    },
-    "dependents": [],
-    "id": "46f8a16e-87d7-4322-9120-f586541ca456"
-  },
   "561eed9b-f844-4091-9e91-cf3f3c5fe3c4": {
     "connectionRef": {
       "displayName": "Office 365 Outlook",
@@ -96,7 +75,6 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "46f8a16e-87d7-4322-9120-f586541ca456",
       "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc"
     ],
     "id": "561eed9b-f844-4091-9e91-cf3f3c5fe3c4"
@@ -152,20 +130,6 @@
     },
     "dependents": [],
     "id": "97b26606-4c29-4c29-82c2-1f1a69a270a0"
-  },
-  "99817fed-12fc-49a8-aaf9-31bad465fb2e": {
-    "connectionRef": {
-      "displayName": "Microsoft Teams",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3429/teams/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_teams"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "46f8a16e-87d7-4322-9120-f586541ca456"
-    ],
-    "id": "99817fed-12fc-49a8-aaf9-31bad465fb2e"
   },
   "a747395e-95e8-4440-b77b-dba36e779b5d": {
     "connectionRef": {
@@ -274,9 +238,9 @@
     "dependencies": {},
     "dependents": [
       "97b26606-4c29-4c29-82c2-1f1a69a270a0",
-      "46f8a16e-87d7-4322-9120-f586541ca456",
       "a747395e-95e8-4440-b77b-dba36e779b5d",
-      "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc"
+      "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc",
+      "075a7537-2c3d-4828-91e1-9cf8f416d09e"
     ],
     "id": "a965592d-aebd-42f7-bd1b-ab864595125d"
   },
@@ -293,20 +257,6 @@
       "97b26606-4c29-4c29-82c2-1f1a69a270a0"
     ],
     "id": "da9f9af3-b0fb-4083-b622-f17c386c97b1"
-  },
-  "dc6c076d-5391-474f-b343-47633c59ce30": {
-    "connectionRef": {
-      "displayName": "Office 365 Users",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1659/1.0.1659.3459/office365users/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365users"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "46f8a16e-87d7-4322-9120-f586541ca456"
-    ],
-    "id": "dc6c076d-5391-474f-b343-47633c59ce30"
   },
   "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc": {
     "connectionRef": {

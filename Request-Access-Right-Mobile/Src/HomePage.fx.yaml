@@ -68,68 +68,82 @@ HomePage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =Refresh(SP_REQUEST);
+                    ClearCollect(
+                        CollectionRequestTest,
+                        SP_REQUEST
+                    );
                     Concurrent(
                         ClearCollect(
                             CollectRequestAll,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestNew,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 Status.Value = "Created" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestProcess,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved" || Status.Value = "Done") && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestClosed,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 Status.Value = "Closed" && 'Created By'.Email = User().Email
                             )
                         ),
                         ClearCollect(
                             CollectRequestRejected,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 Status.Value = "Rejected" && 'Created By'.Email = User().Email
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover1,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                                CollectionRequestTest,
+                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover2,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Approver 1 approved"
+                                CollectionRequestTest,
+                                Status.Value = "Approver 1 approved" && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover3,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                                CollectionRequestTest,
+                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2" && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestHOD,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Created" && HOD.Email = User().Email
+                                CollectionRequestTest,
+                                Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestIncharge,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Done" && User().Email in Concat(
+                                    'Incharge Person',
+                                    Email & ";"
+                                ) && isDelete = false
                             )
                         )
                     );
@@ -751,68 +765,82 @@ HomePage As screen:
                 LayoutMinWidth: =280
                 OnTimerEnd: |-
                     =Refresh(SP_REQUEST);
+                    ClearCollect(
+                        CollectionRequestTest,
+                        SP_REQUEST
+                    );
                     Concurrent(
                         ClearCollect(
                             CollectRequestAll,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestNew,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 Status.Value = "Created" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestProcess,
                             Filter(
-                                SP_REQUEST,
-                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved"|| Status.Value = "Done") && 'Created By'.Email = User().Email && isDelete = false
+                                CollectionRequestTest,
+                                (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved" || Status.Value = "Done") && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestClosed,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 Status.Value = "Closed" && 'Created By'.Email = User().Email
                             )
                         ),
                         ClearCollect(
                             CollectRequestRejected,
                             Filter(
-                                SP_REQUEST,
+                                CollectionRequestTest,
                                 Status.Value = "Rejected" && 'Created By'.Email = User().Email
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover1,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
+                                CollectionRequestTest,
+                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover2,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Approver 1 approved"
+                                CollectionRequestTest,
+                                Status.Value = "Approver 1 approved" && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover3,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
+                                CollectionRequestTest,
+                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2" && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestHOD,
                             Filter(
-                                SP_REQUEST,
-                                Status.Value = "Created" && HOD.Email = User().Email
+                                CollectionRequestTest,
+                                Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestIncharge,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Done" && User().Email in Concat(
+                                    'Incharge Person',
+                                    Email & ";"
+                                ) && isDelete = false
                             )
                         )
                     )
