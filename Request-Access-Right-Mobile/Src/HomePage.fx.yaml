@@ -108,28 +108,28 @@ HomePage As screen:
                             CollectRequestApprover1,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
+                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover2,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Approver 1 approved" && isDelete = false
+                                Status.Value = "Approver 1 approved"
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover3,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2" && isDelete = false
+                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
                             )
                         ),
                         ClearCollect(
                             CollectRequestHOD,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
+                                Status.Value = "Created" && HOD.Email = User().Email
                             )
                         )
                     );
@@ -777,28 +777,28 @@ HomePage As screen:
                             CollectRequestApprover1,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
+                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover2,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Approver 1 approved" && isDelete = false
+                                Status.Value = "Approver 1 approved"
                             )
                         ),
                         ClearCollect(
                             CollectRequestApprover3,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2" && isDelete = false
+                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2"
                             )
                         ),
                         ClearCollect(
                             CollectRequestHOD,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
+                                Status.Value = "Created" && HOD.Email = User().Email
                             )
                         )
                     )

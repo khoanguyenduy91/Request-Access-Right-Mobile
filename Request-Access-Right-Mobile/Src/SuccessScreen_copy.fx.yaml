@@ -11,21 +11,21 @@
                 CollectRequestAll,
                 Filter(
                     SP_REQUEST,
-                    'Created By'.Email = User().Email && isDelete = false
+                    'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestNew,
                 Filter(
                     SP_REQUEST,
-                    Status.Value = "Created" && 'Created By'.Email = User().Email && isDelete = false
+                    Status.Value = "Created" && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
                 CollectRequestProcess,
                 Filter(
                     SP_REQUEST,
-                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved" || Status.Value = "Done") && 'Created By'.Email = User().Email && isDelete = false
+                    (Status.Value = "Created" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved" || Status.Value = "Done") && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
