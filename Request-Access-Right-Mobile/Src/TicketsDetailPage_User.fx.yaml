@@ -43,7 +43,19 @@ TicketsDetailPage_User As screen:
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
-                OnSelect: =Back()
+                OnSelect: |-
+                    =If(
+                        counter = true,
+                        Back(),
+                        Navigate(
+                            HomePage,
+                            ScreenTransition.Fade
+                        )
+                    );
+                    Set(
+                        counter,
+                        false
+                    )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
