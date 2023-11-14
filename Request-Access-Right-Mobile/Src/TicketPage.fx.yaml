@@ -195,8 +195,8 @@ TicketPage As screen:
                         Created,
                         If(
                             SortDescending,
-                            SortOrder.Descending,
-                            SortOrder.Ascending
+                            SortOrder.Ascending,
+                            SortOrder.Descending
                         )
                     )
                 Layout: =Layout.Vertical
