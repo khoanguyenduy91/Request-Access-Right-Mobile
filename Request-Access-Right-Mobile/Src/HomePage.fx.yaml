@@ -187,9 +187,16 @@ HomePage As screen:
             PaddingBottom: =10
             PaddingLeft: =5
             PaddingRight: =5
-            PaddingTop: =10
             Width: =Parent.Width
-            ZIndex: =2
+            ZIndex: =3
+
+            Rectangle2 As rectangle:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =25
+                ZIndex: =1
 
             Container4 As groupContainer.horizontalAutoLayoutContainer:
                 Height: =150
@@ -199,7 +206,7 @@ HomePage As screen:
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
-                ZIndex: =1
+                ZIndex: =2
 
                 "'Group, All Ticket' As groupContainer":
                     AlignInContainer: =AlignInContainer.Center
@@ -540,7 +547,7 @@ HomePage As screen:
                 LayoutMinWidth: =100
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
-                ZIndex: =2
+                ZIndex: =3
 
                 "'Group, on hold' As groupContainer":
                     AlignInContainer: =AlignInContainer.Center
@@ -848,7 +855,7 @@ HomePage As screen:
                 Repeat: =true
                 Visible: =false
                 Width: =280
-                ZIndex: =3
+                ZIndex: =4
 
         Container55 As groupContainer.verticalAutoLayoutContainer:
             Height: =225
@@ -856,7 +863,7 @@ HomePage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =7
+            ZIndex: =4
 
             Container_User As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
