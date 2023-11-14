@@ -270,6 +270,7 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =1
 
                     DataCardValue22_1 As label:
+                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0
@@ -393,6 +394,7 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =1
 
                     DataCardValue23_1 As label:
+                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0
@@ -720,7 +722,7 @@ TicketsDetailPage_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33.Selected
-                    Visible: =If(IsBlank(DataCardValue33.SelectedItems),false,true)
+                    Visible: =If(IsBlank(DataCardValue34),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -846,7 +848,7 @@ TicketsDetailPage_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35.Selected
-                    Visible: =If(IsBlank(DataCardValue35.SelectedItems),false,true)
+                    Visible: =If(IsBlank(DataCardValue36),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1240,6 +1242,7 @@ TicketsDetailPage_Approval As screen:
                         ZIndex: =1
 
                     DataCardValue13_1 As label:
+                        AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0

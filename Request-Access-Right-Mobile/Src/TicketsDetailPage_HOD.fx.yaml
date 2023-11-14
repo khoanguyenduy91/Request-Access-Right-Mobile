@@ -721,7 +721,7 @@ TicketsDetailPage_HOD As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue44.Selected
-                    Visible: =If(IsBlank(DataCardValue44.SelectedItems),false,true)
+                    Visible: =If(IsBlank(DataCardValue45),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -847,7 +847,7 @@ TicketsDetailPage_HOD As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue46.Selected
-                    Visible: =If(IsBlank(DataCardValue46.SelectedItems),false,true)
+                    Visible: =If(IsBlank(DataCardValue47),false,true)
                     Width: =640
                     X: =0
                     Y: =16

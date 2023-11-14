@@ -78,7 +78,7 @@ HODPage As screen:
                             CollectRequestHOD,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Created" && HOD.Email = User().Email
+                                Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
