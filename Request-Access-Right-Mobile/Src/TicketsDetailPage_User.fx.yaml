@@ -1927,19 +1927,44 @@ TicketsDetailPage_User As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
                             OnSelect: |-
-                                =Patch(
-                                    SP_REQUEST,
+                                =//Patch(SP_REQUEST,LookUp(SP_REQUEST,ID=TicketsGallery.Selected.ID),{isDelete: true });Set(Dialogdelete, false );Navigate(SuccessScreen)
+                                Refresh(SP_REQUEST);
+                                Set(
+                                    Deleteticket,
                                     LookUp(
                                         SP_REQUEST,
-                                        ID = TicketsGallery.Selected.ID
-                                    ),
-                                    {isDelete: true}
+                                        ThisRecord.ID = TicketsGallery.Selected.ID
+                                    )
                                 );
-                                Set(
-                                    Dialogdelete,
-                                    false
-                                );
-                                Navigate(SuccessScreen)
+                                If(
+                                    Deleteticket.Status.Value = "Created",
+                                    Patch(
+                                        SP_REQUEST,
+                                        LookUp(
+                                            SP_REQUEST,
+                                            ID = TicketsGallery.Selected.ID
+                                        ),
+                                        {isDelete: true}
+                                    );
+                                    Set(
+                                        Dialogdelete,
+                                        false
+                                    );
+                                    Navigate(SuccessScreen),
+                                    If(
+                                        Editticket.Status.Value = "Rejected",
+                                        Notify(
+                                            "The request has been rejected, please refresh the data!",
+                                            NotificationType.Error,
+                                            3000
+                                        ),
+                                        Notify(
+                                            "The request has been approved, please refresh the data!",
+                                            NotificationType.Error,
+                                            3000
+                                        )
+                                    )
+                                )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             RadiusBottomLeft: =5
