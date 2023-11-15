@@ -294,7 +294,19 @@ InchargePage As screen:
                         HoverFill: =Heading1_14.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
+                        OnSelect: |-
+                            =Set(
+                                varItem,
+                                ThisItem
+                            );
+                            Navigate(
+                                TicketsDetailPage_Incharge,
+                                ScreenTransition.Fade
+                            );
+                            Set(
+                                counter,
+                                true
+                            )
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -321,7 +333,19 @@ InchargePage As screen:
                         HoverFill: =Heading1_15.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
+                        OnSelect: |-
+                            =Set(
+                                varItem,
+                                ThisItem
+                            );
+                            Navigate(
+                                TicketsDetailPage_Incharge,
+                                ScreenTransition.Fade
+                            );
+                            Set(
+                                counter,
+                                true
+                            )
                         PaddingBottom: =0
                         PaddingLeft: =20
                         PaddingRight: =0
@@ -349,7 +373,19 @@ InchargePage As screen:
                         HoverFill: =Heading1_16.Fill
                         LayoutMinHeight: =70
                         LayoutMinWidth: =80
-                        OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
+                        OnSelect: |-
+                            =Set(
+                                varItem,
+                                ThisItem
+                            );
+                            Navigate(
+                                TicketsDetailPage_Incharge,
+                                ScreenTransition.Fade
+                            );
+                            Set(
+                                counter,
+                                true
+                            )
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -404,7 +440,19 @@ InchargePage As screen:
                                 HoverFill: =Subtitle1_20.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
+                                OnSelect: |-
+                                    =Set(
+                                        varItem,
+                                        ThisItem
+                                    );
+                                    Navigate(
+                                        TicketsDetailPage_Incharge,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        counter,
+                                        true
+                                    )
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -431,7 +479,19 @@ InchargePage As screen:
                                 HoverFill: =Subtitle1_21.Fill
                                 LayoutMinHeight: =70
                                 LayoutMinWidth: =560
-                                OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
+                                OnSelect: |-
+                                    =Set(
+                                        varItem,
+                                        ThisItem
+                                    );
+                                    Navigate(
+                                        TicketsDetailPage_Incharge,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        counter,
+                                        true
+                                    )
                                 PaddingBottom: =0
                                 PaddingLeft: =20
                                 PaddingRight: =0
@@ -468,7 +528,19 @@ InchargePage As screen:
                                     HoverFill: =Subtitle1_22.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =50
-                                    OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
+                                    OnSelect: |-
+                                        =Set(
+                                            varItem,
+                                            ThisItem
+                                        );
+                                        Navigate(
+                                            TicketsDetailPage_Incharge,
+                                            ScreenTransition.Fade
+                                        );
+                                        Set(
+                                            counter,
+                                            true
+                                        )
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0
@@ -538,7 +610,19 @@ InchargePage As screen:
                                     HoverFill: =Subtitle1_23.Fill
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =560
-                                    OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
+                                    OnSelect: |-
+                                        =Set(
+                                            varItem,
+                                            ThisItem
+                                        );
+                                        Navigate(
+                                            TicketsDetailPage_Incharge,
+                                            ScreenTransition.Fade
+                                        );
+                                        Set(
+                                            counter,
+                                            true
+                                        )
                                     PaddingBottom: =0
                                     PaddingLeft: =20
                                     PaddingRight: =0
@@ -568,7 +652,19 @@ InchargePage As screen:
                             HoverColor: =ColorFade(icon8_6.Color, 20%)
                             HoverFill: =icon8_6.Fill
                             Icon: =Icon.ChevronRight
-                            OnSelect: =Set(varItem,ThisItem);Navigate(TicketsDetailPage_Incharge,ScreenTransition.Fade)
+                            OnSelect: |-
+                                =Set(
+                                    varItem,
+                                    ThisItem
+                                );
+                                Navigate(
+                                    TicketsDetailPage_Incharge,
+                                    ScreenTransition.Fade
+                                );
+                                Set(
+                                    counter,
+                                    true
+                                )
                             PressedBorderColor: =ColorFade(icon8_6.BorderColor, -20%)
                             PressedColor: =ColorFade(icon8_6.Color, -20%)
                             PressedFill: =icon8_6.Fill
