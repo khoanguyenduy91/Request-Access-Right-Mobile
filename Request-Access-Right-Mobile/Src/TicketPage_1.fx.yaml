@@ -710,30 +710,32 @@ TicketPage_1 As screen:
                             ="<div
                                       style=
                                         'display: flex;
-                                        flex-direction: column';
+                                        flex-direction: column;
                                       >
-                                      <div style='justify-content: space-between; display: flex '>
-                                        <span>ID: 123</span>
-                                        <span>22/11/2023</span>
+                                      <div style='justify-content: space-between; display: flex'>"&
+                                      "<b>ID:</b>"&
+                                        "<span>"&ThisItem.ID&"</span>"&"
+                                        <b>Created:</b>"&"
+                                        <span>"&ThisItem.Created&"</span>
                                       </div>
                              
-                                      <div style='display: flex; justify-content: space-between' >
-                                        <div style='flex: 1, gap: 5; display: grid' >
+                                      <div style='display: flex; justify-content: space-between'>
+                                        <div style='display: flex; flex-direction: column; gap: 10px'>
+                                          <div style='display: flex; gap: 10px'>
                                             <b>Title:</b>
-                                          <span style='margin-left: 5' >
-                                            Test_Phuc_v1
-                                          </span>
-                                          <span style='display: flex; gap: 5' >
+                                            "&ThisItem.Title&"
+                                          </div>
+                                          <div style='display: flex; gap: 10px'>
                                             <b>Request Type:</b>
-                                            <span>Test_Phuc_v1 </span>
-                                          </span>
-                                          <span style='display: flex; gap: 5' >
-                                            <span>Status:</span>
-                                            <b style= 'color: green' >Done</b>
-                                          </span>
+                                            "&ThisItem.ReqType.Value&" 
+                                          </div>
+                                          <div style='display: flex; gap: 10px'>
+                                            Status:
+                                            <b style='color: green'>"&ThisItem.Status.Value&"</b>
+                                          </div>
                                         </div>
                             
-                                        <div style= 'align-items: center; display: flex; font-size: 20'>></div>
+                                        <div style='align-items: center; display: flex; font-size: 50px; color: #c0c0c0; margin-right: 10px'>></div>
                                       </div>
                                     </div>"
                         LayoutMinHeight: =70
