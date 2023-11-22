@@ -37,6 +37,44 @@
     "dependents": [],
     "id": "075a7537-2c3d-4828-91e1-9cf8f416d09e"
   },
+  "1b47030f-96f1-4108-a321-62cc03394c7d": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "a965592d-aebd-42f7-bd1b-ab864595125d": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "8c6ec989-1989-ee11-8179-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "3b7983e2-ab69-4d92-8709-94692e4a9292"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "a965592d-aebd-42f7-bd1b-ab864595125d"
+        },
+        "workflowEntityId": {
+          "value": "8c6ec989-1989-ee11-8179-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "3b7983e2-ab69-4d92-8709-94692e4a9292"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ExportExcel"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "a965592d-aebd-42f7-bd1b-ab864595125d"
+    },
+    "dependents": [],
+    "id": "1b47030f-96f1-4108-a321-62cc03394c7d"
+  },
   "38e06757-82fb-4679-ac8e-ca5ed276e924": {
     "connectionRef": {
       "displayName": "Người dùng Office 365",
@@ -203,7 +241,8 @@
     "dependents": [
       "a747395e-95e8-4440-b77b-dba36e779b5d",
       "f71fdec6-d2a6-43cd-bf81-f1e3cbc257cc",
-      "075a7537-2c3d-4828-91e1-9cf8f416d09e"
+      "075a7537-2c3d-4828-91e1-9cf8f416d09e",
+      "1b47030f-96f1-4108-a321-62cc03394c7d"
     ],
     "id": "a965592d-aebd-42f7-bd1b-ab864595125d"
   },

@@ -4,6 +4,10 @@ TicketPage As screen:
         =Set(
                 visibleticketpage,
                 false
+            );
+        Set(
+                HashTag,
+                ""
             )
     OnVisible: |-
         =If(
@@ -109,6 +113,31 @@ TicketPage As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
+                Icon1_33 As icon.Add:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(62, 96, 170, 1)
+                    Height: =50
+                    Icon: =Icon.Search
+                    OnSelect: =
+                    PressedColor: =ColorFade(Self.Color,90%)
+                    Width: =50
+                    ZIndex: =1
+
+                Text_search As text:
+                    BorderThickness: =0
+                    Default: =HashTag
+                    FillPortions: =1
+                    FocusedBorderThickness: =0
+                    Height: =70
+                    HintText: ="Search"
+                    HoverFill: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =300
+                    OnChange: =
+                    Size: =21
+                    Width: =Parent.Width-150
+                    ZIndex: =2
+
                 Icon1_4 As icon.Add:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
@@ -118,7 +147,7 @@ TicketPage As screen:
                         =Navigate(TicketFilterPage,ScreenTransition.None,{type:type})
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
-                    ZIndex: =1
+                    ZIndex: =3
 
                 Label2 As label:
                     FillPortions: =1
@@ -130,8 +159,9 @@ TicketPage As screen:
                     PressedColor: =ColorFade(Self.Color,90%)
                     Size: =24
                     Text: =type
+                    Visible: =false
                     Width: =Parent.Width
-                    ZIndex: =2
+                    ZIndex: =4
 
                 Icon1_32 As icon.Add:
                     AlignInContainer: =AlignInContainer.Stretch
@@ -142,7 +172,47 @@ TicketPage As screen:
                         =UpdateContext({SortDescending: !SortDescending})
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
-                    ZIndex: =3
+                    ZIndex: =5
+
+                Icon4_11 As icon.OptionsList:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(62, 96, 170, 1)
+                    Height: =35
+                    Icon: =Icon.Export
+                    OnSelect: |+
+                        =ForAll(
+                            TicketsGallery.AllItems,
+                            Collect(
+                                colAllitem,
+                                {
+                                    Title: ThisRecord.Title,
+                                    Created: Text(
+                                        ThisRecord.Created,
+                                        "dd/mm/yy"
+                                    ),
+                                    'Created By': ThisRecord.'Created By'.Email,
+                                    Status: ThisRecord.Status.Value
+                                }
+                            )
+                        );
+                        Set(
+                            varLinkDocument,
+                            ExportExcel.Run(
+                                JSON(
+                                    colAllitem,
+                                    JSONFormat.IncludeBinaryData & JSONFormat.IgnoreUnsupportedTypes
+                                )
+                            ).varlink
+                        );
+                        Launch(varLinkDocument);
+                        Clear(colAllitem);
+                        UpdateContext({displaymenu: false})
+                        
+                        
+                    Width: =40
+                    X: =97
+                    Y: =6
+                    ZIndex: =6
 
             Label5 As label:
                 Align: =Align.Center
@@ -172,25 +242,21 @@ TicketPage As screen:
                 HoverFill: =TicketsGallery.Fill
                 Items: |-
                     =Sort(
-                        If(
-                            type = "All",
-                            CollectRequestAll,
-                            If(
-                                type = "New",
+                        Filter(
+                            Switch(
+                                type,
+                                "All",
+                                CollectRequestAll,
+                                "New",
                                 CollectRequestNew,
-                                If(
-                                    type = "In progress",
-                                    CollectRequestProcess,
-                                    If(
-                                        type = "Closed",
-                                        CollectRequestClosed,
-                                        If(
-                                            type = "Rejected",
-                                            CollectRequestRejected
-                                        )
-                                    )
-                                )
-                            )
+                                "In progress",
+                                CollectRequestProcess,
+                                "Closed",
+                                CollectRequestClosed,
+                                "Rejected",
+                                CollectRequestRejected
+                            ),
+                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value
                         ),
                         Created,
                         If(
@@ -301,6 +367,18 @@ TicketPage As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
+                        Button1 As button:
+                            Height: =30
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =280
+                            OnSelect: =Set(HashTag,ThisItem.Title)
+                            Size: =24
+                            Text: ="Button"
+                            Width: =30
+                            X: =180
+                            Y: =712
+                            ZIndex: =1
+
                         Heading1 As label:
                             Color: =RGBA(40, 40, 40, 1)
                             FillPortions: =1
@@ -338,7 +416,7 @@ TicketPage As screen:
                             Wrap: =false
                             X: =19
                             Y: =8.881784197001252E-16
-                            ZIndex: =1
+                            ZIndex: =2
 
                         Heading1_2 As label:
                             Align: =TextPosition.Right
@@ -378,7 +456,7 @@ TicketPage As screen:
                             Wrap: =false
                             X: =262
                             Y: =3.954081632653028
-                            ZIndex: =2
+                            ZIndex: =3
 
                     Container33 As groupContainer.verticalAutoLayoutContainer:
                         Height: =225
