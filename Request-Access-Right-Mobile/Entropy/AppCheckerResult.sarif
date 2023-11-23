@@ -11064,6 +11064,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "NewTicketPage.Dialog_submit_new.Container13_12.Container42_12.Container42_13.TextInput1_10.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NewTicketPage.Dialog_submit_new.Container13_12.Container42_12.Container42_13.TextInput1_10.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "NewTicketPage",
+                "type": "NewTicketPage.Dialog_submit_new.Container13_12.Container42_12.Container42_13.TextInput1_10"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "EditTicketPage.Dialog_submit_edit.Container13_13.Container42_14.Container42_15.TextInput1_11.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "EditTicketPage.Dialog_submit_edit.Container13_13.Container42_14.Container42_15.TextInput1_11.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "EditTicketPage",
+                "type": "EditTicketPage.Dialog_submit_edit.Container13_13.Container42_14.Container42_15.TextInput1_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.visiblecountticketApprover"
                 }
               ],

@@ -1755,7 +1755,7 @@ TicketsDetailPage_User As screen:
                             )
                         Visible: |-
                             =If(
-                                IsBlank(ThisItem.'Approver 1'),
+                                IsBlank(ThisItem.'Approver 1') && IsBlank(ThisItem.'Assigned User'),
                                 false,
                                 true
                             )
