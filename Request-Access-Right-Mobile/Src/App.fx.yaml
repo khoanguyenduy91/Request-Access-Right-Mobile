@@ -153,6 +153,13 @@ App As appinfo:
                 )
             ),
             ClearCollect(
+                CollectRequestAssign,
+                Filter(
+                    CollectionRequestTest,
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true
+                )
+            ),
+            ClearCollect(
                 CollecRequestHistory_Approver1,
                 Filter(
                     CollectionRequestTest,

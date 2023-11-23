@@ -209,6 +209,11 @@ ApprovalPage As screen:
                                 CollectRequestApprover3,
                                 "Created",
                                 SortOrder.Descending
+                            ),
+                            SortByColumns(
+                                CollectRequestAssign,
+                                "Created",
+                                SortOrder.Descending
                             )
                         )
                     )

@@ -1512,6 +1512,11 @@ TicketsDetailPage_Approval As screen:
                                 SP_LEVELAPPROVER,
                                 IdUser.Email = User().Email && Level.Value = "Approver 1"
                             )
+                        ) || !IsBlank(
+                            LookUp(
+                                SP_REQUEST,
+                                User().Email = 'Assigned User'.Email
+                            )
                         ),
                         Patch(
                             SP_REQUEST,
@@ -1536,19 +1541,7 @@ TicketsDetailPage_Approval As screen:
                                     ID = varItem.ID
                                 ),
                                 {Status: {Value: "Approver 2 approved"}},
-                                {'Approved Date 2': Now()},
-                                {
-                                    'Approver 2': {
-                                        '@odata.type': User().Email,
-                                        Claims: User().Email,
-                                        Department: "",
-                                        DisplayName: User().FullName,
-                                        Email: User().Email,
-                                        JobTitle: "",
-                                        Picture: ""
-                                    }
-                                }
-                                
+                                {'Approved Date 2': Now()}
                             ),
                             If(
                                 !IsBlank(
@@ -1564,18 +1557,7 @@ TicketsDetailPage_Approval As screen:
                                         ID = varItem.ID
                                     ),
                                     {Status: {Value: "Approver 3 approved"}},
-                                    {'Approved Date 3': Now()},
-                                    {
-                                        'Approver 3': {
-                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                            Claims: "",
-                                            Department: "",
-                                            DisplayName: User().FullName,
-                                            Email: User().Email,
-                                            JobTitle: "",
-                                            Picture: ""
-                                        }
-                                    }
+                                    {'Approved Date 3': Now()}
                                 )
                             )
                         )
@@ -1626,7 +1608,7 @@ TicketsDetailPage_Approval As screen:
                 Width: =200
                 ZIndex: =2
 
-            btn_gop_y As button:
+            btn_assign As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =
                 BorderThickness: =0
@@ -1640,7 +1622,7 @@ TicketsDetailPage_Approval As screen:
                 Height: =70
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
-                OnSelect: =Set(DialogFeedback,true)
+                OnSelect: =Set(DialogAssign,true)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
                 PressedFill: =ColorFade(Self.Fill, 50%)
@@ -1649,12 +1631,12 @@ TicketsDetailPage_Approval As screen:
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
                 Size: =18
-                Text: ="Feedback"
+                Text: ="Assign"
                 Visible: |-
                     =//If(!IsBlank(LookUp(SP_LEVELAPPROVER,IdUser.Email=User().Email&&Level.Value="Approver 1")), true , false )
-                    false
+                    true
                 Width: =200
-                ZIndex: =3
+                ZIndex: =4
 
     Dialog_commentapproval As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
@@ -1777,6 +1759,11 @@ TicketsDetailPage_Approval As screen:
                                                 SP_LEVELAPPROVER,
                                                 User().Email = IdUser.Email && Level.Value = "Approver 1"
                                             )
+                                        ) || !IsBlank(
+                                            LookUp(
+                                                SP_REQUEST,
+                                                User().Email = 'Assigned User'.Email
+                                            )
                                         ),
                                         Patch(
                                             SP_REQUEST,
@@ -1792,7 +1779,7 @@ TicketsDetailPage_Approval As screen:
                                                     '@odata.type': User().Email,
                                                     Claims: User().Email,
                                                     Department: "",
-                                                    DisplayName: User().FullName,
+                                                    DisplayName: "",
                                                     Email: User().Email,
                                                     JobTitle: "",
                                                     Picture: ""
@@ -1914,14 +1901,14 @@ TicketsDetailPage_Approval As screen:
                             Y: =213
                             ZIndex: =2
 
-    Dialog_feedback As groupContainer.manualLayoutContainer:
+    Dialog_assign As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =Parent.Height
         PaddingBottom: =0.00
         PaddingLeft: =0.00
         PaddingRight: =0.00
         PaddingTop: =0.00
-        Visible: =DialogFeedback
+        Visible: =DialogAssign
         Width: =Parent.Width
         ZIndex: =3
 
@@ -1967,30 +1954,23 @@ TicketsDetailPage_Approval As screen:
                         LayoutMinHeight: =70
                         LayoutMinWidth: =560
                         Size: =30
-                        Text: ="Feedback"
+                        Text: ="Assign"
                         Width: =600
                         ZIndex: =1
 
-                    TextInput1_2 As text:
-                        BorderColor: =RGBA(0, 18, 107, 1)
-                        BorderThickness: =0
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: =""
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        FocusedBorderThickness: =Self.BorderThickness
-                        Height: =350
-                        HintText: ="Comment"
-                        HoverBorderColor: =RGBA(0, 18, 107, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(255, 255, 255, 1)
-                        Mode: =TextMode.MultiLine
-                        RadiusBottomLeft: =
-                        RadiusBottomRight: =
-                        RadiusTopLeft: =
-                        RadiusTopRight: =
-                        Size: =25
+                    ComboBox_searchName As combobox:
+                        ChevronBackground: =RGBA(56, 96, 178, 1)
+                        DisplayFields: =["Mail"]
+                        Height: =70
+                        Items: =Office365Users.SearchUser()
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =575
+                        SearchFields: =["Mail"]
+                        SearchItems: =Search(Office365Users.SearchUser(),ComboBox_searchName.SearchText,"Mail")
+                        SelectionColor: =RGBA(0, 0, 0, 1)
+                        SelectionFill: =RGBA(255, 255, 255, 1)
+                        SelectMultiple: =false
+                        Size: =20
                         Width: =600
                         ZIndex: =2
 
@@ -2024,25 +2004,40 @@ TicketsDetailPage_Approval As screen:
                             HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
                             OnSelect: |-
                                 =If(
-                                    Len(TextInput1_2.Text) = 0,
+                                    IsBlank(ComboBox_searchName),
                                     Notify(
-                                        "Please enter the feedback for the request",
+                                        "Please enter the name!",
                                         NotificationType.Error
                                     ),
-                                    '[SubFlow]Feed_back_approver1'.Run(
-                                        TicketsGallery_approval.Selected.ID,
-                                        TextInput1_2.Text
+                                    Patch(
+                                        SP_REQUEST,
+                                        LookUp(
+                                            SP_REQUEST,
+                                            ID = varItem.ID
+                                        ),
+                                        {isAssignedRequest: true},
+                                        {
+                                            'Assigned User': {
+                                                '@odata.type': ComboBox_searchName.Selected.Mail,
+                                                Claims: ComboBox_searchName.Selected.Mail,
+                                                Department: "",
+                                                DisplayName: "",
+                                                Email: ComboBox_searchName.Selected.Mail,
+                                                JobTitle: "",
+                                                Picture: ""
+                                            }
+                                        }
                                     );
                                     Navigate(
                                         SuccessScreen_Approver,
                                         ScreenTransition.Fade
                                     )
                                 );
+                                Reset(ComboBox_searchName);
                                 Set(
-                                    DialogFeedback,
+                                    DialogAssign,
                                     false
-                                );
-                                Reset(TextInput1_2)
+                                )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             PaddingRight: =5.21
@@ -2052,7 +2047,7 @@ TicketsDetailPage_Approval As screen:
                             RadiusTopLeft: =5
                             RadiusTopRight: =5
                             Size: =20
-                            Text: ="Send"
+                            Text: ="Assign"
                             Width: =200
                             X: =176
                             Y: =213
@@ -2071,7 +2066,7 @@ TicketsDetailPage_Approval As screen:
                             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
                             OnSelect: |
                                 =Set(
-                                    DialogFeedback,
+                                    DialogAssign,
                                     false
                                 )
                             PaddingBottom: =5.00
