@@ -20,6 +20,13 @@ SuccessScreen_HOD As screen:
                     SP_REQUEST,
                     User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
+            ),
+            ClearCollect(
+                CollectRequestAssign,
+                Filter(
+                    SP_REQUEST,
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                )
             )
         )
 

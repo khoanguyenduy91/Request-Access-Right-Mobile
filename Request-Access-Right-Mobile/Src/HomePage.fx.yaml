@@ -145,6 +145,13 @@ HomePage As screen:
                                     Email & ";"
                                 ) && isDelete = false
                             )
+                        ),
+                        ClearCollect(
+                            CollectRequestAssign,
+                            Filter(
+                                SP_REQUEST,
+                                'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                            )
                         )
                     );
                     Set(
@@ -300,7 +307,13 @@ HomePage As screen:
                         TextBox2_6 As label:
                             Align: =LayoutAlignItems.Center
                             BorderColor: =RGBA(0, 0, 0, 1)
-                            Color: =RGBA(56, 86, 153, 1)
+                            Color: |-
+                                =RGBA(
+                                    255,
+                                    153,
+                                    51,
+                                    1
+                                )
                             FocusedBorderColor: =TextBox2_6.BorderColor
                             FontWeight: =FontWeight.Lighter
                             Height: =60
@@ -324,7 +337,13 @@ HomePage As screen:
                         TextBox2_1 As label:
                             Align: =LayoutAlignItems.Center
                             BorderColor: =RGBA(0, 0, 0, 1)
-                            Color: =RGBA(56, 86, 153, 1)
+                            Color: |-
+                                =RGBA(
+                                    255,
+                                    153,
+                                    51,
+                                    1
+                                )
                             FocusedBorderColor: =TextBox2_1.BorderColor
                             Height: =80
                             HoverBorderColor: =TextBox2_1.BorderColor
@@ -646,11 +665,11 @@ HomePage As screen:
                             BorderColor: =RGBA(0, 0, 0, 1)
                             Color: |-
                                 =RGBA(
-                                            255,
-                                            153,
-                                            51,
-                                            1
-                                        )
+                                    0,
+                                    0,
+                                    128,
+                                    1
+                                )
                             FocusedBorderColor: =TextBox2_7.BorderColor
                             FontWeight: =FontWeight.Lighter
                             Height: =60
@@ -676,11 +695,11 @@ HomePage As screen:
                             BorderColor: =RGBA(0, 0, 0, 1)
                             Color: |-
                                 =RGBA(
-                                            255,
-                                            153,
-                                            51,
-                                            1
-                                        )
+                                    0,
+                                    0,
+                                    128,
+                                    1
+                                )
                             FocusedBorderColor: =TextBox2_2.BorderColor
                             Height: =56
                             HoverBorderColor: =TextBox2_2.BorderColor
@@ -850,6 +869,13 @@ HomePage As screen:
                                     'Incharge Person',
                                     Email & ";"
                                 ) && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestAssign,
+                            Filter(
+                                SP_REQUEST,
+                                'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
                             )
                         )
                     )

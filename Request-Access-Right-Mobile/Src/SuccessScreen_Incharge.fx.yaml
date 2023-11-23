@@ -24,6 +24,13 @@ SuccessScreen_Incharge As screen:
                     CollectionRequestTest,
                     User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
                 )
+            ),
+            ClearCollect(
+                CollectRequestAssign,
+                Filter(
+                    SP_REQUEST,
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                )
             )
         )
 

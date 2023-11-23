@@ -53,7 +53,7 @@ SuccessScreen_Approver As screen:
                 CollectRequestAssign,
                 Filter(
                     SP_REQUEST,
-                    'Assigned User'.Email = User().Email && isAssignedRequest = true
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
                 )
             )
         )

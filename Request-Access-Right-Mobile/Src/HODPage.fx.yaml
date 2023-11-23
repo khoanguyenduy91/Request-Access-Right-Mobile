@@ -87,6 +87,13 @@ HODPage As screen:
                                 SP_REQUEST,
                                 User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                             )
+                        ),
+                        ClearCollect(
+                            CollectRequestAssign,
+                            Filter(
+                                SP_REQUEST,
+                                'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                            )
                         )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
@@ -169,30 +176,6 @@ HODPage As screen:
             Y: =175
             ZIndex: =4
 
-            Rectangle1_14 As rectangle:
-                BorderColor: =RGBA(0, 0, 255, 1)
-                DisabledFill: =Rectangle1_14.Fill
-                Fill: =RGBA(227,227,227,1)
-                FocusedBorderColor: =Rectangle1_14.BorderColor
-                Height: =0
-                HoverFill: =Rectangle1_14.Fill
-                PressedFill: =Rectangle1_14.Fill
-                Width: =640
-                Y: =222.44680259615347
-                ZIndex: =1
-
-            Rectangle14_2 As rectangle:
-                BorderColor: =RGBA(0, 0, 255, 1)
-                DisabledFill: =Rectangle14_2.Fill
-                Fill: =RGBA(204, 204, 204, 1)
-                FocusedBorderColor: =Rectangle14_2.BorderColor
-                Height: =1
-                HoverFill: =Rectangle14_2.Fill
-                PressedFill: =Rectangle14_2.Fill
-                Width: =640
-                Y: =222.0699504854464
-                ZIndex: =2
-
             Rectangle6_2 As rectangle:
                 AccessibleLabel: ="Ticket Details"
                 BorderColor: =RGBA(0, 0, 255, 1)
@@ -220,34 +203,41 @@ HODPage As screen:
                             1
                         ),
                         If(
-                            ThisItem.Status.Value = "HOD approved"||ThisItem.Status.Value = "Approver 1 approved"||ThisItem.Status.Value = "Approver 2 approved"||ThisItem.Status.Value = "Approver 3 approved",
+                            ThisItem.Status.Value = "Saved",
                             RGBA(
-                                255,
-                                153,
-                                51,
+                                240,
+                                230,
+                                140,
                                 1
                             ),
                             If(
                                 ThisItem.Status.Value = "Submitted",
                                 RGBA(
-                                    56,
-                                    86,
-                                    153,
+                                    50,205,50,
                                     1
                                 ),
                                 If(
-                                    ThisItem.Title = "Done",
+                                    ThisItem.Status.Value = "Done",
                                     RGBA(
-                                        128,
-                                        128,
-                                        128,
+                                        173,
+                                        230,
+                                        20,
                                         1
                                     ),
-                                    RGBA(
-                                        71,
-                                        185,
-                                        50,
-                                        1
+                                    If(
+                                        ThisItem.Status.Value = "Closed",
+                                        RGBA(
+                                            0,
+                                            100,
+                                            0,
+                                            1
+                                        ),
+                                        RGBA(
+                                            0,
+                                            0,
+                                            128,
+                                            1
+                                        )
                                     )
                                 )
                             )
@@ -258,20 +248,23 @@ HODPage As screen:
                 HoverFill: =Rectangle15_2.Fill
                 OnSelect: =
                 PressedFill: =Rectangle15_2.Fill
-                Width: =8
+                Width: =6
                 ZIndex: =13
 
             Container25 As groupContainer.verticalAutoLayoutContainer:
                 Height: =223
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =10
+                PaddingTop: =10
                 Width: =Parent.Width
                 X: =Parent.X
                 ZIndex: =20
 
                 Container26 As groupContainer.horizontalAutoLayoutContainer:
                     FillPortions: =0
-                    Height: =50
+                    Height: =40
+                    LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                     LayoutMinHeight: =112
                     LayoutMinWidth: =250
@@ -505,6 +498,8 @@ HODPage As screen:
                             Container30 As groupContainer.horizontalAutoLayoutContainer:
                                 FillPortions: =0
                                 Height: =50
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                                 LayoutMinHeight: =112
                                 LayoutMinWidth: =250
                                 LayoutMode: =LayoutMode.Auto
@@ -543,14 +538,36 @@ HODPage As screen:
                                     Size: =18
                                     Text: |-
                                         ="Status: "
-                                    Width: =120
+                                    Width: =100
                                     Wrap: =false
                                     X: =34
                                     Y: =107
                                     ZIndex: =1
 
-                                Subtitle1_5 As label:
+                                Button2_2 As button:
+                                    BorderColor: =
+                                    BorderStyle: =
+                                    BorderThickness: =0
                                     Color: |-
+                                        =If(
+                                            ThisItem.Status.Value = "Saved",
+                                            RGBA(
+                                                0,
+                                                0,
+                                                0,
+                                                1
+                                            ),
+                                            RGBA(
+                                                255,
+                                                255,
+                                                255,
+                                                1
+                                            )
+                                        )
+                                    DisabledBorderColor: =
+                                    DisabledColor: =
+                                    DisabledFill: =
+                                    Fill: |-
                                         =If(
                                             ThisItem.Status.Value = "Rejected",
                                             RGBA(
@@ -560,48 +577,68 @@ HODPage As screen:
                                                 1
                                             ),
                                             If(
-                                                ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                                                ThisItem.Status.Value = "Saved",
                                                 RGBA(
-                                                    255,
-                                                    153,
-                                                    51,
+                                                    240,
+                                                    230,
+                                                    140,
                                                     1
                                                 ),
                                                 If(
                                                     ThisItem.Status.Value = "Submitted",
                                                     RGBA(
-                                                        56,
-                                                        86,
-                                                        153,
+                                                        50,205,50,
                                                         1
                                                     ),
                                                     If(
                                                         ThisItem.Status.Value = "Done",
                                                         RGBA(
-                                                            8,
-                                                            103,
-                                                            26,
+                                                            173,
+                                                            230,
+                                                            20,
                                                             1
                                                         ),
-                                                        RGBA(
-                                                            71,
-                                                            185,
-                                                            50,
-                                                            1
+                                                        If(
+                                                            ThisItem.Status.Value = "Closed",
+                                                            RGBA(
+                                                                0,
+                                                                100,
+                                                                0,
+                                                                1
+                                                            ),
+                                                            RGBA(
+                                                                0,
+                                                                0,
+                                                                128,
+                                                                1
+                                                            )
                                                         )
                                                     )
                                                 )
                                             )
                                         )
-                                    FillPortions: =1
-                                    FocusedBorderColor: =Subtitle1_5.BorderColor
-                                    FontWeight: =FontWeight.Bold
-                                    Height: =50
-                                    HoverBorderColor: =Subtitle1_5.BorderColor
-                                    HoverColor: =Subtitle1_5.Color
-                                    HoverFill: =Subtitle1_5.Fill
+                                    FocusedBorderColor: =
+                                    FocusedBorderThickness: =0
+                                    HoverBorderColor: =
+                                    HoverColor: |-
+                                        =If(
+                                            ThisItem.Status.Value = "Saved",
+                                            RGBA(
+                                                0,
+                                                0,
+                                                0,
+                                                1
+                                            ),
+                                            RGBA(
+                                                255,
+                                                255,
+                                                255,
+                                                1
+                                            )
+                                        )
+                                    HoverFill: =
                                     LayoutMinHeight: =70
-                                    LayoutMinWidth: =200
+                                    LayoutMinWidth: =280
                                     OnSelect: |-
                                         =Set(
                                             varItem,
@@ -619,16 +656,55 @@ HODPage As screen:
                                     PaddingLeft: =0
                                     PaddingRight: =0
                                     PaddingTop: =0
-                                    PressedBorderColor: =Subtitle1_5.BorderColor
-                                    PressedColor: =Subtitle1_5.Color
-                                    PressedFill: =Subtitle1_5.Fill
-                                    Size: =18
+                                    PressedBorderColor: =
+                                    PressedColor: |-
+                                        =If(
+                                            ThisItem.Status.Value = "Saved",
+                                            RGBA(
+                                                0,
+                                                0,
+                                                0,
+                                                1
+                                            ),
+                                            RGBA(
+                                                255,
+                                                255,
+                                                255,
+                                                1
+                                            )
+                                        )
+                                    PressedFill: =
+                                    RadiusBottomLeft: =20
+                                    RadiusBottomRight: =20
+                                    RadiusTopLeft: =20
+                                    RadiusTopRight: =20
+                                    Size: =17
                                     Text: =ThisItem.Status.Value
-                                    Width: =Parent.Width
-                                    Wrap: =false
-                                    X: =60
-                                    Y: =107
+                                    Width: =If("Approved" in ThisItem.Status.Value,300,180)
                                     ZIndex: =2
+
+                                Label10_2 As label:
+                                    FillPortions: =1
+                                    Height: =50
+                                    LayoutMinHeight: =70
+                                    LayoutMinWidth: =200
+                                    OnSelect: |-
+                                        =Set(
+                                            varItem,
+                                            ThisItem
+                                        );
+                                        Navigate(
+                                            TicketsDetailPage_HOD,
+                                            ScreenTransition.Fade
+                                        );
+                                        Set(
+                                            counter,
+                                            true
+                                        )
+                                    Size: =18
+                                    Text: =""
+                                    Width: =560
+                                    ZIndex: =3
 
                         icon8_2 As icon.ChevronRight:
                             AccessibleLabel: ="Ticket Details Button"

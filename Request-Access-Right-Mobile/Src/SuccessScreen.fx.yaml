@@ -32,7 +32,7 @@
                 CollectRequestClosed,
                 Filter(
                     SP_REQUEST,
-                    Status.Value = "Closed" && 'Created By'.Email = User().Email 
+                    Status.Value = "Closed" && 'Created By'.Email = User().Email
                 )
             ),
             ClearCollect(
@@ -40,6 +40,13 @@
                 Filter(
                     SP_REQUEST,
                     Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                )
+            ),
+            ClearCollect(
+                CollectRequestAssign,
+                Filter(
+                    SP_REQUEST,
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
                 )
             )
         )
