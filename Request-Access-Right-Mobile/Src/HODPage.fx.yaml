@@ -78,7 +78,7 @@ HODPage As screen:
                             CollectRequestHOD,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
+                                Status.Value = "Submitted" && HOD.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
@@ -228,7 +228,7 @@ HODPage As screen:
                                 1
                             ),
                             If(
-                                ThisItem.Status.Value = "Created",
+                                ThisItem.Status.Value = "Submitted",
                                 RGBA(
                                     56,
                                     86,
@@ -568,7 +568,7 @@ HODPage As screen:
                                                     1
                                                 ),
                                                 If(
-                                                    ThisItem.Status.Value = "Created",
+                                                    ThisItem.Status.Value = "Submitted",
                                                     RGBA(
                                                         56,
                                                         86,

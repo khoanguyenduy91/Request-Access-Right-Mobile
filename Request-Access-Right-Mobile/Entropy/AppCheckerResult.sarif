@@ -8364,6 +8364,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "NewTicketPage.Container7.Container38.Form_Attachment.Attachments_DataCard2.DataCardValue60_4.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NewTicketPage.Container7.Container38.Form_Attachment.Attachments_DataCard2.DataCardValue60_4.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "NewTicketPage",
+                "type": "NewTicketPage.Container7.Container38.Form_Attachment.Attachments_DataCard2.DataCardValue60_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "TicketsDetailPage_Approval.Dialog_commentapproval.Container10_4.Container16_2.Container50.TextInput1_1.AccessibleLabel"
                 }
               ],
@@ -8418,6 +8448,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NewTicketPage.Container7.Container38.Form_Attachment.Attachments_DataCard2.DataCardValue60_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NewTicketPage.Container7.Container38.Form_Attachment.Attachments_DataCard2.DataCardValue60_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "NewTicketPage",
+                "type": "NewTicketPage.Container7.Container38.Form_Attachment.Attachments_DataCard2.DataCardValue60_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
         },
         {
           "locations": [

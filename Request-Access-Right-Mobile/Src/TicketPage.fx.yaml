@@ -313,7 +313,7 @@ TicketPage As screen:
                                     1
                                 ),
                                 If(
-                                    ThisItem.Status.Value = "Created",
+                                    ThisItem.Status.Value = "Submitted",
                                     RGBA(
                                         56,
                                         86,
@@ -638,7 +638,7 @@ TicketPage As screen:
                                                         1
                                                     ),
                                                     If(
-                                                        ThisItem.Status.Value = "Created",
+                                                        ThisItem.Status.Value = "Submitted",
                                                         RGBA(
                                                             56,
                                                             86,

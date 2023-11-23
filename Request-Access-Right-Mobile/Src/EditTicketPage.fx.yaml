@@ -31,7 +31,7 @@ EditTicketPage As screen:
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
                 OnSelect: |-
-                    =//Refresh(SP_REQUEST);Set(Editticket,LookUp(SP_REQUEST,ThisRecord.ID=TicketsGallery.Selected.ID));If(Editticket.Status.Value="Created",Back(),Concurrent(ClearCollect(CollectRequestAll,Filter(SP_REQUEST,'Created By'.Email=User().Email)),ClearCollect(CollectRequestNew,Filter(SP_REQUEST,Status.Value="Created"&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestProcess,Filter(SP_REQUEST,(Status.Value="Created"||Status.Value="HOD approved"||Status.Value="Approver 1 approved"||Status.Value="Approver 2 approved"||Status.Value="Done")&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestClosed,Filter(SP_REQUEST,Status.Value="Closed"&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestRejected,Filter(SP_REQUEST,Status.Value="Rejected"&&'Created By'.Email=User().Email)));Navigate(TicketPage,ScreenTransition.Fade))
+                    =//Refresh(SP_REQUEST);Set(Editticket,LookUp(SP_REQUEST,ThisRecord.ID=TicketsGallery.Selected.ID));If(Editticket.Status.Value="Submitted",Back(),Concurrent(ClearCollect(CollectRequestAll,Filter(SP_REQUEST,'Created By'.Email=User().Email)),ClearCollect(CollectRequestNew,Filter(SP_REQUEST,Status.Value="Saved"&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestProcess,Filter(SP_REQUEST,(Status.Value="Submitted"||Status.Value="HOD approved"||Status.Value="Approver 1 approved"||Status.Value="Approver 2 approved"||Status.Value="Done")&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestClosed,Filter(SP_REQUEST,Status.Value="Closed"&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestRejected,Filter(SP_REQUEST,Status.Value="Rejected"&&'Created By'.Email=User().Email)));Navigate(TicketPage,ScreenTransition.Fade))
                     Navigate(
                         TicketPage,
                         ScreenTransition.Fade
@@ -738,7 +738,7 @@ EditTicketPage As screen:
                         )
                     );
                     If(
-                        Editticket.Status.Value = "Created",
+                        Editticket.Status.Value = "Submitted",
                         SubmitForm(Form1_2);
                         Set(
                             ButtonModeEdit,

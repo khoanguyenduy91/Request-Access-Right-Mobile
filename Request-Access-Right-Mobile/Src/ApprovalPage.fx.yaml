@@ -88,7 +88,7 @@ ApprovalPage As screen:
                             CollectRequestApprover1,
                             Filter(
                                 SP_REQUEST,
-                                Status.Value = "Created" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
+                                Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
                             )
                         ),
                         ClearCollect(
@@ -290,7 +290,7 @@ ApprovalPage As screen:
                                 1
                             ),
                             If(
-                                ThisItem.Status.Value = "Created",
+                                ThisItem.Status.Value = "Submitted",
                                 RGBA(
                                     56,
                                     86,
@@ -635,7 +635,7 @@ ApprovalPage As screen:
                                                     1
                                                 ),
                                                 If(
-                                                    ThisItem.Status.Value = "Created",
+                                                    ThisItem.Status.Value = "Submitted",
                                                     RGBA(
                                                         56,
                                                         86,

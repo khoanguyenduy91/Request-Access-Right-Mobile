@@ -676,14 +676,100 @@ NewTicketPage As screen:
                         Y: =DataCardKey1.Y
                         ZIndex: =4
 
+            Form_Attachment As form:
+                DataSource: =SP_REQUEST
+                LayoutMinHeight: =250
+                LayoutMinWidth: =320
+                OnSuccess: =
+                Visible: =false
+                Width: =640
+                ZIndex: =2
+
+                Attachments_DataCard2 As typedDataCard.attachmentsEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="{Attachments}"
+                    Default: =ThisItem.Attachments
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"{Attachments}")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue60_4.Attachments
+                    Width: =620
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey61_1 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue60_4 As attachments:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =520
+                        IsInDataCard: =true
+                        Items: =CollectAttachment
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey61_1.Y + DataCardKey61_1.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage39 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue60_4.Y + DataCardValue60_4.Height
+                        ZIndex: =3
+
+                    StarVisible39 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey61_1.Height
+                        PaddingBottom: =DataCardKey61_1.PaddingBottom
+                        PaddingLeft: =DataCardKey61_1.PaddingLeft
+                        PaddingRight: =DataCardKey61_1.PaddingRight
+                        PaddingTop: =DataCardKey61_1.PaddingTop
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey61_1.Y
+                        ZIndex: =4
+
         Container11 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
             DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =120
-            LayoutAlignItems: =LayoutAlignItems.Stretch
-            LayoutDirection: =LayoutDirection.Vertical
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =20
             LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =100
             LayoutMinWidth: =200
@@ -697,28 +783,79 @@ NewTicketPage As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            Button_newticket As button:
-                Color: =RGBA(255, 255, 255, 1)
+            Button_save As button:
+                Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                Fill: =RGBA(11, 128, 32, 1)
+                Fill: =RGBA(255, 191, 0, 0.77)
+                FillPortions: =1
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
-                HoverFill: =RGBA(8, 103, 26,1)
-                OnSelect: |-
-                    =//test.Run(DataCardValue1.Text,DataCardValue8.Selected.Value,DataCardValue9.Text,DataCardValue10.Text,DataCardValue12.Selected.Id,{file:{contentBytes:Last(DataCardValue11.Attachments).Value,name:Last(DataCardValue11.Attachments).Name}})
-                    SubmitForm(Form1)
+                HoverFill: =RGBA(15, 108, 189, 1)
+                OnSelect: =SubmitForm(Form1)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
                 Size: =24
-                Text: ="Create request"
+                Text: ="Save"
                 Width: =Parent.Width
                 X: =590
                 Y: =664
                 ZIndex: =1
+
+            Button_submit As button:
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(11, 128, 32, 1)
+                FillPortions: =1
+                Height: =90
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(8, 103, 26,1)
+                OnSelect: |-
+                    =If(
+                        IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text),
+                        SubmitForm(Form1),
+                        Set(
+                            IDitem,
+                            Test_FlowCreate_triggerPowerApp.Run(
+                                DataCardValue1.Text,
+                                DataCardValue8.Selected.Value,
+                                DataCardValue9.Text,
+                                DataCardValue10.Text,
+                                DataCardValue12.Selected.Id
+                            )
+                        );
+                        ClearCollect(
+                            CollectAttachment,
+                            DataCardValue11.Attachments
+                        );
+                        Patch(
+                            SP_REQUEST,
+                            LookUp(
+                                SP_REQUEST,
+                                ID = Value(IDitem.idrequest)
+                            ),
+                            Form_Attachment.Updates
+                        );
+                        Navigate(
+                            SuccessScreen,
+                            ScreenTransition.Fade
+                        )
+                    )
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Size: =24
+                Text: ="Submit"
+                Width: =Parent.Width
+                X: =590
+                Y: =664
+                ZIndex: =2
 
     Dialog_clear_new As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light

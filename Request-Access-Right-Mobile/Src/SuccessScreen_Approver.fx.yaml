@@ -48,6 +48,13 @@ SuccessScreen_Approver As screen:
                     SP_REQUEST,
                     User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                 )
+            ),
+            ClearCollect(
+                CollectRequestAssign,
+                Filter(
+                    SP_REQUEST,
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true
+                )
             )
         )
 

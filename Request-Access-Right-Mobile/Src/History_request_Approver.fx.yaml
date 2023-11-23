@@ -481,7 +481,7 @@ History_request_Approver As screen:
                                                         1
                                                     ),
                                                     If(
-                                                        ThisItem.Status.Value = "Created",
+                                                        ThisItem.Status.Value = "Submitted",
                                                         RGBA(
                                                             56,
                                                             86,

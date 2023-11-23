@@ -90,7 +90,7 @@ TicketsDetailPage_User As screen:
                 PressedColor: =ColorFade(Self.Color,90%)
                 Visible: |-
                     =If(
-                        DataCardValue16.Selected.Value = "Created",
+                        DataCardValue16.Selected.Value = "Saved" || DataCardValue16.Selected.Value = "Submitted",
                         true,
                         false
                     )
@@ -106,7 +106,7 @@ TicketsDetailPage_User As screen:
                 PressedColor: =ColorFade(Self.Color,90%)
                 Visible: |-
                     =If(
-                        DataCardValue16.Selected.Value = "Created",
+                        DataCardValue16.Selected.Value = "Saved" || DataCardValue16.Selected.Value = "Submitted",
                         true,
                         false
                     )
@@ -1632,7 +1632,7 @@ TicketsDetailPage_User As screen:
                                         1
                                     ),
                                     If(
-                                        ThisItem.Status.Value = "Created",
+                                        ThisItem.Status.Value = "Submitted",
                                         RGBA(
                                             56,
                                             86,
@@ -1713,7 +1713,7 @@ TicketsDetailPage_User As screen:
                                 Office365Users.MyProfile().Department = "DTS",
                                 Switch(
                                     ThisItem.Status.Value,
-                                    "Created",
+                                    "Submitted",
                                     "Waiting for: " & ThisItem.'Approver 1'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
                                     "Approver 1 approved",
                                     "Waiting for: " & ThisItem.'Approver 2'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
@@ -1729,7 +1729,7 @@ TicketsDetailPage_User As screen:
                                 ),
                                 Switch(
                                     ThisItem.Status.Value,
-                                    "Created",
+                                    "Submitted",
                                     "Waiting for: " & ThisItem.HOD.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
                                     "HOD approved",
                                     "Waiting for: " & ThisItem.'Approver 1'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
@@ -1937,7 +1937,7 @@ TicketsDetailPage_User As screen:
                                     )
                                 );
                                 If(
-                                    Deleteticket.Status.Value = "Created",
+                                    Deleteticket.Status.Value = "Submitted",
                                     Patch(
                                         SP_REQUEST,
                                         LookUp(
