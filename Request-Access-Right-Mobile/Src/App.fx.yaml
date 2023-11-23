@@ -196,6 +196,13 @@ App As appinfo:
                         Email & ";"
                     ) && 'Incharge Person Approved Date' <> Blank()
                 )
+            ),
+            ClearCollect(
+                CollecRequestHistory_Assigned,
+                Filter(
+                    CollectionRequestTest,
+                    User().Email = 'Assigned User'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                )
             )
         );
         If(

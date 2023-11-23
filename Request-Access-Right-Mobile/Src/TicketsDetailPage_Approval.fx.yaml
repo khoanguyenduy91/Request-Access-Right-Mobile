@@ -1640,8 +1640,16 @@ TicketsDetailPage_Approval As screen:
                 Size: =18
                 Text: ="Assign"
                 Visible: |-
-                    =//If(!IsBlank(LookUp(SP_LEVELAPPROVER,IdUser.Email=User().Email&&Level.Value="Approver 1")), true , false )
-                    true
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                SP_LEVELAPPROVER,
+                                IdUser.Email = User().Email && Level.Value = "Approver 1"
+                            )
+                        ),
+                        true,
+                        false
+                    )
                 Width: =200
                 ZIndex: =4
 

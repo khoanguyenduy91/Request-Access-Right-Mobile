@@ -132,6 +132,11 @@ History_request_Approver As screen:
                                     CollecRequestHistory_Approver3,
                                     "Created",
                                     SortOrder.Descending
+                                ),
+                                SortByColumns(
+                                    CollecRequestHistory_Assigned,
+                                    "Created",
+                                    SortOrder.Descending
                                 )
                             )
                         )
