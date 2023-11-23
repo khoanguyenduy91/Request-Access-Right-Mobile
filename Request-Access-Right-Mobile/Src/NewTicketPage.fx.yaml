@@ -788,12 +788,19 @@ NewTicketPage As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                Fill: =RGBA(255, 191, 0, 0.77)
+                Fill: |-
+                    = RGBA(
+                                240,
+                                230,
+                                140,
+                                1
+                            )
                 FillPortions: =1
                 Height: =90
-                HoverColor: =RGBA(255, 255, 255, 1)
-                HoverFill: =RGBA(15, 108, 189, 1)
+                HoverBorderColor: =ColorFade(Self.Fill, 20%)
+                HoverColor: =RGBA(0, 0, 0, 1)
                 OnSelect: =SubmitForm(Form1)
+                PressedFill: =ColorFade(Self.Fill, 20%)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5

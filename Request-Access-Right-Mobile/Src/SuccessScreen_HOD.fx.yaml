@@ -11,7 +11,7 @@ SuccessScreen_HOD As screen:
                 CollectRequestHOD,
                 Filter(
                     SP_REQUEST,
-                    Status.Value = "Created" && HOD.Email = User().Email && isDelete = false
+                    Status.Value = "Submitted" && HOD.Email = User().Email && isDelete = false
                 )
             ),
             ClearCollect(

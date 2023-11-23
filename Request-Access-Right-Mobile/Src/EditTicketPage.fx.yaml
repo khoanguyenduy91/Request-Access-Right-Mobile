@@ -99,8 +99,7 @@ EditTicketPage As screen:
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 OnSuccess: |-
-                    ='[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
-                    Navigate(
+                    =Navigate(
                         SuccessScreen,
                         ScreenTransition.Fade
                     )
@@ -704,7 +703,7 @@ EditTicketPage As screen:
             FillPortions: =0
             Height: =120
             LayoutAlignItems: =LayoutAlignItems.Stretch
-            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =20
             LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =100
             LayoutMinWidth: =200
@@ -718,13 +717,45 @@ EditTicketPage As screen:
             Width: =Parent.Width
             ZIndex: =4
 
+            Button_save_1 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: |-
+                    = RGBA(
+                                240,
+                                230,
+                                140,
+                                1
+                            )
+                FillPortions: =1
+                Height: =90
+                HoverBorderColor: =ColorFade(Self.Fill, 20%)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                OnSelect: =SubmitForm(Form1_2)
+                PressedFill: =ColorFade(Self.Fill, 20%)
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Size: =24
+                Text: ="Save"
+                Width: =Parent.Width
+                X: =590
+                Y: =664
+                ZIndex: =1
+
             Button_editticket As button:
+                AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: =If(ButtonModeEdit=true, DisplayMode.Edit, DisplayMode.Disabled)
                 Fill: =RGBA(11, 128, 32, 1)
+                FillPortions: =1
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
@@ -740,6 +771,7 @@ EditTicketPage As screen:
                     If(
                         Editticket.Status.Value = "Submitted",
                         SubmitForm(Form1_2);
+                        '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
                         Set(
                             ButtonModeEdit,
                             false
@@ -763,11 +795,11 @@ EditTicketPage As screen:
                 RadiusTopLeft: =5
                 RadiusTopRight: =5
                 Size: =24
-                Text: ="Save"
+                Text: ="Submit"
                 Width: =Parent.Width
                 X: =590
                 Y: =664
-                ZIndex: =1
+                ZIndex: =2
 
     Dialog_clear_edit As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light

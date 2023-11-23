@@ -5844,66 +5844,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Subtitle1_1.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Subtitle1_1.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "TicketPage",
-                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Subtitle1_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Subtitle1_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Subtitle1_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "TicketPage",
-                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Subtitle1_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container52.icon8.FocusedBorderThickness"
                 }
               ],
@@ -10837,6 +10777,96 @@
                 "member": "FocusedBorderThickness",
                 "module": "TicketsDetailPage_Approval",
                 "type": "TicketsDetailPage_Approval.Container10_1.Container20_1.btn_assign"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Button2.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Button2.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "TicketPage",
+                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Button2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Label10.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Label10.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "TicketPage",
+                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Label10"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Label10.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Label10.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "TicketPage",
+                "type": "TicketPage.Container9.Container22.TicketsGallery.Container31.Container33.Container34.Container35.Container36.Label10"
               }
             }
           ],

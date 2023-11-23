@@ -1389,34 +1389,41 @@ TicketsDetailPage_Approval As screen:
                                     1
                                 ),
                                 If(
-                                    ThisItem.Status.Value = "HOD approved" || ThisItem.Status.Value = "Approver 1 approved" || ThisItem.Status.Value = "Approver 2 approved" || ThisItem.Status.Value = "Approver 3 approved",
+                                    ThisItem.Status.Value = "Saved",
                                     RGBA(
-                                        255,
-                                        153,
-                                        51,
+                                        240,
+                                        230,
+                                        140,
                                         1
                                     ),
                                     If(
                                         ThisItem.Status.Value = "Submitted",
                                         RGBA(
-                                            56,
-                                            86,
-                                            153,
+                                            50,205,50,
                                             1
                                         ),
                                         If(
                                             ThisItem.Status.Value = "Done",
                                             RGBA(
-                                                8,
-                                                103,
-                                                26,
+                                                173,
+                                                230,
+                                                20,
                                                 1
                                             ),
-                                            RGBA(
-                                                71,
-                                                185,
-                                                50,
-                                                1
+                                            If(
+                                                ThisItem.Status.Value = "Closed",
+                                                RGBA(
+                                                    0,
+                                                    100,
+                                                    0,
+                                                    1
+                                                ),
+                                                RGBA(
+                                                    0,
+                                                    0,
+                                                    128,
+                                                    1
+                                                )
                                             )
                                         )
                                     )
