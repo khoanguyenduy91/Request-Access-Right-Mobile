@@ -1546,11 +1546,11 @@ TicketsDetail_History_Incharge As screen:
                                 If(
                                     ThisItem.Status.Value = "Saved",
                                     RGBA(
-                                        240,
-                                        230,
-                                        140,
-                                        1
-                                    ),
+                                255,
+                                153,
+                                51,
+                                1
+                            ),
                                     If(
                                         ThisItem.Status.Value = "Submitted",
                                         RGBA(
