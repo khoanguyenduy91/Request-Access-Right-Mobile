@@ -1585,7 +1585,7 @@ TicketsDetailPage_User As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: |-
                         =If(
-                            IsBlank(ThisItem.'Approver 1'),
+                            IsBlank(Label8),
                             100,
                             200
                         )
@@ -1755,7 +1755,7 @@ TicketsDetailPage_User As screen:
                             )
                         Visible: |-
                             =If(
-                                IsBlank(ThisItem.'Approver 1') && IsBlank(ThisItem.'Assigned User'),
+                                IsBlank(Label8),
                                 false,
                                 true
                             )
@@ -1944,7 +1944,7 @@ TicketsDetailPage_User As screen:
                                     )
                                 );
                                 If(
-                                    Deleteticket.Status.Value = "Submitted",
+                                    Deleteticket.Status.Value = "Saved"|| Deleteticket.Status.Value = "Submitted",
                                     Patch(
                                         SP_REQUEST,
                                         LookUp(

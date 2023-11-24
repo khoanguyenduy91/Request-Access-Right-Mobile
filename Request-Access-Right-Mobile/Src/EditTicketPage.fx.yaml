@@ -98,11 +98,7 @@ EditTicketPage As screen:
                 Item: =TicketsGallery.Selected
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
-                OnSuccess: |-
-                    =Navigate(
-                        SuccessScreen,
-                        ScreenTransition.Fade
-                    )
+                OnSuccess: =
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -734,7 +730,40 @@ EditTicketPage As screen:
                 Height: =90
                 HoverBorderColor: =ColorFade(Self.Fill, 20%)
                 HoverColor: =RGBA(0, 0, 0, 1)
-                OnSelect: =SubmitForm(Form1_2)
+                OnSelect: |-
+                    =Refresh(SP_REQUEST);
+                    Set(
+                        Editticket,
+                        LookUp(
+                            SP_REQUEST,
+                            ThisRecord.ID = TicketsGallery.Selected.ID
+                        )
+                    );
+                    If(
+                        Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
+                        SubmitForm(Form1_2);
+                        Navigate(
+                            SuccessScreen,
+                            ScreenTransition.Fade
+                        );
+                        Set(
+                            ButtonModeEdit,
+                            false
+                        ),
+                        If(
+                            Editticket.Status.Value = "Rejected",
+                            Notify(
+                                "The request has been rejected, please refresh the data!",
+                                NotificationType.Error,
+                                3000
+                            ),
+                            Notify(
+                                "The request has been approved, please refresh the data!",
+                                NotificationType.Error,
+                                3000
+                            )
+                        )
+                    )
                 PressedFill: =ColorFade(Self.Fill, 20%)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
@@ -768,27 +797,9 @@ EditTicketPage As screen:
                             ThisRecord.ID = TicketsGallery.Selected.ID
                         )
                     );
-                    If(
-                        Editticket.Status.Value = "Submitted",
-                        SubmitForm(Form1_2);
-                        '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
-                        Set(
-                            ButtonModeEdit,
-                            false
-                        ),
-                        If(
-                            Editticket.Status.Value = "Rejected",
-                            Notify(
-                                "The request has been rejected, please refresh the data!",
-                                NotificationType.Error,
-                                3000
-                            ),
-                            Notify(
-                                "The request has been approved, please refresh the data!",
-                                NotificationType.Error,
-                                3000
-                            )
-                        )
+                    Set(
+                        Dialogsubmit_edit,
+                        true
                     )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
@@ -984,7 +995,8 @@ EditTicketPage As screen:
         PaddingLeft: =0.00
         PaddingRight: =0.00
         PaddingTop: =0.00
-        Visible: =Dialogsubmit_edit
+        Visible: |
+            =Dialogsubmit_edit
         Width: =Parent.Width
         ZIndex: =3
 
@@ -1105,31 +1117,39 @@ EditTicketPage As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(Self.Fill, -20%)
                             OnSelect: |-
-                                =Set(
-                                    IDitem,
-                                    Test_FlowCreate_triggerPowerApp.Run(
-                                        DataCardValue1.Text,
-                                        DataCardValue8.Selected.Value,
-                                        DataCardValue9.Text,
-                                        DataCardValue10.Text,
-                                        DataCardValue12.Selected.Id
-                                    )
-                                );
-                                ClearCollect(
-                                    CollectAttachment,
-                                    DataCardValue11.Attachments
-                                );
-                                Patch(
-                                    SP_REQUEST,
-                                    LookUp(
+                                =If(
+                                    Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
+                                    SubmitForm(Form1_2);
+                                    '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
+                                    Patch(
                                         SP_REQUEST,
-                                        ID = Value(IDitem.idrequest)
+                                        LookUp(
+                                            SP_REQUEST,
+                                            ID = TicketsGallery.Selected.ID
+                                        ),
+                                        {Status: {Value: "Submitted"}}
+                                    );
+                                    Navigate(
+                                        SuccessScreen,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        ButtonModeEdit,
+                                        false
                                     ),
-                                    Form_Attachment.Updates
-                                );
-                                Navigate(
-                                    SuccessScreen,
-                                    ScreenTransition.Fade
+                                    If(
+                                        Editticket.Status.Value = "Rejected",
+                                        Notify(
+                                            "The request has been rejected, please refresh the data!",
+                                            NotificationType.Error,
+                                            3000
+                                        ),
+                                        Notify(
+                                            "The request has been approved, please refresh the data!",
+                                            NotificationType.Error,
+                                            3000
+                                        )
+                                    )
                                 );
                                 Set(
                                     Dialogsubmit_edit,

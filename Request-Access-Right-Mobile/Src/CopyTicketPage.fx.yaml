@@ -945,3 +945,212 @@ CopyTicketPage As screen:
                             Y: =195
                             ZIndex: =2
 
+    Dialog_submit_edit_copy As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        PaddingBottom: =0.00
+        PaddingLeft: =0.00
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Visible: |
+            =Dialogsubmit_edit
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Container13_14 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(0, 0, 0, 0.46)
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Container42_16 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                ZIndex: =5
+
+                Container42_17 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =450
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =600
+                    ZIndex: =1
+
+                    Label1_26 As label:
+                        Align: =Align.Center
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =70
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        Size: =25
+                        Text: ="Confirm Submit"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    TextInput1_12 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: ="Are you sure you want to submit"
+                        DisabledBorderColor: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 1)
+                        DisplayMode: =DisplayMode.View
+                        FocusedBorderThickness: =Self.BorderThickness
+                        FontWeight: =FontWeight.Semibold
+                        Height: =250
+                        HintText: =""
+                        HoverBorderColor: =RGBA(0, 18, 107, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        Mode: =TextMode.MultiLine
+                        PaddingLeft: =5
+                        PaddingTop: =50
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =25
+                        Width: =Parent.Width
+                        X: =418
+                        Y: =238
+                        ZIndex: =2
+
+                    Container28_12 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: |
+                            =100
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        RadiusBottomRight: =2
+                        RadiusTopLeft: =2
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        Button_OK_20 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(11, 128, 32, 1)
+                            FillPortions: =1
+                            Height: =70
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(Self.Fill, -20%)
+                            OnSelect: |-
+                                =If(
+                                    Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
+                                    SubmitForm(Form1_2);
+                                    '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
+                                    Patch(
+                                        SP_REQUEST,
+                                        LookUp(
+                                            SP_REQUEST,
+                                            ID = TicketsGallery.Selected.ID
+                                        ),
+                                        {Status: {Value: "Submitted"}}
+                                    );
+                                    Navigate(
+                                        SuccessScreen,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        ButtonModeEdit,
+                                        false
+                                    ),
+                                    If(
+                                        Editticket.Status.Value = "Rejected",
+                                        Notify(
+                                            "The request has been rejected, please refresh the data!",
+                                            NotificationType.Error,
+                                            3000
+                                        ),
+                                        Notify(
+                                            "The request has been approved, please refresh the data!",
+                                            NotificationType.Error,
+                                            3000
+                                        )
+                                    )
+                                );
+                                Set(
+                                    Dialogsubmit_edit,
+                                    false
+                                )
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Submit"
+                            Width: =180
+                            X: =62
+                            Y: =195
+                            ZIndex: =1
+
+                        Button_Cancel_22 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(56, 96, 178, 1)
+                            FillPortions: =1
+                            Height: =70
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            OnSelect: |-
+                                =Set(
+                                    Dialogsubmit_edit,
+                                    false
+                                )
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Cancel"
+                            Width: =180
+                            X: =184
+                            Y: =195
+                            ZIndex: =2
+

@@ -126,7 +126,8 @@
             Height: =70
             LayoutMinHeight: =70
             LayoutMinWidth: =280
-            OnTimerEnd: =Navigate(HomePage)
+            OnTimerEnd: |-
+                =Navigate(TicketPage,ScreenTransition.Fade,{type:"All"})
             Visible: =false
             Width: =280
             ZIndex: =5
