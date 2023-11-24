@@ -88,13 +88,22 @@ NewTicketPage As screen:
                 Height: =Parent.Height
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
-                OnSuccess: |-
+                OnSuccess: |
                     =Navigate(
                         SuccessScreen,
                         ScreenTransition.Fade
                     );
-                    Set(varApproval, LookUp(SP_REQUEST, ID = Form1.LastSubmit.ID));
-                    Getrequestdetailpage.Run("RequestDetail", varApproval.ID);
+                    Set(
+                        varApproval,
+                        LookUp(
+                            SP_REQUEST,
+                            ID = Form1.LastSubmit.ID
+                        )
+                    );
+                    Getrequestdetailpage.Run(
+                        "RequestDetail",
+                        varApproval.ID
+                    );
                 Width: =Parent.Width
                 ZIndex: =1
 

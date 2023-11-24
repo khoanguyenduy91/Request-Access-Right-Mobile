@@ -134,9 +134,7 @@
         Duration: =3000
         Height: =70
         OnTimerEnd: |-
-            =//Navigate(TicketPage,ScreenTransition.Fade,{type:"New"})
-            EditForm(Form1_3);
-            Set(ButtonModeEdit,true);
+            =EditForm(Form1_3);
             Navigate(
                 CopyTicketPage,
                 ScreenTransition.Fade

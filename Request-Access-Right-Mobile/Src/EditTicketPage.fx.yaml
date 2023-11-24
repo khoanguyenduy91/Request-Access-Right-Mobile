@@ -742,13 +742,17 @@ EditTicketPage As screen:
                     If(
                         Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
                         SubmitForm(Form1_2);
-                        Navigate(
-                            SuccessScreen,
-                            ScreenTransition.Fade
-                        );
-                        Set(
-                            ButtonModeEdit,
-                            false
+                        If(
+                            SubmitForm(Form1_2) = true,
+                            Navigate(
+                                SuccessScreen,
+                                ScreenTransition.Fade
+                            ),
+                            Notify(
+                                "Please fill in all required information!",
+                                NotificationType.Error,
+                                3000
+                            )
                         ),
                         If(
                             Editticket.Status.Value = "Rejected",
@@ -782,7 +786,6 @@ EditTicketPage As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(ButtonModeEdit=true, DisplayMode.Edit, DisplayMode.Disabled)
                 Fill: =RGBA(11, 128, 32, 1)
                 FillPortions: =1
                 Height: =90
@@ -797,9 +800,13 @@ EditTicketPage As screen:
                             ThisRecord.ID = TicketsGallery.Selected.ID
                         )
                     );
-                    Set(
-                        Dialogsubmit_edit,
-                        true
+                    If(
+                        IsBlank(DataCardValue1_2.Text) || IsBlank(DataCardValue51.Selected.Value) || IsBlank(DataCardValue8_1.Selected.Value) || IsBlank(DataCardValue9_2.Text),
+                        SubmitForm(Form1_2),
+                        Set(
+                            Dialogsubmit_edit,
+                            true
+                        )
                     )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
@@ -1132,10 +1139,6 @@ EditTicketPage As screen:
                                     Navigate(
                                         SuccessScreen,
                                         ScreenTransition.Fade
-                                    );
-                                    Set(
-                                        ButtonModeEdit,
-                                        false
                                     ),
                                     If(
                                         Editticket.Status.Value = "Rejected",

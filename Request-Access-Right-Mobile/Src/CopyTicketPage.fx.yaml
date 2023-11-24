@@ -94,11 +94,7 @@ CopyTicketPage As screen:
                 Item: =Itemcopyrequest
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
-                OnSuccess: |-
-                    =Navigate(
-                        SuccessScreen,
-                        ScreenTransition.Fade
-                    )
+                OnSuccess: =
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -730,7 +726,16 @@ CopyTicketPage As screen:
                 Height: =90
                 HoverBorderColor: =ColorFade(Self.Fill, 20%)
                 HoverColor: =RGBA(0, 0, 0, 1)
-                OnSelect: =SubmitForm(Form1_3)
+                OnSelect: |-
+                    =If(
+                        IsBlank(DataCardValue1_3.Text) || IsBlank(DataCardValue51_1.Selected.Value) || IsBlank(DataCardValue8_2.Selected.Value) || IsBlank(DataCardValue9_3.Text),
+                        SubmitForm(Form1_3),
+                        SubmitForm(Form1_3);
+                        Navigate(
+                            SuccessScreen,
+                            ScreenTransition.Fade
+                        )
+                    )
                 PressedFill: =ColorFade(Self.Fill, 20%)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
@@ -749,15 +754,20 @@ CopyTicketPage As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(ButtonModeEdit=true, DisplayMode.Edit, DisplayMode.Disabled)
                 Fill: =RGBA(11, 128, 32, 1)
                 FillPortions: =1
                 Height: =90
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
-                    =SubmitForm(Form1_3);
-                    '[SubFlow]Noti_User_Edit'.Run(Itemcopyrequest.ID)
+                    =If(
+                        IsBlank(DataCardValue1_3.Text) || IsBlank(DataCardValue51_1.Selected.Value) || IsBlank(DataCardValue8_2.Selected.Value) || IsBlank(DataCardValue9_3.Text),
+                        SubmitForm(Form1_3),
+                        Set(
+                            Dialogsubmit_edit_copy,
+                            true
+                        )
+                    )
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
                 RadiusTopLeft: =5
@@ -953,7 +963,7 @@ CopyTicketPage As screen:
         PaddingRight: =0.00
         PaddingTop: =0.00
         Visible: |
-            =Dialogsubmit_edit
+            =Dialogsubmit_edit_copy
         Width: =Parent.Width
         ZIndex: =3
 
@@ -1074,42 +1084,22 @@ CopyTicketPage As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(Self.Fill, -20%)
                             OnSelect: |-
-                                =If(
-                                    Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
-                                    SubmitForm(Form1_2);
-                                    '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
-                                    Patch(
+                                =SubmitForm(Form1_3);
+                                '[SubFlow]Noti_User_Edit'.Run(Itemcopyrequest.ID);
+                                Patch(
+                                    SP_REQUEST,
+                                    LookUp(
                                         SP_REQUEST,
-                                        LookUp(
-                                            SP_REQUEST,
-                                            ID = TicketsGallery.Selected.ID
-                                        ),
-                                        {Status: {Value: "Submitted"}}
-                                    );
-                                    Navigate(
-                                        SuccessScreen,
-                                        ScreenTransition.Fade
-                                    );
-                                    Set(
-                                        ButtonModeEdit,
-                                        false
+                                        ID = Itemcopyrequest.ID
                                     ),
-                                    If(
-                                        Editticket.Status.Value = "Rejected",
-                                        Notify(
-                                            "The request has been rejected, please refresh the data!",
-                                            NotificationType.Error,
-                                            3000
-                                        ),
-                                        Notify(
-                                            "The request has been approved, please refresh the data!",
-                                            NotificationType.Error,
-                                            3000
-                                        )
-                                    )
+                                    {Status: {Value: "Submitted"}}
+                                );
+                                Navigate(
+                                    SuccessScreen,
+                                    ScreenTransition.Fade
                                 );
                                 Set(
-                                    Dialogsubmit_edit,
+                                    Dialogsubmit_edit_copy,
                                     false
                                 )
                             PaddingBottom: =5.00
@@ -1138,7 +1128,7 @@ CopyTicketPage As screen:
                             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
                             OnSelect: |-
                                 =Set(
-                                    Dialogsubmit_edit,
+                                    Dialogsubmit_edit_copy,
                                     false
                                 )
                             PaddingBottom: =5.00

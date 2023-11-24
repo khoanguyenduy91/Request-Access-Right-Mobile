@@ -82,7 +82,6 @@ TicketsDetailPage_User As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =EditForm(Form1_2);
-                    Set(ButtonModeEdit,true);
                     Navigate(
                         EditTicketPage,
                         ScreenTransition.None
