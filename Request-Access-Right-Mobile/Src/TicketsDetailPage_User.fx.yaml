@@ -1584,7 +1584,7 @@ TicketsDetailPage_User As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: |-
                         =If(
-                            IsBlank(Label8),
+                            IsBlank(ThisItem.'Approver 1'),
                             100,
                             200
                         )
@@ -1724,9 +1724,9 @@ TicketsDetailPage_User As screen:
                                     "Submitted",
                                     "Waiting for: " & ThisItem.'Approver 1'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
                                     "Approver 1 approved",
-                                    "Waiting for: " & ThisItem.'Approver 2'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
+                                    "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
                                     "Approver 2 approved",
-                                    "Waiting for: " & ThisItem.'Approver 3'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
+                                    "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
                                     "Done",
                                     "Waiting for: " & Concat(
                                         ThisItem.'Incharge Person',
@@ -1738,13 +1738,13 @@ TicketsDetailPage_User As screen:
                                 Switch(
                                     ThisItem.Status.Value,
                                     "Submitted",
-                                    "Waiting for: " & ThisItem.HOD.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
+                                    "Waiting for: " & ThisItem.HOD.DisplayName,
                                     "HOD approved",
                                     "Waiting for: " & ThisItem.'Approver 1'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
                                     "Approver 1 approved",
-                                    "Waiting for: " & ThisItem.'Approver 2'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
+                                    "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
                                     "Approver 2 approved",
-                                    "Waiting for: " & ThisItem.'Approver 3'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
+                                    "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
                                     "Done",
                                     "Waiting for: " & Concat(
                                         ThisItem.'Incharge Person',
@@ -1756,7 +1756,7 @@ TicketsDetailPage_User As screen:
                             )
                         Visible: |-
                             =If(
-                                IsBlank(Label8),
+                                IsBlank(ThisItem.'Approver 1'),
                                 false,
                                 true
                             )
