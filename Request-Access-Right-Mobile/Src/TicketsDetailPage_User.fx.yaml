@@ -2245,6 +2245,8 @@ TicketsDetailPage_User As screen:
             ZIndex: =1
 
             Container6_4 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                FillPortions: =0
                 Height: =600
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
