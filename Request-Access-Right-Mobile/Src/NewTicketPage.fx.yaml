@@ -1322,6 +1322,7 @@ NewTicketPage As screen:
             ZIndex: =1
 
             Container6 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
                 Height: =600
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
@@ -1331,6 +1332,7 @@ NewTicketPage As screen:
                 ZIndex: =1
 
                 Image2 As image:
+                    AlignInContainer: =AlignInContainer.Center
                     Height: =Parent.Height/3
                     HoverBorderColor: =
                     HoverFill: =
