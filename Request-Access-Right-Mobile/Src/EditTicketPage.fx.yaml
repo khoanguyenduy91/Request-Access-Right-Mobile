@@ -1173,17 +1173,29 @@ EditTicketPage As screen:
                                         IDitem_edit,
                                         '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID)
                                     );
-                                    Patch(
-                                        SP_REQUEST,
-                                        LookUp(
-                                            SP_REQUEST,
-                                            ID = Value(IDitem_edit.idrequest_edit)
+                                    If(
+                                        IDitem_edit.idrequest_edit = Blank(),
+                                        Set(
+                                            Dialogloading_edit,
+                                            false
+                                        );
+                                        Notify(
+                                            "The system is crashing, please try again later",
+                                            NotificationType.Error,
+                                            5000
                                         ),
-                                        {Status: {Value: "Submitted"}}
-                                    );
-                                    Navigate(
-                                        SuccessScreen,
-                                        ScreenTransition.Fade
+                                        Patch(
+                                            SP_REQUEST,
+                                            LookUp(
+                                                SP_REQUEST,
+                                                ID = TicketsGallery.Selected.ID
+                                            ),
+                                            {Status: {Value: "Submitted"}}
+                                        );
+                                        Navigate(
+                                            SuccessScreen,
+                                            ScreenTransition.Fade
+                                        )
                                     ),
                                     If(
                                         Editticket.Status.Value = "Rejected",

@@ -1140,17 +1140,29 @@ CopyTicketPage As screen:
                                     IDitem_copy,
                                     '[SubFlow]Noti_User_Edit'.Run(Itemcopyrequest.ID)
                                 );
-                                Patch(
-                                    SP_REQUEST,
-                                    LookUp(
-                                        SP_REQUEST,
-                                        ID = Value(IDitem_copy.idrequest_edit)
+                                If(
+                                    IDitem_copy.idrequest_edit = Blank(),
+                                    Set(
+                                        Dialogloading_copy,
+                                        false
+                                    );
+                                    Notify(
+                                        "The system is crashing, please try again later",
+                                        NotificationType.Error,
+                                        5000
                                     ),
-                                    {Status: {Value: "Submitted"}}
-                                );
-                                Navigate(
-                                    SuccessScreen,
-                                    ScreenTransition.Fade
+                                    Patch(
+                                        SP_REQUEST,
+                                        LookUp(
+                                            SP_REQUEST,
+                                            ID = Itemcopyrequest.ID
+                                        ),
+                                        {Status: {Value: "Submitted"}}
+                                    );
+                                    Navigate(
+                                        SuccessScreen,
+                                        ScreenTransition.Fade
+                                    )
                                 );
                                 Set(
                                     Dialogloading_copy,

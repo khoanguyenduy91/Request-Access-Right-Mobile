@@ -1218,21 +1218,33 @@ NewTicketPage As screen:
                                         DataCardValue12.Selected.Id
                                     )
                                 );
-                                ClearCollect(
-                                    CollectAttachment,
-                                    DataCardValue11.Attachments
-                                );
-                                Patch(
-                                    SP_REQUEST,
-                                    LookUp(
-                                        SP_REQUEST,
-                                        ID = Value(IDitem.idrequest)
+                                If(
+                                    IDitem.idrequest = Blank(),
+                                    Set(
+                                        Dialogloading,
+                                        false
+                                    );
+                                    Notify(
+                                        "The system is crashing, please try again later",
+                                        NotificationType.Error,
+                                        5000
                                     ),
-                                    Form_Attachment.Updates
-                                );
-                                Navigate(
-                                    SuccessScreen,
-                                    ScreenTransition.Fade
+                                    ClearCollect(
+                                        CollectAttachment,
+                                        DataCardValue11.Attachments
+                                    );
+                                    Patch(
+                                        SP_REQUEST,
+                                        LookUp(
+                                            SP_REQUEST,
+                                            ID = Value(IDitem.idrequest)
+                                        ),
+                                        Form_Attachment.Updates
+                                    );
+                                    Navigate(
+                                        SuccessScreen,
+                                        ScreenTransition.Fade
+                                    )
                                 );
                                 Set(
                                     Dialogloading,
