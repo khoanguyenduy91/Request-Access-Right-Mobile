@@ -1136,12 +1136,15 @@ CopyTicketPage As screen:
                                     true
                                 );
                                 SubmitForm(Form1_3);
-                                '[SubFlow]Noti_User_Edit'.Run(Itemcopyrequest.ID);
+                                Set(
+                                    IDitem_copy,
+                                    '[SubFlow]Noti_User_Edit'.Run(Itemcopyrequest.ID)
+                                );
                                 Patch(
                                     SP_REQUEST,
                                     LookUp(
                                         SP_REQUEST,
-                                        ID = Itemcopyrequest.ID
+                                        ID = Value(IDitem_copy.idrequest_edit)
                                     ),
                                     {Status: {Value: "Submitted"}}
                                 );

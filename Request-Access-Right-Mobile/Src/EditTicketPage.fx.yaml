@@ -1169,12 +1169,15 @@ EditTicketPage As screen:
                                 If(
                                     Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
                                     SubmitForm(Form1_2);
-                                    '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID);
+                                    Set(
+                                        IDitem_edit,
+                                        '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID)
+                                    );
                                     Patch(
                                         SP_REQUEST,
                                         LookUp(
                                             SP_REQUEST,
-                                            ID = TicketsGallery.Selected.ID
+                                            ID = Value(IDitem_edit.idrequest_edit)
                                         ),
                                         {Status: {Value: "Submitted"}}
                                     );
