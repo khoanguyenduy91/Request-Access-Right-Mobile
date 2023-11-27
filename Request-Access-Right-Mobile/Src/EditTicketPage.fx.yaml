@@ -476,8 +476,8 @@ EditTicketPage As screen:
                         PaddingTop: =0
                         Size: =21
                         Text: |-
-                            =Parent.DisplayName & ": " & CountRows(DataCardValue11_2.Attachments) &" File"
-                        Width: =Parent.Width - 60
+                            =Parent.DisplayName & ":"
+                        Width: =Parent.Width/2
                         Wrap: =false
                         X: =30
                         Y: =10
@@ -530,6 +530,37 @@ EditTicketPage As screen:
                         Wrap: =false
                         Y: =DataCardKey12_2.Y
                         ZIndex: =4
+
+                    DataCardKey12_4 As label:
+                        Color: |-
+                            =If(
+                                CountRows(DataCardValue11_2.Attachments)>=6,
+                                Color.Red,
+                                RGBA(
+                                    101,
+                                    128,
+                                    187,
+                                    1
+                                )
+                            )
+                        FontWeight: =FontWeight.Semibold
+                        Height: =43
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: |-
+                            =If(
+                                CountRows(DataCardValue11_2.Attachments) < 6,
+                                CountRows(DataCardValue11_2.Attachments) & " File",
+                                "Max allow 6 files"
+                            )
+                        Width: =Parent.Width/3
+                        Wrap: =false
+                        X: =236
+                        Y: =10
+                        ZIndex: =5
 
                 Status_DataCard1 As typedDataCard.comboBoxEditCard:
                     BorderStyle: =BorderStyle.Solid
@@ -731,42 +762,46 @@ EditTicketPage As screen:
                 HoverBorderColor: =ColorFade(Self.Fill, 20%)
                 HoverColor: =RGBA(0, 0, 0, 1)
                 OnSelect: |-
-                    =Refresh(SP_REQUEST);
-                    Set(
-                        Editticket,
-                        LookUp(
-                            SP_REQUEST,
-                            ThisRecord.ID = TicketsGallery.Selected.ID
-                        )
-                    );
-                    If(
-                        Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
-                        SubmitForm(Form1_2);
+                    =If(
+                        IsBlank(DataCardValue1_2.Text) || IsBlank(DataCardValue51.Selected.Value) || IsBlank(DataCardValue8_1.Selected.Value) || IsBlank(DataCardValue9_2.Text),
+                        SubmitForm(Form1_2),
+                        Set(
+                            Dialogloading_edit,
+                            true
+                        );
+                        Refresh(SP_REQUEST);
+                        Set(
+                            Editticket,
+                            LookUp(
+                                SP_REQUEST,
+                                ThisRecord.ID = TicketsGallery.Selected.ID
+                            )
+                        );
                         If(
-                            SubmitForm(Form1_2) = true,
+                            Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
+                            SubmitForm(Form1_2);
                             Navigate(
                                 SuccessScreen,
                                 ScreenTransition.Fade
                             ),
-                            Notify(
-                                "Please fill in all required information!",
-                                NotificationType.Error,
-                                3000
-                            )
-                        ),
-                        If(
-                            Editticket.Status.Value = "Rejected",
-                            Notify(
-                                "The request has been rejected, please refresh the data!",
-                                NotificationType.Error,
-                                3000
-                            ),
-                            Notify(
-                                "The request has been approved, please refresh the data!",
-                                NotificationType.Error,
-                                3000
+                            If(
+                                Editticket.Status.Value = "Rejected",
+                                Notify(
+                                    "The request has been rejected, please refresh the data!",
+                                    NotificationType.Error,
+                                    3000
+                                ),
+                                Notify(
+                                    "The request has been approved, please refresh the data!",
+                                    NotificationType.Error,
+                                    3000
+                                )
                             )
                         )
+                    );
+                    Set(
+                        Dialogloading_edit,
+                        false
                     )
                 PressedFill: =ColorFade(Self.Fill, 20%)
                 RadiusBottomLeft: =5
@@ -1002,8 +1037,7 @@ EditTicketPage As screen:
         PaddingLeft: =0.00
         PaddingRight: =0.00
         PaddingTop: =0.00
-        Visible: |
-            =Dialogsubmit_edit
+        Visible: =Dialogsubmit_edit
         Width: =Parent.Width
         ZIndex: =3
 
@@ -1124,7 +1158,14 @@ EditTicketPage As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(Self.Fill, -20%)
                             OnSelect: |-
-                                =UpdateContext({BtnCancel:true});
+                                =Set(
+                                    Dialogsubmit_edit,
+                                    false
+                                );
+                                Set(
+                                    Dialogloading_edit,
+                                    true
+                                );
                                 If(
                                     Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
                                     SubmitForm(Form1_2);
@@ -1156,10 +1197,9 @@ EditTicketPage As screen:
                                     )
                                 );
                                 Set(
-                                    Dialogsubmit_edit,
+                                    Dialogloading_edit,
                                     false
-                                );
-                                UpdateContext({BtnCancel:false})
+                                )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             RadiusBottomLeft: =5
@@ -1179,7 +1219,6 @@ EditTicketPage As screen:
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
-                            DisplayMode: =If(BtnCancel=true,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(56, 96, 178, 1)
                             FillPortions: =1
                             Height: =70
@@ -1202,4 +1241,66 @@ EditTicketPage As screen:
                             X: =184
                             Y: =195
                             ZIndex: =2
+
+    Dialog_loading_edit As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        PaddingBottom: =0.00
+        PaddingLeft: =0.00
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Visible: =Dialogloading_edit
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Container13_16 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(0, 0, 0, 0.46)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Container6_1 As groupContainer.verticalAutoLayoutContainer:
+                Height: =600
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =600
+                ZIndex: =1
+
+                Image2_1 As image:
+                    Height: =Parent.Height/3
+                    HoverBorderColor: =
+                    HoverFill: =
+                    Image: ='Spinner-1s-231px'
+                    LayoutMinHeight: =320
+                    LayoutMinWidth: =320
+                    PressedBorderColor: =
+                    PressedFill: =
+                    Width: =Parent.Width/2
+                    ZIndex: =1
+
+                Label9_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(214, 221, 224, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =22
+                    Text: ="Please wait a few minutes"
+                    Width: =Parent.Width
+                    ZIndex: =2
 
