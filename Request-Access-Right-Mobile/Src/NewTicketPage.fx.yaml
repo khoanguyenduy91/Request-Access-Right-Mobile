@@ -90,11 +90,7 @@ NewTicketPage As screen:
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 OnSuccess: |
-                    =Navigate(
-                        SuccessScreen,
-                        ScreenTransition.Fade
-                    );
-                    Set(
+                    =Set(
                         varApproval,
                         LookUp(
                             SP_REQUEST,
@@ -809,7 +805,20 @@ NewTicketPage As screen:
                 Height: =90
                 HoverBorderColor: =ColorFade(Self.Fill, 20%)
                 HoverColor: =RGBA(0, 0, 0, 1)
-                OnSelect: =SubmitForm(Form1)
+                OnSelect: |-
+                    =Set(
+                        Dialogloading,
+                        true
+                    );
+                    SubmitForm(Form1);
+                    Set(
+                        Dialogloading,
+                        false
+                    );
+                    Navigate(
+                        SuccessScreen,
+                        ScreenTransition.Fade
+                    )
                 PressedFill: =ColorFade(Self.Fill, 20%)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
@@ -1158,6 +1167,14 @@ NewTicketPage As screen:
                             OnSelect: |-
                                 =UpdateContext({BtnCancel: true});
                                 Set(
+                                    Dialogsubmit_new,
+                                    false
+                                );
+                                Set(
+                                    Dialogloading,
+                                    true
+                                );
+                                Set(
                                     IDitem,
                                     Test_FlowCreate_triggerPowerApp.Run(
                                         DataCardValue1.Text,
@@ -1179,15 +1196,15 @@ NewTicketPage As screen:
                                     ),
                                     Form_Attachment.Updates
                                 );
+                                Set(
+                                    Dialogloading,
+                                    false
+                                );
                                 Navigate(
                                     SuccessScreen,
                                     ScreenTransition.Fade
                                 );
-                                Set(
-                                    Dialogsubmit_new,
-                                    false
-                                );
-                                UpdateContext({BtnCancel:false})
+                                UpdateContext({BtnCancel: false})
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             RadiusBottomLeft: =5
@@ -1230,4 +1247,63 @@ NewTicketPage As screen:
                             X: =184
                             Y: =195
                             ZIndex: =2
+
+    Dialog_loading As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        PaddingBottom: =0.00
+        PaddingLeft: =0.00
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Visible: |+
+            =Dialogloading
+            
+            
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Container13_15 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(0, 0, 0, 0.46)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Container6 As groupContainer.verticalAutoLayoutContainer:
+                Height: =600
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMode: =LayoutMode.Auto
+                Width: =600
+                ZIndex: =1
+
+                Image2 As image:
+                    Height: =Parent.Height/3
+                    HoverBorderColor: =
+                    HoverFill: =
+                    Image: ='Spinner-1s-231px'
+                    PressedBorderColor: =
+                    PressedFill: =
+                    Width: =Parent.Width/2
+                    ZIndex: =1
+
+                Label9 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(214, 221, 224, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =22
+                    Text: ="Please wait a few minutes"
+                    Width: =Parent.Width
+                    ZIndex: =2
 
