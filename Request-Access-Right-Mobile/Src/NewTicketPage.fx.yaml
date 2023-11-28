@@ -1327,6 +1327,8 @@ NewTicketPage As screen:
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =600
                 ZIndex: =1
@@ -1337,6 +1339,8 @@ NewTicketPage As screen:
                     HoverBorderColor: =
                     HoverFill: =
                     Image: ='Spinner-1s-231px'
+                    LayoutMinHeight: =320
+                    LayoutMinWidth: =320
                     PressedBorderColor: =
                     PressedFill: =
                     Width: =Parent.Width/2
@@ -1348,6 +1352,8 @@ NewTicketPage As screen:
                     Color: =RGBA(255, 255, 255, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
                     Size: =22
                     Text: ="Please wait a few minutes"
                     Width: =Parent.Width
