@@ -1569,6 +1569,7 @@ TicketsDetailPage_Approval As screen:
                             )
                         )
                     );
+                    Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
                     Navigate(
                         SuccessScreen_Approver,
                         ScreenTransition.Fade
@@ -1860,6 +1861,7 @@ TicketsDetailPage_Approval As screen:
                                             )
                                         )
                                     );
+                                    Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
                                     Navigate(
                                         SuccessScreen_Approver,
                                         ScreenTransition.Fade

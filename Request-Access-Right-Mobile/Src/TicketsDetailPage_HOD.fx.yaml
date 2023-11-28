@@ -1528,6 +1528,7 @@ TicketsDetailPage_HOD As screen:
                             {'HOD Approved Date': Now()}
                         )
                     );
+                    Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
                     Navigate(
                         SuccessScreen_HOD,
                         ScreenTransition.Fade
@@ -1706,6 +1707,7 @@ TicketsDetailPage_HOD As screen:
                                         }
                                     )
                                 );
+                                Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
                                 Navigate(
                                     SuccessScreen_HOD,
                                     ScreenTransition.Fade

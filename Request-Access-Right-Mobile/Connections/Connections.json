@@ -9,7 +9,8 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "6e37f8db-1022-41b5-872e-ab71ff891f6a"
+      "6e37f8db-1022-41b5-872e-ab71ff891f6a",
+      "222d8e46-6089-4fe7-9811-5981b422ce2a"
     ],
     "id": "0da19c7c-8702-4cd7-8d3a-595bf73697d5"
   },
@@ -50,6 +51,58 @@
     },
     "dependents": [],
     "id": "1b47030f-96f1-4108-a321-62cc03394c7d"
+  },
+  "222d8e46-6089-4fe7-9811-5981b422ce2a": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "0da19c7c-8702-4cd7-8d3a-595bf73697d5": {
+          "value": "shared_office365"
+        },
+        "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0": {
+          "value": "shared_sharepointonline"
+        },
+        "dde53cee-fe0e-4334-823f-c49b0fb16354": {
+          "value": "shared_teams_1"
+        },
+        "workflowEntityId": {
+          "value": "14b8f2b7-5a87-ee11-be36-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "fefe5eb7-ca6b-75d4-1ae5-aeaf25c76c01"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "0da19c7c-8702-4cd7-8d3a-595bf73697d5"
+        },
+        "shared_sharepointonline": {
+          "value": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
+        },
+        "shared_teams_1": {
+          "value": "dde53cee-fe0e-4334-823f-c49b0fb16354"
+        },
+        "workflowEntityId": {
+          "value": "14b8f2b7-5a87-ee11-be36-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "fefe5eb7-ca6b-75d4-1ae5-aeaf25c76c01"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Test_Flow_CheckStatus_triggerPowerApp"
+    ],
+    "dependencies": {
+      "shared_office365": "0da19c7c-8702-4cd7-8d3a-595bf73697d5",
+      "shared_sharepointonline": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0",
+      "shared_teams_1": "dde53cee-fe0e-4334-823f-c49b0fb16354"
+    },
+    "dependents": [],
+    "id": "222d8e46-6089-4fe7-9811-5981b422ce2a"
   },
   "38e06757-82fb-4679-ac8e-ca5ed276e924": {
     "connectionRef": {
@@ -230,7 +283,8 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "6e37f8db-1022-41b5-872e-ab71ff891f6a"
+      "6e37f8db-1022-41b5-872e-ab71ff891f6a",
+      "222d8e46-6089-4fe7-9811-5981b422ce2a"
     ],
     "id": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
   },
@@ -357,7 +411,8 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "6e37f8db-1022-41b5-872e-ab71ff891f6a"
+      "6e37f8db-1022-41b5-872e-ab71ff891f6a",
+      "222d8e46-6089-4fe7-9811-5981b422ce2a"
     ],
     "id": "dde53cee-fe0e-4334-823f-c49b0fb16354"
   },

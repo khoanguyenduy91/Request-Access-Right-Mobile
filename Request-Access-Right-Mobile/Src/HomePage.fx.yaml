@@ -46,6 +46,7 @@ HomePage As screen:
                 ZIndex: =1
 
             Image1 As image:
+                AlignInContainer: =AlignInContainer.Center
                 FillPortions: =1
                 Height: =Parent.Height-30
                 Image: =logocochu

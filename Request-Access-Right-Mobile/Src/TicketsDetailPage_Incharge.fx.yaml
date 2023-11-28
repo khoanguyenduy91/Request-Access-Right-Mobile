@@ -1530,44 +1530,6 @@ TicketsDetailPage_Incharge As screen:
                 Width: =200
                 ZIndex: =2
 
-            btn_gop_y_1 As button:
-                AlignInContainer: =AlignInContainer.Center
-                BorderColor: =
-                BorderThickness: =0
-                Color: =RGBA(255, 255, 255, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Fill: =RGBA(62, 96, 170, 1)
-                FillPortions: =1
-                FocusedBorderThickness: =0
-                Height: =70
-                HoverBorderColor: =
-                HoverFill: =ColorFade(Self.Fill, 50%)
-                OnSelect: =Set(DialogFeedback,true)
-                PressedBorderColor: =
-                PressedColor: =ColorFade(Color.Black, 50%)
-                PressedFill: =ColorFade(Self.Fill, 50%)
-                RadiusBottomLeft: =5
-                RadiusBottomRight: =5
-                RadiusTopLeft: =5
-                RadiusTopRight: =5
-                Size: =18
-                Text: ="Feedback"
-                Visible: |-
-                    =If(
-                        !IsBlank(
-                            LookUp(
-                                SP_LEVELAPPROVER,
-                                IdUser.Email = User().Email && Level.Value = "Approver 1"
-                            )
-                        ),
-                        true,
-                        false
-                    )
-                Width: =200
-                ZIndex: =3
-
     Dialog_comment_closed As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =Parent.Height
@@ -1704,6 +1666,7 @@ TicketsDetailPage_Incharge As screen:
                                             {'Incharge Person Comment': User().FullName & " is the Incharge Person Comment: " & TextInput1_3.Text}
                                         )
                                     );
+                                    Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
                                     Navigate(
                                         SuccessScreen_Incharge,
                                         ScreenTransition.Fade
