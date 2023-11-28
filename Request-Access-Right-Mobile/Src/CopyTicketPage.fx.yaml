@@ -1,6 +1,6 @@
 CopyTicketPage As screen:
     OnHidden: |-
-        =UpdateContext({Btnclear:false});
+        =UpdateContext({Btnclear:false})
     OnVisible: =
 
     Container7_3 As groupContainer.verticalAutoLayoutContainer:

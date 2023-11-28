@@ -1,6 +1,6 @@
 EditTicketPage As screen:
     OnHidden: |-
-        =UpdateContext({Btnclear:false});
+        =UpdateContext({Btnclear:false})
     OnVisible: =
 
     Container7_2 As groupContainer.verticalAutoLayoutContainer:
@@ -63,7 +63,7 @@ EditTicketPage As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: |-
                     =If(
-                        IsBlank(DataCardValue1_2.Text) && IsBlank(DataCardValue51.Selected.Value) && IsBlank(DataCardValue8_1.Selected.Value) && IsBlank(DataCardValue9_2.Text) && CountRows(DataCardValue11_2.Attachments) = 0,
+                        IsBlank(DataCardValue1_2.Text) && IsBlank(DataCardValue51.Selected.Value) && IsBlank(DataCardValue8_1.Selected.Value) && IsBlank(DataCardValue9_2.Text) && CountRows(DataCardValue11_2.Attachments) = 0 || Btnclear=true,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -71,8 +71,7 @@ EditTicketPage As screen:
                 Icon: =Icon.Reload
                 LayoutMinHeight: =50
                 OnSelect: |-
-                    =
-                    Set(
+                    =Set(
                         Dialogclearedit,
                         true
                     )
@@ -228,7 +227,8 @@ EditTicketPage As screen:
                         IsSearchable: =false
                         Items: =Choices(SP_REQUEST.ReqPermission)
                         OnChange: |-
-                            =If(
+                            =
+                            If(
                                 DataCardValue8_1.Selected.Value = "Other",
                                 false,
                                 Reset(DataCardValue10_2)
@@ -316,6 +316,7 @@ EditTicketPage As screen:
                         Height: =166
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
+                        OnChange: =
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -410,6 +411,7 @@ EditTicketPage As screen:
                         Height: =166
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
+                        OnChange: =
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -678,7 +680,12 @@ EditTicketPage As screen:
                     DataCardValue1_2 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Clear: =true
-                        Default: =If(Btnclear=true,Blank(),Parent.Default)
+                        Default: |-
+                            =If(
+                                Btnclear = true ,
+                                Blank(),
+                                Parent.Default
+                            )
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
