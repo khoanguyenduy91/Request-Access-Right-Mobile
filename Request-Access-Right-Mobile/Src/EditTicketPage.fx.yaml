@@ -990,8 +990,7 @@ EditTicketPage As screen:
                                 Set(
                                     Dialogclearedit,
                                     false
-                                );
-                                UpdateContext({Btnclear:false});
+                                )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             RadiusBottomLeft: =5

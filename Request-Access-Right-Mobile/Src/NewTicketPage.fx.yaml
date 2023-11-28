@@ -304,6 +304,7 @@ NewTicketPage As screen:
 
                     DataCardValue9 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Clear: =true
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -665,6 +666,7 @@ NewTicketPage As screen:
 
                     DataCardValue1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Clear: =true
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
