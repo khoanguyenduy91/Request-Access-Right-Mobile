@@ -220,13 +220,14 @@ TicketPage As screen:
                 BorderColor: =RGBA(255, 255, 255, 1)
                 BorderThickness: =1
                 Fill: =RGBA(255, 255, 255, 1)
-                FillPortions: =1
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =560
                 Size: =21
                 Text: ="No requests found"
-                Visible: =visibleticketpage
+                Visible: |-
+                    =visibleticketpage
+                    //If(TicketsGallery.AllItemsCount>0, false , true )
                 Width: =560
                 ZIndex: =3
 
