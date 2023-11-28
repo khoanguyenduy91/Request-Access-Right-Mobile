@@ -1,5 +1,6 @@
 CopyTicketPage As screen:
-    OnHidden: =ResetForm(Form1_3)
+    OnHidden: |-
+        =UpdateContext({Btnclear:false});
     OnVisible: =
 
     Container7_3 As groupContainer.verticalAutoLayoutContainer:
@@ -132,7 +133,7 @@ CopyTicketPage As screen:
                     DataCardValue51_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(10, 128, 32, 1)
-                        DefaultSelectedItems: =Itemcopyrequest.ReqType
+                        DefaultSelectedItems: =If(Btnclear=true,Blank(),Itemcopyrequest.ReqType)
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -215,7 +216,7 @@ CopyTicketPage As screen:
                     DataCardValue8_2 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(10, 128, 32, 1)
-                        DefaultSelectedItems: =Itemcopyrequest.ReqPermission
+                        DefaultSelectedItems: =If(Btnclear=true,Blank(),Itemcopyrequest.ReqPermission)
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -304,7 +305,7 @@ CopyTicketPage As screen:
 
                     DataCardValue9_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Itemcopyrequest.ReqReason
+                        Default: =If(Btnclear=true,Blank(),Itemcopyrequest.ReqReason)
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -398,7 +399,7 @@ CopyTicketPage As screen:
 
                     DataCardValue10_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Itemcopyrequest.ReqDescription
+                        Default: =If(Btnclear=true,Blank(),Itemcopyrequest.ReqDescription)
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -485,7 +486,7 @@ CopyTicketPage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =295
                         IsInDataCard: =true
-                        Items: =Itemcopyrequest.Attachments
+                        Items: =If(Btnclear=true,Blank(),Itemcopyrequest.Attachments)
                         PaddingBottom: =5
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PaddingRight: =5
@@ -671,7 +672,7 @@ CopyTicketPage As screen:
 
                     DataCardValue1_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Itemcopyrequest.Title
+                        Default: =If(Btnclear=true,Blank(),Itemcopyrequest.Title)
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -947,12 +948,7 @@ CopyTicketPage As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
                             OnSelect: |-
-                                =ResetForm(Form1_3);
-                                Set(
-                                    Itemcopyrequest,
-                                    Blank()
-                                );
-                                NewForm(Form1_3);
+                                =UpdateContext({Btnclear:true});
                                 Set(
                                     Dialogclearcopy,
                                     false

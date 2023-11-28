@@ -1323,6 +1323,7 @@ NewTicketPage As screen:
 
             Container6 As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
+                FillPortions: =0
                 Height: =600
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical

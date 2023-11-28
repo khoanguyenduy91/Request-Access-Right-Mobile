@@ -1,5 +1,6 @@
 EditTicketPage As screen:
-    OnHidden: =ResetForm(Form1_2)
+    OnHidden: |-
+        =UpdateContext({Btnclear:false})
     OnVisible: =
 
     Container7_2 As groupContainer.verticalAutoLayoutContainer:
@@ -136,7 +137,7 @@ EditTicketPage As screen:
                     DataCardValue51 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(10, 128, 32, 1)
-                        DefaultSelectedItems: =Parent.Default
+                        DefaultSelectedItems: =If(Btnclear=true,Blank(),Parent.Default)
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -219,7 +220,7 @@ EditTicketPage As screen:
                     DataCardValue8_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(10, 128, 32, 1)
-                        DefaultSelectedItems: =Parent.Default
+                        DefaultSelectedItems: =If(Btnclear=true,Blank(),Parent.Default)
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -308,7 +309,8 @@ EditTicketPage As screen:
 
                     DataCardValue9_2 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Clear: =true
+                        Default: =If(Btnclear=true,Blank(),Parent.Default)
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -318,7 +320,6 @@ EditTicketPage As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -402,7 +403,8 @@ EditTicketPage As screen:
 
                     DataCardValue10_2 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Clear: =true
+                        Default: =If(Btnclear=true,Blank(),Parent.Default)
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -412,7 +414,6 @@ EditTicketPage As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =
                         Size: =21
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -489,7 +490,7 @@ EditTicketPage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =295
                         IsInDataCard: =true
-                        Items: =Parent.Default
+                        Items: =If(Btnclear=true,Blank(),Parent.Default)
                         PaddingBottom: =5
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PaddingRight: =5
@@ -675,7 +676,8 @@ EditTicketPage As screen:
 
                     DataCardValue1_2 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Clear: =true
+                        Default: =If(Btnclear=true,Blank(),Parent.Default)
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -983,8 +985,7 @@ EditTicketPage As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
                             OnSelect: |-
-                                =ResetForm(Form1_2);
-                                NewForm(Form1_2);
+                                =UpdateContext({Btnclear:true});
                                 Set(
                                     Dialogclearedit,
                                     false
