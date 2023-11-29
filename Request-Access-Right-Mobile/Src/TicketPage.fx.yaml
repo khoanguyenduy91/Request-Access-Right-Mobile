@@ -856,7 +856,17 @@ TicketPage As screen:
                                     LayoutMinHeight: =70
                                     LayoutMinWidth: =100
                                     LayoutMode: =LayoutMode.Auto
-                                    Visible: =If(ThisItem.Status.Value="Rejected",true,false)
+                                    Visible: |-
+                                        =If(
+                                            !IsBlank(
+                                                LookUp(
+                                                    SP_LEVELAPPROVER,
+                                                    IdUser.Email = User().Email && Level.Value = "Approver 2"  || ThisItem.Status.Value <> "Rejected"
+                                                )
+                                            ),
+                                            false,
+                                            true
+                                        )
                                     Width: =110
                                     ZIndex: =4
 
