@@ -9,7 +9,22 @@ TicketPage As screen:
                 HashTag,
                 ""
             )
-    OnVisible: =If(TicketsGallery.AllItemsCount>0,Set(visibleticketpage, false ),Set(visibleticketpage, true ))
+    OnVisible: |-
+        =If(
+            TicketsGallery.AllItemsCount > 0,
+            Set(
+                visibleticketpage,
+                false
+            ),
+            Set(
+                visibleticketpage,
+                true
+            )
+        );
+        Set(
+            visiblebtnCopy,
+            false
+        )
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -282,10 +297,108 @@ TicketPage As screen:
                 ZIndex: =5
 
                 Rectangle14 As rectangle:
-                    BorderColor: =RGBA(0, 0, 255, 1)
-                    BorderThickness: =0.5
+                    BorderColor: |-
+                        =If(
+                            ThisItem.Status.Value = "Rejected",
+                            RGBA(
+                                227,
+                                48,
+                                12,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "Saved",
+                                RGBA(
+                                    240,
+                                    230,
+                                    140,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "Submitted",
+                                    RGBA(
+                                        50,205,50,
+                                        1
+                                    ),
+                                    If(
+                                        ThisItem.Status.Value = "Done",
+                                        RGBA(
+                                            173,
+                                            230,
+                                            20,
+                                            1
+                                        ),
+                                        If(
+                                            ThisItem.Status.Value = "Closed",
+                                            RGBA(
+                                                0,
+                                                100,
+                                                0,
+                                                1
+                                            ),
+                                            RGBA(
+                                                0,
+                                                0,
+                                                128,
+                                                1
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    BorderThickness: =1
                     DisabledFill: =Rectangle14.Fill
-                    Fill: =RGBA(204, 204, 204, 1)
+                    Fill: |-
+                        =If(
+                            ThisItem.Status.Value = "Rejected",
+                            RGBA(
+                                227,
+                                48,
+                                12,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "Saved",
+                                RGBA(
+                                    240,
+                                    230,
+                                    140,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "Submitted",
+                                    RGBA(
+                                        50,205,50,
+                                        1
+                                    ),
+                                    If(
+                                        ThisItem.Status.Value = "Done",
+                                        RGBA(
+                                            173,
+                                            230,
+                                            20,
+                                            1
+                                        ),
+                                        If(
+                                            ThisItem.Status.Value = "Closed",
+                                            RGBA(
+                                                0,
+                                                100,
+                                                0,
+                                                1
+                                            ),
+                                            RGBA(
+                                                0,
+                                                0,
+                                                128,
+                                                1
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
                     FocusedBorderColor: =Rectangle14.BorderColor
                     Height: =1
                     HoverFill: =Rectangle14.Fill

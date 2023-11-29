@@ -899,7 +899,7 @@ HomePage As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =4
+            ZIndex: =5
 
             Container_User As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
@@ -1731,4 +1731,16 @@ HomePage As screen:
                             X: =
                             Y: =
                             ZIndex: =2
+
+    Rectangle3 As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        Visible: |-
+            =If(
+                CountRows(CollectRequestAll) <> 0,
+                false,
+                true
+            )
+        Width: =Parent.Width
+        ZIndex: =2
 

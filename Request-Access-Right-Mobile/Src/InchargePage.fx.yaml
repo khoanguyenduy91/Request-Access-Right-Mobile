@@ -280,16 +280,115 @@ InchargePage As screen:
 
             Rectangle6_5 As rectangle:
                 AccessibleLabel: ="Ticket Details"
-                BorderColor: =RGBA(0, 0, 255, 1)
-                BorderThickness: =2
+                BorderColor: |-
+                    =If(
+                        ThisItem.Status.Value = "Rejected",
+                        RGBA(
+                            227,
+                            48,
+                            12,
+                            1
+                        ),
+                        If(
+                            ThisItem.Status.Value = "Saved",
+                            RGBA(
+                                240,
+                                230,
+                                140,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "Submitted",
+                                RGBA(
+                                    50,205,50,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "Done",
+                                    RGBA(
+                                        173,
+                                        230,
+                                        20,
+                                        1
+                                    ),
+                                    If(
+                                        ThisItem.Status.Value = "Closed",
+                                        RGBA(
+                                            0,
+                                            100,
+                                            0,
+                                            1
+                                        ),
+                                        RGBA(
+                                            0,
+                                            0,
+                                            128,
+                                            1
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                BorderThickness: =1
                 DisabledFill: =Rectangle6_5.Fill
-                Fill: =RGBA(0, 0, 0, 0)
+                Fill: |-
+                    =If(
+                        ThisItem.Status.Value = "Rejected",
+                        RGBA(
+                            227,
+                            48,
+                            12,
+                            1
+                        ),
+                        If(
+                            ThisItem.Status.Value = "Saved",
+                            RGBA(
+                                240,
+                                230,
+                                140,
+                                1
+                            ),
+                            If(
+                                ThisItem.Status.Value = "Submitted",
+                                RGBA(
+                                    50,205,50,
+                                    1
+                                ),
+                                If(
+                                    ThisItem.Status.Value = "Done",
+                                    RGBA(
+                                        173,
+                                        230,
+                                        20,
+                                        1
+                                    ),
+                                    If(
+                                        ThisItem.Status.Value = "Closed",
+                                        RGBA(
+                                            0,
+                                            100,
+                                            0,
+                                            1
+                                        ),
+                                        RGBA(
+                                            0,
+                                            0,
+                                            128,
+                                            1
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
                 FocusedBorderColor: =Rectangle6_5.BorderColor
-                Height: =223
+                Height: =1
                 HoverFill: =Rectangle6_5.Fill
                 OnSelect: =
                 PressedFill: =Rectangle6_5.Fill
                 Width: =Parent.Width
+                Y: =222
                 ZIndex: =4
 
             Rectangle15_5 As rectangle:

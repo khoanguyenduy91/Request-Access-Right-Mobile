@@ -1,17 +1,23 @@
 TicketsDetailPage_User As screen:
     OnVisible: |-
         =//If(Not(IsBlank(varRecord)),UpdateContext({recordItem:LookUp(SP_REQUEST,ID=varRecord)}))
+        //DataCardValue16.Selected.Value <> "Rejected"
         If(
-            DataCardValue16.Selected.Value = "Rejected",
-            Set(
-                visiblebtnCopy,
-                true
+            !IsBlank(
+                LookUp(
+                    SP_LEVELAPPROVER,
+                    IdUser.Email = User().Email && Level.Value = "Approver 2" || TicketsGallery.Selected.Status.Value <> "Rejected"
+                )
             ),
             Set(
                 visiblebtnCopy,
                 false
+            ),
+            Set(
+                visiblebtnCopy,
+                true
             )
-        );
+        )
 
     Container10 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.ExtraBold
