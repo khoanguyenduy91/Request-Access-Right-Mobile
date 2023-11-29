@@ -176,6 +176,17 @@ HomePage As screen:
                         ScreenTransition.Fade
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
+                Visible: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                SP_LEVELAPPROVER,
+                                IdUser.Email = User().Email && Level.Value = "Approver 2"
+                            )
+                        ),
+                        false,
+                        true
+                    )
                 Width: =50
                 ZIndex: =4
 

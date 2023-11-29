@@ -96,10 +96,6 @@ NewTicketPage As screen:
                             SP_REQUEST,
                             ID = Form1.LastSubmit.ID
                         )
-                    );
-                    Getrequestdetailpage.Run(
-                        "RequestDetail",
-                        varApproval.ID
                     )
                 Width: =Parent.Width
                 ZIndex: =1
