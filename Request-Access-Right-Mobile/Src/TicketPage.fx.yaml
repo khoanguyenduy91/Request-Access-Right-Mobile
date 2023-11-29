@@ -9,18 +9,7 @@ TicketPage As screen:
                 HashTag,
                 ""
             )
-    OnVisible: |-
-        =If(
-            TicketsGallery.AllItemsCount > 0,
-            Set(
-                visibleticketpage,
-                false
-            ),
-            Set(
-                visibleticketpage,
-                true
-            )
-        )
+    OnVisible: =//If(TicketsGallery.AllItemsCount>0,Set(visibleticketpage, false ),Set(visibleticketpage, true ))
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -226,8 +215,8 @@ TicketPage As screen:
                 Size: =21
                 Text: ="No requests found"
                 Visible: |-
-                    =visibleticketpage
-                    //If(TicketsGallery.AllItemsCount>0, false , true )
+                    =//visibleticketpage
+                    If(TicketsGallery.AllItemsCount>0, false , true )
                 Width: =560
                 ZIndex: =3
 
