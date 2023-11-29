@@ -1735,12 +1735,79 @@ HomePage As screen:
     Rectangle3 As rectangle:
         Fill: =RGBA(0, 0, 0, 0)
         Height: =Parent.Height
-        Visible: |-
-            =If(
+        Visible: =false
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Dialog_loading_Home As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        PaddingBottom: =0.00
+        PaddingLeft: =0.00
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Visible: |+
+            =
+            If(
                 CountRows(CollectRequestAll) <> 0,
                 false,
                 true
             )
+            
         Width: =Parent.Width
-        ZIndex: =2
+        ZIndex: =3
+
+        Container13_20 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(0, 0, 0, 0.46)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Container6_5 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                FillPortions: =0
+                Height: =600
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =600
+                ZIndex: =1
+
+                Image2_5 As image:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =Parent.Height/3
+                    HoverBorderColor: =
+                    HoverFill: =
+                    Image: ='Spinner-1s-231px'
+                    LayoutMinHeight: =320
+                    LayoutMinWidth: =320
+                    PressedBorderColor: =
+                    PressedFill: =
+                    Width: =Parent.Width/2
+                    ZIndex: =1
+
+                Label9_5 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(214, 221, 224, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =22
+                    Text: ="Please wait a few minutes"
+                    Width: =Parent.Width
+                    ZIndex: =2
 
