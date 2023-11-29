@@ -255,11 +255,11 @@ ApprovalPage As screen:
 
         Label6 As label:
             Align: =Align.Center
-            AlignInContainer: =AlignInContainer.Start
+            AlignInContainer: =AlignInContainer.Stretch
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height
+            Height: =70
             LayoutMinHeight: =70
             LayoutMinWidth: =560
             Size: =21
@@ -267,7 +267,7 @@ ApprovalPage As screen:
             Visible: |-
                 =visibleapprovalPage
                 //If(TicketsGallery_approval.AllItemsCount>0, false , true )
-            Width: =70
+            Width: =Parent.Width
             ZIndex: =3
 
         TicketsGallery_approval As gallery.textualGalleryVertical:
