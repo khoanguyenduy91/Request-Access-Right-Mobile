@@ -804,25 +804,24 @@ TicketPage As screen:
                                 LayoutMinHeight: =8
                                 LayoutMinWidth: =250
                                 LayoutMode: =LayoutMode.Auto
+                                PaddingTop: =50
                                 Width: =110
                                 ZIndex: =2
 
                                 icon8 As icon.ChevronRight:
                                     AccessibleLabel: ="Ticket Details Button"
-                                    AlignInContainer: =AlignInContainer.Stretch
                                     BorderColor: =RGBA(0, 0, 0, 1)
                                     Color: =RGBA(115, 115, 115, 1)
                                     DisabledBorderColor: =RGBA(56, 56, 56, 1)
                                     DisabledFill: =icon8.Fill
-                                    FillPortions: =1
                                     FocusedBorderColor: =Color.Black
                                     FocusedBorderThickness: =0
-                                    Height: =40
+                                    Height: =30
                                     HoverBorderColor: =ColorFade(icon8.BorderColor, 20%)
                                     HoverColor: =ColorFade(icon8.Color, 20%)
                                     HoverFill: =icon8.Fill
                                     Icon: =Icon.ChevronRight
-                                    LayoutMinHeight: =60
+                                    LayoutMinHeight: =30
                                     LayoutMinWidth: =40
                                     OnSelect: |-
                                         =Set(
@@ -837,17 +836,13 @@ TicketPage As screen:
                                             counter,
                                             true
                                         )
-                                    PaddingBottom: =35
-                                    PaddingLeft: =35
-                                    PaddingRight: =35
-                                    PaddingTop: =35
                                     PressedBorderColor: =ColorFade(icon8.BorderColor, -20%)
                                     PressedColor: |-
                                         =//ColorFade(icon8.Color, -20%)
                                         ColorFade(Self.Color,90%)
                                     PressedFill: =icon8.Fill
                                     TabIndex: =0
-                                    Width: =40
+                                    Width: =110
                                     X: =393
                                     Y: =33.78571428571428
                                     ZIndex: =1
@@ -855,10 +850,10 @@ TicketPage As screen:
                                 Container51 As groupContainer.horizontalAutoLayoutContainer:
                                     AlignInContainer: =AlignInContainer.SetByContainer
                                     FillPortions: =0
-                                    Height: =70
-                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    Height: =60
+                                    LayoutAlignItems: =LayoutAlignItems.End
                                     LayoutJustifyContent: =LayoutJustifyContent.Center
-                                    LayoutMinHeight: =112
+                                    LayoutMinHeight: =70
                                     LayoutMinWidth: =100
                                     LayoutMode: =LayoutMode.Auto
                                     Visible: =If(ThisItem.Status.Value="Rejected",true,false)
@@ -867,7 +862,6 @@ TicketPage As screen:
 
                                     Label7 As label:
                                         Align: =Align.Center
-                                        AlignInContainer: =AlignInContainer.Stretch
                                         LayoutMinHeight: =70
                                         LayoutMinWidth: =560
                                         OnSelect: |-
@@ -884,7 +878,6 @@ TicketPage As screen:
 
                                     icon8_5 As icon.ChevronRight:
                                         AccessibleLabel: ="Ticket Details Button"
-                                        AlignInContainer: =AlignInContainer.Stretch
                                         BorderColor: =RGBA(0, 0, 0, 1)
                                         Color: =RGBA(115, 115, 115, 1)
                                         DisabledBorderColor: =RGBA(56, 56, 56, 1)
