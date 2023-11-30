@@ -205,6 +205,7 @@ App As appinfo:
                 )
             )
         );
+        Set(LoadingAll,true);
         If(
             !IsBlank(Param("ID")),
             Set(
