@@ -1590,7 +1590,7 @@ TicketsDetailPage_User As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: |-
                         =If(
-                            IsBlank(Label8),
+                            ThisItem.Status.Value = "Saved",
                             100,
                             200
                         )
@@ -1762,7 +1762,7 @@ TicketsDetailPage_User As screen:
                             )
                         Visible: |-
                             =If(
-                                IsBlank(Label8),
+                                ThisItem.Status.Value = "Closed" || ThisItem.Status.Value = "Saved",
                                 false,
                                 true
                             )
