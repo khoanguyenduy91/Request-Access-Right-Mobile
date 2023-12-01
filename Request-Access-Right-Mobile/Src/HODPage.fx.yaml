@@ -197,8 +197,7 @@ HODPage As screen:
                         ).varlink
                     );
                     Launch(varLinkDocument);
-                    Clear(colAllitem);
-                    UpdateContext({displaymenu: false})
+                    Clear(colAllitem)
                     
                     
                 Visible: =false

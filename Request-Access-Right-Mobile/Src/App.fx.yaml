@@ -22,10 +22,6 @@ App As appinfo:
             Set(
                 visibleBtnApprover,
                 true
-            );
-            Set(
-                visiblecountticketApprover,
-                true
             ),
             If(
                 Office365Users.MyProfile().Department <> "DTS" && IsMatch(
@@ -35,10 +31,6 @@ App As appinfo:
                 ),
                 Set(
                     visibleBtnHOD,
-                    true
-                );
-                Set(
-                    visiblecountticketApprover,
                     true
                 ),
                 If(
@@ -54,10 +46,6 @@ App As appinfo:
                     Set(
                         visibleBtnIncharge,
                         true
-                    );
-                    Set(
-                        visiblecountticketApprover,
-                        true
                     ),
                     Set(
                         visibleBtnApprover,
@@ -65,10 +53,6 @@ App As appinfo:
                     );
                     Set(
                         visibleBtnHOD,
-                        false
-                    );
-                    Set(
-                        visiblecountticketApprover,
                         false
                     );
                     Set(

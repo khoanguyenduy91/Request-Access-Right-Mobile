@@ -106,7 +106,7 @@ SuccessScreen_Incharge As screen:
                 ZIndex: =2
 
     Timer1_4 As timer:
-        AutoStart: =VisibleSuccess4
+        AutoStart: =VisibleSuccess5
         Duration: =3000
         Height: =70
         OnTimerEnd: =Navigate(InchargePage)
