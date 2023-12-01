@@ -1,12 +1,15 @@
 TicketsDetailPage_User As screen:
     OnVisible: |-
         =//If(Not(IsBlank(varRecord)),UpdateContext({recordItem:LookUp(SP_REQUEST,ID=varRecord)}))
-        //DataCardValue16.Selected.Value <> "Rejected"
         If(
             !IsBlank(
                 LookUp(
                     SP_LEVELAPPROVER,
-                    IdUser.Email = User().Email && Level.Value = "Approver 2" || TicketsGallery.Selected.Status.Value <> "Rejected"
+                    IdUser.Email = User().Email && Or(
+                        Level.Value = "Approver 1",
+                        Level.Value = "Approver 2",
+                        Level.Value = "Approver 3"
+                    ) || TicketsGallery.Selected.Status.Value <> "Rejected"
                 )
             ),
             Set(
@@ -525,6 +528,7 @@ TicketsDetailPage_User As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(SP_REQUEST.HOD,DataCardValue18.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -1741,23 +1745,46 @@ TicketsDetailPage_User As screen:
                                     ),
                                     ""
                                 ),
-                                Switch(
-                                    ThisItem.Status.Value,
-                                    "Submitted",
-                                    "Waiting for: " & ThisItem.HOD.DisplayName,
-                                    "HOD approved",
-                                    "Waiting for: " & ThisItem.'Approver 1'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
-                                    "Approver 1 approved",
-                                    "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
-                                    "Approver 2 approved",
-                                    "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
-                                    "Done",
-                                    "Waiting for: " & Concat(
-                                        ThisItem.'Incharge Person',
-                                        DisplayName,
-                                        " ; "
+                                If(
+                                    Office365Users.MyProfile().Department <> "DTS" && IsMatch(
+                                        Office365Users.MyProfile().JobTitle,
+                                        "Head of",
+                                        MatchOptions.Contains
                                     ),
-                                    ""
+                                    Switch(
+                                        ThisItem.Status.Value,
+                                        "Submitted",
+                                        "Waiting for: " & ThisItem.'Approver 1'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
+                                        "Approver 1 approved",
+                                        "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
+                                        "Approver 2 approved",
+                                        "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
+                                        "Done",
+                                        "Waiting for: " & Concat(
+                                            ThisItem.'Incharge Person',
+                                            DisplayName,
+                                            " ; "
+                                        ),
+                                        ""
+                                    ),
+                                    Switch(
+                                        ThisItem.Status.Value,
+                                        "Submitted",
+                                        "Waiting for: " & ThisItem.HOD.DisplayName,
+                                        "HOD approved",
+                                        "Waiting for: " & ThisItem.'Approver 1'.DisplayName & " ; " & ThisItem.'Assigned User'.DisplayName,
+                                        "Approver 1 approved",
+                                        "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
+                                        "Approver 2 approved",
+                                        "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
+                                        "Done",
+                                        "Waiting for: " & Concat(
+                                            ThisItem.'Incharge Person',
+                                            DisplayName,
+                                            " ; "
+                                        ),
+                                        ""
+                                    )
                                 )
                             )
                         Visible: |-

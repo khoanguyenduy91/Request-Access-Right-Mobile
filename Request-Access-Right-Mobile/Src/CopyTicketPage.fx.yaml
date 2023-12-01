@@ -1148,14 +1148,6 @@ CopyTicketPage As screen:
                                         NotificationType.Error,
                                         5000
                                     ),
-                                    Patch(
-                                        SP_REQUEST,
-                                        LookUp(
-                                            SP_REQUEST,
-                                            ID = Itemcopyrequest.ID
-                                        ),
-                                        {Status: {Value: "Submitted"}}
-                                    );
                                     Navigate(
                                         SuccessScreen,
                                         ScreenTransition.Fade

@@ -1194,14 +1194,6 @@ EditTicketPage As screen:
                                             NotificationType.Error,
                                             5000
                                         ),
-                                        Patch(
-                                            SP_REQUEST,
-                                            LookUp(
-                                                SP_REQUEST,
-                                                ID = TicketsGallery.Selected.ID
-                                            ),
-                                            {Status: {Value: "Submitted"}}
-                                        );
                                         Navigate(
                                             SuccessScreen,
                                             ScreenTransition.Fade
