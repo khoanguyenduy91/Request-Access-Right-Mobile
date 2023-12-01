@@ -7,11 +7,7 @@ HODPage As screen:
         )
     OnVisible: |-
         =If(
-            TicketsGallery_HOD.AllItemsCount > 0,
-            Set(
-                visibleHODpage,
-                false
-            ),
+            TicketsGallery_HOD.AllItemsCount = 0,
             Set(
                 visibleHODpage,
                 true

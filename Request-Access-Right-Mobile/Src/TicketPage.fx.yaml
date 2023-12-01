@@ -2,20 +2,16 @@ TicketPage As screen:
     Fill: =RGBA(255, 255, 255, 1)
     OnHidden: |-
         =Set(
-                visibleticketpage,
-                false
-            );
+            visibleticketpage,
+            false
+        );
         Set(
-                HashTag,
-                ""
-            )
+            HashTag,
+            ""
+        )
     OnVisible: |-
         =If(
-            TicketsGallery.AllItemsCount > 0,
-            Set(
-                visibleticketpage,
-                false
-            ),
+            TicketsGallery.AllItemsCount = 0,
             Set(
                 visibleticketpage,
                 true
@@ -95,7 +91,11 @@ TicketPage As screen:
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
-                                IdUser.Email = User().Email && Level.Value = "Approver 2"
+                                IdUser.Email = User().Email && Or(
+                                    Level.Value = "Approver 1",
+                                    Level.Value = "Approver 2",
+                                    Level.Value = "Approver 3"
+                                )
                             )
                         ),
                         false,

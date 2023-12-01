@@ -2,14 +2,14 @@ History_request_Incharge As screen:
     Fill: =RGBA(255, 255, 255, 1)
     OnHidden: |-
         =Set(
-                visiblehistoryHOD,
+                visiblehistoryincharge,
                 false
             )
     OnVisible: |-
         =If(
             TicketsGallery_history_incharge.AllItemsCount = 0,
             Set(
-                visiblehistoryHOD,
+                visiblehistoryincharge,
                 true
             )
         )
@@ -61,6 +61,111 @@ History_request_Incharge As screen:
                 Width: =560
                 ZIndex: =2
 
+        Container2_30 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =80
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =10
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
+            Width: =Parent.Width
+            ZIndex: =2
+
+            Icon1_44 As icon.Add:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(62, 96, 170, 1)
+                Height: =50
+                Icon: =Icon.Search
+                OnSelect: =
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =50
+                ZIndex: =1
+
+            Text_search_6 As text:
+                BorderThickness: =0
+                Default: =HashTag
+                FillPortions: =1
+                FocusedBorderThickness: =0
+                Height: =70
+                HintText: ="Search"
+                HoverFill: =
+                LayoutMinHeight: =70
+                LayoutMinWidth: =300
+                OnChange: =
+                Size: =21
+                Width: =Parent.Width-150
+                ZIndex: =2
+
+            Label2_3 As label:
+                FillPortions: =1
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =100
+                OnSelect: =
+                PressedColor: =ColorFade(Self.Color,90%)
+                Size: =24
+                Text: =
+                Visible: =false
+                Width: =Parent.Width
+                ZIndex: =4
+
+            Icon1_45 As icon.Add:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(62, 96, 170, 1)
+                Height: =50
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({SortDescending: !SortDescending})
+                PressedColor: =ColorFade(Self.Color,90%)
+                Width: =50
+                ZIndex: =5
+
+            Icon4_17 As icon.OptionsList:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(62, 96, 170, 1)
+                Height: =35
+                Icon: =Icon.Export
+                OnSelect: |+
+                    =ForAll(
+                        TicketsGallery.AllItems,
+                        Collect(
+                            colAllitem,
+                            {
+                                Title: ThisRecord.Title,
+                                Created: Text(
+                                    ThisRecord.Created,
+                                    "dd/mm/yy"
+                                ),
+                                'Created By': ThisRecord.'Created By'.Email,
+                                Status: ThisRecord.Status.Value
+                            }
+                        )
+                    );
+                    Set(
+                        varLinkDocument,
+                        ExportExcel.Run(
+                            JSON(
+                                colAllitem,
+                                JSONFormat.IncludeBinaryData & JSONFormat.IgnoreUnsupportedTypes
+                            )
+                        ).varlink
+                    );
+                    Launch(varLinkDocument);
+                    Clear(colAllitem);
+                    UpdateContext({displaymenu: false})
+                    
+                    
+                Visible: =false
+                Width: =40
+                X: =97
+                Y: =6
+                ZIndex: =6
+
         Label5_3 As label:
             Align: =Align.Center
             AlignInContainer: =AlignInContainer.Stretch
@@ -72,9 +177,9 @@ History_request_Incharge As screen:
             LayoutMinWidth: =560
             Size: =21
             Text: ="No requests found"
-            Visible: =visiblehistoryHOD
+            Visible: =visiblehistoryincharge
             Width: =560
-            ZIndex: =2
+            ZIndex: =3
 
         Container22_3 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =RGBA(255, 255, 255, 1)
@@ -84,7 +189,7 @@ History_request_Incharge As screen:
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =3
+            ZIndex: =4
 
             TicketsGallery_history_incharge As gallery.textualGalleryVertical:
                 AccessibleLabel: ="Tickets Gallery"
@@ -95,19 +200,26 @@ History_request_Incharge As screen:
                 HoverBorderColor: =TicketsGallery_history_incharge.BorderColor
                 HoverFill: =TicketsGallery_history_incharge.Fill
                 Items: |-
-                    =If(
-                        !IsBlank(
-                            LookUp(
-                                CollectionRequestTest,
-                                User().Email in Concat(
-                                    'Incharge Person',
-                                    Email & ";"
-                                )
-                            )
+                    =Sort(
+                        Filter(
+                            If(
+                                !IsBlank(
+                                    LookUp(
+                                        CollectionRequestTest,
+                                        User().Email in Concat(
+                                            'Incharge Person',
+                                            Email & ";"
+                                        )
+                                    )
+                                ),
+                                CollecRequestHistory_Incharge
+                            ),
+                            Text_search_6.Text in Title || Text_search_6.Text in ID || Text_search_6.Text in ReqType.Value
                         ),
-                        SortByColumns(
-                            CollecRequestHistory_Incharge,
-                            "Created",
+                        Created,
+                        If(
+                            SortDescending,
+                            SortOrder.Ascending,
                             SortOrder.Descending
                         )
                     )

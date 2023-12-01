@@ -13,11 +13,7 @@ ApprovalPage As screen:
         )
     OnVisible: |-
         =If(
-            TicketsGallery_approval.AllItemsCount > 0,
-            Set(
-                visibleapprovalPage,
-                false
-            ),
+            TicketsGallery_approval.AllItemsCount = 0,
             Set(
                 visibleapprovalPage,
                 true

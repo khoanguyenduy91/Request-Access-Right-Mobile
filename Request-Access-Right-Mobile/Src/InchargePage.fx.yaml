@@ -2,18 +2,14 @@ InchargePage As screen:
     Fill: =RGBA(230, 229, 229, 1)
     OnHidden: |-
         =Set(
-            visibleapprovalPage,
+            visibleinchargePage,
             false
         )
     OnVisible: |-
         =If(
-            TicketsGallery_incharge.AllItemsCount > 0,
+            TicketsGallery_incharge.AllItemsCount = 0,
             Set(
-                visibleapprovalPage,
-                false
-            ),
-            Set(
-                visibleapprovalPage,
+                visibleinchargePage,
                 true
             )
         )
@@ -226,7 +222,7 @@ InchargePage As screen:
             LayoutMinWidth: =560
             Size: =21
             Text: ="No requests found"
-            Visible: =visibleapprovalPage
+            Visible: =visibleinchargePage
             Width: =Parent.Width
             ZIndex: =3
 
