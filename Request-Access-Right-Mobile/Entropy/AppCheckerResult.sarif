@@ -12204,18 +12204,588 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1"
+                  "fullyQualifiedName": "ExpandMenu.imgExpandButton.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1",
+                  "fullyQualifiedName": "ExpandMenu.imgExpandButton.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "module": "Screen1",
-                "type": "Screen1"
+                "member": "FocusedBorderThickness",
+                "module": "ExpandMenu",
+                "type": "ExpandMenu.imgExpandButton"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_20.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_20.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_20"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_20.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_20.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_20"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_21.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_21.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_21"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_21.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_21.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container32_4.Heading1_21"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Button2_7.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Button2_7.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Button2_7"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.icon8_8.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.icon8_8.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.icon8_8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.icon8_9.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.icon8_9.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen_export_excel",
+                "type": "Screen_export_excel.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.icon8_9"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen2"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen2",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "Screen2",
+                "type": "Screen2"
               }
             }
           ],
@@ -12233,19 +12803,79 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.TabIndex"
+                  "fullyQualifiedName": "ExpandMenu.glExpandMenu.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.TabIndex",
+                  "fullyQualifiedName": "ExpandMenu.glExpandMenu.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "ExpandMenu",
+                "type": "ExpandMenu.glExpandMenu"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ExpandMenu.glExpandMenu.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ExpandMenu.glExpandMenu.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1"
+                "module": "ExpandMenu",
+                "type": "ExpandMenu.glExpandMenu"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "acc-TabOrderShouldBeChecked",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.Label7_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.Label7_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.Label7_2"
               }
             }
           ],
@@ -12263,19 +12893,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_20.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.Label7_2.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_20.FocusedBorderThickness",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.Label7_2.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_20"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.Label7_2"
               }
             }
           ],
@@ -12293,19 +12923,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_20.TabIndex"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Subtitle1_27.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_20.TabIndex",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Subtitle1_27.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Subtitle1_27"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Subtitle1_27.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Subtitle1_27.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_20"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Subtitle1_27"
               }
             }
           ],
@@ -12323,19 +12983,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_21.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Button2_8.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_21.FocusedBorderThickness",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Button2_8.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_21"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Button2_8"
               }
             }
           ],
@@ -12353,19 +13013,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_21.TabIndex"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Label10_8.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_21.TabIndex",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Label10_8.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Label10_8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Label10_8.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Label10_8.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container32_4.Heading1_21"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Container36_5.Label10_8"
               }
             }
           ],
@@ -12383,49 +13073,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1.TabIndex",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_1"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2"
               }
             }
           ],
@@ -12443,19 +13103,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_23.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15.FocusedBorderThickness",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_23.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_23"
               }
             }
           ],
@@ -12473,19 +13133,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15.TabIndex"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_23.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15.TabIndex",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_23.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Subtitle1_15"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_23"
               }
             }
           ],
@@ -12503,19 +13163,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_3.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19.FocusedBorderThickness",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_3.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_3"
               }
             }
           ],
@@ -12533,19 +13193,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19.TabIndex"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_3.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19.TabIndex",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_3.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Subtitle1_19"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container35_5.Subtitle1_3"
               }
             }
           ],
@@ -12563,19 +13223,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_23.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7.FocusedBorderThickness",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_23.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_23"
               }
             }
           ],
@@ -12593,19 +13253,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7.TabIndex"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_23.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7.TabIndex",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_23.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Label10_7"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_23"
               }
             }
           ],
@@ -12623,19 +13283,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Button2_7.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_22.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Button2_7.FocusedBorderThickness",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_22.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container35_4.Container36_4.Button2_7"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_22"
               }
             }
           ],
@@ -12653,49 +13313,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_22.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1.TabIndex",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_22.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.Label7_1"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container32_5.Heading1_22"
               }
             }
           ],
@@ -12713,19 +13343,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.icon8_8.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.icon8_10.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.icon8_8.FocusedBorderThickness",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.icon8_10.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.Container51_1.icon8_8"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.Container51_2.icon8_10"
               }
             }
           ],
@@ -12743,19 +13373,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.icon8_9.FocusedBorderThickness"
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.icon8_11.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.icon8_9.FocusedBorderThickness",
+                  "fullyQualifiedName": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.icon8_11.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "Screen1",
-                "type": "Screen1.TicketsGallery_1.Container31_4.Container33_4.Container34_4.Container52_1.icon8_9"
+                "module": "Screen2",
+                "type": "Screen2.Container47.TicketsGallery_2.Container31_5.Container33_5.Container34_5.Container52_2.icon8_11"
               }
             }
           ],
@@ -12796,7 +13426,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedVariables",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12826,7 +13456,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -12856,7 +13486,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -12886,7 +13516,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -12916,7 +13546,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -12946,7 +13576,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -12976,7 +13606,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -13006,7 +13636,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 7
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -13036,7 +13666,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 7
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -13066,7 +13696,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 7
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -13096,7 +13726,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 7
+          "ruleIndex": 8
         }
       ],
       "tool": {
@@ -13190,6 +13820,23 @@
                 "level": "Low",
                 "primaryCategory": "accessibility",
                 "whyFix": "People who are blind, have low vision, or a reading disability rely on screen titles to navigate using the screen reader. "
+              }
+            },
+            {
+              "id": "acc-TabOrderShouldBeChecked",
+              "messageStrings": {
+                "issue": {
+                  "text": "Check the order of the screen items"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Make sure that your screen elements match the order in which you'd want to tab through them."
+                ],
+                "level": "Low",
+                "primaryCategory": "accessibility",
+                "whyFix": "When a screen reader reads the elements of a slide, it's important that they appear in the order that a user would see them, instead of the order they were added to the slide."
               }
             },
             {
