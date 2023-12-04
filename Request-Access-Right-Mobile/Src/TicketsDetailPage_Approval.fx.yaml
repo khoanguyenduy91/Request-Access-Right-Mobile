@@ -178,7 +178,7 @@ TicketsDetailPage_Approval As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Author")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =123
                     Required: =false
                     Update: =DataCardValue26_1.Selected
                     Width: =Parent.Width
@@ -207,7 +207,6 @@ TicketsDetailPage_Approval As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         Items: =Choices([@SP_REQUEST].'Created By')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
@@ -302,7 +301,7 @@ TicketsDetailPage_Approval As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqPermission")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =123
                     Required: =false
                     Update: =DataCardValue21_1.Selected
                     Width: =Parent.Width
@@ -331,7 +330,6 @@ TicketsDetailPage_Approval As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         Items: =Choices([@SP_REQUEST].ReqPermission)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
@@ -1274,7 +1272,7 @@ TicketsDetailPage_Approval As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqType")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =123
                     Required: =false
                     Update: =DataCardValue19_1.Selected
                     Width: =Parent.Width
@@ -1303,7 +1301,6 @@ TicketsDetailPage_Approval As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         Items: =Choices([@SP_REQUEST].ReqType)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
@@ -1433,7 +1430,6 @@ TicketsDetailPage_Approval As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         FontWeight: =FontWeight.Bold
-                        Height: =70
                         Items: =Choices([@SP_REQUEST].Status)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]

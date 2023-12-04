@@ -301,7 +301,6 @@ TicketsDetailPage_User As screen:
 
                     DataCardValue25 As label:
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -364,7 +363,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqPermission")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =123
                     Required: =false
                     Update: =DataCardValue21.Selected
                     Width: =Parent.Width
@@ -393,7 +392,6 @@ TicketsDetailPage_User As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         Items: =Choices([@SP_REQUEST].ReqPermission)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
@@ -443,7 +441,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqDescription")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue23.Text),false,true)
                     Width: =Parent.Width
@@ -618,7 +616,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver1Feedback")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =123
                     Required: =false
                     Visible: =If(IsBlank(DataCardValue53.Text),false,true)
                     Width: =640
@@ -628,6 +626,7 @@ TicketsDetailPage_User As screen:
 
                     DataCardKey53 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
                         Height: =48
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1044,7 +1043,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"RejectedBy")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =123
                     Required: =false
                     Update: =DataCardValue27.Selected
                     Visible: =If(IsBlank(DataCardValue27.SelectedItems),false,true)
@@ -1074,7 +1073,6 @@ TicketsDetailPage_User As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         Items: =Choices([@SP_REQUEST].'Rejected By')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
@@ -1214,7 +1212,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver4")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =123
                     Required: =false
                     Update: |
                         =DataCardValue73.SelectedItems
@@ -1250,7 +1248,6 @@ TicketsDetailPage_User As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         IsSearchable: =false
                         Items: |
                             =Choices([@SP_REQUEST].'Incharge Person')
@@ -1328,7 +1325,6 @@ TicketsDetailPage_User As screen:
 
                     DataCardValue74 As label:
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
@@ -1513,7 +1509,7 @@ TicketsDetailPage_User As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ReqType")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =123
                     Required: =false
                     Update: =DataCardValue19.Selected
                     Width: =Parent.Width
@@ -1542,7 +1538,6 @@ TicketsDetailPage_User As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         Items: =Choices([@SP_REQUEST].ReqType)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
@@ -1679,7 +1674,6 @@ TicketsDetailPage_User As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         FontWeight: =FontWeight.Bold
-                        Height: =70
                         Items: =Choices([@SP_REQUEST].Status)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]

@@ -318,7 +318,13 @@
       "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
     },
     "datasets": {},
-    "dataSources": [],
+    "dataSources": [
+      "SP_REQUESTTYPE",
+      "SP_REQUESTPROCESS",
+      "SP_LEVELAPPROVER",
+      "SP_SETTINGLEVELAPPROVER",
+      "SP_REQUEST"
+    ],
     "dependencies": {},
     "dependents": [
       "6e37f8db-1022-41b5-872e-ab71ff891f6a",
