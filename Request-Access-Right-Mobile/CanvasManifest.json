@@ -28,10 +28,10 @@
       "disablecdsfileandlargeimage": false,
       "dynamicschema": false,
       "enableappembeddingux": false,
+      "enablechatbotfeature": false,
       "enablecomponentnamemaps": true,
       "enablecomponentscopeoldbehavior": true,
       "enablecopilotcontrol": false,
-      "enablechatbotfeature": false,
       "enabledataverseoffline": false,
       "enableeditcacherefreshfrequency": false,
       "enableexcelonlinebusinessv2connector": false,
@@ -95,7 +95,7 @@
     },
     "Author": "",
     "BindingErrorCount": 0,
-    "ContainsThirdPartyPcfControls": true,
+    "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "Phone",
     "DocumentLayoutHeight": 1136,
@@ -110,13 +110,13 @@
     "Id": "92927783-3d5f-4c56-bd01-cc9122e21584",
     "InstrumentationKey": "",
     "ManualOfflineProfileId": "",
-    "Name": "PizzaHut VN Request App",
+    "Name": "[DEV] PizzaHutVN Request App-editRequest",
     "OriginatingVersion": "1.160",
     "ParserErrorCount": 0,
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "PizzaHut VN Request App",
+    "AppName": "[DEV] PizzaHutVN Request App-editRequest",
     "BackgroundColor": "rgba(255, 255, 255, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "",
@@ -124,7 +124,7 @@
     "PublishDataLocally": false,
     "PublishResourcesLocally": true,
     "PublishTarget": "player",
-    "UserLocale": "vi-VN"
+    "UserLocale": "en-US"
   },
   "ScreenOrder": [
     "HomePage",
