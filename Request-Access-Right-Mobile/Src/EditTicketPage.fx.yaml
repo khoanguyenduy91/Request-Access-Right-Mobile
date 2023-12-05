@@ -33,9 +33,12 @@ EditTicketPage As screen:
                 LayoutMinHeight: =50
                 OnSelect: |-
                     =//Refresh(SP_REQUEST);Set(Editticket,LookUp(SP_REQUEST,ThisRecord.ID=TicketsGallery.Selected.ID));If(Editticket.Status.Value="Submitted",Back(),Concurrent(ClearCollect(CollectRequestAll,Filter(SP_REQUEST,'Created By'.Email=User().Email)),ClearCollect(CollectRequestNew,Filter(SP_REQUEST,Status.Value="Saved"&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestProcess,Filter(SP_REQUEST,(Status.Value="Submitted"||Status.Value="HOD approved"||Status.Value="Approver 1 approved"||Status.Value="Approver 2 approved"||Status.Value="Done")&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestClosed,Filter(SP_REQUEST,Status.Value="Closed"&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestRejected,Filter(SP_REQUEST,Status.Value="Rejected"&&'Created By'.Email=User().Email)));Navigate(TicketPage,ScreenTransition.Fade))
-                    Navigate(
-                        TicketPage,
-                        ScreenTransition.Fade
+                    If(
+                        varItem.Status.Value = "Submitted" && Form1_2.Unsaved = true,
+                        Set(
+                            Dialogbackedit,
+                            true
+                        )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
@@ -96,7 +99,7 @@ EditTicketPage As screen:
                 DataSource: =SP_REQUEST
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Item: =TicketsGallery.Selected
+                Item: =varItem
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 OnSuccess: =
@@ -834,7 +837,7 @@ EditTicketPage As screen:
                 DisplayMode: |-
                     =//If(DataCardValue58.Selected.Value = "Submitted"&&Form1_2.Unsaved=false,DisplayMode.Disabled,DisplayMode.Edit)
                     If(
-                        TicketsGallery.Selected.Status.Value = "Submitted" && Form1_2.Unsaved = false,
+                        varItem.Status.Value = "Submitted" && Form1_2.Unsaved = false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -1328,4 +1331,183 @@ EditTicketPage As screen:
                     Text: ="Please wait a few minutes"
                     Width: =Parent.Width
                     ZIndex: =2
+
+    Dialog_back As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        PaddingBottom: =0.00
+        PaddingLeft: =0.00
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Visible: =Dialogbackedit
+        Width: =Parent.Width
+        ZIndex: =5
+
+        Container13_21 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(0, 0, 0, 0.46)
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Container42_18 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                ZIndex: =5
+
+                Container42_19 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =450
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =600
+                    ZIndex: =1
+
+                    Label1_27 As label:
+                        Align: =Align.Center
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =70
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        Size: =25
+                        Text: ="Confirm Back"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    TextInput1_13 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: ="Are you sure you want to exit without saving?"
+                        DisabledBorderColor: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 1)
+                        DisplayMode: =DisplayMode.View
+                        FocusedBorderThickness: =Self.BorderThickness
+                        FontWeight: =FontWeight.Semibold
+                        Height: =250
+                        HintText: =""
+                        HoverBorderColor: =RGBA(0, 18, 107, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        Mode: =TextMode.MultiLine
+                        PaddingLeft: =5
+                        PaddingTop: =50
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =25
+                        Width: =Parent.Width
+                        X: =418
+                        Y: =238
+                        ZIndex: =2
+
+                    Container28_13 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: |
+                            =100
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        RadiusBottomRight: =2
+                        RadiusTopLeft: =2
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        Button_OK_21 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(255, 0, 0, 1)
+                            FillPortions: =1
+                            Height: =70
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
+                            OnSelect: |-
+                                =Navigate(
+                                    TicketPage,
+                                    ScreenTransition.Fade
+                                );
+                                ResetForm(Form1_2);
+                                Set(
+                                    Dialogbackedit,
+                                    false
+                                )
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Back"
+                            Width: =180
+                            X: =62
+                            Y: =195
+                            ZIndex: =1
+
+                        Button_Cancel_23 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(56, 96, 178, 1)
+                            FillPortions: =1
+                            Height: =70
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            OnSelect: |-
+                                =Set(
+                                    Dialogbackedit,
+                                    false
+                                )
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Cancel"
+                            Width: =180
+                            X: =184
+                            Y: =195
+                            ZIndex: =2
 
