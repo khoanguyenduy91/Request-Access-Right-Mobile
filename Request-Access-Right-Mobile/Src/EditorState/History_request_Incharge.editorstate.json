@@ -8351,7 +8351,8 @@
         "TabIndex",
         "ContentLanguage",
         "FocusedBorderColor",
-        "FocusedBorderThickness"
+        "FocusedBorderThickness",
+        "MaxTemplateSize"
       ],
       "DynamicProperties": [
         {
@@ -8569,6 +8570,11 @@
         {
           "Category": "Design",
           "PropertyName": "AutoHeight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
           "RuleProviderType": "Unknown"
         }
       ],

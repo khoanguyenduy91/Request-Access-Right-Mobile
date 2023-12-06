@@ -1216,13 +1216,13 @@ NewTicketPage As screen:
                                     )
                                 );
                                 If(
-                                    IDitem.idrequest = Blank(),
+                                    IDitem.nulldepartment <> Blank(),
                                     Set(
                                         Dialogloading,
                                         false
                                     );
                                     Notify(
-                                        "The system is crashing, please try again later",
+                                        IDitem.nulldepartment,
                                         NotificationType.Error,
                                         5000
                                     ),
