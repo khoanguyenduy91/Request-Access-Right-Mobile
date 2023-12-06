@@ -1504,7 +1504,12 @@ TicketsDetail_History_Approval As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Status")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =200
+                    Height: |-
+                        =If(
+                            DataCardValue16_3.Selected.Value = "Closed"||DataCardValue16_3.Selected.Value = "Rejected",
+                            100,
+                            200
+                        )
                     Required: =false
                     Update: =DataCardValue16_3.Selected
                     Width: =Parent.Width
@@ -1645,7 +1650,12 @@ TicketsDetail_History_Approval As screen:
                                 ),
                                 ""
                             )
-                        Visible: =If(DataCardValue16_3.Selected.Value="Closed",false,true)
+                        Visible: |-
+                            =If(
+                                DataCardValue16_3.Selected.Value = "Closed"||DataCardValue16_3.Selected.Value = "Rejected",
+                                false,
+                                true
+                            )
                         Width: =560
                         X: =30
                         Y: =110

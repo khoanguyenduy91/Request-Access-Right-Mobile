@@ -12804,6 +12804,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.Status_DataCard2_4.Height"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.Status_DataCard2_4.Height",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Height",
+                "module": "TicketsDetail_History_HOD",
+                "type": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.Status_DataCard2_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "TicketsDetail_History_Incharge.Container10_11.Container13_3.FormDetail_approval_3.Item"
                 }
               ],
@@ -12817,6 +12847,36 @@
                 "member": "Item",
                 "module": "TicketsDetail_History_Incharge",
                 "type": "TicketsDetail_History_Incharge.Container10_11.Container13_3.FormDetail_approval_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.Status_DataCard2_4.Label11_1.Visible"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.Status_DataCard2_4.Label11_1.Visible",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Visible",
+                "module": "TicketsDetail_History_HOD",
+                "type": "TicketsDetail_History_HOD.Container10_7.Container15_4.FormDetail_user_3.Status_DataCard2_4.Label11_1"
               }
             }
           ],

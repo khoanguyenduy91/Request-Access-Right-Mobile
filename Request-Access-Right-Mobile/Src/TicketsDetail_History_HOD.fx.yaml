@@ -1506,7 +1506,12 @@ TicketsDetail_History_HOD As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Status")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: |-
+                        =If(
+                            DataCardValue16_4.Selected.Value = "Closed"||DataCardValue16_3.Selected.Value = "Rejected",
+                            100,
+                            200
+                        )
                     Required: =false
                     Update: =DataCardValue16_4.Selected
                     Width: =Parent.Width
@@ -1628,4 +1633,35 @@ TicketsDetail_History_HOD As screen:
                         Wrap: =false
                         Y: =DataCardKey17_4.Y
                         ZIndex: =4
+
+                    Label11_1 As label:
+                        Height: =70
+                        Size: =21
+                        Text: |-
+                            =Switch(
+                                DataCardValue16_4.Selected.Value,
+                                "HOD approved",
+                                "Waiting for: " & ThisItem.'Approver 1'.DisplayName,
+                                "Approver 1 approved",
+                                "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
+                                "Approver 2 approved",
+                                "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
+                                "Done",
+                                "Waiting for: " & Concat(
+                                    ThisItem.'Incharge Person',
+                                    DisplayName,
+                                    " ; "
+                                ),
+                                ""
+                            )
+                        Visible: |-
+                            =If(
+                                DataCardValue16_4.Selected.Value = "Closed"||DataCardValue16_3.Selected.Value = "Rejected",
+                                false,
+                                true
+                            )
+                        Width: =560
+                        X: =30
+                        Y: =123
+                        ZIndex: =5
 
