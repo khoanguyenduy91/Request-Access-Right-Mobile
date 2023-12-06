@@ -1635,6 +1635,7 @@ TicketsDetail_History_HOD As screen:
                         ZIndex: =4
 
                     Label11_1 As label:
+                        AutoHeight: =true
                         Height: =70
                         Size: =21
                         Text: |-
@@ -1660,8 +1661,8 @@ TicketsDetail_History_HOD As screen:
                                 false,
                                 true
                             )
-                        Width: =560
+                        Width: =Parent.Width-60
                         X: =30
-                        Y: =123
+                        Y: =121
                         ZIndex: =5
 

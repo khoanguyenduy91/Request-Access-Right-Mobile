@@ -34,7 +34,7 @@ EditTicketPage As screen:
                 OnSelect: |-
                     =//Refresh(SP_REQUEST);Set(Editticket,LookUp(SP_REQUEST,ThisRecord.ID=TicketsGallery.Selected.ID));If(Editticket.Status.Value="Submitted",Back(),Concurrent(ClearCollect(CollectRequestAll,Filter(SP_REQUEST,'Created By'.Email=User().Email)),ClearCollect(CollectRequestNew,Filter(SP_REQUEST,Status.Value="Saved"&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestProcess,Filter(SP_REQUEST,(Status.Value="Submitted"||Status.Value="HOD approved"||Status.Value="Approver 1 approved"||Status.Value="Approver 2 approved"||Status.Value="Done")&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestClosed,Filter(SP_REQUEST,Status.Value="Closed"&&'Created By'.Email=User().Email)),ClearCollect(CollectRequestRejected,Filter(SP_REQUEST,Status.Value="Rejected"&&'Created By'.Email=User().Email)));Navigate(TicketPage,ScreenTransition.Fade))
                     If(
-                        varItem.Status.Value = "Submitted" && Form1_2.Unsaved = true,
+                        varItem.Status.Value = "Submitted" && Form1_2.Unsaved,
                         Set(
                             Dialogbackedit,
                             true
@@ -58,7 +58,8 @@ EditTicketPage As screen:
                     =Refresh(SP_REQUEST);
                     TicketsGallery.Selected
                 Size: =28
-                Text: ="Edit request"
+                Text: |
+                    ="Edit request"
                 Width: =560
                 ZIndex: =2
 
@@ -837,10 +838,11 @@ EditTicketPage As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: |-
                     =//If(DataCardValue58.Selected.Value = "Submitted"&&Form1_2.Unsaved=false,DisplayMode.Disabled,DisplayMode.Edit)
+                    //If(varItem.Status.Value="Submitted"&&Form1_2.Unsaved= false ,DisplayMode.Disabled,DisplayMode.Edit)
                     If(
-                        varItem.Status.Value = "Submitted" && Form1_2.Unsaved = false,
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
+                        Form1_2.Unsaved,
+                        DisplayMode.Edit,
+                        DisableBtnSubmit
                     )
                 Fill: =RGBA(11, 128, 32, 1)
                 FillPortions: =1
