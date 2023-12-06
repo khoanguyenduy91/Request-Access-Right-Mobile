@@ -1216,7 +1216,7 @@ NewTicketPage As screen:
                                     )
                                 );
                                 If(
-                                    IDitem.nulldepartment = Blank(),
+                                    !IsBlank(IDitem.nulldepartment),
                                     Set(
                                         Dialogloading,
                                         false
