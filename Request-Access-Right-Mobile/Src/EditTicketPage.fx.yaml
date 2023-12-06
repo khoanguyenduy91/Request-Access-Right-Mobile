@@ -1193,13 +1193,13 @@ EditTicketPage As screen:
                                         '[SubFlow]Noti_User_Edit'.Run(TicketsGallery.Selected.ID)
                                     );
                                     If(
-                                        IDitem_edit.idrequest_edit = Blank(),
+                                        IDitem_edit.nulldepartment = Blank(),
                                         Set(
                                             Dialogloading_edit,
                                             false
                                         );
                                         Notify(
-                                            "The system is crashing, please try again later",
+                                            IDitem_edit.nulldepartment,
                                             NotificationType.Error,
                                             5000
                                         ),

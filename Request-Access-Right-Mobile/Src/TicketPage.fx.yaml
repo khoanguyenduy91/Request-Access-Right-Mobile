@@ -36,6 +36,7 @@ TicketPage As screen:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =100
+            LayoutGap: =30
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -73,6 +74,112 @@ TicketPage As screen:
                 Width: =560
                 ZIndex: =2
 
+            Icon3_1 As icon.Reload:
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =50
+                Icon: =Icon.Sync
+                LayoutMinHeight: =45
+                OnSelect: |-
+                    =Refresh(SP_REQUEST);
+                    ClearCollect(
+                        CollectionRequestTest,
+                        SP_REQUEST
+                    );
+                    Concurrent(
+                        ClearCollect(
+                            CollectRequestAll,
+                            Filter(
+                                CollectionRequestTest,
+                                'Created By'.Email = User().Email && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestNew,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Saved" && 'Created By'.Email = User().Email && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestProcess,
+                            Filter(
+                                CollectionRequestTest,
+                                (Status.Value = "Submitted" || Status.Value = "HOD approved" || Status.Value = "Approver 1 approved" || Status.Value = "Approver 2 approved" || Status.Value = "Done") && 'Created By'.Email = User().Email && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestClosed,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Closed" && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestRejected,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover1,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover2,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Approver 1 approved" && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestApprover3,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Approver 2 approved" && 'ReqType: ID'.Value = "2" && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestHOD,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Submitted" && HOD.Email = User().Email && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestIncharge,
+                            Filter(
+                                CollectionRequestTest,
+                                Status.Value = "Done" && User().Email in Concat(
+                                    'Incharge Person',
+                                    Email & ";"
+                                ) && isDelete = false
+                            )
+                        ),
+                        ClearCollect(
+                            CollectRequestAssign,
+                            Filter(
+                                SP_REQUEST,
+                                'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                            )
+                        )
+                    );
+                    Set(
+                        autoRefresh,
+                        false
+                    );
+                    Reset(Timer_Refresh);
+                    Set(
+                        autoRefresh,
+                        true
+                    )
+                Width: =45
+                ZIndex: =3
+
             Icon1_14 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
@@ -102,7 +209,7 @@ TicketPage As screen:
                         true
                     )
                 Width: =50
-                ZIndex: =3
+                ZIndex: =4
 
         Container22 As groupContainer.verticalAutoLayoutContainer:
             Height: =225

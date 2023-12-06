@@ -25,7 +25,7 @@ HomePage As screen:
             FillPortions: =0
             Height: =100
             LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutGap: =20
+            LayoutGap: =35
             LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
             LayoutMinHeight: =112
             LayoutMinWidth: =250
@@ -36,6 +36,7 @@ HomePage As screen:
             ZIndex: =1
 
             Icon2 As icon.Cancel:
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Leave
                 LayoutMinHeight: =50
@@ -60,10 +61,11 @@ HomePage As screen:
                 ZIndex: =2
 
             Icon3 As icon.Reload:
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =50
                 Icon: =Icon.Sync
-                LayoutMinHeight: =50
+                LayoutMinHeight: =45
                 OnSelect: |-
                     =Refresh(SP_REQUEST);
                     ClearCollect(
@@ -161,10 +163,11 @@ HomePage As screen:
                         autoRefresh,
                         true
                     )
-                Width: =50
+                Width: =45
                 ZIndex: =3
 
             Icon1 As icon.Add:
+                AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
                 Icon: =Icon.Add
