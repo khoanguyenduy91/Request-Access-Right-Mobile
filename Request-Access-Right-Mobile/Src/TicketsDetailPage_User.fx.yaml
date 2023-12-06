@@ -309,7 +309,7 @@ TicketsDetailPage_User As screen:
                             =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey26.Y + DataCardKey26.Height + 5
+                        Y: =66
                         ZIndex: =2
 
                 ReqReason_DataCard2 As typedDataCard.textualViewCard:
@@ -353,7 +353,7 @@ TicketsDetailPage_User As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey23.Y + DataCardKey23.Height + 5
+                        Y: =66
                         ZIndex: =2
 
                 ReqPermission_DataCard2 As typedDataCard.comboBoxViewCard:
@@ -1222,7 +1222,7 @@ TicketsDetailPage_User As screen:
                             false,
                             true
                         )
-                    Width: =640
+                    Width: =Parent.Width
                     X: =0
                     Y: =21
                     ZIndex: =1
@@ -1499,7 +1499,7 @@ TicketsDetailPage_User As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                        Y: =66
                         ZIndex: =2
 
                 ReqType_DataCard3 As typedDataCard.comboBoxViewCard:

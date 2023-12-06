@@ -1143,7 +1143,7 @@ TicketsDetail_History_Incharge As screen:
                     Required: =false
                     Update: =DataCardValue64.SelectedItems
                     Visible: =If(IsBlank(DataCardValue65),false,true)
-                    Width: =640
+                    Width: =Parent.Width-60
                     X: =0
                     Y: =21
                     ZIndex: =1

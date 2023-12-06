@@ -357,7 +357,7 @@ TicketsDetail_History_Approval As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey23_3.Y + DataCardKey23_3.Height + 5
+                        Y: =66
                         ZIndex: =2
 
                 ReqDescription_DataCard2_3 As typedDataCard.textualViewCard:
@@ -1139,7 +1139,7 @@ TicketsDetail_History_Approval As screen:
                     Required: =false
                     Update: =DataCardValue67.SelectedItems
                     Visible: =If(IsBlank(DataCardValue67),false,true)
-                    Width: =640
+                    Width: =Parent.Width-60
                     X: =0
                     Y: =21
                     ZIndex: =1
@@ -1415,7 +1415,7 @@ TicketsDetail_History_Approval As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey14_3.Y + DataCardKey14_3.Height + 5
+                        Y: =66
                         ZIndex: =2
 
                 ReqType_DataCard3_3 As typedDataCard.comboBoxViewCard:
@@ -1505,11 +1505,9 @@ TicketsDetail_History_Approval As screen:
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Status")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: |-
-                        =If(
-                            DataCardValue16_3.Selected.Value = "Closed"||DataCardValue16_3.Selected.Value = "Rejected",
-                            100,
-                            200
-                        )
+                        =//If(DataCardValue16_3.Selected.Value="Closed"||DataCardValue16_3.Selected.Value="Rejected",100,200)
+                        
+                        200
                     Required: =false
                     Update: =DataCardValue16_3.Selected
                     Width: =Parent.Width
@@ -1633,6 +1631,7 @@ TicketsDetail_History_Approval As screen:
                         ZIndex: =4
 
                     Label11 As label:
+                        AutoHeight: =true
                         Height: =70
                         Size: =21
                         Text: |-
@@ -1651,13 +1650,10 @@ TicketsDetail_History_Approval As screen:
                                 ""
                             )
                         Visible: |-
-                            =If(
-                                DataCardValue16_3.Selected.Value = "Closed"||DataCardValue16_3.Selected.Value = "Rejected",
-                                false,
-                                true
-                            )
-                        Width: =560
+                            =//If(DataCardValue16_3.Selected.Value="Closed"||DataCardValue16_3.Selected.Value="Rejected", false , true )
+                            true
+                        Width: =Parent.Width-60
                         X: =30
-                        Y: =110
+                        Y: =121
                         ZIndex: =5
 

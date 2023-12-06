@@ -1142,7 +1142,7 @@ TicketsDetail_History_HOD As screen:
                     Required: =false
                     Update: =DataCardValue70.SelectedItems
                     Visible: =If(IsBlank(DataCardValue71),false,true)
-                    Width: =640
+                    Width: =Parent.Width-60
                     X: =0
                     Y: =21
                     ZIndex: =1

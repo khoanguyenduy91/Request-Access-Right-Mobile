@@ -38,7 +38,8 @@ EditTicketPage As screen:
                         Set(
                             Dialogbackedit,
                             true
-                        )
+                        ),
+                        Navigate(TicketPage,ScreenTransition.None)
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50

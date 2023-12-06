@@ -291,7 +291,7 @@ TicketsDetailPage_Approval As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey23_1.Y + DataCardKey23_1.Height + 5
+                        Y: =66
                         ZIndex: =2
 
                 ReqPermission_DataCard2_1 As typedDataCard.comboBoxViewCard:
@@ -1262,7 +1262,7 @@ TicketsDetailPage_Approval As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey14_1.Y + DataCardKey14_1.Height + 5
+                        Y: =66
                         ZIndex: =2
 
                 ReqType_DataCard3_1 As typedDataCard.comboBoxViewCard:
@@ -1309,7 +1309,7 @@ TicketsDetailPage_Approval As screen:
                         Size: =20
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey20_1.Y + DataCardKey20_1.Height + 5
+                        Y: =66
                         ZIndex: =2
 
                     ErrorMessage18_1 As label:
