@@ -732,7 +732,7 @@ TicketsDetailPage_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33.Selected
-                    Visible: =If(IsBlank(DataCardValue34),false,true)
+                    Visible: =If(IsBlank(DataCardValue32),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -858,7 +858,7 @@ TicketsDetailPage_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35.Selected
-                    Visible: =If(IsBlank(DataCardValue36),false,true)
+                    Visible: =If(IsBlank(DataCardValue34),false,true)
                     Width: =640
                     X: =0
                     Y: =16

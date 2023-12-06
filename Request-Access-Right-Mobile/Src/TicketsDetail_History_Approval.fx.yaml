@@ -589,12 +589,8 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue31_1.Selected
-                    Visible: |-
-                        =If(
-                            IsBlank(DataCardValue32_1),
-                            false,
-                            true
-                        )
+                    Visible: |
+                        =If(IsBlank(DataCardValue31_1), false , true )
                     Width: =640
                     X: =0
                     Y: =12
@@ -720,7 +716,7 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33_1.Selected
-                    Visible: =If(IsBlank(DataCardValue34_1),false,true)
+                    Visible: =If(IsBlank(DataCardValue33_1),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -846,7 +842,7 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35_1.Selected
-                    Visible: =If(IsBlank(DataCardValue36_1),false,true)
+                    Visible: =If(IsBlank(DataCardValue35_1),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1142,7 +1138,7 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue67.SelectedItems
-                    Visible: =If(IsBlank(DataCardValue68),false,true)
+                    Visible: =If(IsBlank(DataCardValue67),false,true)
                     Width: =640
                     X: =0
                     Y: =21
@@ -1508,7 +1504,7 @@ TicketsDetail_History_Approval As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Status")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =200
                     Required: =false
                     Update: =DataCardValue16_3.Selected
                     Width: =Parent.Width
@@ -1630,4 +1626,28 @@ TicketsDetail_History_Approval As screen:
                         Wrap: =false
                         Y: =DataCardKey17_3.Y
                         ZIndex: =4
+
+                    Label11 As label:
+                        Height: =70
+                        Size: =21
+                        Text: |-
+                            =Switch(
+                                DataCardValue16_3.Selected.Value,
+                                "Approver 1 approved",
+                                "Waiting for: " & ThisItem.'Approver 2'.DisplayName,
+                                "Approver 2 approved",
+                                "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
+                                "Done",
+                                "Waiting for: " & Concat(
+                                    ThisItem.'Incharge Person',
+                                    DisplayName,
+                                    " ; "
+                                ),
+                                ""
+                            )
+                        Visible: =If(DataCardValue16_3.Selected.Value="Closed",false,true)
+                        Width: =560
+                        X: =30
+                        Y: =110
+                        ZIndex: =5
 

@@ -1589,9 +1589,9 @@ TicketsDetailPage_User As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: |-
                         =If(
-                            DataCardValue16.Selected.Value = "Saved" || DataCardValue16.Selected.Value = "Closed" || DataCardValue16.Selected.Value = "Rejected",
+                            DataCardValue16.Selected.Value = "Saved"||DataCardValue16.Selected.Value = "Closed"||DataCardValue16.Selected.Value = "Rejected",
                             100,
-                            200
+                            140
                         )
                     Required: =false
                     Update: =DataCardValue16.Selected
@@ -1789,7 +1789,7 @@ TicketsDetailPage_User As screen:
                             )
                         Width: =Parent.Width-60
                         X: =30
-                        Y: =130
+                        Y: =93
                         ZIndex: =5
 
         Container11_4 As groupContainer.verticalAutoLayoutContainer:
