@@ -1506,7 +1506,7 @@ TicketsDetailPage_Approval As screen:
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
-                                ((IdUser.Email = User().Email && Level.Value = "Approver 1") && DataCardValue16_1.Selected.Value = "Submitted") || ((IdUser.Email = User().Email && Level.Value = "Approver 1") && DataCardValue16_1.Selected.Value = "HOD approved")
+                                (IdUser.Email = User().Email && Level.Value = "Approver 1") && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
                             )
                         ),
                         DisplayMode.Edit,
@@ -1622,7 +1622,7 @@ TicketsDetailPage_Approval As screen:
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
-                                IdUser.Email = User().Email && Level.Value = "Approver 1" && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
+                                (IdUser.Email = User().Email && Level.Value = "Approver 1") && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
                             )
                         ),
                         DisplayMode.Edit,
