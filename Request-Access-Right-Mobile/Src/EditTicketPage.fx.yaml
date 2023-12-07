@@ -413,7 +413,7 @@ EditTicketPage As screen:
                         Clear: =true
                         Default: |-
                             =If(
-                                Btnclear = true || DataCardValue8_1.Selected.Value <> "Other",
+                                Btnclear = true,
                                 "",
                                 Parent.Default
                             )
@@ -883,11 +883,10 @@ EditTicketPage As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: |-
                     =//If(DataCardValue58.Selected.Value = "Submitted"&&Form1_2.Unsaved=false,DisplayMode.Disabled,DisplayMode.Edit)
-                    //If(varItem.Status.Value="Submitted"&&Form1_2.Unsaved= false ,DisplayMode.Disabled,DisplayMode.Edit)
                     If(
-                        Form1_2.Unsaved,
-                        DisplayMode.Edit,
-                        DisableBtnSubmit
+                        varItem.Status.Value = "Submitted" && Form1_2.Unsaved = false,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
                     )
                 Fill: =RGBA(11, 128, 32, 1)
                 FillPortions: =1

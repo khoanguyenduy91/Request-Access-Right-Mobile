@@ -401,7 +401,7 @@ CopyTicketPage As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: |-
                             =If(
-                                Btnclear = true || DataCardValue8_2.Selected.Value <> "Other",
+                                Btnclear = true,
                                 "",
                                 Itemcopyrequest.ReqDescription
                             )
