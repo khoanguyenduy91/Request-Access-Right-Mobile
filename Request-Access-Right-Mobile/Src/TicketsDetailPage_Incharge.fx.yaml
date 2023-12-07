@@ -1506,6 +1506,20 @@ TicketsDetailPage_Incharge As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                CollectionRequestTest,
+                                User().Email in Concat(
+                                    'Incharge Person',
+                                    Email & ";"
+                                ) && DataCardValue16_5.Selected.Value = "Done"
+                            )
+                        ),
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
                 Fill: =RGBA(255, 0, 0, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0

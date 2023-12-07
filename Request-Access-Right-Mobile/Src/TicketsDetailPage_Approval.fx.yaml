@@ -1506,28 +1506,28 @@ TicketsDetailPage_Approval As screen:
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
-                                IdUser.Email = User().Email && Level.Value = "Approver 1" && DataCardValue16_1.Selected.Value = "Approver 1 approved"
+                                IdUser.Email = User().Email && Level.Value = "Approver 1" && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
                             )
                         ),
-                        DisplayMode.Disabled,
+                        DisplayMode.Edit,
                         If(
                             !IsBlank(
                                 LookUp(
                                     SP_LEVELAPPROVER,
-                                    User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_1.Selected.Value = "Approver 2 approved"
+                                    User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_1.Selected.Value = "Approver 1 approved"
                                 )
                             ),
-                            DisplayMode.Disabled,
+                            DisplayMode.Edit,
                             If(
                                 !IsBlank(
                                     LookUp(
                                         SP_LEVELAPPROVER,
-                                        User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_1.Selected.Value = "Approver 3 approved"
+                                        User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_1.Selected.Value = "Approver 2 approved"
                                     )
                                 ),
+                                DisplayMode.Edit,
                                 DisplayMode.Disabled
-                            ),
-                            DisplayMode.Edit
+                            )
                         )
                     )
                 Fill: =RGBA(10, 128, 32, 1)
@@ -1617,6 +1617,35 @@ TicketsDetailPage_Approval As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                SP_LEVELAPPROVER,
+                                IdUser.Email = User().Email && Level.Value = "Approver 1" && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
+                            )
+                        ),
+                        DisplayMode.Edit,
+                        If(
+                            !IsBlank(
+                                LookUp(
+                                    SP_LEVELAPPROVER,
+                                    User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_1.Selected.Value = "Approver 1 approved"
+                                )
+                            ),
+                            DisplayMode.Edit,
+                            If(
+                                !IsBlank(
+                                    LookUp(
+                                        SP_LEVELAPPROVER,
+                                        User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_1.Selected.Value = "Approver 2 approved"
+                                    )
+                                ),
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled
+                            )
+                        )
+                    )
                 Fill: =RGBA(255, 0, 0, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0

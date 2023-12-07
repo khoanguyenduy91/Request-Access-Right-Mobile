@@ -1502,6 +1502,17 @@ TicketsDetailPage_HOD As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                SP_REQUEST,
+                                User().Email = HOD.Email && DataCardValue16_2.Selected.Value = "Submitted"
+                            )
+                        ),
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
                 Fill: =RGBA(10, 128, 32, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0
@@ -1551,6 +1562,17 @@ TicketsDetailPage_HOD As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                SP_REQUEST,
+                                User().Email = HOD.Email && DataCardValue16_2.Selected.Value = "Submitted"
+                            )
+                        ),
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
                 Fill: =RGBA(255, 0, 0, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0
