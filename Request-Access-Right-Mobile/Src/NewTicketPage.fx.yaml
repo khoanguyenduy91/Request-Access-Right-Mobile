@@ -386,7 +386,7 @@ NewTicketPage As screen:
 
                     DataCardValue10 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =If(DataCardValue8.Selected.Value="Other","",Parent.Default)
+                        Default: =If(DataCardValue8.Selected.Value<>"Other","",Parent.Default)
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -835,16 +835,32 @@ NewTicketPage As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 OnSelect: |-
                     =If(
-                        IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text),
-                        SubmitForm(Form1),
-                        Set(
-                            Dialogloading,
-                            true
-                        );
-                        SubmitForm(Form1);
-                        Navigate(
-                            SuccessScreen,
-                            ScreenTransition.Fade
+                        DataCardValue8.Selected.Value = "Other",
+                        If(
+                            IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text) || IsBlank(DataCardValue10.Text),
+                            SubmitForm(Form1),
+                            Set(
+                                Dialogloading,
+                                true
+                            );
+                            SubmitForm(Form1);
+                            Navigate(
+                                SuccessScreen,
+                                ScreenTransition.Fade
+                            )
+                        ),
+                        If(
+                            IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text),
+                            SubmitForm(Form1),
+                            Set(
+                                Dialogloading,
+                                true
+                            );
+                            SubmitForm(Form1);
+                            Navigate(
+                                SuccessScreen,
+                                ScreenTransition.Fade
+                            )
                         )
                     );
                     Set(
@@ -875,11 +891,22 @@ NewTicketPage As screen:
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
                     =If(
-                        IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text),
-                        SubmitForm(Form1),
-                        Set(
-                            Dialogsubmit_new,
-                            true
+                        DataCardValue8.Selected.Value = "Other",
+                        If(
+                            IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text) || IsBlank(DataCardValue10.Text),
+                            SubmitForm(Form1),
+                            Set(
+                                Dialogsubmit_new,
+                                true
+                            )
+                        ),
+                        If(
+                            IsBlank(DataCardValue1.Text) || IsBlank(DataCardValue12.Selected.Value) || IsBlank(DataCardValue8.Selected.Value) || IsBlank(DataCardValue9.Text),
+                            SubmitForm(Form1),
+                            Set(
+                                Dialogsubmit_new,
+                                true
+                            )
                         )
                     )
                 RadiusBottomLeft: =5

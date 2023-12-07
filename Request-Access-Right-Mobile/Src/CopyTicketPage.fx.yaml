@@ -399,7 +399,12 @@ CopyTicketPage As screen:
 
                     DataCardValue10_3 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =If(Btnclear=true,Blank(),Itemcopyrequest.ReqDescription)
+                        Default: |-
+                            =If(
+                                Btnclear = true || DataCardValue8_2.Selected.Value <> "Other",
+                                "",
+                                Itemcopyrequest.ReqDescription
+                            )
                         DisplayMode: =Parent.DisplayMode
                         Height: =166
                         MaxLength: =Parent.MaxLength
@@ -760,16 +765,32 @@ CopyTicketPage As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 OnSelect: |-
                     =If(
-                        IsBlank(DataCardValue1_3.Text) || IsBlank(DataCardValue51_1.Selected.Value) || IsBlank(DataCardValue8_2.Selected.Value) || IsBlank(DataCardValue9_3.Text),
-                        SubmitForm(Form1_3),
-                        Set(
-                            Dialogloading_copy,
-                            true
-                        );
-                        SubmitForm(Form1_3);
-                        Navigate(
-                            SuccessScreen,
-                            ScreenTransition.Fade
+                        DataCardValue8_2.Selected.Value = "Other",
+                        If(
+                            IsBlank(DataCardValue1_3.Text) || IsBlank(DataCardValue51_1.Selected.Value) || IsBlank(DataCardValue8_2.Selected.Value) || IsBlank(DataCardValue9_3.Text) || IsBlank(DataCardValue10_3.Text),
+                            SubmitForm(Form1_3),
+                            Set(
+                                Dialogloading_copy,
+                                true
+                            );
+                            SubmitForm(Form1_3);
+                            Navigate(
+                                SuccessScreen,
+                                ScreenTransition.Fade
+                            )
+                        ),
+                        If(
+                            IsBlank(DataCardValue1_3.Text) || IsBlank(DataCardValue51_1.Selected.Value) || IsBlank(DataCardValue8_2.Selected.Value) || IsBlank(DataCardValue9_3.Text),
+                            SubmitForm(Form1_3),
+                            Set(
+                                Dialogloading_copy,
+                                true
+                            );
+                            SubmitForm(Form1_3);
+                            Navigate(
+                                SuccessScreen,
+                                ScreenTransition.Fade
+                            )
                         )
                     );
                     Set(
@@ -802,11 +823,22 @@ CopyTicketPage As screen:
                 HoverFill: =RGBA(8, 103, 26,1)
                 OnSelect: |-
                     =If(
-                        IsBlank(DataCardValue1_3.Text) || IsBlank(DataCardValue51_1.Selected.Value) || IsBlank(DataCardValue8_2.Selected.Value) || IsBlank(DataCardValue9_3.Text),
-                        SubmitForm(Form1_3),
-                        Set(
-                            Dialogsubmit_edit_copy,
-                            true
+                        DataCardValue8_2.Selected.Value = "Other",
+                        If(
+                            IsBlank(DataCardValue1_3.Text) || IsBlank(DataCardValue51_1.Selected.Value) || IsBlank(DataCardValue8_2.Selected.Value) || IsBlank(DataCardValue9_3.Text) || IsBlank(DataCardValue10_3.Text),
+                            SubmitForm(Form1_3),
+                            Set(
+                                Dialogsubmit_edit_copy,
+                                true
+                            )
+                        ),
+                        If(
+                            IsBlank(DataCardValue1_3.Text) || IsBlank(DataCardValue51_1.Selected.Value) || IsBlank(DataCardValue8_2.Selected.Value) || IsBlank(DataCardValue9_3.Text),
+                            SubmitForm(Form1_3),
+                            Set(
+                                Dialogsubmit_edit_copy,
+                                true
+                            )
                         )
                     )
                 RadiusBottomLeft: =5
