@@ -858,7 +858,7 @@ TicketsDetailPage_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35.Selected
-                    Visible: =If(IsBlank(DataCardValue34),false,true)
+                    Visible: =If(IsBlank(DataCardValue36),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1506,7 +1506,7 @@ TicketsDetailPage_Approval As screen:
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
-                                IdUser.Email = User().Email && Level.Value = "Approver 1" && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
+                                ((IdUser.Email = User().Email && Level.Value = "Approver 1") && DataCardValue16_1.Selected.Value = "Submitted") || ((IdUser.Email = User().Email && Level.Value = "Approver 1") && DataCardValue16_1.Selected.Value = "HOD approved")
                             )
                         ),
                         DisplayMode.Edit,
