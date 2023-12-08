@@ -209,11 +209,11 @@ App As appinfo:
                 !IsBlank(
                     LookUp(
                         SP_REQUEST,
-                        'Created By'.Email = User().Email && isDelete = true
+                        'Created By'.Email = User().Email && isDelete = false
                     )
                 ),
-                HomePage,
-                TicketsDetailPage_User
+                TicketsDetailPage_User,
+                HomePage
             ),
             "requestapproval",
             If(
