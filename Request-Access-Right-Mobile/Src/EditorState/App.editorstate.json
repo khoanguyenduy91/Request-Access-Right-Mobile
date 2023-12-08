@@ -16,7 +16,14 @@
         "SizeBreakpoints",
         "BackEnabled",
         "Theme",
-        "StartScreen",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Switch(\n    Param(\"screenname\"),\n    \"requestdetail\",\n    TicketsDetailPage_User,\n    \"requestapproval\",\n    If(\n        !IsBlank(\n            LookUp(\n                SP_LEVELAPPROVER,\n                IdUser.Email = User().Email && Level.Value = \"Approver 1\" || IdUser.Email = User().Email && Level.Value = \"Approver 2\" || IdUser.Email = User().Email && Level.Value = \"Approver 3\"\n            )\n        ),\n        TicketsDetailPage_Approval,\n        HomePage\n    ),\n    \"requestHOD\",\n    If(\n        Office365Users.MyProfile().Department <> \"DTS\" && IsMatch(\n            Office365Users.MyProfile().JobTitle,\n            \"Head of\",\n            MatchOptions.Contains\n        ),\n        TicketsDetailPage_HOD,\n        HomePage\n    ),\n    \"requestIncharge\",\n    If(\n        !IsBlank(\n            LookUp(\n                SP_REQUESTPROCESS,\n                User().Email in Concat(\n                    'Incharge Person',\n                    Email & \";\"\n                )\n            )\n        ),\n        TicketsDetailPage_Incharge,\n        HomePage\n    ),\n    HomePage\n)\n//If(\n//    !IsBlank(Param(\"ID\")) && !IsBlank(\n//        LookUp(\n//            SP_REQUEST;\n//            ID = Value(Param(\"ID\"))\n//        )\n//    );\n//    TicketsDetailPage_Approval;\n//    HomePage\n//)",
+          "InvariantPropertyName": "StartScreen",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,

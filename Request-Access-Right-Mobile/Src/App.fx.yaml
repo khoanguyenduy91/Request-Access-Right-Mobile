@@ -205,7 +205,16 @@ App As appinfo:
         =Switch(
             Param("screenname"),
             "requestdetail",
-            TicketsDetailPage_User,
+            If(
+                IsBlank(
+                    LookUp(
+                        SP_REQUEST,
+                        'Created By'.Email = User().Email && isDelete = false
+                    )
+                ),
+                TicketsDetailPage_User,
+                HomePage
+            ),
             "requestapproval",
             If(
                 !IsBlank(
