@@ -206,14 +206,14 @@ App As appinfo:
             Param("screenname"),
             "requestdetail",
             If(
-                IsBlank(
+                !IsBlank(
                     LookUp(
                         SP_REQUEST,
-                        'Created By'.Email = User().Email && isDelete = false
+                        'Created By'.Email = User().Email && isDelete = true
                     )
                 ),
-                TicketsDetailPage_User,
-                HomePage
+                HomePage,
+                TicketsDetailPage_User
             ),
             "requestapproval",
             If(
