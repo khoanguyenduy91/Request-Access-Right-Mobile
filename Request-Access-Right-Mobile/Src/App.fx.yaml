@@ -189,7 +189,10 @@ App As appinfo:
                 )
             )
         );
-        Set(LoadingAll,true);
+        Set(
+            LoadingAll,
+            true
+        );
         If(
             !IsBlank(Param("ID")),
             Set(
@@ -200,16 +203,16 @@ App As appinfo:
                 )
             ),
             FormDetail_approval
-        )
+        );
     StartScreen: |-
         =Switch(
             Param("screenname"),
             "requestdetail",
             If(
-                !IsBlank(
+                IsBlank(
                     LookUp(
                         SP_REQUEST,
-                        'Created By'.Email = User().Email && isDelete = false
+                        ID = Value(Param("ID")) && 'Created By'.Email = User().Email && isDelete = false
                     )
                 ),
                 TicketsDetailPage_User,

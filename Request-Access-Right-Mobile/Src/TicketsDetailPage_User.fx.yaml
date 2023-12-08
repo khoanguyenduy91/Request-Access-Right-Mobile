@@ -1968,7 +1968,7 @@ TicketsDetailPage_User As screen:
                                     Deleteticket,
                                     LookUp(
                                         SP_REQUEST,
-                                        ThisRecord.ID = TicketsGallery.Selected.ID
+                                        ThisRecord.ID = varItem.ID
                                     )
                                 );
                                 If(
@@ -1977,7 +1977,7 @@ TicketsDetailPage_User As screen:
                                         SP_REQUEST,
                                         LookUp(
                                             SP_REQUEST,
-                                            ID = TicketsGallery.Selected.ID
+                                            ID = varItem.ID
                                         ),
                                         {isDelete: true}
                                     );
