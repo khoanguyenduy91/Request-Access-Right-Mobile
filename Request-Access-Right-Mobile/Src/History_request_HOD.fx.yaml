@@ -76,6 +76,17 @@ History_request_HOD As screen:
                             SP_REQUEST,
                             User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                         )
+                    );
+                    If(
+                        TicketsGallery_history_HOD.AllItemsCount = 0,
+                        Set(
+                            visiblehistoryHOD,
+                            true
+                        ),
+                        Set(
+                            visiblehistoryHOD,
+                            false
+                        )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =45

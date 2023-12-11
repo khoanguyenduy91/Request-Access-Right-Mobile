@@ -80,6 +80,17 @@ History_request_Incharge As screen:
                             CollectionRequestTest,
                             User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
                         )
+                    );
+                    If(
+                        TicketsGallery_history_incharge.AllItemsCount = 0,
+                        Set(
+                            visiblehistoryincharge,
+                            true
+                        ),
+                        Set(
+                            visiblehistoryincharge,
+                            false
+                        )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =45

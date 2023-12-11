@@ -716,7 +716,7 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33_1.Selected
-                    Visible: =If(IsBlank(DataCardValue33_1),false,true)
+                    Visible: =If(IsBlank(DataCardValue34_1),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -1138,7 +1138,7 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue67.SelectedItems
-                    Visible: =If(IsBlank(DataCardValue67),false,true)
+                    Visible: =If(IsBlank(DataCardValue68),false,true)
                     Width: =Parent.Width-60
                     X: =0
                     Y: =21
@@ -1648,8 +1648,12 @@ TicketsDetail_History_Approval As screen:
                                 ),
                                 ""
                             )
-                        Visible: |
-                            =If(DataCardValue16_3.Selected.Value="Closed"||DataCardValue16_3.Selected.Value="Rejected", false , true )
+                        Visible: |-
+                            =If(
+                                DataCardValue16_3.Selected.Value = "Closed" || DataCardValue16_3.Selected.Value = "Rejected",
+                                false,
+                                true
+                            )
                         Width: =Parent.Width-60
                         X: =30
                         Y: =121

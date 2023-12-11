@@ -84,6 +84,17 @@ HODPage As screen:
                                 'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
                             )
                         )
+                    );
+                    If(
+                        TicketsGallery_HOD.AllItemsCount = 0,
+                        Set(
+                            visibleHODpage,
+                            true
+                        ),
+                        Set(
+                            visibleHODpage,
+                            false
+                        )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =45

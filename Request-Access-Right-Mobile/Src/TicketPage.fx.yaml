@@ -168,6 +168,17 @@ TicketPage As screen:
                             )
                         )
                     );
+                    If(
+                        TicketsGallery.AllItemsCount = 0,
+                        Set(
+                            visibleticketpage,
+                            true
+                        ),
+                        Set(
+                            visibleticketpage,
+                            false
+                        )
+                    );
                     Set(
                         autoRefresh,
                         false

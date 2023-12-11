@@ -100,6 +100,17 @@ History_request_Approver As screen:
                                 User().Email = 'Assigned User'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
                             )
                         )
+                    );
+                    If(
+                        TicketsGallery_history_approver.AllItemsCount = 0,
+                        Set(
+                            visiblehistoryApprover,
+                            true
+                        ),
+                        Set(
+                            visiblehistoryApprover,
+                            false
+                        )
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =45

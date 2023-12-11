@@ -1783,7 +1783,7 @@ TicketsDetailPage_User As screen:
                             )
                         Visible: |-
                             =If(
-                                DataCardValue16.Selected.Value = "Saved"||DataCardValue16.Selected.Value = "Closed"||DataCardValue16.Selected.Value = "Rejected",
+                                DataCardValue16.Selected.Value = "Saved" || DataCardValue16.Selected.Value = "Closed" || DataCardValue16.Selected.Value = "Rejected",
                                 false,
                                 true
                             )
