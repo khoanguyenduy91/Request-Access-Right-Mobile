@@ -197,25 +197,6 @@ HomePage As screen:
                 Width: =50
                 ZIndex: =4
 
-            Icon4 As icon.Check:
-                AlignInContainer: =AlignInContainer.Stretch
-                Icon: =Icon.Check
-                OnSelect: |-
-                    =Set(
-                        isCheck,
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    SP_REQUEST,
-                                    ID = Value(Param("ID")) && 'Created By'.Email = User().Email && isDelete = false
-                                )
-                            ),
-                            "True",
-                            "False"
-                        )
-                    )
-                ZIndex: =5
-
         Rectangle2 As rectangle:
             AlignInContainer: =AlignInContainer.Stretch
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -1397,15 +1378,6 @@ HomePage As screen:
                         LayoutMode: =LayoutMode.Auto
                         Width: =Parent.Width
                         ZIndex: =3
-
-                        Label12 As label:
-                            Height: =70
-                            LayoutMinHeight: =70
-                            LayoutMinWidth: =560
-                            Size: =21
-                            Text: =isCheck
-                            Width: =560
-                            ZIndex: =1
 
                         btn_HOD_1 As button:
                             Align: =Align.Left
