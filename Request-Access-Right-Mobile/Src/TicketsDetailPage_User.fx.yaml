@@ -79,8 +79,7 @@ TicketsDetailPage_User As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: |
-                    ="Request details"
+                Text: ="Request details" 
                 Width: =560
                 ZIndex: =2
 
@@ -139,7 +138,6 @@ TicketsDetailPage_User As screen:
                 Item: |-
                     =varItem
                     //TicketsGallery.Selected
-                    //CollectionTicketGallery
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 Width: =Parent.Width
@@ -1962,8 +1960,7 @@ TicketsDetailPage_User As screen:
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
                             OnSelect: |-
-                                =//Patch(SP_REQUEST,LookUp(SP_REQUEST,ID=TicketsGallery.Selected.ID),{isDelete: true });Set(Dialogdelete, false );Navigate(SuccessScreen)
-                                Refresh(SP_REQUEST);
+                                =Refresh(SP_REQUEST);
                                 Set(
                                     Deleteticket,
                                     LookUp(
@@ -1972,7 +1969,7 @@ TicketsDetailPage_User As screen:
                                     )
                                 );
                                 If(
-                                    Deleteticket.Status.Value = "Saved"|| Deleteticket.Status.Value = "Submitted",
+                                    Deleteticket.Status.Value = "Saved" || Deleteticket.Status.Value = "Submitted",
                                     Patch(
                                         SP_REQUEST,
                                         LookUp(

@@ -935,7 +935,14 @@
         "DisabledColor",
         "PressedColor",
         "HoverColor",
-        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(DataCardValue58_1.Selected.Value = \"Submitted\"&&Form1_3.Unsaved=false,DisplayMode.Disabled,DisplayMode.Edit)",
+          "InvariantPropertyName": "DisplayMode",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,

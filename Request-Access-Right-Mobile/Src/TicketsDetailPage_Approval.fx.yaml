@@ -1538,7 +1538,15 @@ TicketsDetailPage_Approval As screen:
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: |-
-                    =If(
+                    =//Refresh(SP_REQUEST);
+                    //If(
+                    //varItem.isDelete = true,
+                    //Notify(
+                    //"The request has been deleted, please refresh the data!",
+                    //NotificationType.Error,
+                    //3000
+                    //),
+                    If(
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,

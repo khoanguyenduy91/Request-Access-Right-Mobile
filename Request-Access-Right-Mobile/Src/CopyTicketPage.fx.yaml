@@ -815,7 +815,12 @@ CopyTicketPage As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(DataCardValue58_1.Selected.Value = "Submitted"&&Form1_3.Unsaved=false,DisplayMode.Disabled,DisplayMode.Edit)
+                DisplayMode: |-
+                    =If(
+                        DataCardValue58_1.Selected.Value = "Submitted" && Form1_3.Unsaved = false,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
                 Fill: =RGBA(11, 128, 32, 1)
                 FillPortions: =1
                 Height: =90
