@@ -46,7 +46,7 @@
                 CollectRequestAssign,
                 Filter(
                     SP_REQUEST,
-                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "Submitted" && isDelete = false
                 )
             )
         )

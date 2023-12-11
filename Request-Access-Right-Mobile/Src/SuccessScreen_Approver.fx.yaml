@@ -11,7 +11,7 @@ SuccessScreen_Approver As screen:
                 CollectRequestApprover1,
                 Filter(
                     SP_REQUEST,
-                    Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
+                    (Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email) && isDelete = false
                 )
             ),
             ClearCollect(

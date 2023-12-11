@@ -126,7 +126,7 @@ TicketPage As screen:
                             CollectRequestApprover1,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
+                                (Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email) && isDelete = false
                             )
                         ),
                         ClearCollect(
@@ -164,7 +164,7 @@ TicketPage As screen:
                             CollectRequestAssign,
                             Filter(
                                 SP_REQUEST,
-                                'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                                'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "Submitted" && isDelete = false
                             )
                         )
                     );

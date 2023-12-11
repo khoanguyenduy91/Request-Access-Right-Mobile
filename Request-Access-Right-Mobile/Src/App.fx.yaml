@@ -16,7 +16,7 @@ App As appinfo:
             !IsBlank(
                 LookUp(
                     SP_LEVELAPPROVER,
-                    IdUser.Email = User().Email && Level.Value = "Approver 1" || IdUser.Email = User().Email && Level.Value = "Approver 2" || IdUser.Email = User().Email && Level.Value = "Approver 3"
+                    (IdUser.Email = User().Email && Level.Value = "Approver 1") || (IdUser.Email = User().Email && Level.Value = "Approver 2") || (IdUser.Email = User().Email && Level.Value = "Approver 3")
                 )
             ),
             Set(
@@ -102,7 +102,7 @@ App As appinfo:
                 CollectRequestApprover1,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && isDelete = false
+                    (Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email) && isDelete = false
                 )
             ),
             ClearCollect(
