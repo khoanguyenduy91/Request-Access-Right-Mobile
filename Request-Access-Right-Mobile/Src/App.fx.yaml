@@ -209,7 +209,7 @@ App As appinfo:
             Param("screenname"),
             "requestdetail",
             If(
-                IsBlank(
+                !IsBlank(
                     LookUp(
                         SP_REQUEST,
                         ID = Value(Param("ID")) && 'Created By'.Email = User().Email && isDelete = false

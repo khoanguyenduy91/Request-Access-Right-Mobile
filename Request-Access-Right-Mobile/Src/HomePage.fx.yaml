@@ -204,7 +204,7 @@ HomePage As screen:
                     =Set(
                         isCheck,
                         If(
-                            !IsBlank(
+                            IsBlank(
                                 LookUp(
                                     SP_REQUEST,
                                     ID = Value(Param("ID")) && 'Created By'.Email = User().Email && isDelete = false
@@ -1763,6 +1763,39 @@ HomePage As screen:
                             X: =
                             Y: =
                             ZIndex: =2
+
+                btn_HOD_16 As button:
+                    Align: =Align.Left
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderColor: =
+                    FocusedBorderThickness: =
+                    FontWeight: =FontWeight.Normal
+                    Height: =70
+                    HoverColor: =
+                    HoverFill: =
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |-
+                        =Navigate(
+                            TicketPage,
+                            ScreenTransition.Fade,
+                            {type: "Closed"}
+                        )
+                    PaddingLeft: =25
+                    PressedBorderColor: =
+                    PressedColor: =ColorFade(Self.Color,90%)
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =25
+                    Text: =isCheck
+                    Width: =Parent.Width-70
+                    ZIndex: =15
 
     Dialog_loading_Home As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
