@@ -1,8 +1,8 @@
-TicketsDetailPage_Approval As screen:
+RequestAssignedDetail_Approval As screen:
     Fill: =RGBA(230, 229, 229, 1)
     OnVisible: =
 
-    Container10_1 As groupContainer.verticalAutoLayoutContainer:
+    Container10_10 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =0.5
@@ -10,7 +10,7 @@ TicketsDetailPage_Approval As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        Container2_7 As groupContainer.horizontalAutoLayoutContainer:
+        Container2_33 As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -24,7 +24,7 @@ TicketsDetailPage_Approval As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            Icon1_9 As icon.Add:
+            Icon1_54 As icon.Add:
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =40
@@ -47,7 +47,7 @@ TicketsDetailPage_Approval As screen:
                 Width: =50
                 ZIndex: =1
 
-            Label1_7 As label:
+            Label1_30 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Stretch
                 Color: =RGBA(0, 0, 0, 1)
@@ -61,7 +61,7 @@ TicketsDetailPage_Approval As screen:
                 Width: =560
                 ZIndex: =2
 
-        Container13 As groupContainer.verticalAutoLayoutContainer:
+        Container13_4 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height
@@ -72,7 +72,7 @@ TicketsDetailPage_Approval As screen:
             Width: =Parent.Width
             ZIndex: =2
 
-            FormDetail_approval As formViewer:
+            FormDetail_approval_4 As formViewer:
                 DataSource: =SP_REQUEST
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -84,7 +84,7 @@ TicketsDetailPage_Approval As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                ID_DataCard3 As typedDataCard.textualViewCard:
+                ID_DataCard3_2 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ID"
                     Default: =ThisItem.ID
@@ -98,7 +98,7 @@ TicketsDetailPage_Approval As screen:
                     Y: =0
                     ZIndex: =1
 
-                    DataCardKey60 As label:
+                    DataCardKey60_2 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -114,7 +114,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue60 As label:
+                    DataCardValue60_2 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         PaddingLeft: =0
@@ -124,10 +124,10 @@ TicketsDetailPage_Approval As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey60.Y + DataCardKey60.Height + 5
+                        Y: =DataCardKey60_2.Y + DataCardKey60_2.Height + 5
                         ZIndex: =2
 
-                Created_DataCard1_1 As typedDataCard.textualViewCard:
+                Created_DataCard1_7 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Created"
                     Default: =ThisItem.Created
@@ -141,7 +141,7 @@ TicketsDetailPage_Approval As screen:
                     Y: =1
                     ZIndex: =1
 
-                    DataCardKey26_1 As label:
+                    DataCardKey26_7 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -157,7 +157,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue25_1 As label:
+                    DataCardValue25_7 As label:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0
@@ -168,10 +168,10 @@ TicketsDetailPage_Approval As screen:
                             =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 5
+                        Y: =DataCardKey26_7.Y + DataCardKey26_7.Height + 5
                         ZIndex: =2
 
-                "'Created By_DataCard1_1' As typedDataCard.comboBoxViewCard":
+                "'Created By_DataCard1_7' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Author"
                     Default: =ThisItem.'Created By'
@@ -180,13 +180,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Update: =DataCardValue26_1.Selected
+                    Update: =DataCardValue26_7.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =2
                     ZIndex: =1
 
-                    DataCardKey27_1 As label:
+                    DataCardKey27_7 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -202,7 +202,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue26_1 As combobox:
+                    DataCardValue26_7 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
@@ -210,16 +210,16 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].'Created By')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.'Created By',DataCardValue26_1.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.'Created By',DataCardValue26_7.SearchText)
                         SelectMultiple: =false
                         Size: =20
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey27_1.Y + DataCardKey27_1.Height + 5
+                        Y: =DataCardKey27_7.Y + DataCardKey27_7.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage22_1 As label:
+                    ErrorMessage22_7 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -232,25 +232,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue26_1.Y + DataCardValue26_1.Height
+                        Y: =DataCardValue26_7.Y + DataCardValue26_7.Height
                         ZIndex: =3
 
-                    StarVisible22_1 As label:
+                    StarVisible22_7 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey27_1.Height
-                        PaddingBottom: =DataCardKey27_1.PaddingBottom
-                        PaddingLeft: =DataCardKey27_1.PaddingLeft
-                        PaddingRight: =DataCardKey27_1.PaddingRight
-                        PaddingTop: =DataCardKey27_1.PaddingTop
+                        Height: =DataCardKey27_7.Height
+                        PaddingBottom: =DataCardKey27_7.PaddingBottom
+                        PaddingLeft: =DataCardKey27_7.PaddingLeft
+                        PaddingRight: =DataCardKey27_7.PaddingRight
+                        PaddingTop: =DataCardKey27_7.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey27_1.Y
+                        Y: =DataCardKey27_7.Y
                         ZIndex: =4
 
-                ReqReason_DataCard2_1 As typedDataCard.textualViewCard:
+                ReqReason_DataCard2_7 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqReason"
                     Default: =ThisItem.ReqReason
@@ -264,7 +264,7 @@ TicketsDetailPage_Approval As screen:
                     Y: =5
                     ZIndex: =1
 
-                    DataCardKey23_1 As label:
+                    DataCardKey23_7 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -280,7 +280,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue22_1 As label:
+                    DataCardValue22_7 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -294,7 +294,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =66
                         ZIndex: =2
 
-                ReqPermission_DataCard2_1 As typedDataCard.comboBoxViewCard:
+                ReqPermission_DataCard2_7 As typedDataCard.comboBoxViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqPermission"
                     Default: =ThisItem.ReqPermission
@@ -303,13 +303,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Update: =DataCardValue21_1.Selected
+                    Update: =DataCardValue21_7.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =6
                     ZIndex: =1
 
-                    DataCardKey22_1 As label:
+                    DataCardKey22_7 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -325,7 +325,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue21_1 As combobox:
+                    DataCardValue21_7 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
@@ -333,15 +333,15 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].ReqPermission)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(SP_REQUEST.ReqPermission,DataCardValue21_1.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.ReqPermission,DataCardValue21_7.SearchText)
                         SelectMultiple: =false
                         Size: =20
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey22_1.Y + DataCardKey22_1.Height + 5
+                        Y: =DataCardKey22_7.Y + DataCardKey22_7.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage20_1 As label:
+                    ErrorMessage20_7 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -354,25 +354,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue21_1.Y + DataCardValue21_1.Height
+                        Y: =DataCardValue21_7.Y + DataCardValue21_7.Height
                         ZIndex: =3
 
-                    StarVisible20_1 As label:
+                    StarVisible20_7 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey22_1.Height
-                        PaddingBottom: =DataCardKey22_1.PaddingBottom
-                        PaddingLeft: =DataCardKey22_1.PaddingLeft
-                        PaddingRight: =DataCardKey22_1.PaddingRight
-                        PaddingTop: =DataCardKey22_1.PaddingTop
+                        Height: =DataCardKey22_7.Height
+                        PaddingBottom: =DataCardKey22_7.PaddingBottom
+                        PaddingLeft: =DataCardKey22_7.PaddingLeft
+                        PaddingRight: =DataCardKey22_7.PaddingRight
+                        PaddingTop: =DataCardKey22_7.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey22_1.Y
+                        Y: =DataCardKey22_7.Y
                         ZIndex: =4
 
-                ReqDescription_DataCard2_1 As typedDataCard.textualViewCard:
+                ReqDescription_DataCard2_7 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqDescription"
                     Default: =ThisItem.ReqDescription
@@ -381,13 +381,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Visible: =If(IsBlank(DataCardValue23_1.Text),false,true)
+                    Visible: =If(IsBlank(DataCardValue23_7.Text),false,true)
                     Width: =Parent.Width
                     X: =0
                     Y: =7
                     ZIndex: =1
 
-                    DataCardKey24_1 As label:
+                    DataCardKey24_7 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -403,7 +403,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue23_1 As label:
+                    DataCardValue23_7 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -414,10 +414,10 @@ TicketsDetailPage_Approval As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey24_1.Y + DataCardKey24_1.Height + 5
+                        Y: =DataCardKey24_7.Y + DataCardKey24_7.Height + 5
                         ZIndex: =2
 
-                HOD_DataCard2 As typedDataCard.comboBoxViewCard:
+                HOD_DataCard2_4 As typedDataCard.comboBoxViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="HOD"
                     Default: =ThisItem.HOD
@@ -426,10 +426,10 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue29.Selected
+                    Update: =DataCardValue29_4.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue30),
+                            IsBlank(DataCardValue30_4),
                             false,
                             true
                         )
@@ -438,7 +438,7 @@ TicketsDetailPage_Approval As screen:
                     Y: =9
                     ZIndex: =1
 
-                    DataCardKey29 As label:
+                    DataCardKey29_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -454,7 +454,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue29 As combobox:
+                    DataCardValue29_4 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
@@ -463,16 +463,16 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].HOD)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.HOD,DataCardValue29.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.HOD,DataCardValue29_4.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey29.Y + DataCardKey29.Height + 5
+                        Y: =DataCardKey29_4.Y + DataCardKey29_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage15 As label:
+                    ErrorMessage15_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -485,25 +485,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue29.Y + DataCardValue29.Height
+                        Y: =DataCardValue29_4.Y + DataCardValue29_4.Height
                         ZIndex: =3
 
-                    StarVisible15 As label:
+                    StarVisible15_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey29.Height
-                        PaddingBottom: =DataCardKey29.PaddingBottom
-                        PaddingLeft: =DataCardKey29.PaddingLeft
-                        PaddingRight: =DataCardKey29.PaddingRight
-                        PaddingTop: =DataCardKey29.PaddingTop
+                        Height: =DataCardKey29_4.Height
+                        PaddingBottom: =DataCardKey29_4.PaddingBottom
+                        PaddingLeft: =DataCardKey29_4.PaddingLeft
+                        PaddingRight: =DataCardKey29_4.PaddingRight
+                        PaddingTop: =DataCardKey29_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey29.Y
+                        Y: =DataCardKey29_4.Y
                         ZIndex: =4
 
-                "'HOD Approved Date_DataCard2' As typedDataCard.textualViewCard":
+                "'HOD Approved Date_DataCard2_4' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="HODApprovedDate"
                     Default: =ThisItem.'HOD Approved Date'
@@ -512,13 +512,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Visible: =If(IsBlank(DataCardValue30.Text),false,true)
+                    Visible: =If(IsBlank(DataCardValue30_4.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =10
                     ZIndex: =1
 
-                    DataCardKey30 As label:
+                    DataCardKey30_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -534,7 +534,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue30 As label:
+                    DataCardValue30_4 As label:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0
@@ -545,10 +545,10 @@ TicketsDetailPage_Approval As screen:
                             =Text(DateTimeValue(Parent.Default), "m/d/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey30.Y + DataCardKey30.Height + 5
+                        Y: =DataCardKey30_4.Y + DataCardKey30_4.Height + 5
                         ZIndex: =2
 
-                "'Approver 1 Feedback_DataCard2' As typedDataCard.textualViewCard":
+                "'Approver 1 Feedback_DataCard2_2' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Approver1Feedback"
                     Default: =ThisItem.'Approver 1 Feedback'
@@ -557,13 +557,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Visible: =If(IsBlank(DataCardValue54.Text),false,true)
+                    Visible: =If(IsBlank(DataCardValue54_2.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =11
                     ZIndex: =1
 
-                    DataCardKey54 As label:
+                    DataCardKey54_2 As label:
                         AutoHeight: =true
                         Height: =48
                         PaddingBottom: =0
@@ -578,7 +578,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue54 As label:
+                    DataCardValue54_2 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         PaddingLeft: =0
@@ -588,10 +588,10 @@ TicketsDetailPage_Approval As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey54.Y + DataCardKey54.Height + 5
+                        Y: =DataCardKey54_2.Y + DataCardKey54_2.Height + 5
                         ZIndex: =2
 
-                "'Approver 1_DataCard2' As typedDataCard.comboBoxViewCard":
+                "'Approver 1_DataCard2_4' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Approver1"
                     Default: =ThisItem.'Approver 1'
@@ -600,10 +600,10 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue31.Selected
+                    Update: =DataCardValue31_4.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue32),
+                            IsBlank(DataCardValue32_4),
                             false,
                             true
                         )
@@ -612,7 +612,7 @@ TicketsDetailPage_Approval As screen:
                     Y: =12
                     ZIndex: =1
 
-                    DataCardKey31 As label:
+                    DataCardKey31_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -628,7 +628,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue31 As combobox:
+                    DataCardValue31_4 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
@@ -637,16 +637,16 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].'Approver 1')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.'Approver 1',DataCardValue31.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.'Approver 1',DataCardValue31_4.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey31.Y + DataCardKey31.Height + 5
+                        Y: =DataCardKey31_4.Y + DataCardKey31_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage17 As label:
+                    ErrorMessage17_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -659,25 +659,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue31.Y + DataCardValue31.Height
+                        Y: =DataCardValue31_4.Y + DataCardValue31_4.Height
                         ZIndex: =3
 
-                    StarVisible17 As label:
+                    StarVisible17_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey31.Height
-                        PaddingBottom: =DataCardKey31.PaddingBottom
-                        PaddingLeft: =DataCardKey31.PaddingLeft
-                        PaddingRight: =DataCardKey31.PaddingRight
-                        PaddingTop: =DataCardKey31.PaddingTop
+                        Height: =DataCardKey31_4.Height
+                        PaddingBottom: =DataCardKey31_4.PaddingBottom
+                        PaddingLeft: =DataCardKey31_4.PaddingLeft
+                        PaddingRight: =DataCardKey31_4.PaddingRight
+                        PaddingTop: =DataCardKey31_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey31.Y
+                        Y: =DataCardKey31_4.Y
                         ZIndex: =4
 
-                "'Approved Date 1_DataCard2' As typedDataCard.textualViewCard":
+                "'Approved Date 1_DataCard2_4' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ApprovedDate1"
                     Default: =ThisItem.'Approved Date 1'
@@ -686,13 +686,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Visible: =If(IsBlank(DataCardValue32.Text),false,true)
+                    Visible: =If(IsBlank(DataCardValue32_4.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =13
                     ZIndex: =1
 
-                    DataCardKey32 As label:
+                    DataCardKey32_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -708,7 +708,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue32 As label:
+                    DataCardValue32_4 As label:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         PaddingLeft: =0
@@ -719,10 +719,10 @@ TicketsDetailPage_Approval As screen:
                             =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey32.Y + DataCardKey32.Height + 5
+                        Y: =DataCardKey32_4.Y + DataCardKey32_4.Height + 5
                         ZIndex: =2
 
-                "'Approver 2_DataCard2' As typedDataCard.comboBoxViewCard":
+                "'Approver 2_DataCard2_4' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Approver2"
                     Default: =ThisItem.'Approver 2'
@@ -731,14 +731,14 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue33.Selected
-                    Visible: =If(IsBlank(DataCardValue32),false,true)
+                    Update: =DataCardValue33_4.Selected
+                    Visible: =If(IsBlank(DataCardValue32_4),false,true)
                     Width: =640
                     X: =0
                     Y: =14
                     ZIndex: =1
 
-                    DataCardKey33 As label:
+                    DataCardKey33_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -754,7 +754,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue33 As combobox:
+                    DataCardValue33_4 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
@@ -763,16 +763,16 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].'Approver 2')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.'Approver 2',DataCardValue33.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.'Approver 2',DataCardValue33_4.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey33.Y + DataCardKey33.Height + 5
+                        Y: =DataCardKey33_4.Y + DataCardKey33_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage19 As label:
+                    ErrorMessage19_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -785,25 +785,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue33.Y + DataCardValue33.Height
+                        Y: =DataCardValue33_4.Y + DataCardValue33_4.Height
                         ZIndex: =3
 
-                    StarVisible19 As label:
+                    StarVisible19_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey33.Height
-                        PaddingBottom: =DataCardKey33.PaddingBottom
-                        PaddingLeft: =DataCardKey33.PaddingLeft
-                        PaddingRight: =DataCardKey33.PaddingRight
-                        PaddingTop: =DataCardKey33.PaddingTop
+                        Height: =DataCardKey33_4.Height
+                        PaddingBottom: =DataCardKey33_4.PaddingBottom
+                        PaddingLeft: =DataCardKey33_4.PaddingLeft
+                        PaddingRight: =DataCardKey33_4.PaddingRight
+                        PaddingTop: =DataCardKey33_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey33.Y
+                        Y: =DataCardKey33_4.Y
                         ZIndex: =4
 
-                "'Approved Date 2_DataCard2' As typedDataCard.textualViewCard":
+                "'Approved Date 2_DataCard2_4' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ApprovedDate2"
                     Default: =ThisItem.'Approved Date 2'
@@ -812,13 +812,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Visible: =If(IsBlank(DataCardValue34.Text),false,true)
+                    Visible: =If(IsBlank(DataCardValue34_4.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =15
                     ZIndex: =1
 
-                    DataCardKey34 As label:
+                    DataCardKey34_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -834,7 +834,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue34 As label:
+                    DataCardValue34_4 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         PaddingLeft: =0
@@ -845,10 +845,10 @@ TicketsDetailPage_Approval As screen:
                             =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey34.Y + DataCardKey34.Height + 5
+                        Y: =DataCardKey34_4.Y + DataCardKey34_4.Height + 5
                         ZIndex: =2
 
-                "'Approver 3_DataCard2' As typedDataCard.comboBoxViewCard":
+                "'Approver 3_DataCard2_4' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Approver3"
                     Default: =ThisItem.'Approver 3'
@@ -857,14 +857,14 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue35.Selected
-                    Visible: =If(IsBlank(DataCardValue36),false,true)
+                    Update: =DataCardValue35_4.Selected
+                    Visible: =If(IsBlank(DataCardValue36_4),false,true)
                     Width: =640
                     X: =0
                     Y: =16
                     ZIndex: =1
 
-                    DataCardKey35 As label:
+                    DataCardKey35_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -880,7 +880,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue35 As combobox:
+                    DataCardValue35_4 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
@@ -889,16 +889,16 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].'Approver 3')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.'Approver 3',DataCardValue35.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.'Approver 3',DataCardValue35_4.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey35.Y + DataCardKey35.Height + 5
+                        Y: =DataCardKey35_4.Y + DataCardKey35_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage21 As label:
+                    ErrorMessage21_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -911,25 +911,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue35.Y + DataCardValue35.Height
+                        Y: =DataCardValue35_4.Y + DataCardValue35_4.Height
                         ZIndex: =3
 
-                    StarVisible21 As label:
+                    StarVisible21_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey35.Height
-                        PaddingBottom: =DataCardKey35.PaddingBottom
-                        PaddingLeft: =DataCardKey35.PaddingLeft
-                        PaddingRight: =DataCardKey35.PaddingRight
-                        PaddingTop: =DataCardKey35.PaddingTop
+                        Height: =DataCardKey35_4.Height
+                        PaddingBottom: =DataCardKey35_4.PaddingBottom
+                        PaddingLeft: =DataCardKey35_4.PaddingLeft
+                        PaddingRight: =DataCardKey35_4.PaddingRight
+                        PaddingTop: =DataCardKey35_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey35.Y
+                        Y: =DataCardKey35_4.Y
                         ZIndex: =4
 
-                "'Approved Date 3_DataCard2' As typedDataCard.textualViewCard":
+                "'Approved Date 3_DataCard2_4' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ApprovedDate3"
                     Default: =ThisItem.'Approved Date 3'
@@ -938,13 +938,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Visible: =If(IsBlank(DataCardValue36.Text),false,true)
+                    Visible: =If(IsBlank(DataCardValue36_4.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =17
                     ZIndex: =1
 
-                    DataCardKey36 As label:
+                    DataCardKey36_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -960,7 +960,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue36 As label:
+                    DataCardValue36_4 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         PaddingLeft: =0
@@ -971,10 +971,10 @@ TicketsDetailPage_Approval As screen:
                             =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey36.Y + DataCardKey36.Height + 5
+                        Y: =DataCardKey36_4.Y + DataCardKey36_4.Height + 5
                         ZIndex: =2
 
-                "'Rejected By_DataCard2' As typedDataCard.comboBoxViewCard":
+                "'Rejected By_DataCard2_4' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="RejectedBy"
                     Default: =ThisItem.'Rejected By'
@@ -983,14 +983,14 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue37.Selected
-                    Visible: =If(IsBlank(DataCardValue37.SelectedItems),false,true)
+                    Update: =DataCardValue37_4.Selected
+                    Visible: =If(IsBlank(DataCardValue37_4.SelectedItems),false,true)
                     Width: =640
                     X: =0
                     Y: =18
                     ZIndex: =1
 
-                    DataCardKey37 As label:
+                    DataCardKey37_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -1006,7 +1006,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue37 As combobox:
+                    DataCardValue37_4 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
@@ -1015,16 +1015,16 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].'Rejected By')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.'Rejected By',DataCardValue37.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.'Rejected By',DataCardValue37_4.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey37.Y + DataCardKey37.Height + 5
+                        Y: =DataCardKey37_4.Y + DataCardKey37_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage23 As label:
+                    ErrorMessage23_4 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -1037,25 +1037,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue37.Y + DataCardValue37.Height
+                        Y: =DataCardValue37_4.Y + DataCardValue37_4.Height
                         ZIndex: =3
 
-                    StarVisible23 As label:
+                    StarVisible23_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey37.Height
-                        PaddingBottom: =DataCardKey37.PaddingBottom
-                        PaddingLeft: =DataCardKey37.PaddingLeft
-                        PaddingRight: =DataCardKey37.PaddingRight
-                        PaddingTop: =DataCardKey37.PaddingTop
+                        Height: =DataCardKey37_4.Height
+                        PaddingBottom: =DataCardKey37_4.PaddingBottom
+                        PaddingLeft: =DataCardKey37_4.PaddingLeft
+                        PaddingRight: =DataCardKey37_4.PaddingRight
+                        PaddingTop: =DataCardKey37_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey37.Y
+                        Y: =DataCardKey37_4.Y
                         ZIndex: =4
 
-                "'Rejected Date_DataCard2' As typedDataCard.textualViewCard":
+                "'Rejected Date_DataCard2_4' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="RejectedDate"
                     Default: =ThisItem.'Rejected Date'
@@ -1064,13 +1064,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Visible: =If(IsBlank(DataCardValue38.Text),false,true)
+                    Visible: =If(IsBlank(DataCardValue38_4.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =19
                     ZIndex: =1
 
-                    DataCardKey38 As label:
+                    DataCardKey38_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -1086,7 +1086,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue38 As label:
+                    DataCardValue38_4 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         PaddingLeft: =0
@@ -1097,10 +1097,10 @@ TicketsDetailPage_Approval As screen:
                             =Text(DateTimeValue(Parent.Default), "dd/mm/yyyy hh:mm AM/PM")
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                        Y: =DataCardKey38_4.Y + DataCardKey38_4.Height + 5
                         ZIndex: =2
 
-                "'Reason Reject_DataCard2' As typedDataCard.textualViewCard":
+                "'Reason Reject_DataCard2_4' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReasonReject"
                     Default: =ThisItem.'Reason Reject'
@@ -1109,13 +1109,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Visible: =If(IsBlank(DataCardValue39.Text),false,true)
+                    Visible: =If(IsBlank(DataCardValue39_4.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =20
                     ZIndex: =1
 
-                    DataCardKey39 As label:
+                    DataCardKey39_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -1131,7 +1131,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue39 As label:
+                    DataCardValue39_4 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         PaddingLeft: =0
@@ -1141,10 +1141,10 @@ TicketsDetailPage_Approval As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey39.Y + DataCardKey39.Height + 5
+                        Y: =DataCardKey39_4.Y + DataCardKey39_4.Height + 5
                         ZIndex: =2
 
-                "'Assigned User_DataCard1' As typedDataCard.comboBoxViewCard":
+                "'Assigned User_DataCard1_1' As typedDataCard.comboBoxViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AssignedUser"
                     Default: =ThisItem.'Assigned User'
@@ -1153,10 +1153,10 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue76.Selected
+                    Update: =DataCardValue76_1.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue76),
+                            IsBlank(DataCardValue76_1),
                             false,
                             true
                         )
@@ -1165,7 +1165,7 @@ TicketsDetailPage_Approval As screen:
                     Y: =21
                     ZIndex: =1
 
-                    DataCardKey76 As label:
+                    DataCardKey76_1 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -1174,14 +1174,14 @@ TicketsDetailPage_Approval As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =21
-                        Text: =Parent.DisplayName
+                        Text: ="User assigned approve"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue76 As combobox:
+                    DataCardValue76_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName"]
@@ -1190,15 +1190,15 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].'Assigned User')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.'Assigned User',DataCardValue76.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.'Assigned User',DataCardValue76_1.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey76.Y + DataCardKey76.Height + 5
+                        Y: =DataCardKey76_1.Y + DataCardKey76_1.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage36 As label:
+                    ErrorMessage36_1 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -1211,25 +1211,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue76.Y + DataCardValue76.Height
+                        Y: =DataCardValue76_1.Y + DataCardValue76_1.Height
                         ZIndex: =3
 
-                    StarVisible36 As label:
+                    StarVisible36_1 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey76.Height
-                        PaddingBottom: =DataCardKey76.PaddingBottom
-                        PaddingLeft: =DataCardKey76.PaddingLeft
-                        PaddingRight: =DataCardKey76.PaddingRight
-                        PaddingTop: =DataCardKey76.PaddingTop
+                        Height: =DataCardKey76_1.Height
+                        PaddingBottom: =DataCardKey76_1.PaddingBottom
+                        PaddingLeft: =DataCardKey76_1.PaddingLeft
+                        PaddingRight: =DataCardKey76_1.PaddingRight
+                        PaddingTop: =DataCardKey76_1.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey76.Y
+                        Y: =DataCardKey76_1.Y
                         ZIndex: =4
 
-                Attachments_DataCard7 As typedDataCard.attachmentsViewCard:
+                Attachments_DataCard7_4 As typedDataCard.attachmentsViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
                     Default: =ThisItem.Attachments
@@ -1238,13 +1238,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =225
                     Required: =false
-                    Update: =DataCardValue7.Attachments
+                    Update: =DataCardValue7_4.Attachments
                     Width: =Parent.Width
                     X: =0
                     Y: =22
                     ZIndex: =1
 
-                    DataCardKey7 As label:
+                    DataCardKey7_4 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -1254,14 +1254,14 @@ TicketsDetailPage_Approval As screen:
                         PaddingTop: =0
                         Size: =21
                         Text: |-
-                            =Parent.DisplayName & ": " & CountRows(DataCardValue7.Attachments) &" File"
+                            =Parent.DisplayName & ": " & CountRows(DataCardValue7_4.Attachments) &" File"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue7 As attachments:
+                    DataCardValue7_4 As attachments:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DisplayMode: =Parent.DisplayMode
                         Height: =225
@@ -1273,10 +1273,10 @@ TicketsDetailPage_Approval As screen:
                         PaddingTop: =5
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                        Y: =DataCardKey7_4.Y + DataCardKey7_4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage7 As label:
+                    ErrorMessage7_4 As label:
                         AutoHeight: =true
                         Height: =10
                         PaddingBottom: =0
@@ -1288,25 +1288,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue7.Y + DataCardValue7.Height
+                        Y: =DataCardValue7_4.Y + DataCardValue7_4.Height
                         ZIndex: =3
 
-                    StarVisible7 As label:
+                    StarVisible7_4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey7.Height
-                        PaddingBottom: =DataCardKey7.PaddingBottom
-                        PaddingLeft: =DataCardKey7.PaddingLeft
-                        PaddingRight: =DataCardKey7.PaddingRight
-                        PaddingTop: =DataCardKey7.PaddingTop
+                        Height: =DataCardKey7_4.Height
+                        PaddingBottom: =DataCardKey7_4.PaddingBottom
+                        PaddingLeft: =DataCardKey7_4.PaddingLeft
+                        PaddingRight: =DataCardKey7_4.PaddingRight
+                        PaddingTop: =DataCardKey7_4.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey7.Y
+                        Y: =DataCardKey7_4.Y
                         ZIndex: =4
 
-                Title_DataCard2_1 As typedDataCard.textualViewCard:
+                Title_DataCard2_7 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Title"
                     Default: =ThisItem.Title
@@ -1320,7 +1320,7 @@ TicketsDetailPage_Approval As screen:
                     Y: =3
                     ZIndex: =3
 
-                    DataCardKey14_1 As label:
+                    DataCardKey14_7 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -1336,7 +1336,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue13_1 As label:
+                    DataCardValue13_7 As label:
                         AutoHeight: =true
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
@@ -1350,7 +1350,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =66
                         ZIndex: =2
 
-                ReqType_DataCard3_1 As typedDataCard.comboBoxViewCard:
+                ReqType_DataCard3_7 As typedDataCard.comboBoxViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ReqType"
                     Default: =ThisItem.ReqType
@@ -1359,13 +1359,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
-                    Update: =DataCardValue19_1.Selected
+                    Update: =DataCardValue19_7.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =4
                     ZIndex: =3
 
-                    DataCardKey20_1 As label:
+                    DataCardKey20_7 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -1381,7 +1381,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue19_1 As combobox:
+                    DataCardValue19_7 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
@@ -1389,7 +1389,7 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].ReqType)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(SP_REQUEST.ReqType,DataCardValue19_1.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.ReqType,DataCardValue19_7.SearchText)
                         SelectMultiple: =false
                         Size: =20
                         Width: =Parent.Width - 60
@@ -1397,7 +1397,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =66
                         ZIndex: =2
 
-                    ErrorMessage18_1 As label:
+                    ErrorMessage18_7 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -1410,25 +1410,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue19_1.Y + DataCardValue19_1.Height
+                        Y: =DataCardValue19_7.Y + DataCardValue19_7.Height
                         ZIndex: =3
 
-                    StarVisible18_1 As label:
+                    StarVisible18_7 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey20_1.Height
-                        PaddingBottom: =DataCardKey20_1.PaddingBottom
-                        PaddingLeft: =DataCardKey20_1.PaddingLeft
-                        PaddingRight: =DataCardKey20_1.PaddingRight
-                        PaddingTop: =DataCardKey20_1.PaddingTop
+                        Height: =DataCardKey20_7.Height
+                        PaddingBottom: =DataCardKey20_7.PaddingBottom
+                        PaddingLeft: =DataCardKey20_7.PaddingLeft
+                        PaddingRight: =DataCardKey20_7.PaddingRight
+                        PaddingTop: =DataCardKey20_7.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey20_1.Y
+                        Y: =DataCardKey20_7.Y
                         ZIndex: =4
 
-                Status_DataCard2_1 As typedDataCard.comboBoxViewCard:
+                Status_DataCard2_7 As typedDataCard.comboBoxViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Status"
                     Default: =ThisItem.Status
@@ -1437,13 +1437,13 @@ TicketsDetailPage_Approval As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue16_1.Selected
+                    Update: =DataCardValue16_7.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =8
                     ZIndex: =3
 
-                    DataCardKey17_1 As label:
+                    DataCardKey17_7 As label:
                         AutoHeight: =true
                         FontWeight: =FontWeight.Semibold
                         Height: =48
@@ -1459,7 +1459,7 @@ TicketsDetailPage_Approval As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue16_1 As combobox:
+                    DataCardValue16_7 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Color: |-
                             =If(
@@ -1518,15 +1518,15 @@ TicketsDetailPage_Approval As screen:
                         Items: =Choices([@SP_REQUEST].Status)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(SP_REQUEST.Status,DataCardValue16_1.SearchText)
+                        SearchItems: =Choices(SP_REQUEST.Status,DataCardValue16_7.SearchText)
                         SelectMultiple: =false
                         Size: =20
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey17_1.Y + DataCardKey17_1.Height + 5
+                        Y: =DataCardKey17_7.Y + DataCardKey17_7.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage16_1 As label:
+                    ErrorMessage16_7 As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -1539,25 +1539,25 @@ TicketsDetailPage_Approval As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue16_1.Y + DataCardValue16_1.Height
+                        Y: =DataCardValue16_7.Y + DataCardValue16_7.Height
                         ZIndex: =3
 
-                    StarVisible16_1 As label:
+                    StarVisible16_7 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey17_1.Height
-                        PaddingBottom: =DataCardKey17_1.PaddingBottom
-                        PaddingLeft: =DataCardKey17_1.PaddingLeft
-                        PaddingRight: =DataCardKey17_1.PaddingRight
-                        PaddingTop: =DataCardKey17_1.PaddingTop
+                        Height: =DataCardKey17_7.Height
+                        PaddingBottom: =DataCardKey17_7.PaddingBottom
+                        PaddingLeft: =DataCardKey17_7.PaddingLeft
+                        PaddingRight: =DataCardKey17_7.PaddingRight
+                        PaddingTop: =DataCardKey17_7.PaddingTop
                         Size: =21
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey17_1.Y
+                        Y: =DataCardKey17_7.Y
                         ZIndex: =4
 
-        Container20_1 As groupContainer.horizontalAutoLayoutContainer:
+        Container20_3 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
             DropShadow: =DropShadow.ExtraBold
             Fill: =RGBA(255, 255, 255, 1)
@@ -1578,7 +1578,7 @@ TicketsDetailPage_Approval As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            btn_approval_2 As button:
+            btn_approval_3 As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =
                 BorderThickness: =0
@@ -1587,33 +1587,11 @@ TicketsDetailPage_Approval As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: |-
-                    =If(
-                        !IsBlank(
-                            LookUp(
-                                SP_LEVELAPPROVER,
-                                (IdUser.Email = User().Email && Level.Value = "Approver 1") && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
-                            )
-                        ) && varItem.isAssignedRequest = false,
+                    =//If(!IsBlank(LookUp(SP_LEVELAPPROVER;(IdUser.Email=User().Email&&Level.Value="Approver 1")&&(DataCardValue16_7.Selected.Value="Submitted"||DataCardValue16_7.Selected.Value="HOD approved")))&&varItem.isAssignedRequest= false ;DisplayMode.Edit;If(!IsBlank(LookUp(SP_LEVELAPPROVER;User().Email=IdUser.Email&&Level.Value="Approver 2"&&DataCardValue16_7.Selected.Value="Approver 1 approved"))&&varItem.isAssignedRequest= false ;DisplayMode.Edit;If(!IsBlank(LookUp(SP_LEVELAPPROVER;User().Email=IdUser.Email&&Level.Value="Approver 3"&&DataCardValue16_7.Selected.Value="Approver 2 approved"))&&varItem.isAssignedRequest= false ;DisplayMode.Edit;DisplayMode.Disabled)))
+                    If(
+                        varItem.isAssignedRequest = true,
                         DisplayMode.Edit,
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    SP_LEVELAPPROVER,
-                                    User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_1.Selected.Value = "Approver 1 approved"
-                                )
-                            ) && varItem.isAssignedRequest = false,
-                            DisplayMode.Edit,
-                            If(
-                                !IsBlank(
-                                    LookUp(
-                                        SP_LEVELAPPROVER,
-                                        User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_1.Selected.Value = "Approver 2 approved"
-                                    )
-                                ) && varItem.isAssignedRequest = false,
-                                DisplayMode.Edit,
-                                DisplayMode.Disabled
-                            )
-                        )
+                        DisplayMode.Disabled
                     )
                 Fill: =RGBA(10, 128, 32, 1)
                 FillPortions: =1
@@ -1623,15 +1601,7 @@ TicketsDetailPage_Approval As screen:
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: |-
-                    =//Refresh(SP_REQUEST);
-                    //If(
-                    //varItem.isDelete = true,
-                    //Notify(
-                    //"The request has been deleted, please refresh the data!",
-                    //NotificationType.Error,
-                    //3000
-                    //),
-                    If(
+                    =If(
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
@@ -1704,40 +1674,18 @@ TicketsDetailPage_Approval As screen:
                 Width: =200
                 ZIndex: =1
 
-            btn_reject_1 As button:
+            btn_reject_3 As button:
                 BorderThickness: =0
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: |-
-                    =If(
-                        !IsBlank(
-                            LookUp(
-                                SP_LEVELAPPROVER,
-                                (IdUser.Email = User().Email && Level.Value = "Approver 1") && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
-                            )
-                        ) && varItem.isAssignedRequest = false,
+                    =//If(!IsBlank(LookUp(SP_LEVELAPPROVER;(IdUser.Email=User().Email&&Level.Value="Approver 1")&&(DataCardValue16_7.Selected.Value="Submitted"||DataCardValue16_7.Selected.Value="HOD approved")))&&varItem.isAssignedRequest= false ;DisplayMode.Edit;If(!IsBlank(LookUp(SP_LEVELAPPROVER;User().Email=IdUser.Email&&Level.Value="Approver 2"&&DataCardValue16_7.Selected.Value="Approver 1 approved"))&&varItem.isAssignedRequest= false ;DisplayMode.Edit;If(!IsBlank(LookUp(SP_LEVELAPPROVER;User().Email=IdUser.Email&&Level.Value="Approver 3"&&DataCardValue16_7.Selected.Value="Approver 2 approved"))&&varItem.isAssignedRequest= false ;DisplayMode.Edit;DisplayMode.Disabled)))
+                    If(
+                        varItem.isAssignedRequest = true,
                         DisplayMode.Edit,
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    SP_LEVELAPPROVER,
-                                    User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_1.Selected.Value = "Approver 1 approved"
-                                )
-                            ) && varItem.isAssignedRequest = false,
-                            DisplayMode.Edit,
-                            If(
-                                !IsBlank(
-                                    LookUp(
-                                        SP_LEVELAPPROVER,
-                                        User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_1.Selected.Value = "Approver 2 approved"
-                                    )
-                                ) && varItem.isAssignedRequest = false,
-                                DisplayMode.Edit,
-                                DisplayMode.Disabled
-                            )
-                        )
+                        DisplayMode.Disabled
                     )
                 Fill: =RGBA(255, 0, 0, 1)
                 FillPortions: =1
@@ -1763,43 +1711,7 @@ TicketsDetailPage_Approval As screen:
                 Width: =200
                 ZIndex: =2
 
-            btn_assign As button:
-                AlignInContainer: =AlignInContainer.Center
-                BorderColor: =
-                BorderThickness: =0
-                Color: =RGBA(255, 255, 255, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: |-
-                    =If(
-                        varItem.isAssignedRequest = false,
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                Fill: =RGBA(62, 96, 170, 1)
-                FillPortions: =1
-                FocusedBorderThickness: =0
-                Height: =70
-                HoverBorderColor: =
-                HoverFill: =ColorFade(Self.Fill, 50%)
-                OnSelect: =Set(DialogAssign,true)
-                PressedBorderColor: =
-                PressedColor: =ColorFade(Color.Black, 50%)
-                PressedFill: =ColorFade(Self.Fill, 50%)
-                RadiusBottomLeft: =5
-                RadiusBottomRight: =5
-                RadiusTopLeft: =5
-                RadiusTopRight: =5
-                Size: =18
-                Text: ="Assign"
-                Visible: |-
-                    =//If(!IsBlank(LookUp(SP_LEVELAPPROVER;IdUser.Email=User().Email&&Level.Value="Approver 1")); true ; false )
-                    true
-                Width: =200
-                ZIndex: =4
-
-    Dialog_commentapproval As groupContainer.manualLayoutContainer:
+    Dialog_commentapproval_1 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =Parent.Height
         PaddingBottom: =0.00
@@ -1810,7 +1722,7 @@ TicketsDetailPage_Approval As screen:
         Width: =Parent.Width
         ZIndex: =2
 
-        Container10_4 As groupContainer.verticalAutoLayoutContainer:
+        Container10_12 As groupContainer.verticalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 0, 0, 0.44)
             Height: =Parent.Height
@@ -1821,7 +1733,7 @@ TicketsDetailPage_Approval As screen:
             Width: =Parent.Width
             ZIndex: =8
 
-            Container16_2 As groupContainer.verticalAutoLayoutContainer:
+            Container16_6 As groupContainer.verticalAutoLayoutContainer:
                 FillPortions: =0
                 Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -1833,7 +1745,7 @@ TicketsDetailPage_Approval As screen:
                 Width: =Parent.Width
                 ZIndex: =5
 
-                Container50 As groupContainer.verticalAutoLayoutContainer:
+                Container50_3 As groupContainer.verticalAutoLayoutContainer:
                     Height: =450
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutDirection: =LayoutDirection.Vertical
@@ -1844,7 +1756,7 @@ TicketsDetailPage_Approval As screen:
                     Width: =600
                     ZIndex: =1
 
-                    Label3 As label:
+                    Label3_3 As label:
                         Align: =Align.Center
                         Fill: =RGBA(255, 255, 255, 1)
                         FontWeight: =FontWeight.Semibold
@@ -1856,7 +1768,7 @@ TicketsDetailPage_Approval As screen:
                         Width: =600
                         ZIndex: =1
 
-                    TextInput1_1 As text:
+                    TextInput1_2 As text:
                         BorderColor: =RGBA(0, 18, 107, 1)
                         BorderThickness: =0
                         Color: =RGBA(0, 0, 0, 1)
@@ -1879,7 +1791,7 @@ TicketsDetailPage_Approval As screen:
                         Width: =600
                         ZIndex: =2
 
-                    Container15_2 As groupContainer.horizontalAutoLayoutContainer:
+                    Container15_6 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(0, 18, 107, 1)
                         Fill: =RGBA(255, 255, 255, 1)
@@ -1896,7 +1808,7 @@ TicketsDetailPage_Approval As screen:
                         Width: =600
                         ZIndex: =3
 
-                        Button_OK_9 As button:
+                        Button_OK_23 As button:
                             BorderThickness: =0
                             Color: =RGBA(255, 255, 255, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1909,7 +1821,7 @@ TicketsDetailPage_Approval As screen:
                             HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
                             OnSelect: |-
                                 =If(
-                                    Len(TextInput1_1.Text) = 0,
+                                    Len(TextInput1_2.Text) = 0,
                                     Notify(
                                         "Please enter the reason for the reject",
                                         NotificationType.Error
@@ -1934,7 +1846,7 @@ TicketsDetailPage_Approval As screen:
                                             ),
                                             {Status: {Value: "Rejected"}},
                                             {'Rejected Date': Now()},
-                                            {'Reason Reject': User().FullName & " Comment: " & TextInput1_1.Text},
+                                            {'Reason Reject': User().FullName & " Comment: " & TextInput1_2.Text},
                                             {
                                                 'Rejected By': {
                                                     '@odata.type': User().Email,
@@ -2032,7 +1944,7 @@ TicketsDetailPage_Approval As screen:
                             Y: =213
                             ZIndex: =1
 
-                        Button_Cancel_11 As button:
+                        Button_Cancel_25 As button:
                             BorderThickness: =0
                             Color: =RGBA(255, 255, 255, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2063,7 +1975,7 @@ TicketsDetailPage_Approval As screen:
                             Y: =213
                             ZIndex: =2
 
-    Dialog_assign As groupContainer.manualLayoutContainer:
+    Dialog_assign_1 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =Parent.Height
         PaddingBottom: =0.00
@@ -2074,7 +1986,7 @@ TicketsDetailPage_Approval As screen:
         Width: =Parent.Width
         ZIndex: =3
 
-        Container10_5 As groupContainer.verticalAutoLayoutContainer:
+        Container10_13 As groupContainer.verticalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 0, 0, 0.44)
             Height: =Parent.Height
@@ -2085,7 +1997,7 @@ TicketsDetailPage_Approval As screen:
             Width: =Parent.Width
             ZIndex: =8
 
-            Container16_3 As groupContainer.verticalAutoLayoutContainer:
+            Container16_7 As groupContainer.verticalAutoLayoutContainer:
                 FillPortions: =0
                 Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -2097,7 +2009,7 @@ TicketsDetailPage_Approval As screen:
                 Width: =Parent.Width
                 ZIndex: =5
 
-                Container50_1 As groupContainer.verticalAutoLayoutContainer:
+                Container50_4 As groupContainer.verticalAutoLayoutContainer:
                     Height: =450
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutDirection: =LayoutDirection.Vertical
@@ -2108,7 +2020,7 @@ TicketsDetailPage_Approval As screen:
                     Width: =600
                     ZIndex: =1
 
-                    Label3_1 As label:
+                    Label3_4 As label:
                         Align: =Align.Center
                         Fill: =RGBA(255, 255, 255, 1)
                         FontWeight: =FontWeight.Semibold
@@ -2120,7 +2032,7 @@ TicketsDetailPage_Approval As screen:
                         Width: =600
                         ZIndex: =1
 
-                    ComboBox_searchName As combobox:
+                    ComboBox_searchName_1 As combobox:
                         ChevronBackground: =RGBA(56, 96, 178, 1)
                         DisplayFields: =["DisplayName"]
                         Height: =70
@@ -2136,7 +2048,7 @@ TicketsDetailPage_Approval As screen:
                             =Search(Filter(
                                 Office365Users.SearchUser({top: 999}),
                                 !IsBlank(Department) && !IsBlank(Mail) && !IsBlank(JobTitle)
-                            ),ComboBox_searchName.SearchText,"Mail")
+                            ),ComboBox_searchName_1.SearchText,"Mail")
                         SelectionColor: =RGBA(0, 0, 0, 1)
                         SelectionFill: =RGBA(255, 255, 255, 1)
                         SelectMultiple: =false
@@ -2144,7 +2056,7 @@ TicketsDetailPage_Approval As screen:
                         Width: =600
                         ZIndex: =2
 
-                    Container15_3 As groupContainer.horizontalAutoLayoutContainer:
+                    Container15_7 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(0, 18, 107, 1)
                         Fill: =RGBA(255, 255, 255, 1)
@@ -2161,7 +2073,7 @@ TicketsDetailPage_Approval As screen:
                         Width: =600
                         ZIndex: =4
 
-                        Button_OK_10 As button:
+                        Button_OK_24 As button:
                             BorderThickness: =0
                             Color: =RGBA(255, 255, 255, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2174,7 +2086,7 @@ TicketsDetailPage_Approval As screen:
                             HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
                             OnSelect: |-
                                 =If(
-                                    IsBlank(ComboBox_searchName),
+                                    IsBlank(ComboBox_searchName_1),
                                     Notify(
                                         "Please enter the name!",
                                         NotificationType.Error
@@ -2188,7 +2100,7 @@ TicketsDetailPage_Approval As screen:
                                         {isAssignedRequest: true},
                                         {
                                             'Assigned User': {
-                                                '@odata.type': ComboBox_searchName.Selected.Mail,
+                                                '@odata.type': ComboBox_searchName_1.Selected.Mail,
                                                 Claims: ComboBox_searchName.Selected.Mail,
                                                 Department: "",
                                                 DisplayName: "",
@@ -2223,7 +2135,7 @@ TicketsDetailPage_Approval As screen:
                             Y: =213
                             ZIndex: =1
 
-                        Button_Cancel_12 As button:
+                        Button_Cancel_26 As button:
                             BorderThickness: =0
                             Color: =RGBA(255, 255, 255, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)

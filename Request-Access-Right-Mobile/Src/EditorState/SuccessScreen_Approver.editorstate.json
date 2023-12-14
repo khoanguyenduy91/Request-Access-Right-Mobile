@@ -1428,7 +1428,14 @@
         "ZIndex",
         "Duration",
         "AutoStart",
-        "OnTimerEnd",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Navigate(ApprovalPage)",
+          "InvariantPropertyName": "OnTimerEnd",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Visible"
       ],
       "HasDynamicProperties": false,

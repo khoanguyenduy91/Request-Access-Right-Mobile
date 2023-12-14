@@ -140,7 +140,12 @@ SuccessScreen_Approver As screen:
         AutoStart: =VisibleSuccess3
         Duration: =3000
         Height: =70
-        OnTimerEnd: =Navigate(ApprovalPage)
+        OnTimerEnd: |-
+            =If(
+                varItem.isAssignedRequest = false,
+                Navigate(ApprovalPage),
+                Navigate(Request_Assigned)
+            )
         Visible: =false
         Width: =280
         X: =180

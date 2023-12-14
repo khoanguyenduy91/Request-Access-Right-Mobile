@@ -3,7 +3,7 @@ App As appinfo:
     ConfirmExit: =true
     MinScreenHeight: =320
     MinScreenWidth: =320
-    OnStart: |-
+    OnStart: |
         =ClearCollect(
             CollectionRequestTest,
             SP_REQUEST
@@ -186,6 +186,13 @@ App As appinfo:
                 Filter(
                     CollectionRequestTest,
                     User().Email = 'Assigned User'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                )
+            ),
+            ClearCollect(
+                Col_requestAssign,
+                Filter(
+                    CollectionRequestTest,
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "Submitted" || 'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "HOD approved"
                 )
             )
         );
