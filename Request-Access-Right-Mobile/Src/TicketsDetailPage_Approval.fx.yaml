@@ -1508,7 +1508,7 @@ TicketsDetailPage_Approval As screen:
                                 SP_LEVELAPPROVER,
                                 (IdUser.Email = User().Email && Level.Value = "Approver 1") && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
                             )
-                        ),
+                        ) && varItem.isAssignedRequest = false,
                         DisplayMode.Edit,
                         If(
                             !IsBlank(
@@ -1516,7 +1516,7 @@ TicketsDetailPage_Approval As screen:
                                     SP_LEVELAPPROVER,
                                     User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_1.Selected.Value = "Approver 1 approved"
                                 )
-                            ),
+                            ) && varItem.isAssignedRequest = false,
                             DisplayMode.Edit,
                             If(
                                 !IsBlank(
@@ -1524,7 +1524,7 @@ TicketsDetailPage_Approval As screen:
                                         SP_LEVELAPPROVER,
                                         User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_1.Selected.Value = "Approver 2 approved"
                                     )
-                                ),
+                                ) && varItem.isAssignedRequest = false,
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled
                             )
@@ -1632,7 +1632,7 @@ TicketsDetailPage_Approval As screen:
                                 SP_LEVELAPPROVER,
                                 (IdUser.Email = User().Email && Level.Value = "Approver 1") && (DataCardValue16_1.Selected.Value = "Submitted" || DataCardValue16_1.Selected.Value = "HOD approved")
                             )
-                        ),
+                        ) && varItem.isAssignedRequest = false,
                         DisplayMode.Edit,
                         If(
                             !IsBlank(
@@ -1640,7 +1640,7 @@ TicketsDetailPage_Approval As screen:
                                     SP_LEVELAPPROVER,
                                     User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_1.Selected.Value = "Approver 1 approved"
                                 )
-                            ),
+                            ) && varItem.isAssignedRequest = false,
                             DisplayMode.Edit,
                             If(
                                 !IsBlank(
@@ -1648,7 +1648,7 @@ TicketsDetailPage_Approval As screen:
                                         SP_LEVELAPPROVER,
                                         User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_1.Selected.Value = "Approver 2 approved"
                                     )
-                                ),
+                                ) && varItem.isAssignedRequest = false,
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled
                             )
@@ -1686,6 +1686,12 @@ TicketsDetailPage_Approval As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(
+                        varItem.isAssignedRequest = true,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
                 Fill: =RGBA(62, 96, 170, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0
@@ -1704,7 +1710,7 @@ TicketsDetailPage_Approval As screen:
                 Text: ="Assign"
                 Visible: |-
                     =//If(!IsBlank(LookUp(SP_LEVELAPPROVER,IdUser.Email=User().Email&&Level.Value="Approver 1")), true , false )
-                    false
+                    true
                 Width: =200
                 ZIndex: =4
 
@@ -2031,13 +2037,21 @@ TicketsDetailPage_Approval As screen:
 
                     ComboBox_searchName As combobox:
                         ChevronBackground: =RGBA(56, 96, 178, 1)
-                        DisplayFields: =["Mail"]
+                        DisplayFields: =["DisplayName"]
                         Height: =70
-                        Items: =Office365Users.SearchUser()
+                        Items: |-
+                            =Filter(
+                                Office365Users.SearchUser({top: 999}),
+                                !IsBlank(Department) && !IsBlank(Mail)
+                            )
                         LayoutMinHeight: =70
                         LayoutMinWidth: =575
                         SearchFields: =["Mail"]
-                        SearchItems: =Search(Office365Users.SearchUser(),ComboBox_searchName.SearchText,"Mail")
+                        SearchItems: |-
+                            =Search(Filter(
+                                Office365Users.SearchUser({top: 999}),
+                                !IsBlank(Department) && !IsBlank(Mail)
+                            ),ComboBox_searchName.SearchText,"Mail")
                         SelectionColor: =RGBA(0, 0, 0, 1)
                         SelectionFill: =RGBA(255, 255, 255, 1)
                         SelectMultiple: =false
@@ -2060,7 +2074,7 @@ TicketsDetailPage_Approval As screen:
                         PaddingLeft: =10
                         PaddingRight: =10
                         Width: =600
-                        ZIndex: =3
+                        ZIndex: =4
 
                         Button_OK_10 As button:
                             BorderThickness: =0
