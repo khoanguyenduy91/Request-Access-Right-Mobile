@@ -275,7 +275,7 @@ TicketPage As screen:
                 Icon_clear_search As icon.Cancel:
                     AlignInContainer: =AlignInContainer.Stretch
                     Icon: =Icon.Cancel
-                    OnSelect: =Set(HashTag,Blank())
+                    OnSelect: =Set(HashTag," ")
                     Width: =40
                     ZIndex: =3
 
