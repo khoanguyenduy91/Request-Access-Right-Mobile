@@ -1553,6 +1553,10 @@ TicketPage As screen:
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
+                            DisplayMode: |-
+                                =
+                                
+                                If(IsBlank(Dropdown_hashtags.SelectedItems),DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(54, 176, 75, 1)
                             FillPortions: =1
                             Height: =70
