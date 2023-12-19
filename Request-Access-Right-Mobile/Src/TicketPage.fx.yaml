@@ -428,7 +428,7 @@ TicketPage As screen:
                             Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in Concat(
                                 HashtagRequest.Value,
                                 Value,
-                                ", "
+                                "|"
                             )
                         ),
                         Created,
@@ -695,7 +695,7 @@ TicketPage As screen:
                             LayoutMinWidth: =80
                             Size: =20
                             Text: |
-                                =Concat(ThisItem.HashtagRequest,Value,", ")
+                                =Concat(ThisItem.HashtagRequest,Value,"|")
                             Width: =560
                             ZIndex: =2
 
@@ -1303,11 +1303,11 @@ TicketPage As screen:
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
-                            Fill: =RGBA(255, 0, 0, 1)
+                            Fill: =RGBA(54, 176, 75, 1)
                             FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
+                            HoverFill: =ColorFade(Self.Fill, -20%)
                             OnSelect: |-
                                 =Set(
                                     Dialogcopy1,
@@ -1554,9 +1554,11 @@ TicketPage As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             DisplayMode: |-
-                                =
-                                
-                                If(IsBlank(Dropdown_hashtags.SelectedItems),DisplayMode.Disabled,DisplayMode.Edit)
+                                =If(
+                                    IsBlank(Dropdown_hashtags.Selected.Value),
+                                    DisplayMode.Disabled,
+                                    DisplayMode.Edit
+                                )
                             Fill: =RGBA(54, 176, 75, 1)
                             FillPortions: =1
                             Height: =70
@@ -1568,7 +1570,7 @@ TicketPage As screen:
                                     Concat(
                                         Dropdown_hashtags.SelectedItems,
                                         Value,
-                                        ", "
+                                        "|"
                                     )
                                 );
                                 Set(
