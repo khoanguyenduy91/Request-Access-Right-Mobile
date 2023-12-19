@@ -247,7 +247,7 @@ TicketPage As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Icon1_33 As icon.Add:
+                Icon1_search As icon.Add:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
@@ -272,7 +272,14 @@ TicketPage As screen:
                     Width: =Parent.Width-150
                     ZIndex: =2
 
-                Icon1_4 As icon.Add:
+                Icon_clear_search As icon.Cancel:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Icon: =Icon.Cancel
+                    OnSelect: =Set(HashTag,"")
+                    Width: =40
+                    ZIndex: =3
+
+                Icon1_filter As icon.Add:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
@@ -281,9 +288,9 @@ TicketPage As screen:
                         =Navigate(TicketFilterPage,ScreenTransition.None,{type:type})
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
-                    ZIndex: =3
+                    ZIndex: =4
 
-                Label2 As label:
+                Label2_type As label:
                     Height: =70
                     LayoutMinHeight: =70
                     LayoutMinWidth: =100
@@ -294,9 +301,9 @@ TicketPage As screen:
                     Text: =type
                     Visible: =false
                     Width: =40
-                    ZIndex: =4
+                    ZIndex: =5
 
-                Icon1_32 As icon.Add:
+                Icon1_sort As icon.Add:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
@@ -305,9 +312,9 @@ TicketPage As screen:
                         =UpdateContext({SortDescending: !SortDescending})
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
-                    ZIndex: =5
+                    ZIndex: =6
 
-                Icon4_11 As icon.OptionsList:
+                Icon4_export As icon.OptionsList:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =35
@@ -345,14 +352,14 @@ TicketPage As screen:
                     Width: =40
                     X: =97
                     Y: =6
-                    ZIndex: =6
+                    ZIndex: =7
 
-                Icon4 As icon.TrendingHashtag:
+                Icon_hashtag As icon.TrendingHashtag:
                     AlignInContainer: =AlignInContainer.Stretch
                     Icon: =Icon.TrendingHashtag
                     OnSelect: =Set(DialogHashTags,true)
                     Width: =40
-                    ZIndex: =7
+                    ZIndex: =8
 
             Label5 As label:
                 Align: =Align.Center
@@ -1462,7 +1469,7 @@ TicketPage As screen:
                     BorderColor: =RGBA(0, 18, 107, 1)
                     DropShadow: =DropShadow.Light
                     FillPortions: =0
-                    Height: =450
+                    Height: =240
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -1484,9 +1491,9 @@ TicketPage As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
-                    Dropdown1 As dropdown:
+                    Dropdown_hashtags As dropdown:
                         Height: =70
-                        Items: =["Hash tags 1", "Hash tags 2", "Hash tags 3"]
+                        Items: =["Full story", "Storellet", "Power BI", "Digital"]
                         LayoutMinHeight: =70
                         LayoutMinWidth: =575
                         Size: =21
@@ -1527,7 +1534,7 @@ TicketPage As screen:
                             OnSelect: |-
                                 =Set(
                                     HashTag,
-                                    Dropdown1.Selected.Value
+                                    Dropdown_hashtags.Selected.Value
                                 );
                                 Set(
                                     DialogHashTags,
