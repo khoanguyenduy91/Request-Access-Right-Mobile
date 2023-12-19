@@ -424,7 +424,7 @@ TicketPage As screen:
                                 "Rejected",
                                 CollectRequestRejected
                             ),
-                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in Hashtag.Value
+                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in HashtagRequest.Value
                         ),
                         Created,
                         If(
@@ -689,7 +689,7 @@ TicketPage As screen:
                             LayoutMinHeight: =70
                             LayoutMinWidth: =80
                             Size: =20
-                            Text: =Concat(ThisItem.Hashtag,Value,", ")
+                            Text: =Concat(ThisItem.HashtagRequest,Value,", ")
                             Width: =560
                             ZIndex: =2
 
@@ -1513,7 +1513,7 @@ TicketPage As screen:
                         DisplayFields: =["Value"]
                         Height: =70
                         IsSearchable: =false
-                        Items: =Choices([@SP_REQUEST].Hashtag)
+                        Items: =Choices([@SP_REQUEST].HashtagRequest)
                         LayoutMinHeight: =70
                         LayoutMinWidth: =575
                         SearchFields: =["Value"]
