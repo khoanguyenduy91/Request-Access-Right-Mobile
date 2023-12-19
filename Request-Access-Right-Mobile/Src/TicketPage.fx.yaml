@@ -292,6 +292,7 @@ TicketPage As screen:
                                 false
                             )
                         )
+                    Visible: =If(IsBlank(Text_search),false,true)
                     Width: =40
                     ZIndex: =3
 
@@ -427,7 +428,7 @@ TicketPage As screen:
                             Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in Concat(
                                 HashtagRequest.Value,
                                 Value,
-                                " ,"
+                                ", "
                             )
                         ),
                         Created,
