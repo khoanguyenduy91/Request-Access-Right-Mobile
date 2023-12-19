@@ -70,8 +70,7 @@ TicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: |
-                    ="Request Page"
+                Text: ="Ticket Page"
                 Width: =560
                 ZIndex: =2
 
@@ -374,7 +373,11 @@ TicketPage As screen:
                 Icon_hashtag As icon.TrendingHashtag:
                     AlignInContainer: =AlignInContainer.Stretch
                     Icon: =Icon.TrendingHashtag
-                    OnSelect: =Set(DialogHashTags,true)
+                    OnSelect: |-
+                        =Set(
+                            DialogHashTags,
+                            true
+                        )
                     Width: =40
                     ZIndex: =8
 
@@ -421,7 +424,7 @@ TicketPage As screen:
                                 "Rejected",
                                 CollectRequestRejected
                             ),
-                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in Hashtag
+                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in Hashtag.Value
                         ),
                         Created,
                         If(
@@ -686,7 +689,7 @@ TicketPage As screen:
                             LayoutMinHeight: =70
                             LayoutMinWidth: =80
                             Size: =20
-                            Text: =Concat(ThisItem.Hashtag,Value," , ")
+                            Text: =Concat(ThisItem.Hashtag,Value,", ")
                             Width: =560
                             ZIndex: =2
 
@@ -1506,12 +1509,15 @@ TicketPage As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
-                    Dropdown_hashtags As dropdown:
+                    Dropdown_hashtags As combobox:
+                        DisplayFields: =["Value"]
                         Height: =70
+                        IsSearchable: =false
                         Items: =Choices([@SP_REQUEST].Hashtag)
                         LayoutMinHeight: =70
                         LayoutMinWidth: =575
-                        Size: =21
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
                         Width: =Parent.Width
                         ZIndex: =2
 
@@ -1546,15 +1552,20 @@ TicketPage As screen:
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(Self.Fill, -20%)
-                            OnSelect: |-
+                            OnSelect: |
                                 =Set(
                                     HashTags,
-                                    Dropdown_hashtags.Selected.Value
+                                    Concat(
+                                        Dropdown_hashtags.SelectedItems,
+                                        Value,
+                                        ", "
+                                    )
                                 );
                                 Set(
                                     DialogHashTags,
                                     false
                                 );
+                                Reset(Dropdown_hashtags);
                                 If(
                                     TicketsGallery.AllItemsCount = 0,
                                     Set(

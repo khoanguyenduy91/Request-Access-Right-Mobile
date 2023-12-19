@@ -14154,36 +14154,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown_hashtags.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown_hashtags.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "TicketPage",
-                "type": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown_hashtags"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "TicketPage.Container9.Container22.Container2_4.Icon_hashtag.AccessibleLabel"
                 }
               ],
@@ -14298,6 +14268,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown_hashtags.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown_hashtags.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TicketPage",
+                "type": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown_hashtags"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
         },
         {
           "locations": [
