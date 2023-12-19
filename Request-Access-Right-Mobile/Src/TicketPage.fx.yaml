@@ -6,7 +6,7 @@ TicketPage As screen:
             false
         );
         Set(
-            HashTag,
+            HashTags,
             ""
         )
     OnVisible: |-
@@ -70,7 +70,8 @@ TicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Request Page"
+                Text: |
+                    ="Request Page"
                 Width: =560
                 ZIndex: =2
 
@@ -259,7 +260,7 @@ TicketPage As screen:
 
                 Text_search As text:
                     BorderThickness: =0
-                    Default: =HashTag
+                    Default: =HashTags
                     FillPortions: =1
                     FocusedBorderThickness: =0
                     Height: =70
@@ -275,8 +276,13 @@ TicketPage As screen:
                 Icon_clear_search As icon.Cancel:
                     AlignInContainer: =AlignInContainer.Stretch
                     Icon: =Icon.Cancel
-                    OnSelect: |-
-                        =Set(HashTag," ");If(
+                    OnSelect: |
+                        =Reset(Text_search);
+                        Set(
+                            HashTags,
+                            ""
+                        );
+                        If(
                             TicketsGallery.AllItemsCount = 0,
                             Set(
                                 visibleticketpage,
@@ -286,7 +292,7 @@ TicketPage As screen:
                                 visibleticketpage,
                                 false
                             )
-                        );s
+                        )
                     Width: =40
                     ZIndex: =3
 
@@ -415,7 +421,7 @@ TicketPage As screen:
                                 "Rejected",
                                 CollectRequestRejected
                             ),
-                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value
+                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in Hashtag
                         ),
                         Created,
                         If(
@@ -635,19 +641,6 @@ TicketPage As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
-                        Button1 As button:
-                            Height: =30
-                            LayoutMinHeight: =70
-                            LayoutMinWidth: =280
-                            OnSelect: =
-                            Size: =24
-                            Text: ="Button"
-                            Visible: =false
-                            Width: =30
-                            X: =180
-                            Y: =712
-                            ZIndex: =1
-
                         Heading1 As label:
                             Color: =RGBA(40, 40, 40, 1)
                             FillPortions: =1
@@ -657,7 +650,7 @@ TicketPage As screen:
                             HoverColor: =Heading1.Color
                             HoverFill: =Heading1.Fill
                             LayoutMinHeight: =70
-                            LayoutMinWidth: =300
+                            LayoutMinWidth: =100
                             OnSelect: |-
                                 =Set(
                                     varItem,
@@ -685,6 +678,16 @@ TicketPage As screen:
                             Wrap: =false
                             X: =19
                             Y: =8.881784197001252E-16
+                            ZIndex: =1
+
+                        Label12 As label:
+                            FillPortions: =1
+                            Height: =50
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =80
+                            Size: =20
+                            Text: =Concat(ThisItem.Hashtag,Value," , ")
+                            Width: =560
                             ZIndex: =2
 
                         Heading1_2 As label:
@@ -790,8 +793,9 @@ TicketPage As screen:
                                     PressedColor: =Subtitle1.Color
                                     PressedFill: =Subtitle1.Fill
                                     Size: =22
-                                    Text: |-
+                                    Text: |+
                                         ="Title: "& ThisItem.Title
+                                        
                                     Width: =Parent.Width
                                     Wrap: =false
                                     X: =19
@@ -1504,7 +1508,7 @@ TicketPage As screen:
 
                     Dropdown_hashtags As dropdown:
                         Height: =70
-                        Items: =["Full story", "Storellet", "Power BI", "Digital"]
+                        Items: =Choices([@SP_REQUEST].Hashtag)
                         LayoutMinHeight: =70
                         LayoutMinWidth: =575
                         Size: =21
@@ -1544,7 +1548,7 @@ TicketPage As screen:
                             HoverFill: =ColorFade(Self.Fill, -20%)
                             OnSelect: |-
                                 =Set(
-                                    HashTag,
+                                    HashTags,
                                     Dropdown_hashtags.Selected.Value
                                 );
                                 Set(
