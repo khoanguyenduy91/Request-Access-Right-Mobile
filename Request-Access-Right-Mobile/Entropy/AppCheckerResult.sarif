@@ -14154,19 +14154,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.DropdownCanvas1.AccessibleLabel"
+                  "fullyQualifiedName": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.DropdownCanvas1.AccessibleLabel",
+                  "fullyQualifiedName": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "TicketPage",
-                "type": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.DropdownCanvas1"
+                "type": "TicketPage.Dialog_hashtag.Container13_24.Container42_22.Container42_23.Dropdown1"
               }
             }
           ],
@@ -14178,6 +14178,66 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.Container2_4.Icon4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.Container2_4.Icon4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TicketPage",
+                "type": "TicketPage.Container9.Container22.Container2_4.Icon4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.Container2_4.Icon4.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TicketPage.Container9.Container22.Container2_4.Icon4.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "TicketPage",
+                "type": "TicketPage.Container9.Container22.Container2_4.Icon4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
         },
         {
           "locations": [

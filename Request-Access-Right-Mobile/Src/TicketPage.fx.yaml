@@ -347,6 +347,13 @@ TicketPage As screen:
                     Y: =6
                     ZIndex: =6
 
+                Icon4 As icon.TrendingHashtag:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Icon: =Icon.TrendingHashtag
+                    OnSelect: =Set(DialogHashTags,true)
+                    Width: =40
+                    ZIndex: =7
+
             Label5 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Stretch
@@ -614,7 +621,7 @@ TicketPage As screen:
                             Height: =30
                             LayoutMinHeight: =70
                             LayoutMinWidth: =280
-                            OnSelect: =Set(HashTag,ThisItem.Title)
+                            OnSelect: =
                             Size: =24
                             Text: ="Button"
                             Visible: =false
@@ -1417,6 +1424,7 @@ TicketPage As screen:
         PaddingLeft: =0.00
         PaddingRight: =0.00
         PaddingTop: =0.00
+        Visible: =DialogHashTags
         Width: =Parent.Width
         ZIndex: =4
 
@@ -1476,6 +1484,15 @@ TicketPage As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
+                    Dropdown1 As dropdown:
+                        Height: =70
+                        Items: =["Hash tags 1", "Hash tags 2", "Hash tags 3"]
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =575
+                        Size: =21
+                        Width: =Parent.Width
+                        ZIndex: =2
+
                     Container28_15 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 18, 107, 1)
@@ -1506,43 +1523,27 @@ TicketPage As screen:
                             FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
+                            HoverFill: =ColorFade(Self.Fill, -20%)
                             OnSelect: |-
                                 =Set(
-                                    Dialogcopy1,
+                                    HashTag,
+                                    Dropdown1.Selected.Value
+                                );
+                                Set(
+                                    DialogHashTags,
                                     false
                                 );
-                                Set(
-                                    Dialogloading_copy_1,
-                                    true
-                                );
-                                Patch(
-                                    SP_REQUEST,
-                                    Defaults(SP_REQUEST),
-                                    {
-                                        Title: TicketsGallery.Selected.Title,
-                                        ReqType: TicketsGallery.Selected.ReqType,
-                                        ReqPermission: TicketsGallery.Selected.ReqPermission,
-                                        ReqReason: TicketsGallery.Selected.ReqReason,
-                                        ReqDescription: TicketsGallery.Selected.ReqDescription,
-                                        TypeNewRequest: "CopyRequest"
-                                    }
-                                );
-                                Set(
-                                    IDcopyTicket,
-                                    '[SubFlow]Copy_Attachment_new'.Run(
-                                        TicketsGallery.Selected.ID,
-                                        Last(SP_REQUEST).ID
+                                If(
+                                    TicketsGallery.AllItemsCount = 0,
+                                    Set(
+                                        visibleticketpage,
+                                        true
+                                    ),
+                                    Set(
+                                        visibleticketpage,
+                                        false
                                     )
                                 );
-                                Navigate(
-                                    SuccessScreen_copy,
-                                    ScreenTransition.Fade
-                                );
-                                Set(
-                                    Dialogloading_copy_1,
-                                    false
-                                )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             RadiusBottomLeft: =5
@@ -1567,7 +1568,7 @@ TicketPage As screen:
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            OnSelect: =Set(Dialogcopy1,false)
+                            OnSelect: =Set(DialogHashTags,false)
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
                             RadiusBottomLeft: =5
@@ -1580,15 +1581,4 @@ TicketPage As screen:
                             X: =184
                             Y: =195
                             ZIndex: =2
-
-                    DropdownCanvas1 As Dropdown.pcfdataset:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        Items: =["Hash tags 1", "Hash tags 2", "Hash tags 3"]
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =320
-                        Width: =320
-                        X: =0
-                        Y: =0
-                        ZIndex: =4
 
