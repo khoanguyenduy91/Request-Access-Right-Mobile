@@ -424,7 +424,11 @@ TicketPage As screen:
                                 "Rejected",
                                 CollectRequestRejected
                             ),
-                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in HashtagRequest.Value
+                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in Concat(
+                                HashtagRequest.Value,
+                                Value,
+                                " ,"
+                            )
                         ),
                         Created,
                         If(
@@ -689,7 +693,8 @@ TicketPage As screen:
                             LayoutMinHeight: =70
                             LayoutMinWidth: =80
                             Size: =20
-                            Text: =Concat(ThisItem.HashtagRequest,Value,", ")
+                            Text: |
+                                =Concat(ThisItem.HashtagRequest,Value,", ")
                             Width: =560
                             ZIndex: =2
 

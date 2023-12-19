@@ -88,14 +88,14 @@ App As appinfo:
                 CollectRequestClosed,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Closed" && 'Created By'.Email = User().Email
+                    Status.Value = "Closed" && 'Created By'.Email = User().Email && isDelete=false
                 )
             ),
             ClearCollect(
                 CollectRequestRejected,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                    Status.Value = "Rejected" && 'Created By'.Email = User().Email && isDelete=false
                 )
             ),
             ClearCollect(
@@ -140,7 +140,7 @@ App As appinfo:
                 CollectRequestAssign,
                 Filter(
                     CollectionRequestTest,
-                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted" && isDelete = false
                 )
             ),
             ClearCollect(

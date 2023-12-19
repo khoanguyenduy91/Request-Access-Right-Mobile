@@ -98,14 +98,14 @@ HomePage As screen:
                             CollectRequestClosed,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Closed" && 'Created By'.Email = User().Email
+                                Status.Value = "Closed" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestRejected,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                Status.Value = "Rejected" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
@@ -150,7 +150,7 @@ HomePage As screen:
                             CollectRequestAssign,
                             Filter(
                                 SP_REQUEST,
-                                'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                                'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted" && isDelete = false
                             )
                         )
                     );
