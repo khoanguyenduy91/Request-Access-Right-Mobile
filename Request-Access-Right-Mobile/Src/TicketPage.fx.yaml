@@ -409,34 +409,24 @@ TicketPage As screen:
                 Height: =Parent.Height
                 HoverBorderColor: =TicketsGallery.BorderColor
                 HoverFill: =TicketsGallery.Fill
-                Items: |-
+                Items: |
                     =Sort(
                         Filter(
                             Switch(
                                 type,
-                                "All",
-                                CollectRequestAll,
-                                "New",
-                                CollectRequestNew,
-                                "In progress",
-                                CollectRequestProcess,
-                                "Closed",
-                                CollectRequestClosed,
-                                "Rejected",
-                                CollectRequestRejected
+                                "All", CollectRequestAll,
+                                "New", CollectRequestNew,
+                                "In progress", CollectRequestProcess,
+                                "Closed", CollectRequestClosed,
+                                "Rejected", CollectRequestRejected
                             ),
-                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value || Text_search.Text in Concat(
-                                HashtagRequest.Value,
-                                Value,
-                                "|"
-                            )
+                            Text_search.Text in Title ||
+                            Text_search.Text in ID ||
+                            Text_search.Text in ReqType.Value
+                        
                         ),
                         Created,
-                        If(
-                            SortDescending,
-                            SortOrder.Ascending,
-                            SortOrder.Descending
-                        )
+                        If(SortDescending, SortOrder.Ascending, SortOrder.Descending)
                     )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =100
@@ -694,8 +684,12 @@ TicketPage As screen:
                             LayoutMinHeight: =70
                             LayoutMinWidth: =80
                             Size: =20
-                            Text: |
-                                =Concat(ThisItem.HashtagRequest,Value,"|")
+                            Text: |-
+                                =Concat(
+                                    ThisItem.HashtagRequest,
+                                    Value,
+                                    ","
+                                )
                             Width: =560
                             ZIndex: =2
 
@@ -1519,7 +1513,10 @@ TicketPage As screen:
                         DisplayFields: =["Value"]
                         Height: =70
                         IsSearchable: =false
-                        Items: =Choices([@SP_REQUEST].HashtagRequest)
+                        Items: |-
+                            =//Choices([@SP_REQUEST].HashtagRequest)
+                            
+                            Distinct(Ungroup([@SP_REQUEST].HashtagRequest,"Hashtag"),Value)
                         LayoutMinHeight: =70
                         LayoutMinWidth: =575
                         SearchFields: =["Value"]
@@ -1570,7 +1567,7 @@ TicketPage As screen:
                                     Concat(
                                         Dropdown_hashtags.SelectedItems,
                                         Value,
-                                        "|"
+                                        ","
                                     )
                                 );
                                 Set(
