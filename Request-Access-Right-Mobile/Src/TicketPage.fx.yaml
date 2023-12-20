@@ -409,7 +409,7 @@ TicketPage As screen:
                 Height: =Parent.Height
                 HoverBorderColor: =TicketsGallery.BorderColor
                 HoverFill: =TicketsGallery.Fill
-                Items: |
+                Items: |-
                     =Sort(
                         Filter(
                             Switch(
@@ -419,10 +419,11 @@ TicketPage As screen:
                                 "In progress", CollectRequestProcess,
                                 "Closed", CollectRequestClosed,
                                 "Rejected", CollectRequestRejected
-                            ),
-                            Text_search.Text in Title ||
-                            Text_search.Text in ID ||
-                            Text_search.Text in ReqType.Value
+                            ) As tbl,
+                            Text_search.Text in tbl.Title ||
+                            Text_search.Text in tbl.ID ||
+                            Text_search.Text in tbl.ReqType.Value ||
+                            CountRows(Filter(Split(Text_search.Text,","),Trim(Value) in tbl.HashtagRequest.Value))
                         
                         ),
                         Created,
