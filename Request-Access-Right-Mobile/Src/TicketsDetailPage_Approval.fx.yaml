@@ -1623,26 +1623,20 @@ TicketsDetailPage_Approval As screen:
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: |-
-                    =//Refresh(SP_REQUEST);
-                    //If(
-                    //varItem.isDelete = true,
-                    //Notify(
-                    //"The request has been deleted, please refresh the data!",
-                    //NotificationType.Error,
-                    //3000
-                    //),
+                    =//Refresh(SP_REQUEST);If(varItem.isDelete = true,Notify("The request has been deleted, please refresh the data!", NotificationType.Error,3000),
                     If(
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
                                 IdUser.Email = User().Email && Level.Value = "Approver 1"
                             )
-                        ) || !IsBlank(
+                        )  || !IsBlank(
                             LookUp(
                                 SP_REQUEST,
                                 User().Email = 'Assigned User'.Email
                             )
-                        ),
+                        )
+                       ,
                         Patch(
                             SP_REQUEST,
                             LookUp(
@@ -1687,11 +1681,11 @@ TicketsDetailPage_Approval As screen:
                             )
                         )
                     );
-                    Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
-                    Navigate(
-                        SuccessScreen_Approver,
-                        ScreenTransition.Fade
-                    )
+                    //Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
+                    //Navigate(
+                    //  SuccessScreen_Approver,
+                    //ScreenTransition.Fade
+                    //)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
                 PressedFill: =ColorFade(Self.Fill, 50%)
