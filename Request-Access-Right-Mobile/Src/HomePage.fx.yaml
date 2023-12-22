@@ -174,7 +174,8 @@ HomePage As screen:
                 Icon: =Icon.Add
                 LayoutMinHeight: =50
                 OnSelect: |-
-                    =NewForm(Form1);
+                    =ResetForm(Form1);
+                    NewForm(Form1);
                     Navigate(
                         NewTicketPage,
                         ScreenTransition.Fade

@@ -1,5 +1,5 @@
 NewTicketPage As screen:
-    OnHidden: =ResetForm(Form1)
+    OnHidden: =
     OnVisible: =
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
