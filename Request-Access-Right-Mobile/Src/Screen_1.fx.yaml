@@ -4,8 +4,10 @@ Screen_1 As screen:
         DelayItemLoading: =true
         Height: =Parent.Height
         Items: |-
-            =
-            Filter(CollectRequestProcess,Status.Value="Submitted")
+            =Filter(
+                CollectRequestProcess,
+                Status.Value = "Submitted" && isDelete=false
+            )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0

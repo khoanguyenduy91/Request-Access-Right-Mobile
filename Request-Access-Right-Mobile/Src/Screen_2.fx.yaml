@@ -207,17 +207,36 @@ Screen_2 As screen:
                 Y: =DataCardKey78.Y
                 ZIndex: =4
 
-    Label2 As label:
-        Height: =70
-        Size: =21
-        Text: =
-        Width: =560
-        X: =40
-        Y: =754
-        ZIndex: =2
-
     Icon4 As icon.BackArrow:
         Icon: =Icon.BackArrow
         OnSelect: =Back()
         ZIndex: =3
+
+    Button1 As button:
+        Height: =70
+        OnSelect: |-
+            =Refresh(SP_REQUEST);
+            If(
+                Gallery1.Selected.isDelete = true,
+                Notify(
+                    "The request has been deleted, please refresh the data!",
+                    NotificationType.Error,
+                    3000
+                ),
+                Patch(
+                    SP_REQUEST,
+                    LookUp(
+                        SP_REQUEST,
+                        ID = Gallery1.Selected.ID
+                    ),
+                    {Status: {Value: "Approver 1 approved"}},
+                    {'Approved Date 1': Now()}
+                )
+            )
+        Size: =24
+        Text: ="Approve"
+        Width: =280
+        X: =164
+        Y: =910
+        ZIndex: =4
 
