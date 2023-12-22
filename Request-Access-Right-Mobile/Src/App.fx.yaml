@@ -88,21 +88,21 @@ App As appinfo:
                 CollectRequestClosed,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Closed" && 'Created By'.Email = User().Email && isDelete=false
+                    Status.Value = "Closed" && 'Created By'.Email = User().Email && isDelete = false
                 )
             ),
             ClearCollect(
                 CollectRequestRejected,
                 Filter(
                     CollectionRequestTest,
-                    Status.Value = "Rejected" && 'Created By'.Email = User().Email && isDelete=false
+                    Status.Value = "Rejected" && 'Created By'.Email = User().Email && isDelete = false
                 )
             ),
             ClearCollect(
                 CollectRequestApprover1,
                 Filter(
                     CollectionRequestTest,
-                    (Status.Value = "Submitted" && User().Email = 'Approver 1'.Email || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email) && isDelete = false
+                    ((Status.Value = "Submitted" && User().Email = 'Approver 1'.Email && 'Created By'.Department = "DTS" || Status.Value = "HOD approved" && User().Email = 'Approver 1'.Email && 'Created By'.Department <> "DTS") && isDelete = false)
                 )
             ),
             ClearCollect(
