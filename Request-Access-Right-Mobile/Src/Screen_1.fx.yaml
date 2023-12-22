@@ -2,17 +2,18 @@ Screen_1 As screen:
 
     "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         DelayItemLoading: =true
-        Height: =Parent.Height
+        Height: =1029
         Items: |-
             =Filter(
-                CollectRequestProcess,
-                Status.Value = "Submitted" && isDelete=false
+                SP_REQUEST,
+                Status.Value = "Submitted" && isDelete = false && 'Created By'.Email = User().Email
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0
         TemplateSize: =200
         Width: =Parent.Width
+        Y: =106
         ZIndex: =1
 
         Title1 As label:
@@ -53,6 +54,10 @@ Screen_1 As screen:
             Icon: =Icon.ChevronRight
             OnSelect: |-
                 =Select(Parent);
+                Set(
+                    varidnew,
+                    Gallery1.Selected
+                );
                 Navigate(Screen_2)
             PaddingBottom: =16
             PaddingLeft: =16
@@ -94,4 +99,10 @@ Screen_1 As screen:
             X: =86
             Y: =130
             ZIndex: =7
+
+    Icon5 As icon.Reload:
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(SP_REQUEST)
+        X: =20
+        ZIndex: =2
 

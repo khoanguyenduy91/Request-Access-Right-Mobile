@@ -2,7 +2,7 @@ Screen_2 As screen:
 
     FormViewer1 As formViewer:
         DataSource: =SP_REQUEST
-        Item: =Gallery1.Selected
+        Item: =varidnew
         Width: =640
         Y: =99
         ZIndex: =1
@@ -87,6 +87,83 @@ Screen_2 As screen:
                 X: =30
                 Y: =DataCardKey86.Y + DataCardKey86.Height + 5
                 ZIndex: =2
+
+        Delete_DataCard1 As typedDataCard.comboBoxViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Delete"
+            Default: =ThisItem.Delete
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Delete")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue87.Selected
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey87 As label:
+                AutoHeight: =true
+                Height: =48
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue87 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@SP_REQUEST].Delete)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(SP_REQUEST.Delete,DataCardValue87.SearchText)
+                SelectMultiple: =false
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey87.Y + DataCardKey87.Height + 5
+                ZIndex: =2
+
+            ErrorMessage43 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue87.Y + DataCardValue87.Height
+                ZIndex: =3
+
+            StarVisible43 As label:
+                Align: =Align.Center
+                Height: =DataCardKey87.Height
+                PaddingBottom: =DataCardKey87.PaddingBottom
+                PaddingLeft: =DataCardKey87.PaddingLeft
+                PaddingRight: =DataCardKey87.PaddingRight
+                PaddingTop: =DataCardKey87.PaddingTop
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey87.Y
+                ZIndex: =4
 
         Title_DataCard3 As typedDataCard.textualViewCard:
             BorderStyle: =BorderStyle.Solid
@@ -216,8 +293,15 @@ Screen_2 As screen:
         Height: =70
         OnSelect: |-
             =Refresh(SP_REQUEST);
+            Set(
+                Newrequest,
+                LookUp(
+                    SP_REQUEST,
+                    ThisRecord.ID = varidnew.ID
+                )
+            );
             If(
-                Gallery1.Selected.isDelete = true,
+                Newrequest.isDelete = true,
                 Notify(
                     "The request has been deleted, please refresh the data!",
                     NotificationType.Error,
@@ -227,7 +311,7 @@ Screen_2 As screen:
                     SP_REQUEST,
                     LookUp(
                         SP_REQUEST,
-                        ID = Gallery1.Selected.ID
+                        ID = varidnew.ID
                     ),
                     {Status: {Value: "Approver 1 approved"}},
                     {'Approved Date 1': Now()}
@@ -239,4 +323,18 @@ Screen_2 As screen:
         X: =164
         Y: =910
         ZIndex: =4
+
+    Icon5_1 As icon.Reload:
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(SP_REQUEST);
+        X: =554
+        ZIndex: =5
+
+    TextInput2 As text:
+        Default: =Newrequest.isDelete
+        Height: =50
+        Size: =21
+        Width: =391
+        X: =96
+        ZIndex: =6
 
