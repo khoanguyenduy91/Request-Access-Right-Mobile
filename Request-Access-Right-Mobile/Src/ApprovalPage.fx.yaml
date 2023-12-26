@@ -584,7 +584,7 @@ ApprovalPage As screen:
                         ZIndex: =2
 
                     Heading1_3 As label:
-                        Align: =TextPosition.Right
+                        Align: =Align.Right
                         Color: =RGBA(40, 40, 40, 1)
                         FillPortions: =1
                         FocusedBorderColor: =Heading1_3.BorderColor
@@ -622,6 +622,34 @@ ApprovalPage As screen:
                         X: =(Parent.X) + 415
                         Y: =3.954081632653028
                         ZIndex: =3
+
+                    Container47_1 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =60
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =40
+                        LayoutMinWidth: =10
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =50
+                        ZIndex: =5
+
+                        Image5_2 As image:
+                            Height: =40
+                            Image: ='comment-user'
+                            LayoutMinHeight: =320
+                            LayoutMinWidth: =320
+                            Visible: |-
+                                =If(
+                                    ThisItem.isAssignedRequest = true,
+                                    true,
+                                    false
+                                )
+                            Width: =30
+                            X: =592
+                            Y: =176
+                            ZIndex: =1
 
                 Container18 As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.Height
@@ -942,39 +970,50 @@ ApprovalPage As screen:
                                     Width: =560
                                     ZIndex: =3
 
-                        icon8_1 As icon.ChevronRight:
-                            AccessibleLabel: ="Ticket Details Button"
-                            AlignInContainer: =AlignInContainer.Stretch
-                            BorderColor: =RGBA(0, 0, 0, 1)
-                            Color: =RGBA(115, 115, 115, 1)
-                            DisabledBorderColor: =RGBA(56, 56, 56, 1)
-                            DisabledFill: =icon8_1.Fill
-                            FocusedBorderColor: =Color.Black
-                            FocusedBorderThickness: =0
-                            Height: =40
-                            HoverBorderColor: =ColorFade(icon8_1.BorderColor, 20%)
-                            HoverColor: =ColorFade(icon8_1.Color, 20%)
-                            HoverFill: =icon8_1.Fill
-                            Icon: =Icon.ChevronRight
-                            OnSelect: |-
-                                =Set(
-                                    varItem,
-                                    ThisItem
-                                );
-                                Navigate(
-                                    TicketsDetailPage_Approval,
-                                    ScreenTransition.Fade
-                                );
-                                Set(
-                                    counter,
-                                    true
-                                )
-                            PressedBorderColor: =ColorFade(icon8_1.BorderColor, -20%)
-                            PressedColor: =ColorFade(icon8_1.Color, -20%)
-                            PressedFill: =icon8_1.Fill
-                            TabIndex: =0
-                            Width: =32
-                            X: =595.6573962918501
-                            Y: =91.78571428571428
-                            ZIndex: =2
+                        Container46 As groupContainer.verticalAutoLayoutContainer:
+                            FillPortions: =0
+                            Height: =225
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =50
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =40
+                            ZIndex: =3
+
+                            icon8_1 As icon.ChevronRight:
+                                AccessibleLabel: ="Ticket Details Button"
+                                BorderColor: =RGBA(0, 0, 0, 1)
+                                Color: =RGBA(115, 115, 115, 1)
+                                DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                                DisabledFill: =icon8_1.Fill
+                                FocusedBorderColor: =Color.Black
+                                FocusedBorderThickness: =0
+                                Height: =40
+                                HoverBorderColor: =ColorFade(icon8_1.BorderColor, 20%)
+                                HoverColor: =ColorFade(icon8_1.Color, 20%)
+                                HoverFill: =icon8_1.Fill
+                                Icon: =Icon.ChevronRight
+                                OnSelect: |-
+                                    =Set(
+                                        varItem,
+                                        ThisItem
+                                    );
+                                    Navigate(
+                                        TicketsDetailPage_Approval,
+                                        ScreenTransition.Fade
+                                    );
+                                    Set(
+                                        counter,
+                                        true
+                                    )
+                                PressedBorderColor: =ColorFade(icon8_1.BorderColor, -20%)
+                                PressedColor: =ColorFade(icon8_1.Color, -20%)
+                                PressedFill: =icon8_1.Fill
+                                TabIndex: =0
+                                Width: =32
+                                X: =595.6573962918501
+                                Y: =91.78571428571428
+                                ZIndex: =2
 

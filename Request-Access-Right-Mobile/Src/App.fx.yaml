@@ -140,7 +140,7 @@ App As appinfo:
                 CollectRequestAssign,
                 Filter(
                     CollectionRequestTest,
-                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                    ('Assigned User'.Email = User().Email && isAssignedRequest = true) && isDelete = false && (Status.Value = "Submitted" && Status.Value = "HOD approved")
                 )
             ),
             ClearCollect(

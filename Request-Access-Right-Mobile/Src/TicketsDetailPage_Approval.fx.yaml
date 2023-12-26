@@ -1774,8 +1774,8 @@ TicketsDetailPage_Approval As screen:
                 DisplayMode: |-
                     =If(
                         varItem.isAssignedRequest = false,
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
                     )
                 Fill: =RGBA(62, 96, 170, 1)
                 FillPortions: =1
@@ -2179,34 +2179,51 @@ TicketsDetailPage_Approval As screen:
                                         "Please enter the name!",
                                         NotificationType.Error
                                     ),
-                                    Patch(
-                                        SP_REQUEST,
-                                        LookUp(
-                                            SP_REQUEST,
-                                            ID = varItem.ID
+                                    If(
+                                        ComboBox_searchName.Selected.Mail = varItem.'Created By'.Email,
+                                        Notify(
+                                            "It is not possible to assign a request created by that person",
+                                            NotificationType.Error
                                         ),
-                                        {isAssignedRequest: true},
-                                        {
-                                            'Assigned User': {
-                                                '@odata.type': ComboBox_searchName.Selected.Mail,
-                                                Claims: ComboBox_searchName.Selected.Mail,
-                                                Department: "",
-                                                DisplayName: "",
-                                                Email: ComboBox_searchName.Selected.Mail,
-                                                JobTitle: "",
-                                                Picture: ""
+                                        Patch(
+                                            SP_REQUEST,
+                                            LookUp(
+                                                SP_REQUEST,
+                                                ID = varItem.ID
+                                            ),
+                                            {isAssignedRequest: true},
+                                            {
+                                                'Assigned User': {
+                                                    '@odata.type': ComboBox_searchName.Selected.Mail,
+                                                    Claims: ComboBox_searchName.Selected.Mail,
+                                                    Department: "",
+                                                    DisplayName: "",
+                                                    Email: ComboBox_searchName.Selected.Mail,
+                                                    JobTitle: "",
+                                                    Picture: ""
+                                                }
                                             }
-                                        }
-                                    );
-                                    Navigate(
-                                        SuccessScreen_Approver,
-                                        ScreenTransition.Fade
+                                        );
+                                        Navigate(
+                                            SuccessScreen_Approver,
+                                            ScreenTransition.Fade
+                                        ) && Set(
+                                            isSuccess,
+                                            true
+                                        )
                                     )
                                 );
                                 Reset(ComboBox_searchName);
-                                Set(
-                                    DialogAssign,
-                                    false
+                                If(
+                                    isSuccess = false,
+                                    Set(
+                                        DialogAssign,
+                                        true
+                                    ),
+                                    Set(
+                                        DialogAssign,
+                                        false
+                                    )
                                 )
                             PaddingBottom: =5.00
                             PaddingLeft: =5.00
