@@ -1283,6 +1283,16 @@ HomePage As screen:
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    Visible: |-
+                        =If(
+                            LookUp(
+                                CollectionRequestTest,
+                                'Assigned User'.Email = User().Email,
+                                'Assigned User'.Email
+                            ),
+                            true,
+                            false
+                        )
                     Width: =Parent.Width
                     ZIndex: =12
 
@@ -1344,6 +1354,16 @@ HomePage As screen:
                     BorderColor: =RGBA(0, 0, 0, 1)
                     Fill: =RGBA(0, 0, 0, 0.4)
                     Height: =1
+                    Visible: |-
+                        =If(
+                            LookUp(
+                                CollectionRequestTest,
+                                'Assigned User'.Email = User().Email,
+                                'Assigned User'.Email
+                            ),
+                            true,
+                            false
+                        )
                     Width: =Parent.Width
                     ZIndex: =13
 

@@ -13644,17 +13644,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.icon8_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container47_1.Image5_2.AccessibleLabel"
                 }
               ],
               "properties": {
-                "member": "FocusedBorderThickness",
+                "member": "AccessibleLabel",
                 "module": "ApprovalPage",
-                "type": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.icon8_1"
+                "type": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container47_1.Image5_2"
               },
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.icon8_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container47_1.Image5_2.AccessibleLabel",
                   "relativeAddress": 0
                 }
               }
@@ -13666,8 +13666,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 3
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
         },
         {
           "locations": [
@@ -14154,17 +14154,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container17.Container47_1.Image5_2.TabIndex"
+                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container47_1.Image5_2.TabIndex"
                 }
               ],
               "properties": {
                 "member": "TabIndex",
                 "module": "ApprovalPage",
-                "type": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container17.Container47_1.Image5_2"
+                "type": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container47_1.Image5_2"
               },
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container17.Container47_1.Image5_2.TabIndex",
+                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container47_1.Image5_2.TabIndex",
                   "relativeAddress": 0
                 }
               }
@@ -14184,17 +14184,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container17.Container47_1.Image5_2.AccessibleLabel"
+                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container48.icon8_1.FocusedBorderThickness"
                 }
               ],
               "properties": {
-                "member": "AccessibleLabel",
+                "member": "FocusedBorderThickness",
                 "module": "ApprovalPage",
-                "type": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container17.Container47_1.Image5_2"
+                "type": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container48.icon8_1"
               },
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container17.Container47_1.Image5_2.AccessibleLabel",
+                  "fullyQualifiedName": "ApprovalPage.Container9_1.TicketsGallery_approval.Container16.Container18.Container21.Container46.Container48.icon8_1.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               }
@@ -14206,8 +14206,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -14244,6 +14244,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.comment-user"
+                }
+              ],
+              "properties": {
+                "member": "comment-user",
+                "module": "App",
+                "type": "App"
+              },
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.comment-user",
+                  "relativeAddress": 0
+                }
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.OnStart"
                 }
               ],
@@ -14267,7 +14297,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14297,7 +14327,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14327,7 +14357,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14357,7 +14387,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14387,7 +14417,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14417,7 +14447,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14447,7 +14477,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14477,7 +14507,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14507,7 +14537,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -14537,7 +14567,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -14597,7 +14627,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -14627,7 +14657,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -14657,7 +14687,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -14687,7 +14717,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 6
+          "ruleIndex": 7
         }
       ],
       "tool": {
@@ -14781,6 +14811,23 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "Biến này được công bố nhưng không được tham chiếu bởi bất kỳ điều khiển nào, vì vậy không cần biến này."
+              }
+            },
+            {
+              "id": "app-UnusedMediaResources",
+              "messageStrings": {
+                "issue": {
+                  "text": "Tệp phương tiện không sử dụng"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Loại bỏ tệp phương tiện không sử dụng trong ngăn Phương tiện."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "Tệp phương tiện này không được bất kỳ công thức điều khiển nào tham chiếu nên là tệp không cần thiết. Có thể loại bỏ tệp này để cải thiện hiệu suất."
               }
             },
             {

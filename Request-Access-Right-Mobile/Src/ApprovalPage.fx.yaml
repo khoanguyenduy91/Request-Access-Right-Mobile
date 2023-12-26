@@ -305,7 +305,7 @@ ApprovalPage As screen:
             PressedFill: =TicketsGallery_approval.Fill
             ShowScrollbar: =false
             TemplatePadding: =0
-            TemplateSize: =223.0699504854
+            TemplateSize: =250
             Width: =Parent.Width
             Y: =175
             ZIndex: =4
@@ -420,7 +420,7 @@ ApprovalPage As screen:
                 OnSelect: =
                 PressedFill: =Rectangle6_1.Fill
                 Width: =Parent.Width
-                Y: =223
+                Y: =250
                 ZIndex: =4
 
             Rectangle15_1 As rectangle:
@@ -477,7 +477,7 @@ ApprovalPage As screen:
                         )
                     )
                 FocusedBorderColor: =Rectangle15_1.BorderColor
-                Height: =222.3
+                Height: =250
                 HoverFill: =Rectangle15_1.Fill
                 OnSelect: =
                 PressedFill: =Rectangle15_1.Fill
@@ -485,7 +485,7 @@ ApprovalPage As screen:
                 ZIndex: =13
 
             Container16 As groupContainer.verticalAutoLayoutContainer:
-                Height: =223.0699504854
+                Height: =250
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
@@ -495,7 +495,7 @@ ApprovalPage As screen:
                 Container17 As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
                     FillPortions: =0
-                    Height: =40
+                    Height: =60
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                     LayoutMinHeight: =50
@@ -623,42 +623,12 @@ ApprovalPage As screen:
                         Y: =3.954081632653028
                         ZIndex: =3
 
-                    Container47_1 As groupContainer.verticalAutoLayoutContainer:
-                        FillPortions: =0
-                        Height: =60
-                        LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutJustifyContent: =LayoutJustifyContent.Center
-                        LayoutMinHeight: =40
-                        LayoutMinWidth: =10
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =50
-                        ZIndex: =5
-
-                        Image5_2 As image:
-                            Height: =40
-                            Image: ='comment-user'
-                            LayoutMinHeight: =320
-                            LayoutMinWidth: =320
-                            Visible: |-
-                                =If(
-                                    ThisItem.isAssignedRequest = true,
-                                    true,
-                                    false
-                                )
-                            Width: =30
-                            X: =592
-                            Y: =176
-                            ZIndex: =1
-
                 Container18 As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.Height
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =112
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
-                    PaddingBottom: =10
-                    PaddingTop: =10
                     ZIndex: =2
 
                     Container21 As groupContainer.horizontalAutoLayoutContainer:
@@ -674,6 +644,7 @@ ApprovalPage As screen:
                         Container23 As groupContainer.verticalAutoLayoutContainer:
                             Height: =Parent.Height
                             LayoutDirection: =LayoutDirection.Vertical
+                            LayoutJustifyContent: =LayoutJustifyContent.Center
                             LayoutMinHeight: =112
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
@@ -982,38 +953,77 @@ ApprovalPage As screen:
                             Width: =40
                             ZIndex: =3
 
-                            icon8_1 As icon.ChevronRight:
-                                AccessibleLabel: ="Ticket Details Button"
-                                BorderColor: =RGBA(0, 0, 0, 1)
-                                Color: =RGBA(115, 115, 115, 1)
-                                DisabledBorderColor: =RGBA(56, 56, 56, 1)
-                                DisabledFill: =icon8_1.Fill
-                                FocusedBorderColor: =Color.Black
-                                FocusedBorderThickness: =0
-                                Height: =40
-                                HoverBorderColor: =ColorFade(icon8_1.BorderColor, 20%)
-                                HoverColor: =ColorFade(icon8_1.Color, 20%)
-                                HoverFill: =icon8_1.Fill
-                                Icon: =Icon.ChevronRight
-                                OnSelect: |-
-                                    =Set(
-                                        varItem,
-                                        ThisItem
-                                    );
-                                    Navigate(
-                                        TicketsDetailPage_Approval,
-                                        ScreenTransition.Fade
-                                    );
-                                    Set(
-                                        counter,
-                                        true
-                                    )
-                                PressedBorderColor: =ColorFade(icon8_1.BorderColor, -20%)
-                                PressedColor: =ColorFade(icon8_1.Color, -20%)
-                                PressedFill: =icon8_1.Fill
-                                TabIndex: =0
-                                Width: =32
-                                X: =595.6573962918501
-                                Y: =91.78571428571428
-                                ZIndex: =2
+                            Container48 As groupContainer.verticalAutoLayoutContainer:
+                                Height: =225
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =112
+                                LayoutMinWidth: =40
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                                icon8_1 As icon.ChevronRight:
+                                    AccessibleLabel: ="Ticket Details Button"
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Color: =RGBA(115, 115, 115, 1)
+                                    DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                                    DisabledFill: =icon8_1.Fill
+                                    FocusedBorderColor: =Color.Black
+                                    FocusedBorderThickness: =0
+                                    Height: =40
+                                    HoverBorderColor: =ColorFade(icon8_1.BorderColor, 20%)
+                                    HoverColor: =ColorFade(icon8_1.Color, 20%)
+                                    HoverFill: =icon8_1.Fill
+                                    Icon: =Icon.ChevronRight
+                                    OnSelect: |-
+                                        =Set(
+                                            varItem,
+                                            ThisItem
+                                        );
+                                        Navigate(
+                                            TicketsDetailPage_Approval,
+                                            ScreenTransition.Fade
+                                        );
+                                        Set(
+                                            counter,
+                                            true
+                                        )
+                                    PressedBorderColor: =ColorFade(icon8_1.BorderColor, -20%)
+                                    PressedColor: =ColorFade(icon8_1.Color, -20%)
+                                    PressedFill: =icon8_1.Fill
+                                    TabIndex: =0
+                                    Width: =32
+                                    X: =595.6573962918501
+                                    Y: =91.78571428571428
+                                    ZIndex: =1
+
+                            Container47_1 As groupContainer.verticalAutoLayoutContainer:
+                                FillPortions: =0
+                                Height: =50
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =40
+                                LayoutMinWidth: =40
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =50
+                                ZIndex: =3
+
+                                Image5_2 As image:
+                                    Height: =40
+                                    Image: ='comment-user (1)'
+                                    LayoutMinHeight: =320
+                                    LayoutMinWidth: =320
+                                    Visible: |-
+                                        =If(
+                                            ThisItem.isAssignedRequest = true,
+                                            true,
+                                            false
+                                        )
+                                    Width: =40
+                                    X: =592
+                                    Y: =176
+                                    ZIndex: =1
 
