@@ -131,7 +131,7 @@ App As appinfo:
                 Filter(
                     CollectionRequestTest,
                     Status.Value = "Done" && User().Email in Concat(
-                        'Incharge Person',
+                        Approver4,
                         Email & ";"
                     ) && isDelete = false
                 )
@@ -176,9 +176,9 @@ App As appinfo:
                 Filter(
                     CollectionRequestTest,
                     User().Email in Concat(
-                        'Incharge Person',
+                        Approver4,
                         Email & ";"
-                    ) && 'Incharge Person Approved Date' <> Blank()
+                    ) && ApprovedDate4 <> Blank()
                 )
             ),
             ClearCollect(

@@ -141,7 +141,7 @@ HomePage As screen:
                             Filter(
                                 CollectionRequestTest,
                                 Status.Value = "Done" && User().Email in Concat(
-                                    'Incharge Person',
+                                    Approver4,
                                     Email & ";"
                                 ) && isDelete = false
                             )
@@ -488,7 +488,7 @@ HomePage As screen:
                                                         LookUp(
                                                             CollectionRequestTest,
                                                             User().Email in Concat(
-                                                                'Incharge Person',
+                                                                Approver4,
                                                                 Email & ";"
                                                             )
                                                         )
@@ -880,7 +880,7 @@ HomePage As screen:
                             Filter(
                                 CollectionRequestTest,
                                 Status.Value = "Done" && User().Email in Concat(
-                                    'Incharge Person',
+                                    Approver4,
                                     Email & ";"
                                 ) && isDelete = false
                             )

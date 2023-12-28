@@ -155,7 +155,7 @@ TicketPage As screen:
                             Filter(
                                 CollectionRequestTest,
                                 Status.Value = "Done" && User().Email in Concat(
-                                    'Incharge Person',
+                                    Approver4,
                                     Email & ";"
                                 ) && isDelete = false
                             )

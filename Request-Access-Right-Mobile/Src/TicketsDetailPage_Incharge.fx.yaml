@@ -1512,7 +1512,7 @@ TicketsDetailPage_Incharge As screen:
                             LookUp(
                                 CollectionRequestTest,
                                 User().Email in Concat(
-                                    'Incharge Person',
+                                    Approver4,
                                     Email & ";"
                                 ) && DataCardValue16_5.Selected.Value = "Done"
                             )
@@ -1664,7 +1664,7 @@ TicketsDetailPage_Incharge As screen:
                                             LookUp(
                                                 CollectionRequestTest,
                                                 User().Email in Concat(
-                                                    'Incharge Person',
+                                                    Approver4,
                                                     Email & ";"
                                                 )
                                             )

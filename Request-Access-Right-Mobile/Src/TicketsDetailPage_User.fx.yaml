@@ -1206,7 +1206,7 @@ TicketsDetailPage_User As screen:
                 "'Incharge Person_DataCard4' As typedDataCard.comboBoxMultiSelectViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Approver4"
-                    Default: =ThisItem.'Incharge Person'
+                    Default: =ThisItem.Approver4
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver4")
                     Fill: =RGBA(0, 0, 0, 0)
@@ -1248,7 +1248,7 @@ TicketsDetailPage_User As screen:
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
                         Items: |
-                            =Choices([@SP_REQUEST].'Incharge Person')
+                            =Choices([@SP_REQUEST].Approver4)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
@@ -1293,7 +1293,7 @@ TicketsDetailPage_User As screen:
                 "'Incharge Person Approved Date_DataCard4' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ApprovedDate4"
-                    Default: =ThisItem.'Incharge Person Approved Date'
+                    Default: =ThisItem.ApprovedDate4
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ApprovedDate4")
                     Fill: =RGBA(0, 0, 0, 0)
@@ -1731,7 +1731,7 @@ TicketsDetailPage_User As screen:
                                     "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
                                     "Done",
                                     "Waiting for: " & Concat(
-                                        ThisItem.'Incharge Person',
+                                        ThisItem.Approver4,
                                         DisplayName,
                                         " ; "
                                     ),
@@ -1753,7 +1753,7 @@ TicketsDetailPage_User As screen:
                                         "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
                                         "Done",
                                         "Waiting for: " & Concat(
-                                            ThisItem.'Incharge Person',
+                                            ThisItem.Approver4,
                                             DisplayName,
                                             " ; "
                                         ),
@@ -1771,7 +1771,7 @@ TicketsDetailPage_User As screen:
                                         "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
                                         "Done",
                                         "Waiting for: " & Concat(
-                                            ThisItem.'Incharge Person',
+                                            ThisItem.Approver4,
                                             DisplayName,
                                             " ; "
                                         ),
