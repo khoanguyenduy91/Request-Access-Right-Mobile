@@ -78,7 +78,7 @@ History_request_Incharge As screen:
                         CollecRequestHistory_Incharge,
                         Filter(
                             CollectionRequestTest,
-                            User().Email in Approver4.Email && ApprovedDate4 <> Blank()
+                            User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
                         )
                     );
                     If(
@@ -241,7 +241,7 @@ History_request_Incharge As screen:
                                     LookUp(
                                         CollectionRequestTest,
                                         User().Email in Concat(
-                                            Approver4,
+                                            'Incharge Person',
                                             Email & ";"
                                         )
                                     )

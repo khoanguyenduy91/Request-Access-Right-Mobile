@@ -82,7 +82,7 @@ InchargePage As screen:
                             CollectRequestIncharge,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Done" && User().Email in Approver4.Email && isDelete = false
+                                Status.Value = "Done" && User().Email in 'Incharge Person'.Email && isDelete = false
                             )
                         ),
                         ClearCollect(
@@ -246,7 +246,7 @@ InchargePage As screen:
                                 LookUp(
                                     CollectionRequestTest,
                                     User().Email in Concat(
-                                        Approver4,
+                                        'Incharge Person',
                                         Email & ";"
                                     )
                                 )

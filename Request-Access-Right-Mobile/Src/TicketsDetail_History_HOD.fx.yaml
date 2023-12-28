@@ -1133,10 +1133,10 @@ TicketsDetail_History_HOD As screen:
 
                 "'Incharge Person_DataCard3' As typedDataCard.comboBoxMultiSelectViewCard":
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="Approver4"
-                    Default: =ThisItem.Approver4
+                    DataField: ="'Incharge Person'"
+                    Default: =ThisItem.'Incharge Person'
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver4")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePerson")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1170,7 +1170,7 @@ TicketsDetail_History_HOD As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         IsSearchable: =false
-                        Items: =Choices([@SP_REQUEST].Approver4)
+                        Items: =Choices([@SP_REQUEST].'Incharge Person')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
@@ -1214,10 +1214,10 @@ TicketsDetail_History_HOD As screen:
 
                 "'Incharge Person Approved Date_DataCard3' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="ApprovedDate4"
-                    Default: =ThisItem.ApprovedDate4
+                    DataField: ="'Incharge Person Approved Date'"
+                    Default: =ThisItem.'Incharge Person Approved Date'
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ApprovedDate4")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePersonApprovedDate")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
@@ -1650,7 +1650,7 @@ TicketsDetail_History_HOD As screen:
                                 "Waiting for: " & ThisItem.'Approver 3'.DisplayName,
                                 "Done",
                                 "Waiting for: " & Concat(
-                                    ThisItem.Approver4,
+                                    ThisItem.'Incharge Person',
                                     DisplayName,
                                     " ; "
                                 ),
