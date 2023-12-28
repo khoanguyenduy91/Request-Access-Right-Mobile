@@ -1134,10 +1134,10 @@ TicketsDetail_History_Incharge As screen:
 
                 "'Incharge Person_DataCard1' As typedDataCard.comboBoxMultiSelectViewCard":
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="Approver4"
+                    DataField: ="'Incharge Person'"
                     Default: =ThisItem.'Incharge Person'
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver4")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePerson")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1170,10 +1170,11 @@ TicketsDetail_History_Incharge As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
+                        IsSearchable: =false
                         Items: =Choices([@SP_REQUEST].'Incharge Person')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(SP_REQUEST.'Incharge Person',DataCardValue64.SearchText)
+                        SearchItems: =[]
                         Size: =20
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
@@ -1217,7 +1218,7 @@ TicketsDetail_History_Incharge As screen:
                     DataField: ="ApprovedDate4"
                     Default: =ThisItem.'Incharge Person Approved Date'
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ApprovedDate4")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePersonApprovedDate")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false

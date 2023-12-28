@@ -1205,10 +1205,10 @@ TicketsDetailPage_User As screen:
 
                 "'Incharge Person_DataCard4' As typedDataCard.comboBoxMultiSelectViewCard":
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="Approver4"
+                    DataField: ="'Incharge Person'"
                     Default: =ThisItem.'Incharge Person'
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"Approver4")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePerson")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
@@ -1295,7 +1295,7 @@ TicketsDetailPage_User As screen:
                     DataField: ="ApprovedDate4"
                     Default: =ThisItem.'Incharge Person Approved Date'
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"ApprovedDate4")
+                    DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePersonApprovedDate")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =123
                     Required: =false
@@ -2183,8 +2183,7 @@ TicketsDetailPage_User As screen:
                                         ReqType: TicketsGallery.Selected.ReqType,
                                         ReqPermission: TicketsGallery.Selected.ReqPermission,
                                         ReqReason: TicketsGallery.Selected.ReqReason,
-                                        ReqDescription: TicketsGallery.Selected.ReqDescription,
-                                        TypeNewRequest: "CopyRequest"
+                                        ReqDescription: TicketsGallery.Selected.ReqDescription
                                     }
                                 );
                                 Set(
