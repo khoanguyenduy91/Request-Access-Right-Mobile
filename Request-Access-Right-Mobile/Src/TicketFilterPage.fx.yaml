@@ -103,16 +103,12 @@ TicketFilterPage As screen:
                     HoverFill: =
                     LayoutMinHeight: =70
                     LayoutMinWidth: =280
-                    OnSelect: |-
+                    OnSelect: |
                         =Navigate(
                             TicketPage,
                             ScreenTransition.Fade,
                             {type: "All"}
                         );
-                        Set(
-                            HashTags,
-                            ""
-                        )
                     PaddingLeft: =25
                     PressedBorderColor: =
                     PressedColor: =ColorFade(Self.Color,90%)
@@ -194,7 +190,7 @@ TicketFilterPage As screen:
                     HoverFill: =
                     LayoutMinHeight: =70
                     LayoutMinWidth: =280
-                    OnSelect: |-
+                    OnSelect: |
                         =Navigate(
                             TicketPage,
                             ScreenTransition.Fade,
