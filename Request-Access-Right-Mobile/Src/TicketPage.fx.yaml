@@ -4,10 +4,6 @@ TicketPage As screen:
         =Set(
             visibleticketpage,
             false
-        );
-        Set(
-            HashTags,
-            ""
         )
     OnVisible: |-
         =If(
@@ -20,6 +16,10 @@ TicketPage As screen:
         Set(
             visiblebtnCopy,
             false
+        );
+        Set(
+            HashTags,
+            ""
         )
 
     Container9 As groupContainer.verticalAutoLayoutContainer:
@@ -1515,28 +1515,14 @@ TicketPage As screen:
                         Height: =70
                         IsSearchable: =false
                         Items: |-
-                            =//Choices([@SP_REQUEST].HashtagRequest)
-                            
-                            Distinct(Ungroup([@SP_REQUEST].HashtagRequest,"Hashtag"),Value)
+                            =Choices([@SP_REQUEST].HashtagRequest)
+                            //Distinct(Ungroup([@SP_REQUEST].HashtagRequest,"Hashtag"),Value)
                         LayoutMinHeight: =70
                         LayoutMinWidth: =575
                         SearchFields: =["Value"]
                         SearchItems: =[]
-                        Visible: =false
                         Width: =Parent.Width
                         ZIndex: =2
-
-                    DropdownCanvas2 As Dropdown.pcfdataset:
-                        DisplayMode: =DisplayMode.Edit
-                        FontSize: =25
-                        Height: =70
-                        Items: =Choices([@SP_REQUEST].HashtagRequest)
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =320
-                        Width: =Parent.Width
-                        X: =0
-                        Y: =0
-                        ZIndex: =3
 
                     Container28_15 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1564,21 +1550,18 @@ TicketPage As screen:
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
-                            DisplayMode: |-
-                                =//If(IsBlank(Dropdown_hashtags.Selected.Value),DisplayMode.Disabled,DisplayMode.Edit)
-                                If(IsBlank(DropdownCanvas2.Selected.Value),DisplayMode.Disabled,DisplayMode.Edit)
+                            DisplayMode: |
+                                =If(IsBlank(Dropdown_hashtags.Selected.Value),DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(54, 176, 75, 1)
                             FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(Self.Fill, -20%)
                             OnSelect: |
-                                =//Set(HashTags,Concat(Dropdown_hashtags.SelectedItems,Value,","));Set(DialogHashTags, false );Reset(Dropdown_hashtags);If(TicketsGallery.AllItemsCount=0,Set(visibleticketpage, true ),Set(visibleticketpage, false ));
-                                
-                                Set(
+                                =Set(
                                     HashTags,
                                     Concat(
-                                        DropdownCanvas2.SelectedItems,
+                                        Dropdown_hashtags.SelectedItems,
                                         Value,
                                         ","
                                     )
@@ -1587,7 +1570,7 @@ TicketPage As screen:
                                     DialogHashTags,
                                     false
                                 );
-                                Reset(DropdownCanvas2);
+                                Reset(Dropdown_hashtags);
                                 If(
                                     TicketsGallery.AllItemsCount = 0,
                                     Set(
