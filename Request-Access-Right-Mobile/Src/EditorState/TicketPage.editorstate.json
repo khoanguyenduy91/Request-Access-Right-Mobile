@@ -17000,14 +17000,7 @@
         "Orientation",
         "LoadingSpinner",
         "LoadingSpinnerColor",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "If(\n    TicketsGallery.AllItemsCount = 0,\n    Set(\n        visibleticketpage,\n        true\n    )\n);\nSet(\n    visiblebtnCopy,\n    false\n)",
-          "InvariantPropertyName": "OnVisible",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "OnVisible",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,

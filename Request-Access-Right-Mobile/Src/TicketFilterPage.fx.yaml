@@ -108,6 +108,10 @@ TicketFilterPage As screen:
                             TicketPage,
                             ScreenTransition.Fade,
                             {type: "All"}
+                        );
+                        Set(
+                            HashTags,
+                            ""
                         )
                     PaddingLeft: =25
                     PressedBorderColor: =
@@ -195,7 +199,7 @@ TicketFilterPage As screen:
                             TicketPage,
                             ScreenTransition.Fade,
                             {type: "New"}
-                        )
+                        );
                     PaddingLeft: =25
                     PressedBorderColor: =
                     PressedColor: =ColorFade(Self.Color,90%)
