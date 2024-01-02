@@ -4,6 +4,10 @@ TicketPage As screen:
         =Set(
             visibleticketpage,
             false
+        );
+        Set(
+            HashTags,
+            ""
         )
     OnVisible: |-
         =If(
