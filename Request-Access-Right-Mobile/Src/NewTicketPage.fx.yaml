@@ -68,7 +68,7 @@ NewTicketPage As screen:
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
-                ZIndex: =3
+                ZIndex: =4
 
         Container38 As groupContainer.verticalAutoLayoutContainer:
             BorderColor: =
@@ -1233,6 +1233,101 @@ NewTicketPage As screen:
                             X: =184
                             Y: =195
                             ZIndex: =2
+
+                        Button_OK_25 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(87, 111, 114, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(106, 122, 127, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(205, 240, 234, 1)
+                            FillPortions: =1
+                            Height: =70
+                            HoverColor: =RGBA(79, 90, 94, 1)
+                            HoverFill: =ColorFade(Self.Fill, -20%)
+                            OnSelect: |-
+                                =Set(
+                                    glUser,
+                                    Office365Users.MyProfile()
+                                );
+                                Set(
+                                    Dialogsubmit_new,
+                                    false
+                                );
+                                Set(
+                                    Dialogloading,
+                                    true
+                                );
+                                Set(
+                                    IDrequest,
+                                    'Createrequest-Submitted'.Run(
+                                        DataCardValue1.Text,
+                                        DataCardValue8.Selected.Value,
+                                        DataCardValue9.Text,
+                                        DataCardValue10.Text,
+                                        DataCardValue12.Selected.Id
+                                    )
+                                );
+                                If(
+                                    !IsBlank(IDrequest.id_request),
+                                    Patch(
+                                        SP_REQUEST,
+                                        LookUp(
+                                            SP_REQUEST,
+                                            ID = Value(IDrequest.id_request),
+                                            {
+                                                Department: {
+                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                    Claims: "i:0#.f|membership|" & glUser.Mail,
+                                                    Department: glUser.Department,
+                                                    DisplayName: "",
+                                                    Email: "",
+                                                    JobTitle: "",
+                                                    Picture: ""
+                                                }
+                                            }
+                                        )
+                                    )
+                                );
+                                If(
+                                    !IsBlank(IDrequest.id_request),
+                                    Set(
+                                        Dialogloading,
+                                        false
+                                    );
+                                    ClearCollect(
+                                        CollectAttachment,
+                                        DataCardValue11.Attachments
+                                    );
+                                    Patch(
+                                        SP_REQUEST,
+                                        LookUp(
+                                            SP_REQUEST,
+                                            ID = Value(IDrequest.id_request)
+                                        ),
+                                        Form_Attachment.Updates
+                                    );
+                                    Navigate(
+                                        SuccessScreen,
+                                        ScreenTransition.Fade
+                                    )
+                                );
+                                Set(
+                                    Dialogloading,
+                                    false
+                                )
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Submit"
+                            Width: =180
+                            X: =62
+                            Y: =195
+                            ZIndex: =3
 
     Dialog_loading_new As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light

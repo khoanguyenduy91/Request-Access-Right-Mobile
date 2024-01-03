@@ -127,6 +127,17 @@ App As appinfo:
                 )
             ),
             ClearCollect(
+                CollectforHOD,
+                Filter(
+                    CollectionRequestTest,
+                    Status.Value = "Submitted" && IsMatch(
+                        Office365Users.MyProfile().JobTitle,
+                        "Head of",
+                        MatchOptions.Contains
+                    ) && (Office365Users.MyProfile().Department = Department) && isDelete = false
+                )
+            ),
+            ClearCollect(
                 CollectRequestIncharge,
                 Filter(
                     CollectionRequestTest,

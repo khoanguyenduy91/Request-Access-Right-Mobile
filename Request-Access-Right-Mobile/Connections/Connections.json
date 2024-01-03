@@ -9,7 +9,8 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "222d8e46-6089-4fe7-9811-5981b422ce2a"
+      "222d8e46-6089-4fe7-9811-5981b422ce2a",
+      "7689d4c6-6609-4239-8c60-37d3b84cad65"
     ],
     "id": "0da19c7c-8702-4cd7-8d3a-595bf73697d5"
   },
@@ -105,7 +106,9 @@
       "Office365Users"
     ],
     "dependencies": {},
-    "dependents": [],
+    "dependents": [
+      "7689d4c6-6609-4239-8c60-37d3b84cad65"
+    ],
     "id": "38e06757-82fb-4679-ac8e-ca5ed276e924"
   },
   "46580fe1-f2e5-4ed5-bb40-9636bb3317fe": {
@@ -214,6 +217,58 @@
     "dependents": [],
     "id": "5d499331-5ee7-473d-b2f1-f8a46129bb08"
   },
+  "7689d4c6-6609-4239-8c60-37d3b84cad65": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "0da19c7c-8702-4cd7-8d3a-595bf73697d5": {
+          "value": "shared_office365"
+        },
+        "38e06757-82fb-4679-ac8e-ca5ed276e924": {
+          "value": "shared_office365users"
+        },
+        "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "49934b70-51a5-ee11-be37-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "996aa305-405c-4535-b245-6960352b5179"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "0da19c7c-8702-4cd7-8d3a-595bf73697d5"
+        },
+        "shared_office365users": {
+          "value": "38e06757-82fb-4679-ac8e-ca5ed276e924"
+        },
+        "shared_sharepointonline": {
+          "value": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
+        },
+        "workflowEntityId": {
+          "value": "49934b70-51a5-ee11-be37-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "996aa305-405c-4535-b245-6960352b5179"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Createrequest-Submitted"
+    ],
+    "dependencies": {
+      "shared_office365": "0da19c7c-8702-4cd7-8d3a-595bf73697d5",
+      "shared_office365users": "38e06757-82fb-4679-ac8e-ca5ed276e924",
+      "shared_sharepointonline": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
+    },
+    "dependents": [],
+    "id": "7689d4c6-6609-4239-8c60-37d3b84cad65"
+  },
   "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0": {
     "connectionRef": {
       "displayName": "SharePoint",
@@ -233,7 +288,8 @@
     "dependents": [
       "222d8e46-6089-4fe7-9811-5981b422ce2a",
       "465d216d-3511-4461-a972-be26641a57ea",
-      "ca1abd8f-6195-4d18-9b50-ff3243ca1e68"
+      "ca1abd8f-6195-4d18-9b50-ff3243ca1e68",
+      "7689d4c6-6609-4239-8c60-37d3b84cad65"
     ],
     "id": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
   },
