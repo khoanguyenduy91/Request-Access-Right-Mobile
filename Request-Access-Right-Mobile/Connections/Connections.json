@@ -217,6 +217,44 @@
     "dependents": [],
     "id": "5d499331-5ee7-473d-b2f1-f8a46129bb08"
   },
+  "66ca9d4d-3823-49f1-ad5b-89480ec4f0cf": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "a6c2396b-0bae-ee11-a569-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "80b49ad4-908f-4763-b765-d457a8258843"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
+        },
+        "workflowEntityId": {
+          "value": "a6c2396b-0bae-ee11-a569-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "80b49ad4-908f-4763-b765-d457a8258843"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "InsertjsondataintoJSONDataList"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
+    },
+    "dependents": [],
+    "id": "66ca9d4d-3823-49f1-ad5b-89480ec4f0cf"
+  },
   "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0": {
     "connectionRef": {
       "displayName": "SharePoint",
@@ -247,7 +285,8 @@
       "465d216d-3511-4461-a972-be26641a57ea",
       "ca1abd8f-6195-4d18-9b50-ff3243ca1e68",
       "de5e2ad6-3c0b-43df-a335-5922bdd4f62a",
-      "a0a2a92f-ecb4-41fc-9931-4d6a33a7d941"
+      "a0a2a92f-ecb4-41fc-9931-4d6a33a7d941",
+      "66ca9d4d-3823-49f1-ad5b-89480ec4f0cf"
     ],
     "id": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
   },

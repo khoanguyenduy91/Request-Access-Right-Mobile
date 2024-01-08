@@ -1,21 +1,153 @@
 Screen1 As screen:
 
     ButtonCanvas1 As Nút:
+        BasePaletteColor: =
         DisplayMode: =DisplayMode.Edit
+        FontColor: =
         FontSize: =16
         Height: =50
-        OnSelect: =
+        OnSelect: |-
+            =Set(
+                resultValue,
+                InsertjsondataintoJSONDataList.Run(TextInputCanvas1.Value)
+            );
+            ClearCollect(
+                colCarInventory,
+                ForAll(
+                    Table(ParseJSON(resultValue.result)),
+                    {
+                        ID: Value(Value.ID),
+                        Title: Text(Value.Title),
+                        ReqType: ForAll(
+                            Table(Value.ReqType),
+                            {
+                                Id: Value(Value.Id),
+                                Value: Text(Value.Value)
+                            }
+                        ),
+                        ReqReason: Text(Value.ReqReason)
+                    }
+                )
+            )
         Text: ="Get JSON Data"
         Width: =150
         X: =33
         Y: =128
         ZIndex: =1
 
+    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+        DelayItemLoading: =true
+        Height: =133
+        Items: =colCarInventory
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =90
+        Y: =586
+        ZIndex: =1
+
+        Title3 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.ID
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 86
+            X: =16
+            Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle3.Size * 1.8)) / 2
+            ZIndex: =1
+
+        Subtitle3 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title3.Width
+            X: =Title3.X
+            Y: =Title3.Y + Title3.Height
+            ZIndex: =2
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(166, 166, 166, 1)
+            Height: =50
+            Icon: =Icon.ChevronRight
+            OnSelect: =Navigate(Screen2, ScreenTransition.Fade)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="Xem chi tiết mục"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =3
+
+        Separator2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =4
+
+        Rectangle4 As rectangle:
+            Height: =Parent.TemplateHeight - Separator2.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =5
+
     "TextInputCanvas1 As 'Văn bản đầu vào'":
+        BasePaletteColor: =
         DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        FontSize: =18
         Height: =50
         Width: =320
         X: =33
         Y: =55
         ZIndex: =2
+
+    Table1 As Bảng.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =16
+        HeaderFontSize: =18
+        Height: =202
+        Items: =colCarInventory
+        onCellValueChange: =false
+        onFilter: =false
+        onNavigate: =false
+        onRowSelect: =false
+        onSave: =false
+        ParentId: =""
+        Width: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
+        X: =4
+        Y: =281
+        ZIndex: =3
+
+        ID1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldType: ="n"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =1
+
+        Title1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="Title"
+            FieldName: ="Title"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =2
+            ZIndex: =2
 
