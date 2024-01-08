@@ -1270,27 +1270,6 @@ NewTicketPage As screen:
                                 );
                                 If(
                                     !IsBlank(IDrequest.id_request),
-                                    Patch(
-                                        SP_REQUEST,
-                                        LookUp(
-                                            SP_REQUEST,
-                                            ID = Value(IDrequest.id_request),
-                                            {
-                                                Department: {
-                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                    Claims: "i:0#.f|membership|" & glUser.Mail,
-                                                    Department: glUser.Department,
-                                                    DisplayName: "",
-                                                    Email: "",
-                                                    JobTitle: "",
-                                                    Picture: ""
-                                                }
-                                            }
-                                        )
-                                    )
-                                );
-                                If(
-                                    !IsBlank(IDrequest.id_request),
                                     Set(
                                         Dialogloading,
                                         false
