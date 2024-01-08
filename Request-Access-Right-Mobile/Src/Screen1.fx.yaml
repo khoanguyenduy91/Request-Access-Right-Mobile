@@ -1,0 +1,21 @@
+Screen1 As screen:
+
+    ButtonCanvas1 As Nút:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =16
+        Height: =50
+        OnSelect: =
+        Text: ="Get JSON Data"
+        Width: =150
+        X: =33
+        Y: =128
+        ZIndex: =1
+
+    "TextInputCanvas1 As 'Văn bản đầu vào'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Width: =320
+        X: =33
+        Y: =55
+        ZIndex: =2
+
