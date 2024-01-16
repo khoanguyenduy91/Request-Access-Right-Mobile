@@ -58,8 +58,9 @@ EditTicketPage As screen:
                     =Refresh(SP_REQUEST);
                     TicketsGallery.Selected
                 Size: =28
-                Text: |
-                    ="Edit request"
+                Text: |-
+                    =//"Edit request"
+                    LastModifiedRecord.Status.Value
                 Width: =560
                 ZIndex: =2
 
@@ -782,79 +783,46 @@ EditTicketPage As screen:
                 HoverBorderColor: =ColorFade(Self.Fill, 20%)
                 HoverColor: =RGBA(0, 0, 0, 1)
                 OnSelect: |-
-                    =If(
-                        DataCardValue8_1.Selected.Value = "Other",
-                        If(
-                            IsBlank(DataCardValue1_2.Text) || IsBlank(DataCardValue51.Selected.Value) || IsBlank(DataCardValue8_1.Selected.Value) || IsBlank(DataCardValue9_2.Text) || IsBlank(DataCardValue10_2.Text),
-                            SubmitForm(Form1_2),
-                            Set(
-                                Dialogloading_edit,
-                                true
-                            );
-                            Refresh(SP_REQUEST);
-                            Set(
-                                Editticket,
-                                LookUp(
-                                    SP_REQUEST,
-                                    ThisRecord.ID = TicketsGallery.Selected.ID
-                                )
-                            );
-                            If(
-                                Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
-                                SubmitForm(Form1_2);
-                                Navigate(
-                                    SuccessScreen,
-                                    ScreenTransition.Fade
-                                ),
-                                If(
-                                    Editticket.Status.Value = "Rejected",
-                                    Notify(
-                                        "The request has been rejected, please refresh the data!",
-                                        NotificationType.Error,
-                                        3000
+                    =//If(DataCardValue8_1.Selected.Value="Other",If(IsBlank(DataCardValue1_2.Text)||IsBlank(DataCardValue51.Selected.Value)||IsBlank(DataCardValue8_1.Selected.Value)||IsBlank(DataCardValue9_2.Text)||IsBlank(DataCardValue10_2.Text),SubmitForm(Form1_2),Set(Dialogloading_edit, true );Refresh(SP_REQUEST);Set(Editticket,LookUp(SP_REQUEST,ThisRecord.ID=TicketsGallery.Selected.ID));Set(LastModifiedRecord,Last(SortByColumns(Filter(SP_REQUEST,ID=TicketsGallery.Selected.ID),"Modified",SortOrder.Descending)));If(Editticket.Status.Value="Saved"||Editticket.Status.Value="Submitted",SubmitForm(Form1_2);Navigate(SuccessScreen,ScreenTransition.Fade),If(Editticket.Status.Value="Rejected",Notify("The request has been rejected, please refresh the data!",NotificationType.Error,3000),Notify("The request has been approved, please refresh the data!",NotificationType.Error,3000)))),If(IsBlank(DataCardValue1_2.Text)||IsBlank(DataCardValue51.Selected.Value)||IsBlank(DataCardValue8_1.Selected.Value)||IsBlank(DataCardValue9_2.Text),SubmitForm(Form1_2),Set(Dialogloading_edit, true );Refresh(SP_REQUEST);Set(Editticket,LookUp(SP_REQUEST,ThisRecord.ID=TicketsGallery.Selected.ID));If(Editticket.Status.Value="Saved"||Editticket.Status.Value="Submitted",SubmitForm(Form1_2);Navigate(SuccessScreen,ScreenTransition.Fade),If(Editticket.Status.Value="Rejected",Notify("The request has been rejected, please refresh the data!",NotificationType.Error,3000),Notify("The request has been approved, please refresh the data!",NotificationType.Error,3000)))));Set(Dialogloading_edit, false )
+                    //Set(LastModifiedRecord,Last(SortByColumns(Filter(SP_REQUEST,ID=TicketsGallery.Selected.ID),"Modified",SortOrder.Descending)))
+                    If(
+                        IsBlank(DataCardValue1_2.Text) || IsBlank(DataCardValue51.Selected.Value) || IsBlank(DataCardValue8_1.Selected.Value) || IsBlank(DataCardValue9_2.Text),
+                        SubmitForm(Form1_2),
+                        Set(
+                            Dialogloading_edit,
+                            true
+                        );
+                        Set(
+                            LastModifiedRecord,
+                            Last(
+                                SortByColumns(
+                                    Filter(
+                                        SP_REQUEST,
+                                        ID = TicketsGallery.Selected.ID
                                     ),
-                                    Notify(
-                                        "The request has been approved, please refresh the data!",
-                                        NotificationType.Error,
-                                        3000
-                                    )
+                                    "Modified",
+                                    SortOrder.Descending
                                 )
                             )
-                        ),
+                        );
                         If(
-                            IsBlank(DataCardValue1_2.Text) || IsBlank(DataCardValue51.Selected.Value) || IsBlank(DataCardValue8_1.Selected.Value) || IsBlank(DataCardValue9_2.Text),
-                            SubmitForm(Form1_2),
-                            Set(
-                                Dialogloading_edit,
-                                true
-                            );
-                            Refresh(SP_REQUEST);
-                            Set(
-                                Editticket,
-                                LookUp(
-                                    SP_REQUEST,
-                                    ThisRecord.ID = TicketsGallery.Selected.ID
-                                )
-                            );
+                            LastModifiedRecord.Status.Value = "Saved" || LastModifiedRecord.Status.Value = "Submitted",
+                            SubmitForm(Form1_2);
+                            Navigate(
+                                SuccessScreen,
+                                ScreenTransition.Fade
+                            ),
                             If(
-                                Editticket.Status.Value = "Saved" || Editticket.Status.Value = "Submitted",
-                                SubmitForm(Form1_2);
-                                Navigate(
-                                    SuccessScreen,
-                                    ScreenTransition.Fade
+                                LastModifiedRecord.Status.Value = "Rejected",
+                                Notify(
+                                    "The request has been rejected, please refresh the data!",
+                                    NotificationType.Error,
+                                    3000
                                 ),
-                                If(
-                                    Editticket.Status.Value = "Rejected",
-                                    Notify(
-                                        "The request has been rejected, please refresh the data!",
-                                        NotificationType.Error,
-                                        3000
-                                    ),
-                                    Notify(
-                                        "The request has been approved, please refresh the data!",
-                                        NotificationType.Error,
-                                        3000
-                                    )
+                                Notify(
+                                    "The request has been approved, please refresh the data!",
+                                    NotificationType.Error,
+                                    3000
                                 )
                             )
                         )
