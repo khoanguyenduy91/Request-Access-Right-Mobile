@@ -56,8 +56,7 @@ EditTicketPage As screen:
                 LayoutMinWidth: =300
                 OnSelect: =
                 Size: =28
-                Text: |
-                    ="Edit request"
+                Text: ="Edit request" & LastModifiedRecord.Status.Value
                 Width: =560
                 ZIndex: =2
 
@@ -785,13 +784,9 @@ EditTicketPage As screen:
                     Set(
                         LastModifiedRecord,
                         Last(
-                            SortByColumns(
-                                Filter(
-                                    SP_REQUEST,
-                                    ID = TicketsGallery.Selected.ID
-                                ),
-                                "Modified",
-                                SortOrder.Descending
+                            Filter(
+                                SP_REQUEST,
+                                ID = TicketsGallery.Selected.ID
                             )
                         )
                     );
