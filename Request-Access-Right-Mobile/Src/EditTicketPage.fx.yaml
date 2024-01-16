@@ -783,11 +783,9 @@ EditTicketPage As screen:
                     //Set(LastModifiedRecord,Last(SortByColumns(Filter(SP_REQUEST,ID=TicketsGallery.Selected.ID),"Modified",SortOrder.Descending)))
                     Set(
                         LastModifiedRecord,
-                        Last(
-                            Filter(
-                                SP_REQUEST,
-                                ID = TicketsGallery.Selected.ID
-                            )
+                        LookUp(
+                            SP_REQUEST,
+                            ID = TicketsGallery.Selected.ID
                         )
                     );
                     If(
