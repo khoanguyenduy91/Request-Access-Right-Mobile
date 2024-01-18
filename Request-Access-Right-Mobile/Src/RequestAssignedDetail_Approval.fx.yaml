@@ -1610,11 +1610,6 @@ RequestAssignedDetail_Approval As screen:
                     =If(
                         !IsBlank(
                             LookUp(
-                                SP_LEVELAPPROVER,
-                                IdUser.Email = User().Email && Level.Value = "Approver 1"
-                            )
-                        ) || !IsBlank(
-                            LookUp(
                                 SP_REQUEST,
                                 User().Email = 'Assigned User'.Email
                             )
@@ -1627,40 +1622,6 @@ RequestAssignedDetail_Approval As screen:
                             ),
                             {Status: {Value: "Approver 1 approved"}},
                             {'Approved Date 1': Now()}
-                        ),
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    SP_LEVELAPPROVER,
-                                    User().Email = IdUser.Email && Level.Value = "Approver 2"
-                                )
-                            ),
-                            Patch(
-                                SP_REQUEST,
-                                LookUp(
-                                    SP_REQUEST,
-                                    ID = varItem.ID
-                                ),
-                                {Status: {Value: "Approver 2 approved"}},
-                                {'Approved Date 2': Now()}
-                            ),
-                            If(
-                                !IsBlank(
-                                    LookUp(
-                                        SP_LEVELAPPROVER,
-                                        User().Email = IdUser.Email && Level.Value = "Approver 3"
-                                    )
-                                ),
-                                Patch(
-                                    SP_REQUEST,
-                                    LookUp(
-                                        SP_REQUEST,
-                                        ID = varItem.ID
-                                    ),
-                                    {Status: {Value: "Approver 3 approved"}},
-                                    {'Approved Date 3': Now()}
-                                )
-                            )
                         )
                     );
                     Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
@@ -1841,11 +1802,6 @@ RequestAssignedDetail_Approval As screen:
                                     If(
                                         !IsBlank(
                                             LookUp(
-                                                SP_LEVELAPPROVER,
-                                                User().Email = IdUser.Email && Level.Value = "Approver 1"
-                                            )
-                                        ) || !IsBlank(
-                                            LookUp(
                                                 SP_REQUEST,
                                                 User().Email = 'Assigned User'.Email
                                             )
@@ -1854,7 +1810,7 @@ RequestAssignedDetail_Approval As screen:
                                             SP_REQUEST,
                                             LookUp(
                                                 SP_REQUEST,
-                                                ID = TicketsGallery_approval.Selected.ID
+                                                ID = varItem.ID
                                             ),
                                             {Status: {Value: "Rejected"}},
                                             {'Rejected Date': Now()},
@@ -1870,64 +1826,6 @@ RequestAssignedDetail_Approval As screen:
                                                     Picture: ""
                                                 }
                                             }
-                                        ),
-                                        If(
-                                            !IsBlank(
-                                                LookUp(
-                                                    SP_LEVELAPPROVER,
-                                                    User().Email = IdUser.Email && Level.Value = "Approver 2"
-                                                )
-                                            ),
-                                            Patch(
-                                                SP_REQUEST,
-                                                LookUp(
-                                                    SP_REQUEST,
-                                                    ID = TicketsGallery_approval.Selected.ID
-                                                ),
-                                                {Status: {Value: "Rejected"}},
-                                                {'Rejected Date': Now()},
-                                                {'Reason Reject': User().FullName & " Comment: " & TextInput1_1.Text},
-                                                {
-                                                    'Rejected By': {
-                                                        '@odata.type': User().Email,
-                                                        Claims: User().Email,
-                                                        Department: "",
-                                                        DisplayName: User().FullName,
-                                                        Email: User().Email,
-                                                        JobTitle: "",
-                                                        Picture: ""
-                                                    }
-                                                }
-                                            ),
-                                            If(
-                                                !IsBlank(
-                                                    LookUp(
-                                                        SP_LEVELAPPROVER,
-                                                        User().Email = IdUser.Email && Level.Value = "Approver 3"
-                                                    )
-                                                ),
-                                                Patch(
-                                                    SP_REQUEST,
-                                                    LookUp(
-                                                        SP_REQUEST,
-                                                        ID = TicketsGallery_approval.Selected.ID
-                                                    ),
-                                                    {Status: {Value: "Rejected"}},
-                                                    {'Rejected Date': Now()},
-                                                    {'Reason Reject': User().FullName & " Comment: " & TextInput1_1.Text},
-                                                    {
-                                                        'Rejected By': {
-                                                            '@odata.type': User().Email,
-                                                            Claims: User().Email,
-                                                            Department: "",
-                                                            DisplayName: User().FullName,
-                                                            Email: User().Email,
-                                                            JobTitle: "",
-                                                            Picture: ""
-                                                        }
-                                                    }
-                                                )
-                                            )
                                         )
                                     );
                                     Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);

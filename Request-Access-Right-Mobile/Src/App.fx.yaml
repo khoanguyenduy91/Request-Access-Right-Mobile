@@ -137,13 +137,6 @@ App As appinfo:
                 )
             ),
             ClearCollect(
-                CollectRequestAssign,
-                Filter(
-                    CollectionRequestTest,
-                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted" && isDelete = false
-                )
-            ),
-            ClearCollect(
                 CollecRequestHistory_Approver1,
                 Filter(
                     CollectionRequestTest,

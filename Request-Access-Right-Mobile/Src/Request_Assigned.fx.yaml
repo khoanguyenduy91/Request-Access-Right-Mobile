@@ -599,9 +599,16 @@ Request_Assigned As screen:
                                     varItem,
                                     ThisItem
                                 );
-                                Navigate(
-                                    TicketsDetailPage_User,
-                                    ScreenTransition.Fade
+                                If(
+                                    ThisItem.isAssignedRequest = false,
+                                    Navigate(
+                                        TicketsDetailPage_Approval,
+                                        ScreenTransition.Fade
+                                    ),
+                                    Navigate(
+                                        RequestAssignedDetail_Approval,
+                                        ScreenTransition.Fade
+                                    )
                                 );
                                 Set(
                                     counter,
@@ -639,9 +646,16 @@ Request_Assigned As screen:
                                     varItem,
                                     ThisItem
                                 );
-                                Navigate(
-                                    TicketsDetailPage_User,
-                                    ScreenTransition.Fade
+                                If(
+                                    ThisItem.isAssignedRequest = false,
+                                    Navigate(
+                                        TicketsDetailPage_Approval,
+                                        ScreenTransition.Fade
+                                    ),
+                                    Navigate(
+                                        RequestAssignedDetail_Approval,
+                                        ScreenTransition.Fade
+                                    )
                                 );
                                 Set(
                                     counter,
@@ -710,9 +724,16 @@ Request_Assigned As screen:
                                             varItem,
                                             ThisItem
                                         );
-                                        Navigate(
-                                            TicketsDetailPage_User,
-                                            ScreenTransition.Fade
+                                        If(
+                                            ThisItem.isAssignedRequest = false,
+                                            Navigate(
+                                                TicketsDetailPage_Approval,
+                                                ScreenTransition.Fade
+                                            ),
+                                            Navigate(
+                                                RequestAssignedDetail_Approval,
+                                                ScreenTransition.Fade
+                                            )
                                         );
                                         Set(
                                             counter,
@@ -750,9 +771,16 @@ Request_Assigned As screen:
                                             varItem,
                                             ThisItem
                                         );
-                                        Navigate(
-                                            TicketsDetailPage_User,
-                                            ScreenTransition.Fade
+                                        If(
+                                            ThisItem.isAssignedRequest = false,
+                                            Navigate(
+                                                TicketsDetailPage_Approval,
+                                                ScreenTransition.Fade
+                                            ),
+                                            Navigate(
+                                                RequestAssignedDetail_Approval,
+                                                ScreenTransition.Fade
+                                            )
                                         );
                                         Set(
                                             counter,
@@ -798,9 +826,16 @@ Request_Assigned As screen:
                                                 varItem,
                                                 ThisItem
                                             );
-                                            Navigate(
-                                                TicketsDetailPage_User,
-                                                ScreenTransition.Fade
+                                            If(
+                                                ThisItem.isAssignedRequest = false,
+                                                Navigate(
+                                                    TicketsDetailPage_Approval,
+                                                    ScreenTransition.Fade
+                                                ),
+                                                Navigate(
+                                                    RequestAssignedDetail_Approval,
+                                                    ScreenTransition.Fade
+                                                )
                                             );
                                             Set(
                                                 counter,
@@ -922,9 +957,16 @@ Request_Assigned As screen:
                                                 varItem,
                                                 ThisItem
                                             );
-                                            Navigate(
-                                                TicketsDetailPage_User,
-                                                ScreenTransition.Fade
+                                            If(
+                                                ThisItem.isAssignedRequest = false,
+                                                Navigate(
+                                                    TicketsDetailPage_Approval,
+                                                    ScreenTransition.Fade
+                                                ),
+                                                Navigate(
+                                                    RequestAssignedDetail_Approval,
+                                                    ScreenTransition.Fade
+                                                )
                                             );
                                             Set(
                                                 counter,
