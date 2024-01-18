@@ -1767,7 +1767,7 @@ TicketsDetailPage_Approval As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: |-
                     =If(
-                        varItem.isAssignedRequest = false,
+                        varItem.isAssignedRequest = true,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
