@@ -1587,35 +1587,18 @@ RequestAssignedDetail_Approval As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: |-
-                    =If(
+                    =//If(!IsBlank(LookUp(SP_LEVELAPPROVER,(IdUser.Email=User().Email&&Level.Value="Approver 1")&&(DataCardValue16_7.Selected.Value="Submitted"||DataCardValue16_7.Selected.Value="HOD approved")))&&varItem.isAssignedRequest= false ,DisplayMode.Edit,If(!IsBlank(LookUp(SP_LEVELAPPROVER,User().Email=IdUser.Email&&Level.Value="Approver 2"&&DataCardValue16_7.Selected.Value="Approver 1 approved"))&&varItem.isAssignedRequest= false ,DisplayMode.Edit,If(!IsBlank(LookUp(SP_LEVELAPPROVER,User().Email=IdUser.Email&&Level.Value="Approver 3"&&DataCardValue16_7.Selected.Value="Approver 2 approved"))&&varItem.isAssignedRequest= false ,DisplayMode.Edit,DisplayMode.Disabled)))
+                    //If(varItem.isAssignedRequest = true,DisplayMode.Edit,DisplayMode.Disabled);
+                    If(
                         !IsBlank(
                             LookUp(
-                                SP_LEVELAPPROVER,
-                                (IdUser.Email = User().Email && Level.Value = "Approver 1") && (DataCardValue16_7.Selected.Value = "Submitted" || DataCardValue16_7.Selected.Value = "HOD approved")
+                                SP_REQUEST,
+                                ID = varItem.ID
                             )
-                        ) && varItem.isAssignedRequest = false,
+                        ) && ((varItem.isAssignedRequest = true && User().Email = varItem.'Assigned User'.Email) && (DataCardValue16_7.Selected.Value = "Submitted" || DataCardValue16_7.Selected.Value = "HOD approved")),
                         DisplayMode.Edit,
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    SP_LEVELAPPROVER,
-                                    User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_7.Selected.Value = "Approver 1 approved"
-                                )
-                            ) && varItem.isAssignedRequest = false,
-                            DisplayMode.Edit,
-                            If(
-                                !IsBlank(
-                                    LookUp(
-                                        SP_LEVELAPPROVER,
-                                        User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_7.Selected.Value = "Approver 2 approved"
-                                    )
-                                ) && varItem.isAssignedRequest = false,
-                                DisplayMode.Edit,
-                                DisplayMode.Disabled
-                            )
-                        )
+                        DisplayMode.Disabled
                     )
-                    //If(varItem.isAssignedRequest = true,DisplayMode.Edit,DisplayMode.Disabled)
                 Fill: =RGBA(10, 128, 32, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0
@@ -1704,35 +1687,18 @@ RequestAssignedDetail_Approval As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: |-
-                    =If(
+                    =//If(!IsBlank(LookUp(SP_LEVELAPPROVER,(IdUser.Email=User().Email&&Level.Value="Approver 1")&&(DataCardValue16_7.Selected.Value="Submitted"||DataCardValue16_7.Selected.Value="HOD approved")))&&varItem.isAssignedRequest= false ,DisplayMode.Edit,If(!IsBlank(LookUp(SP_LEVELAPPROVER,User().Email=IdUser.Email&&Level.Value="Approver 2"&&DataCardValue16_7.Selected.Value="Approver 1 approved"))&&varItem.isAssignedRequest= false ,DisplayMode.Edit,If(!IsBlank(LookUp(SP_LEVELAPPROVER,User().Email=IdUser.Email&&Level.Value="Approver 3"&&DataCardValue16_7.Selected.Value="Approver 2 approved"))&&varItem.isAssignedRequest= false ,DisplayMode.Edit,DisplayMode.Disabled)))
+                    //If(varItem.isAssignedRequest = true,DisplayMode.Edit,DisplayMode.Disabled)
+                    If(
                         !IsBlank(
                             LookUp(
-                                SP_LEVELAPPROVER,
-                                (IdUser.Email = User().Email && Level.Value = "Approver 1") && (DataCardValue16_7.Selected.Value = "Submitted" || DataCardValue16_7.Selected.Value = "HOD approved")
+                                SP_REQUEST,
+                                ID = varItem.ID
                             )
-                        ) && varItem.isAssignedRequest = false,
+                        ) && ((varItem.isAssignedRequest = true && User().Email = varItem.'Assigned User'.Email) && (DataCardValue16_7.Selected.Value = "Submitted" || DataCardValue16_7.Selected.Value = "HOD approved")),
                         DisplayMode.Edit,
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    SP_LEVELAPPROVER,
-                                    User().Email = IdUser.Email && Level.Value = "Approver 2" && DataCardValue16_7.Selected.Value = "Approver 1 approved"
-                                )
-                            ) && varItem.isAssignedRequest = false,
-                            DisplayMode.Edit,
-                            If(
-                                !IsBlank(
-                                    LookUp(
-                                        SP_LEVELAPPROVER,
-                                        User().Email = IdUser.Email && Level.Value = "Approver 3" && DataCardValue16_7.Selected.Value = "Approver 2 approved"
-                                    )
-                                ) && varItem.isAssignedRequest = false,
-                                DisplayMode.Edit,
-                                DisplayMode.Disabled
-                            )
-                        )
+                        DisplayMode.Disabled
                     )
-                    //If(varItem.isAssignedRequest = true,DisplayMode.Edit,DisplayMode.Disabled)
                 Fill: =RGBA(255, 0, 0, 1)
                 FillPortions: =1
                 FocusedBorderThickness: =0
