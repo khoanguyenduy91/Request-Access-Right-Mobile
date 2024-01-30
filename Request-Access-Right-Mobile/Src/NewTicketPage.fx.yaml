@@ -140,6 +140,14 @@ NewTicketPage As screen:
                         Height: =70
                         IsSearchable: =false
                         Items: =Choices([@SP_REQUEST].ReqType)
+                        OnChange: |-
+                            =If(
+                                DataCardValue12.Selected.Id = 18,
+                                Navigate(
+                                    FormHRpage,
+                                    ScreenTransition.Fade
+                                )
+                            )
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
