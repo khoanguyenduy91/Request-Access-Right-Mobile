@@ -220,14 +220,59 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/sharepointonline/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
     },
-    "datasets": {},
+    "datasets": {
+      "https://pizzavietnam.sharepoint.com/sites/TESTSITE": {
+        "dataSources": {
+          "DocumentTypes": {
+            "tableName": "d542bad3-0c07-42c7-ac5a-27c3413c8afb"
+          },
+          "LevelMasters": {
+            "tableName": "c82a161a-a3f9-4a27-bd35-fd52e5a14ac9"
+          },
+          "LevelSettings": {
+            "tableName": "849a4a25-40ed-4c89-a565-09a5662b5794"
+          },
+          "Requests": {
+            "tableName": "3070e19a-0275-454a-8f22-eba6e5ef80d2"
+          },
+          "RequestsDetail": {
+            "tableName": "80ed73dc-b98e-46bf-81d2-820917b4531d"
+          },
+          "RouteDetails": {
+            "tableName": "f294c39e-159c-48be-b72d-2f07bf3586bb"
+          },
+          "RouteDetailWaitForSettings": {
+            "tableName": "f3d4b3b0-527a-4d56-92c9-77f5e5952b1b"
+          },
+          "RouteMasters": {
+            "tableName": "a3b86e28-11fb-4e54-9741-54c22d1339a5"
+          },
+          "SubRouteDetails": {
+            "tableName": "8825c13f-575b-4810-9d6a-43fb5d0239b3"
+          },
+          "SubRouteMasters": {
+            "tableName": "875f875a-d988-4e11-b3e5-d3caa3153483"
+          }
+        }
+      }
+    },
     "dataSources": [
       "SP_REQUESTTYPE",
       "SP_REQUESTPROCESS",
       "SP_LEVELAPPROVER",
       "SP_SETTINGLEVELAPPROVER",
       "SP_REQUEST",
-      "SP_SETTINGPROCESS"
+      "SP_SETTINGPROCESS",
+      "DocumentTypes",
+      "SubRouteMasters",
+      "SubRouteDetails",
+      "RouteMasters",
+      "RouteDetailWaitForSettings",
+      "RouteDetails",
+      "RequestsDetail",
+      "Requests",
+      "LevelMasters",
+      "LevelSettings"
     ],
     "dependencies": {},
     "dependents": [

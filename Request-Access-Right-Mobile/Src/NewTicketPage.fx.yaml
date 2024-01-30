@@ -146,6 +146,10 @@ NewTicketPage As screen:
                                 Navigate(
                                     FormHRpage,
                                     ScreenTransition.Fade
+                                );
+                                Set(
+                                    varReqtypeHR,
+                                    DataCardValue12.Selected.Value
                                 )
                             )
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
