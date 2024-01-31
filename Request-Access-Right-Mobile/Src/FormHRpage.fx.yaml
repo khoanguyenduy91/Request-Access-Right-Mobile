@@ -168,7 +168,7 @@ FormHRpage As screen:
 
             Form_detail_requests As form:
                 AcceptsFocus: =false
-                DataSource: =RequestsDetail
+                DataSource: =RequestsDetailHR
                 FillPortions: =0
                 Height: =Parent.Height
                 LayoutMinHeight: =250
@@ -183,10 +183,10 @@ FormHRpage As screen:
                     DataField: ="FullName"
                     Default: =ThisItem.'Full Name'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"FullName")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"FullName")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    MaxLength: =DataSourceInfo([@RequestsDetail], DataSourceInfo.MaxLength, "FullName")
+                    MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "FullName")
                     Required: =false
                     Update: =DataCardValue116.Text
                     Width: =620
@@ -265,7 +265,7 @@ FormHRpage As screen:
                     DataField: ="StaffID"
                     Default: =ThisItem.'Staff ID'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"StaffID")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"StaffID")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -346,7 +346,7 @@ FormHRpage As screen:
                     DataField: ="Gender"
                     Default: =ThisItem.Gender
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Gender")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Gender")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -378,10 +378,10 @@ FormHRpage As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@RequestsDetail].Gender)
+                        Items: =Choices([@RequestsDetailHR].Gender)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetail.Gender,DataCardValue143.SearchText)
+                        SearchItems: =Choices(RequestsDetailHR.Gender,DataCardValue143.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Tooltip: =Parent.DisplayName
@@ -426,7 +426,7 @@ FormHRpage As screen:
                     DataField: ="Typee"
                     Default: =ThisItem.'Employee Type'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Typee")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Typee")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -458,10 +458,10 @@ FormHRpage As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@RequestsDetail].Typee)
+                        Items: =Choices([@RequestsDetailHR].'Employee Type')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetail.Typee,DataCardValue144.SearchText)
+                        SearchItems: =Choices(RequestsDetailHR.'Employee Type',DataCardValue144.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Tooltip: =Parent.DisplayName
@@ -506,7 +506,7 @@ FormHRpage As screen:
                     DataField: ="EntryDate"
                     Default: =ThisItem.'Entry Date'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"EntryDate")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"EntryDate")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -585,10 +585,10 @@ FormHRpage As screen:
                     DataField: ="Department"
                     Default: =ThisItem.Department
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Department")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Department")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    MaxLength: =DataSourceInfo([@RequestsDetail], DataSourceInfo.MaxLength, "Department")
+                    MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "Department")
                     Required: =false
                     Update: =DataCardValue146.Text
                     Width: =620
@@ -667,10 +667,10 @@ FormHRpage As screen:
                     DataField: ="Title_x002f_Position"
                     Default: =ThisItem.'Title/ Position'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Title_x002f_Position")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Title_x002f_Position")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    MaxLength: =DataSourceInfo([@RequestsDetail], DataSourceInfo.MaxLength, "Title_x002f_Position")
+                    MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "Title_x002f_Position")
                     Required: =false
                     Update: =DataCardValue147.Text
                     Width: =620
@@ -749,7 +749,7 @@ FormHRpage As screen:
                     DataField: ="Mobilephone"
                     Default: =ThisItem.'Mobile phone'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Mobilephone")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Mobilephone")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -830,7 +830,7 @@ FormHRpage As screen:
                     DataField: ="Officelocation"
                     Default: =ThisItem.'Office location'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Officelocation")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Officelocation")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -863,7 +863,7 @@ FormHRpage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         IsSearchable: =false
-                        Items: =Choices([@RequestsDetail].Officelocation)
+                        Items: =Choices([@RequestsDetailHR].'Office location')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -911,7 +911,7 @@ FormHRpage As screen:
                     DataField: ="Typeofworkstation"
                     Default: =ThisItem.'Type of workstation'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Typeofworkstation")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Typeofworkstation")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -944,7 +944,7 @@ FormHRpage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         IsSearchable: =false
-                        Items: =Choices([@RequestsDetail].Typeofworkstation)
+                        Items: =Choices([@RequestsDetailHR].'Type of workstation')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -992,10 +992,10 @@ FormHRpage As screen:
                     DataField: ="Specialrequirements"
                     Default: =ThisItem.'Special requirements'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Specialrequirements")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Specialrequirements")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    MaxLength: =DataSourceInfo([@RequestsDetail], DataSourceInfo.MaxLength, "Specialrequirements")
+                    MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "Specialrequirements")
                     Required: =false
                     Update: =DataCardValue152.Text
                     Width: =620
@@ -1074,7 +1074,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_"
                     Default: =ThisItem.Laptop
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1149,7 +1149,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_10"
                     Default: =ThisItem.'MS Office'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_10")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_10")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1224,7 +1224,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_9"
                     Default: =ThisItem.'Employee Card'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_9")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_9")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1299,7 +1299,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_8"
                     Default: =ThisItem.'Office Card'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_8")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_8")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1374,7 +1374,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_7"
                     Default: =ThisItem.'Parking Card'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_7")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_7")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1449,7 +1449,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_6"
                     Default: =ThisItem.'Business Name card'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_6")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_6")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1524,7 +1524,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_5"
                     Default: =ThisItem.Stationery
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_5")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_5")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1599,7 +1599,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_4"
                     Default: =ThisItem.'Daily late working shift'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_4")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_4")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1674,7 +1674,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_3"
                     Default: =ThisItem.'Working on weekend'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_3")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_3")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1749,7 +1749,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_2"
                     Default: =ThisItem.'Email Account'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_2")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_2")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1824,7 +1824,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_1"
                     Default: =ThisItem.'Internal network'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_1")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_1")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1899,7 +1899,7 @@ FormHRpage As screen:
                     DataField: ="OData__x0031_0"
                     Default: =ThisItem.'Connect account'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"OData__x0031_0")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_0")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -1974,10 +1974,10 @@ FormHRpage As screen:
                     DataField: ="Others"
                     Default: =ThisItem.Others
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"Others")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Others")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =350
-                    MaxLength: =DataSourceInfo([@RequestsDetail], DataSourceInfo.MaxLength, "Others")
+                    MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "Others")
                     Required: =false
                     Update: =DataCardValue161.Text
                     Width: =620
@@ -2057,7 +2057,7 @@ FormHRpage As screen:
                     DataField: ="{Attachments}"
                     Default: =ThisItem.Attachments
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"{Attachments}")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"{Attachments}")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -2135,7 +2135,7 @@ FormHRpage As screen:
                     DataField: ="RequestType"
                     Default: =ThisItem.'Request Type'
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@RequestsDetail],DataSourceInfo.DisplayName,"RequestType")
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"RequestType")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
@@ -2168,7 +2168,7 @@ FormHRpage As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         IsSearchable: =false
-                        Items: =Choices([@RequestsDetail].'Request Type')
+                        Items: =Choices([@RequestsDetailHR].'Request Type')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -2273,10 +2273,10 @@ FormHRpage As screen:
                     );
                     SubmitForm(Form_detail_requests);
                     Patch(
-                        RequestsDetail,
+                        RequestsDetailHR,
                         LookUp(
-                            RequestsDetail,
-                            ID = Last(RequestsDetail).ID
+                            RequestsDetailHR,
+                            ID = Last(RequestsDetailHR).ID
                         ),
                         {
                             RequestsId: {
@@ -2284,6 +2284,10 @@ FormHRpage As screen:
                                 Value: Last(Requests).ID
                             }
                         }
+                    );
+                    Navigate(
+                        Request_HR_Page,
+                        ScreenTransition.Fade
                     )
                 PressedFill: =ColorFade(Self.Fill, 20%)
                 RadiusBottomLeft: =5
