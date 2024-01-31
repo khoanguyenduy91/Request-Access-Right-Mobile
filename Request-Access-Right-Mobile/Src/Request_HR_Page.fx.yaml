@@ -795,13 +795,10 @@ Request_HR_Page As screen:
                                     LayoutMinHeight: =30
                                     LayoutMinWidth: =40
                                     OnSelect: |-
-                                        =Set(
-                                            varItemHR,
-                                            ThisItem
-                                        );
-                                        Navigate(
+                                        =Navigate(
                                             Request_HR_detail_Page,
-                                            ScreenTransition.Fade
+                                            ScreenTransition.Fade,
+                                            {varItemHR: ThisItem}
                                         )
                                     PressedBorderColor: =ColorFade(icon8_10.BorderColor, -20%)
                                     PressedColor: |-

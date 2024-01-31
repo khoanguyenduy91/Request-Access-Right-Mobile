@@ -1,4 +1,5 @@
 Request_HR_detail_Page As screen:
+    OnVisible: =Set(varItemHR,TicketsGallery_Parent_HR.Selected)
 
     Container10_14 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.ExtraBold
@@ -55,9 +56,9 @@ Request_HR_detail_Page As screen:
                 Icon: =Icon.Edit
                 LayoutMinHeight: =50
                 OnSelect: |-
-                    =EditForm(Form1_2);
+                    =EditForm(Form_detail_requests_edit);
                     Navigate(
-                        EditTicketPage,
+                        Request_HR_Edit_Page,
                         ScreenTransition.None
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
@@ -87,9 +88,10 @@ Request_HR_detail_Page As screen:
 
             FormDetail_HR As formViewer:
                 DataSource: =RequestsDetailHR
-                Item: =TicketsGallery_Parent_HR.Selected.ID
+                Item: =varItemHR
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
+                NumberOfColumns: =2
                 Width: =640
                 ZIndex: =1
 
@@ -102,9 +104,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =7
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey88 As label:
@@ -145,9 +148,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue89.Selected
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =8
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey89 As label:
@@ -168,7 +172,7 @@ Request_HR_detail_Page As screen:
                     DataCardValue89 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =Parent.Default
-                        DisplayFields: =["Claims"]
+                        DisplayFields: =["DisplayName"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
                         Items: =Choices([@RequestsDetailHR].Author)
@@ -222,9 +226,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =9
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey90 As label:
@@ -252,7 +257,7 @@ Request_HR_detail_Page As screen:
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey90.Y + DataCardKey90.Height + 5
+                        Y: =69
                         ZIndex: =2
 
                 "'Mobile phone_DataCard1' As typedDataCard.textualViewCard":
@@ -264,9 +269,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =10
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey91 As label:
@@ -307,9 +313,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue92.Selected
-                    Width: =640
-                    X: =0
-                    Y: =11
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey92 As label:
@@ -332,12 +339,12 @@ Request_HR_detail_Page As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
                         Items: =Choices([@RequestsDetailHR].Officelocation)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =Choices(RequestsDetailHR.Officelocation,DataCardValue92.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey92.Y + DataCardKey92.Height + 5
@@ -383,9 +390,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =12
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey93 As label:
@@ -425,9 +433,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =13
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey94 As label:
@@ -467,9 +476,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =14
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey95 As label:
@@ -510,9 +520,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue96.Selected
-                    Width: =640
-                    X: =0
-                    Y: =15
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey96 As label:
@@ -535,12 +546,13 @@ Request_HR_detail_Page As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Height: =70
+                        Height: =51
                         Items: =Choices([@RequestsDetailHR].Typeofworkstation)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =Choices(RequestsDetailHR.Typeofworkstation,DataCardValue96.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey96.Y + DataCardKey96.Height + 5
@@ -584,11 +596,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_6")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =16
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey97 As label:
@@ -613,7 +626,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey97.Y + DataCardKey97.Height + 5
+                        Y: =48
                         ZIndex: =2
 
                 "'Connect account_DataCard1' As typedDataCard.toggleViewCard":
@@ -623,11 +636,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_0")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =17
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey98 As label:
@@ -652,7 +666,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey98.Y + DataCardKey98.Height + 5
+                        Y: =48
                         ZIndex: =2
 
                 "'Daily late working shift_DataCard1' As typedDataCard.toggleViewCard":
@@ -662,11 +676,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_4")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =18
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey99 As label:
@@ -691,7 +706,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey99.Y + DataCardKey99.Height + 5
+                        Y: =48
                         ZIndex: =2
 
                 "'Email Account_DataCard1' As typedDataCard.toggleViewCard":
@@ -701,11 +716,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_2")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =19
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey100 As label:
@@ -730,7 +746,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey100.Y + DataCardKey100.Height + 5
+                        Y: =48
                         ZIndex: =2
 
                 "'Employee Card_DataCard1' As typedDataCard.toggleViewCard":
@@ -740,11 +756,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_9")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =20
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey101 As label:
@@ -769,7 +786,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey101.Y + DataCardKey101.Height + 5
+                        Y: =48
                         ZIndex: =2
 
                 "'Internal network_DataCard1' As typedDataCard.toggleViewCard":
@@ -779,11 +796,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_1")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =21
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey102 As label:
@@ -808,7 +826,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey102.Y + DataCardKey102.Height + 5
+                        Y: =51
                         ZIndex: =2
 
                 Laptop_DataCard1 As typedDataCard.toggleViewCard:
@@ -818,11 +836,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =22
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey103 As label:
@@ -847,7 +866,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey103.Y + DataCardKey103.Height + 5
+                        Y: =48
                         ZIndex: =2
 
                 "'MS Office_DataCard1' As typedDataCard.toggleViewCard":
@@ -857,11 +876,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_10")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =23
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey104 As label:
@@ -886,7 +906,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey104.Y + DataCardKey104.Height + 5
+                        Y: =51
                         ZIndex: =2
 
                 "'Office Card_DataCard1' As typedDataCard.toggleViewCard":
@@ -896,11 +916,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_8")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =24
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey105 As label:
@@ -925,7 +946,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey105.Y + DataCardKey105.Height + 5
+                        Y: =48
                         ZIndex: =2
 
                 Stationery_DataCard1 As typedDataCard.toggleViewCard:
@@ -935,11 +956,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_5")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =25
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey106 As label:
@@ -964,7 +986,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey106.Y + DataCardKey106.Height + 5
+                        Y: =51
                         ZIndex: =2
 
                 "'Parking Card_DataCard1' As typedDataCard.toggleViewCard":
@@ -974,11 +996,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_7")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =26
+                    Y: =13
                     ZIndex: =1
 
                     DataCardKey107 As label:
@@ -1003,7 +1026,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey107.Y + DataCardKey107.Height + 5
+                        Y: =51
                         ZIndex: =2
 
                 "'Working on weekend_DataCard1' As typedDataCard.toggleViewCard":
@@ -1013,11 +1036,12 @@ Request_HR_detail_Page As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"OData__x0031_3")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =27
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =13
                     ZIndex: =1
 
                     DataCardKey108 As label:
@@ -1042,7 +1066,7 @@ Request_HR_detail_Page As screen:
                         Height: =49
                         Width: =154
                         X: =30
-                        Y: =DataCardKey108.Y + DataCardKey108.Height + 5
+                        Y: =48
                         ZIndex: =2
 
                 Attachments_DataCard3 As typedDataCard.attachmentsViewCard:
@@ -1055,9 +1079,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue109.Attachments
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =28
+                    Y: =14
                     ZIndex: =1
 
                     DataCardKey109 As label:
@@ -1130,7 +1155,8 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue81.Selected
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
                     Y: =0
                     ZIndex: =2
@@ -1161,6 +1187,7 @@ Request_HR_detail_Page As screen:
                         SearchFields: =["Value"]
                         SearchItems: =Choices(RequestsDetailHR.RequestType,DataCardValue81.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey81.Y + DataCardKey81.Height + 5
@@ -1197,6 +1224,128 @@ Request_HR_detail_Page As screen:
                         Y: =DataCardKey81.Y
                         ZIndex: =4
 
+                RequestsId_DataCard1 As typedDataCard.comboBoxViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="RequestsId"
+                    Default: =ThisItem.RequestsId
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"RequestsId")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue79.Selected
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =0
+                    ZIndex: =2
+
+                    DataCardKey79 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue79 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =70
+                        Items: =Choices([@RequestsDetailHR].RequestsId)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(RequestsDetailHR.RequestsId,DataCardValue79.SearchText)
+                        SelectMultiple: =false
+                        Size: =21
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey79.Y + DataCardKey79.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage30 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue79.Y + DataCardValue79.Height
+                        ZIndex: =3
+
+                    StarVisible30 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey79.Height
+                        PaddingBottom: =DataCardKey79.PaddingBottom
+                        PaddingLeft: =DataCardKey79.PaddingLeft
+                        PaddingRight: =DataCardKey79.PaddingRight
+                        PaddingTop: =DataCardKey79.PaddingTop
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey79.Y
+                        ZIndex: =4
+
+                "'Full Name_DataCard1' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="FullName"
+                    Default: =ThisItem.'Full Name'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"FullName")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =320
+                    WidthFit: =true
+                    X: =0
+                    Y: =1
+                    ZIndex: =2
+
+                    DataCardKey80 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue80 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey80.Y + DataCardKey80.Height + 5
+                        ZIndex: =2
+
                 "'Staff ID_DataCard1' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="StaffID"
@@ -1206,9 +1355,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =3
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =1
                     ZIndex: =2
 
                     DataCardKey82 As label:
@@ -1249,9 +1399,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue83.Selected
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =4
+                    Y: =2
                     ZIndex: =2
 
                     DataCardKey83 As label:
@@ -1280,6 +1431,7 @@ Request_HR_detail_Page As screen:
                         SearchFields: =["Value"]
                         SearchItems: =Choices(RequestsDetailHR.Gender,DataCardValue83.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey83.Y + DataCardKey83.Height + 5
@@ -1326,9 +1478,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue84.Selected
-                    Width: =640
-                    X: =0
-                    Y: =5
+                    Width: =320
+                    WidthFit: =true
+                    X: =1
+                    Y: =2
                     ZIndex: =2
 
                     DataCardKey84 As label:
@@ -1357,6 +1510,7 @@ Request_HR_detail_Page As screen:
                         SearchFields: =["Value"]
                         SearchItems: =Choices(RequestsDetailHR.Typee,DataCardValue84.SearchText)
                         SelectMultiple: =false
+                        Size: =21
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey84.Y + DataCardKey84.Height + 5
@@ -1402,9 +1556,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =640
+                    Width: =320
+                    WidthFit: =true
                     X: =0
-                    Y: =6
+                    Y: =3
                     ZIndex: =2
 
                     DataCardKey87 As label:
@@ -1433,125 +1588,6 @@ Request_HR_detail_Page As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey87.Y + DataCardKey87.Height + 5
-                        ZIndex: =2
-
-                RequestsId_DataCard1 As typedDataCard.comboBoxViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="RequestsId"
-                    Default: =ThisItem.RequestsId
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"RequestsId")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    Required: =false
-                    Update: =DataCardValue79.Selected
-                    Width: =640
-                    X: =0
-                    Y: =1
-                    ZIndex: =2
-
-                    DataCardKey79 As label:
-                        AutoHeight: =true
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue79 As combobox:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultSelectedItems: =Parent.Default
-                        DisplayFields: =["Value"]
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =70
-                        Items: =Choices([@RequestsDetailHR].RequestsId)
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetailHR.RequestsId,DataCardValue79.SearchText)
-                        SelectMultiple: =false
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey79.Y + DataCardKey79.Height + 5
-                        ZIndex: =2
-
-                    ErrorMessage30 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =12
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue79.Y + DataCardValue79.Height
-                        ZIndex: =3
-
-                    StarVisible30 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey79.Height
-                        PaddingBottom: =DataCardKey79.PaddingBottom
-                        PaddingLeft: =DataCardKey79.PaddingLeft
-                        PaddingRight: =DataCardKey79.PaddingRight
-                        PaddingTop: =DataCardKey79.PaddingTop
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey79.Y
-                        ZIndex: =4
-
-                "'Full Name_DataCard1' As typedDataCard.textualViewCard":
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="FullName"
-                    Default: =ThisItem.'Full Name'
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"FullName")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Required: =false
-                    Width: =640
-                    X: =0
-                    Y: =2
-                    ZIndex: =2
-
-                    DataCardKey80 As label:
-                        AutoHeight: =true
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue80 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey80.Y + DataCardKey80.Height + 5
                         ZIndex: =2
 
         Container11_5 As groupContainer.verticalAutoLayoutContainer:
