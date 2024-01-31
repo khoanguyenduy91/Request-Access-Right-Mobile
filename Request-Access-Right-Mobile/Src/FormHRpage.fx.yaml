@@ -2271,7 +2271,20 @@ FormHRpage As screen:
                             }
                         }
                     );
-                    SubmitForm(Form_detail_requests)
+                    SubmitForm(Form_detail_requests);
+                    Patch(
+                        RequestsDetail,
+                        LookUp(
+                            RequestsDetail,
+                            ID = Last(RequestsDetail).ID
+                        ),
+                        {
+                            RequestsId: {
+                                Id: Last(Requests).ID,
+                                Value: Last(Requests).ID
+                            }
+                        }
+                    )
                 PressedFill: =ColorFade(Self.Fill, 20%)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
