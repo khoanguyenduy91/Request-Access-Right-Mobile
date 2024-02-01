@@ -173,8 +173,7 @@ FormHRpage As screen:
                 Height: =Parent.Height
                 LayoutMinHeight: =250
                 LayoutMinWidth: =200
-                NumberOfColumns: =1
-                SnapToColumns: =false
+                NumberOfColumns: =2
                 Width: =Parent.Width
                 ZIndex: =4
 
@@ -189,10 +188,10 @@ FormHRpage As screen:
                     MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "FullName")
                     Required: =false
                     Update: =DataCardValue116.Text
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =1
+                    X: =1
+                    Y: =0
                     ZIndex: =1
 
                     DataCardKey116 As label:
@@ -270,10 +269,10 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =Value(DataCardValue142.Text)
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
                     X: =0
-                    Y: =2
+                    Y: =1
                     ZIndex: =1
 
                     DataCardKey142 As label:
@@ -351,10 +350,10 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue143.Selected
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =3
+                    X: =1
+                    Y: =1
                     ZIndex: =1
 
                     DataCardKey143 As label:
@@ -378,10 +377,11 @@ FormHRpage As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
+                        IsSearchable: =false
                         Items: =Choices([@RequestsDetailHR].Gender)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetailHR.Gender,DataCardValue143.SearchText)
+                        SearchItems: =[]
                         SelectMultiple: =false
                         Size: =21
                         Tooltip: =Parent.DisplayName
@@ -431,10 +431,10 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue144.Selected
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
                     X: =0
-                    Y: =4
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey144 As label:
@@ -458,10 +458,11 @@ FormHRpage As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
+                        IsSearchable: =false
                         Items: =Choices([@RequestsDetailHR].'Employee Type')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetailHR.'Employee Type',DataCardValue144.SearchText)
+                        SearchItems: =[]
                         SelectMultiple: =false
                         Size: =21
                         Tooltip: =Parent.DisplayName
@@ -511,10 +512,10 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue145.SelectedDate
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =5
+                    X: =1
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey145 As label:
@@ -538,6 +539,7 @@ FormHRpage As screen:
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
                         Height: =70
+                        InputTextPlaceholder: =Today()
                         IsEditable: =true
                         PaddingBottom: =0
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
@@ -591,10 +593,10 @@ FormHRpage As screen:
                     MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "Department")
                     Required: =false
                     Update: =DataCardValue146.Text
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
                     X: =0
-                    Y: =6
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey146 As label:
@@ -673,10 +675,10 @@ FormHRpage As screen:
                     MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "Title_x002f_Position")
                     Required: =false
                     Update: =DataCardValue147.Text
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =7
+                    X: =1
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey147 As label:
@@ -754,10 +756,10 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =Value(DataCardValue148.Text)
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
                     X: =0
-                    Y: =8
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey148 As label:
@@ -835,10 +837,10 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue149.Selected
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =9
+                    X: =1
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey149 As label:
@@ -916,10 +918,10 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue150.Selected
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
                     X: =0
-                    Y: =10
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey150 As label:
@@ -998,10 +1000,10 @@ FormHRpage As screen:
                     MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "Specialrequirements")
                     Required: =false
                     Update: =DataCardValue152.Text
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =11
+                    X: =1
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey152 As label:
@@ -1079,10 +1081,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue151.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =0
-                    Y: =12
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey151 As label:
@@ -1154,10 +1164,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue153.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =1
-                    Y: =12
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey153 As label:
@@ -1229,10 +1247,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue154.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =0
-                    Y: =14
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey154 As label:
@@ -1304,10 +1330,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue155.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =1
-                    Y: =14
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey155 As label:
@@ -1379,10 +1413,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue156.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =0
-                    Y: =16
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey156 As label:
@@ -1454,10 +1496,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue157.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =1
-                    Y: =16
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey157 As label:
@@ -1529,10 +1579,19 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue158.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Visible: =true
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =0
-                    Y: =18
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey158 As label:
@@ -1604,10 +1663,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue159.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =1
-                    Y: =18
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey159 As label:
@@ -1679,10 +1746,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue160.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =0
-                    Y: =20
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey160 As label:
@@ -1754,10 +1829,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue162.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =1
-                    Y: =20
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey162 As label:
@@ -1829,10 +1912,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue163.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =0
-                    Y: =22
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey163 As label:
@@ -1904,10 +1995,18 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue164.Value
-                    Width: =Parent.Width/2
-                    WidthFit: =false
+                    Width: |-
+                        =Switch(
+                            FormHRpage.Size,
+                            1,
+                            250,
+                            2,
+                            400,
+                            FormHRpage.Width / FormHRpage.Size
+                        )
+                    WidthFit: =true
                     X: =1
-                    Y: =22
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey164 As label:
@@ -1980,10 +2079,10 @@ FormHRpage As screen:
                     MaxLength: =DataSourceInfo([@RequestsDetailHR], DataSourceInfo.MaxLength, "Others")
                     Required: =false
                     Update: =DataCardValue161.Text
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
                     X: =0
-                    Y: =24
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey161 As label:
@@ -2006,7 +2105,7 @@ FormHRpage As screen:
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
-                        Height: =274
+                        Height: =300
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
                         PaddingLeft: =5
@@ -2062,10 +2161,10 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue165.Attachments
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =25
+                    X: =1
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey165 As label:
@@ -2085,8 +2184,8 @@ FormHRpage As screen:
 
                     DataCardValue165 As attachments:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =3
                         DisplayMode: =Parent.DisplayMode
-                        Height: =520
                         IsInDataCard: =true
                         Items: =Parent.Default
                         PaddingBottom: =5
@@ -2140,7 +2239,7 @@ FormHRpage As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue111.Selected
-                    Width: =620
+                    Width: =FormHRpage.Width/FormHRpage.Size
                     WidthFit: =true
                     X: =0
                     Y: =0

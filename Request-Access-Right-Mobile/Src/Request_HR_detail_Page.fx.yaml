@@ -1,5 +1,5 @@
 Request_HR_detail_Page As screen:
-    OnVisible: =Set(varItemHR,TicketsGallery_Parent_HR.Selected)
+    OnVisible: =
 
     Container10_14 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.ExtraBold
@@ -88,10 +88,9 @@ Request_HR_detail_Page As screen:
 
             FormDetail_HR As formViewer:
                 DataSource: =RequestsDetailHR
-                Item: =varItemHR
+                Item: =varItemReqHR
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
-                NumberOfColumns: =2
                 Width: =640
                 ZIndex: =1
 
@@ -104,10 +103,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
                     X: =1
-                    Y: =3
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey88 As label:
@@ -148,10 +147,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue89.Selected
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =4
+                    X: =2
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey89 As label:
@@ -175,10 +174,10 @@ Request_HR_detail_Page As screen:
                         DisplayFields: =["DisplayName"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@RequestsDetailHR].Author)
+                        Items: =Choices([@RequestsDetailHR].'Created By')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Claims"]
-                        SearchItems: =Choices(RequestsDetailHR.Author,DataCardValue89.SearchText)
+                        SearchItems: =Choices(RequestsDetailHR.'Created By',DataCardValue89.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Width: =Parent.Width - 60
@@ -226,10 +225,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =4
+                    X: =0
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey90 As label:
@@ -269,10 +268,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =5
+                    X: =1
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey91 As label:
@@ -313,10 +312,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue92.Selected
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =5
+                    X: =2
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey92 As label:
@@ -339,10 +338,10 @@ Request_HR_detail_Page As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Items: =Choices([@RequestsDetailHR].Officelocation)
+                        Items: =Choices([@RequestsDetailHR].'Office location')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetailHR.Officelocation,DataCardValue92.SearchText)
+                        SearchItems: =Choices(RequestsDetailHR.'Office location',DataCardValue92.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Width: =Parent.Width - 60
@@ -381,49 +380,6 @@ Request_HR_detail_Page As screen:
                         Y: =DataCardKey92.Y
                         ZIndex: =4
 
-                Others_DataCard1 As typedDataCard.textualViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Others"
-                    Default: =ThisItem.Others
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Others")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Required: =false
-                    Width: =320
-                    WidthFit: =true
-                    X: =0
-                    Y: =6
-                    ZIndex: =1
-
-                    DataCardKey93 As label:
-                        AutoHeight: =true
-                        Height: =48
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue93 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =21
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey93.Y + DataCardKey93.Height + 5
-                        ZIndex: =2
-
                 "'Special requirements_DataCard1' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Specialrequirements"
@@ -433,10 +389,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =6
+                    X: =0
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey94 As label:
@@ -476,10 +432,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =7
+                    X: =1
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey95 As label:
@@ -520,10 +476,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue96.Selected
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =7
+                    X: =2
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey96 As label:
@@ -547,10 +503,10 @@ Request_HR_detail_Page As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =51
-                        Items: =Choices([@RequestsDetailHR].Typeofworkstation)
+                        Items: =Choices([@RequestsDetailHR].'Type of workstation')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetailHR.Typeofworkstation,DataCardValue96.SearchText)
+                        SearchItems: =Choices(RequestsDetailHR.'Type of workstation',DataCardValue96.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Width: =Parent.Width - 60
@@ -598,10 +554,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
                     X: =0
-                    Y: =8
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey97 As label:
@@ -638,10 +594,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
                     X: =1
-                    Y: =8
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey98 As label:
@@ -678,10 +634,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =9
+                    X: =2
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey99 As label:
@@ -718,10 +674,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =9
+                    X: =0
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey100 As label:
@@ -758,10 +714,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =10
+                    X: =1
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey101 As label:
@@ -798,10 +754,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =10
+                    X: =2
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey102 As label:
@@ -838,10 +794,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
                     X: =0
-                    Y: =11
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey103 As label:
@@ -878,10 +834,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
                     X: =1
-                    Y: =11
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey104 As label:
@@ -918,10 +874,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =12
+                    X: =2
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey105 As label:
@@ -958,10 +914,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =12
+                    X: =0
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey106 As label:
@@ -998,10 +954,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =13
+                    X: =1
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey107 As label:
@@ -1038,10 +994,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =13
+                    X: =2
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey108 As label:
@@ -1069,6 +1025,48 @@ Request_HR_detail_Page As screen:
                         Y: =48
                         ZIndex: =2
 
+                Others_DataCard1 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Others"
+                    Default: =ThisItem.Others
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@RequestsDetailHR],DataSourceInfo.DisplayName,"Others")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =323
+                    Required: =false
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
+                    WidthFit: =true
+                    X: =0
+                    Y: =9
+                    ZIndex: =1
+
+                    DataCardKey93 As label:
+                        AutoHeight: =true
+                        Height: =48
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =21
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue93 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =38
+                        Size: =21
+                        Text: =Parent.Default
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey93.Y + DataCardKey93.Height + 5
+                        ZIndex: =2
+
                 Attachments_DataCard3 As typedDataCard.attachmentsViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{Attachments}"
@@ -1079,10 +1077,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue109.Attachments
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =14
+                    X: =1
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey109 As label:
@@ -1155,7 +1153,7 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue81.Selected
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
                     X: =0
                     Y: =0
@@ -1182,10 +1180,10 @@ Request_HR_detail_Page As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@RequestsDetailHR].RequestType)
+                        Items: =Choices([@RequestsDetailHR].'Request Type')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetailHR.RequestType,DataCardValue81.SearchText)
+                        SearchItems: =Choices(RequestsDetailHR.'Request Type',DataCardValue81.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Width: =Parent.Width - 60
@@ -1234,7 +1232,7 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue79.Selected
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
                     X: =1
                     Y: =0
@@ -1312,10 +1310,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =1
+                    X: =2
+                    Y: =0
                     ZIndex: =2
 
                     DataCardKey80 As label:
@@ -1355,9 +1353,9 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
+                    X: =0
                     Y: =1
                     ZIndex: =2
 
@@ -1399,10 +1397,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue83.Selected
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =0
-                    Y: =2
+                    X: =1
+                    Y: =1
                     ZIndex: =2
 
                     DataCardKey83 As label:
@@ -1478,10 +1476,10 @@ Request_HR_detail_Page As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue84.Selected
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
-                    X: =1
-                    Y: =2
+                    X: =2
+                    Y: =1
                     ZIndex: =2
 
                     DataCardKey84 As label:
@@ -1505,10 +1503,10 @@ Request_HR_detail_Page As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =70
-                        Items: =Choices([@RequestsDetailHR].Typee)
+                        Items: =Choices([@RequestsDetailHR].'Employee Type')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(RequestsDetailHR.Typee,DataCardValue84.SearchText)
+                        SearchItems: =Choices(RequestsDetailHR.'Employee Type',DataCardValue84.SearchText)
                         SelectMultiple: =false
                         Size: =21
                         Width: =Parent.Width - 60
@@ -1556,10 +1554,10 @@ Request_HR_detail_Page As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Width: =320
+                    Width: =Request_HR_detail_Page.Width/Request_HR_detail_Page.Size
                     WidthFit: =true
                     X: =0
-                    Y: =3
+                    Y: =2
                     ZIndex: =2
 
                     DataCardKey87 As label:

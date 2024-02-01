@@ -203,18 +203,7 @@ App As appinfo:
                 )
             ),
             FormDetail_approval
-        );
-        If(
-            !IsBlank(Param("ID")),
-            Set(
-                varItemHR,
-                LookUp(
-                    RequestsDetailHR,
-                    RequestsId.Value = Param("ID")
-                )
-            ),
-            FormDetail_HR
-        );
+        )
     StartScreen: |-
         =Switch(
             Param("screenname"),

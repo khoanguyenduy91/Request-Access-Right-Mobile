@@ -28,7 +28,7 @@ Request_HR_Edit_Page As screen:
                 Height: =40
                 Icon: =Icon.ChevronLeft
                 LayoutMinHeight: =50
-                OnSelect: =
+                OnSelect: =Back()
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =1
@@ -2161,7 +2161,7 @@ Request_HR_Edit_Page As screen:
                 Height: =90
                 HoverBorderColor: =ColorFade(Self.Fill, 20%)
                 HoverColor: =RGBA(0, 0, 0, 1)
-                OnSelect: =
+                OnSelect: =SubmitForm(Form_detail_requests_edit)
                 PressedFill: =ColorFade(Self.Fill, 20%)
                 RadiusBottomLeft: =5
                 RadiusBottomRight: =5
