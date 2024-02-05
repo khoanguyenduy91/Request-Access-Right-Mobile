@@ -142,7 +142,7 @@ NewTicketPage As screen:
                         Items: =Choices([@SP_REQUEST].ReqType)
                         OnChange: |-
                             =If(
-                                DataCardValue12.Selected.Id = 18,
+                                DataCardValue12.Selected.Id = 18 || DataCardValue12.Selected.Id = 19,
                                 Navigate(
                                     FormHRpage,
                                     ScreenTransition.Fade

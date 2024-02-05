@@ -1,7 +1,6 @@
 FormHRpage As screen:
     OnVisible: |-
-        =
-        ResetForm(Form_detail_requests);
+        =ResetForm(Form_detail_requests);
         NewForm(Form_detail_requests)
 
     Container8 As groupContainer.verticalAutoLayoutContainer:
@@ -2359,16 +2358,19 @@ FormHRpage As screen:
                         profileUser,
                         Office365Users.UserProfile(User().EntraObjectId)
                     );
-                    Patch(
-                        Requests,
-                        Defaults(Requests),
-                        {DepartmentCode: profileUser.Department},
-                        {
-                            DocumentTypes: {
-                                Id: varDocumenttypeTitle.ID,
-                                Value: varDocumenttypeTitle.Title
+                    Set(
+                        Newrecordrequest,
+                        Patch(
+                            Requests,
+                            Defaults(Requests),
+                            {DepartmentCode: profileUser.Department},
+                            {
+                                DocumentTypes: {
+                                    Id: varDocumenttypeTitle.ID,
+                                    Value: varDocumenttypeTitle.Title
+                                }
                             }
-                        }
+                        )
                     );
                     SubmitForm(Form_detail_requests);
                     Patch(
