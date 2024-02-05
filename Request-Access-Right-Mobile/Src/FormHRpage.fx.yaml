@@ -2386,6 +2386,7 @@ FormHRpage As screen:
                             }
                         }
                     );
+                    Flow_new_request_HR.Run(Newrecordrequest.ID,varDocumenttypeTitle.ID);
                     Navigate(
                         Request_HR_Page,
                         ScreenTransition.Fade
