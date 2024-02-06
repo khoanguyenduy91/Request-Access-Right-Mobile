@@ -4,9 +4,11 @@
     <jsonTypes targetNamespace="https://asia-001.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
       <number name="ManualTriggerInput_number_def" />
       <number name="ManualTriggerInput_number_1_def" />
+      <string name="ManualTriggerInput_text_def" />
       <object name="ManualTriggerInput">
         <property name="number" type="number" />
         <property name="number_1" type="number" />
+        <property name="text" type="string" />
       </object>
     </jsonTypes>
   </grammars>
@@ -25,6 +27,9 @@
             </param>
             <param style="plain" name="number_1" path="/number_1" type="xs:double" required="true">
               <doc title="DocumentTypeId" />
+            </param>
+            <param style="plain" name="text" path="/text" type="xs:string" required="true">
+              <doc title="Group" />
             </param>
           </representation>
         </request>

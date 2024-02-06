@@ -2358,35 +2358,44 @@ FormHRpage As screen:
                         profileUser,
                         Office365Users.UserProfile(User().EntraObjectId)
                     );
-                    Set(
-                        Newrecordrequest,
-                        Patch(
-                            Requests,
-                            Defaults(Requests),
-                            {DepartmentCode: profileUser.Department},
-                            {
-                                DocumentTypes: {
-                                    Id: varDocumenttypeTitle.ID,
-                                    Value: varDocumenttypeTitle.Title
-                                }
-                            }
-                        )
-                    );
-                    SubmitForm(Form_detail_requests);
-                    Patch(
-                        RequestsDetailHR,
-                        LookUp(
-                            RequestsDetailHR,
-                            ID = Last(RequestsDetailHR).ID
-                        ),
+                    UpdateContext(
                         {
-                            RequestsId: {
-                                Id: Last(Requests).ID,
-                                Value: Last(Requests).ID
-                            }
+                            Newrecordrequest: Patch(
+                                Requests,
+                                Defaults(Requests),
+                                {DepartmentCode: profileUser.Department},
+                                {
+                                    DocumentTypes: {
+                                        Id: varDocumenttypeTitle.ID,
+                                        Value: varDocumenttypeTitle.Title
+                                    }
+                                }
+                            )
                         }
                     );
-                    Flow_new_request_HR.Run(Newrecordrequest.ID,varDocumenttypeTitle.ID);
+                    SubmitForm(Form_detail_requests);
+                    UpdateContext(
+                        {
+                            varRequestDetailHR: Patch(
+                                RequestsDetailHR,
+                                LookUp(
+                                    RequestsDetailHR,
+                                    ID = Last(RequestsDetailHR).ID
+                                ),
+                                {
+                                    RequestsId: {
+                                        Id: Last(Requests).ID,
+                                        Value: Last(Requests).ID
+                                    }
+                                }
+                            )
+                        }
+                    );
+                    Flow_new_request_HR.Run(
+                        Newrecordrequest.ID,
+                        varDocumenttypeTitle.ID,
+                        varRequestDetailHR.Department
+                    );
                     Navigate(
                         Request_HR_Page,
                         ScreenTransition.Fade
