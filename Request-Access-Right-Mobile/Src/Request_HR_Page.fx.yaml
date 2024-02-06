@@ -1,4 +1,6 @@
 Request_HR_Page As screen:
+    OnVisible: |
+        =
 
     Container9_7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(230, 229, 229, 1)
@@ -48,7 +50,7 @@ Request_HR_Page As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Ticket Page HR"
+                Text: ="Ticket Page HR "& CountRows(varLookupRequests)& " ; " & CountRows(colRequestApprove)
                 Width: =560
                 ZIndex: =2
 
@@ -201,8 +203,35 @@ Request_HR_Page As screen:
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
                     Icon: =Icon.Sort
-                    OnSelect: |-
-                        =UpdateContext({SortDescending: !SortDescending})
+                    OnSelect: |
+                        =UpdateContext(
+                            {
+                                varLookupLevelsetting: LookUp(
+                                    LevelSettings,
+                                    UserName.Email = User().Email
+                                )
+                            }
+                        );
+                        UpdateContext(
+                            {
+                                varLookupRequests: Filter(
+                                    Requests,
+                                    'DocumentTypes: ID'.Value = varLookupLevelsetting.'DocumentTypeId: ID'.Value
+                                )
+                            }
+                        );
+                        
+                        ClearCollect(
+                            colRequestsDetailHR,
+                            RequestsDetailHR
+                        );
+                        ClearCollect(
+                            colRequestApprove,
+                            Filter(
+                                colRequestsDetailHR,
+                                RequestsId.Value in varLookupRequests.ID && Department = varLookupLevelsetting.'Department Code'
+                            )
+                        )
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
                     ZIndex: =6
@@ -246,7 +275,9 @@ Request_HR_Page As screen:
                 Height: =Parent.Height
                 HoverBorderColor: =TicketsGallery_Parent_HR.BorderColor
                 HoverFill: =TicketsGallery_Parent_HR.Fill
-                Items: =colRequestsDetailHR
+                Items: |-
+                    =//colRequestsDetailHR
+                    colRequestApprove
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =320
