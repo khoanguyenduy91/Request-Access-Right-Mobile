@@ -488,7 +488,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue18.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue20),
+                            IsBlank(DataCardValue20.Text),
                             false,
                             true
                         )
@@ -663,7 +663,7 @@ TicketsDetailPage_User As screen:
                     Update: =DataCardValue2.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue3),
+                            IsBlank(DataCardValue3.Text),
                             false,
                             true
                         )
@@ -792,7 +792,7 @@ TicketsDetailPage_User As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue4.Selected
-                    Visible: =If(IsBlank(DataCardValue14),false,true)
+                    Visible: =If(IsBlank(DataCardValue14.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -918,7 +918,7 @@ TicketsDetailPage_User As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue15.Selected
-                    Visible: =If(IsBlank(DataCardValue17),false,true)
+                    Visible: =If(IsBlank(DataCardValue17.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1216,7 +1216,7 @@ TicketsDetailPage_User As screen:
                         =DataCardValue73.SelectedItems
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue74),
+                            IsBlank(DataCardValue74.Text),
                             false,
                             true
                         )

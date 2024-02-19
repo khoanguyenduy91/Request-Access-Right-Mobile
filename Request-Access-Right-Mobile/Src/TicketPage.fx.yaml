@@ -292,7 +292,7 @@ TicketPage As screen:
                                 false
                             )
                         )
-                    Visible: =If(IsBlank(Text_search),false,true)
+                    Visible: =If(IsBlank(Text_search.Text),false,true)
                     Width: =40
                     ZIndex: =3
 

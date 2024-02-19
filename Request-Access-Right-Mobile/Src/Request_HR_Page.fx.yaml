@@ -172,7 +172,7 @@ Request_HR_Page As screen:
                                 false
                             )
                         )
-                    Visible: =If(IsBlank(Text_search_8),false,true)
+                    Visible: =If(IsBlank(Text_search_8.Text),false,true)
                     Width: =40
                     ZIndex: =3
 
