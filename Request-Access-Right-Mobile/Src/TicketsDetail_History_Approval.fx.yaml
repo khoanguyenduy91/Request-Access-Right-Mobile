@@ -417,7 +417,7 @@ TicketsDetail_History_Approval As screen:
                     Update: =DataCardValue29_1.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue30_1),
+                            IsBlank(DataCardValue30_1.Text),
                             false,
                             true
                         )
@@ -590,7 +590,7 @@ TicketsDetail_History_Approval As screen:
                     Required: =false
                     Update: =DataCardValue31_1.Selected
                     Visible: |
-                        =If(IsBlank(DataCardValue31_1), false , true )
+                        =If(IsBlank(DataCardValue31_1.SelectedItems), false , true )
                     Width: =640
                     X: =0
                     Y: =12
@@ -716,7 +716,7 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33_1.Selected
-                    Visible: =If(IsBlank(DataCardValue34_1),false,true)
+                    Visible: =If(IsBlank(DataCardValue34_1.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -842,7 +842,7 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35_1.Selected
-                    Visible: =If(IsBlank(DataCardValue35_1),false,true)
+                    Visible: =If(IsBlank(DataCardValue35_1.SelectedItems),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1138,7 +1138,7 @@ TicketsDetail_History_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue67.SelectedItems
-                    Visible: =If(IsBlank(DataCardValue68),false,true)
+                    Visible: =If(IsBlank(DataCardValue68.Text),false,true)
                     Width: =Parent.Width-60
                     X: =0
                     Y: =21

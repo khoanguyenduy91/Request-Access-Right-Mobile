@@ -429,7 +429,7 @@ RequestAssignedDetail_Approval As screen:
                     Update: =DataCardValue29_4.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue30_4),
+                            IsBlank(DataCardValue30_4.Text),
                             false,
                             true
                         )
@@ -603,7 +603,7 @@ RequestAssignedDetail_Approval As screen:
                     Update: =DataCardValue31_4.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue32_4),
+                            IsBlank(DataCardValue32_4.Text),
                             false,
                             true
                         )
@@ -732,7 +732,7 @@ RequestAssignedDetail_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33_4.Selected
-                    Visible: =If(IsBlank(DataCardValue32_4),false,true)
+                    Visible: =If(IsBlank(DataCardValue32_4.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -858,7 +858,7 @@ RequestAssignedDetail_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35_4.Selected
-                    Visible: =If(IsBlank(DataCardValue36_4),false,true)
+                    Visible: =If(IsBlank(DataCardValue36_4.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1156,7 +1156,7 @@ RequestAssignedDetail_Approval As screen:
                     Update: =DataCardValue76_1.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue76_1),
+                            IsBlank(DataCardValue76_1.SelectedItems),
                             false,
                             true
                         )
@@ -2086,7 +2086,7 @@ RequestAssignedDetail_Approval As screen:
                             HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
                             OnSelect: |-
                                 =If(
-                                    IsBlank(ComboBox_searchName_1),
+                                    IsBlank(ComboBox_searchName_1.SelectedItems),
                                     Notify(
                                         "Please enter the name!",
                                         NotificationType.Error
