@@ -1623,24 +1623,12 @@ TicketsDetailPage_Approval As screen:
                 HoverBorderColor: =
                 HoverFill: =ColorFade(Self.Fill, 50%)
                 OnSelect: |-
-                    =//Refresh(SP_REQUEST);
-                    //If(
-                    //varItem.isDelete = true,
-                    //Notify(
-                    //"The request has been deleted, please refresh the data!",
-                    //NotificationType.Error,
-                    //3000
-                    //),
+                    =//Refresh(SP_REQUEST);If(varItem.isDelete = true,Notify("The request has been deleted, please refresh the data!", NotificationType.Error,3000),
                     If(
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
                                 IdUser.Email = User().Email && Level.Value = "Approver 1"
-                            )
-                        ) || !IsBlank(
-                            LookUp(
-                                SP_REQUEST,
-                                User().Email = 'Assigned User'.Email
                             )
                         ),
                         Patch(
@@ -1687,11 +1675,11 @@ TicketsDetailPage_Approval As screen:
                             )
                         )
                     );
-                    Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
-                    Navigate(
-                        SuccessScreen_Approver,
-                        ScreenTransition.Fade
-                    )
+                    //Test_Flow_CheckStatus_triggerPowerApp.Run(varItem.ID);
+                    //Navigate(
+                    //  SuccessScreen_Approver,
+                    //ScreenTransition.Fade
+                    //)
                 PressedBorderColor: =
                 PressedColor: =ColorFade(Color.Black, 50%)
                 PressedFill: =ColorFade(Self.Fill, 50%)
@@ -1773,9 +1761,9 @@ TicketsDetailPage_Approval As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: |-
                     =If(
-                        varItem.isAssignedRequest = false,
-                        DisplayMode.Edit,
-                        DisplayMode.Disabled
+                        varItem.isAssignedRequest = true,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
                     )
                 Fill: =RGBA(62, 96, 170, 1)
                 FillPortions: =1
@@ -1919,11 +1907,6 @@ TicketsDetailPage_Approval As screen:
                                             LookUp(
                                                 SP_LEVELAPPROVER,
                                                 User().Email = IdUser.Email && Level.Value = "Approver 1"
-                                            )
-                                        ) || !IsBlank(
-                                            LookUp(
-                                                SP_REQUEST,
-                                                User().Email = 'Assigned User'.Email
                                             )
                                         ),
                                         Patch(

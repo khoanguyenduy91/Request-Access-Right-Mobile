@@ -1215,7 +1215,7 @@ TicketsDetail_History_Incharge As screen:
 
                 "'Incharge Person Approved Date_DataCard1' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="ApprovedDate4"
+                    DataField: ="'Incharge Person Approved Date'"
                     Default: =ThisItem.'Incharge Person Approved Date'
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@SP_REQUEST],DataSourceInfo.DisplayName,"InchargePersonApprovedDate")

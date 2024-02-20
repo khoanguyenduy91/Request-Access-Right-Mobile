@@ -284,7 +284,7 @@ ApprovalPage As screen:
                                         )
                                     ),
                                     CollectRequestApprover3,
-                                    CollectRequestAssign
+                                    Col_requestAssign
                                 )
                             )
                         ),
@@ -538,7 +538,7 @@ ApprovalPage As screen:
                         Size: =16
                         Text: |-
                             ="ID: " & ThisItem.ID
-                        Width: =100
+                        Width: =120
                         Wrap: =false
                         X: =Parent.X
                         Y: =8.881784197001252E-16

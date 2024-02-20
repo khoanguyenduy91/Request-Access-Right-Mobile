@@ -6,7 +6,7 @@ TicketPage As screen:
             false
         );
         Set(
-            HashTag,
+            HashTags,
             ""
         )
     OnVisible: |-
@@ -70,7 +70,7 @@ TicketPage As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Request Page"
+                Text: ="Ticket Page"
                 Width: =560
                 ZIndex: =2
 
@@ -247,7 +247,7 @@ TicketPage As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Icon1_33 As icon.Add:
+                Icon1_search As icon.Add:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
@@ -259,7 +259,7 @@ TicketPage As screen:
 
                 Text_search As text:
                     BorderThickness: =0
-                    Default: =HashTag
+                    Default: =HashTags
                     FillPortions: =1
                     FocusedBorderThickness: =0
                     Height: =70
@@ -272,7 +272,31 @@ TicketPage As screen:
                     Width: =Parent.Width-150
                     ZIndex: =2
 
-                Icon1_4 As icon.Add:
+                Icon_clear_search As icon.Cancel:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Icon: =Icon.Cancel
+                    OnSelect: |
+                        =Reset(Text_search);
+                        Set(
+                            HashTags,
+                            ""
+                        );
+                        If(
+                            TicketsGallery.AllItemsCount = 0,
+                            Set(
+                                visibleticketpage,
+                                true
+                            ),
+                            Set(
+                                visibleticketpage,
+                                false
+                            )
+                        )
+                    Visible: =If(IsBlank(Text_search.Text),false,true)
+                    Width: =40
+                    ZIndex: =3
+
+                Icon1_filter As icon.Add:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
@@ -281,9 +305,9 @@ TicketPage As screen:
                         =Navigate(TicketFilterPage,ScreenTransition.None,{type:type})
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
-                    ZIndex: =3
+                    ZIndex: =4
 
-                Label2 As label:
+                Label2_type As label:
                     Height: =70
                     LayoutMinHeight: =70
                     LayoutMinWidth: =100
@@ -294,9 +318,9 @@ TicketPage As screen:
                     Text: =type
                     Visible: =false
                     Width: =40
-                    ZIndex: =4
+                    ZIndex: =5
 
-                Icon1_32 As icon.Add:
+                Icon1_sort As icon.Add:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =50
@@ -305,9 +329,9 @@ TicketPage As screen:
                         =UpdateContext({SortDescending: !SortDescending})
                     PressedColor: =ColorFade(Self.Color,90%)
                     Width: =50
-                    ZIndex: =5
+                    ZIndex: =6
 
-                Icon4_11 As icon.OptionsList:
+                Icon4_export As icon.OptionsList:
                     AlignInContainer: =AlignInContainer.Stretch
                     Color: =RGBA(62, 96, 170, 1)
                     Height: =35
@@ -345,7 +369,18 @@ TicketPage As screen:
                     Width: =40
                     X: =97
                     Y: =6
-                    ZIndex: =6
+                    ZIndex: =7
+
+                Icon_hashtag As icon.TrendingHashtag:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Icon: =Icon.TrendingHashtag
+                    OnSelect: |-
+                        =Set(
+                            DialogHashTags,
+                            true
+                        )
+                    Width: =40
+                    ZIndex: =8
 
             Label5 As label:
                 Align: =Align.Center
@@ -379,25 +414,20 @@ TicketPage As screen:
                         Filter(
                             Switch(
                                 type,
-                                "All",
-                                CollectRequestAll,
-                                "New",
-                                CollectRequestNew,
-                                "In progress",
-                                CollectRequestProcess,
-                                "Closed",
-                                CollectRequestClosed,
-                                "Rejected",
-                                CollectRequestRejected
-                            ),
-                            Text_search.Text in Title || Text_search.Text in ID || Text_search.Text in ReqType.Value
+                                "All", CollectRequestAll,
+                                "New", CollectRequestNew,
+                                "In progress", CollectRequestProcess,
+                                "Closed", CollectRequestClosed,
+                                "Rejected", CollectRequestRejected
+                            ) As tbl,
+                            Text_search.Text in tbl.Title ||
+                            Text_search.Text in tbl.ID ||
+                            Text_search.Text in tbl.ReqType.Value ||
+                            CountRows(Filter(Split(Text_search.Text,","),Trim(Value) in tbl.HashtagRequest.Value))
+                        
                         ),
                         Created,
-                        If(
-                            SortDescending,
-                            SortOrder.Ascending,
-                            SortOrder.Descending
-                        )
+                        If(SortDescending, SortOrder.Ascending, SortOrder.Descending)
                     )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =100
@@ -610,19 +640,6 @@ TicketPage As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
-                        Button1 As button:
-                            Height: =30
-                            LayoutMinHeight: =70
-                            LayoutMinWidth: =280
-                            OnSelect: =Set(HashTag,ThisItem.Title)
-                            Size: =24
-                            Text: ="Button"
-                            Visible: =false
-                            Width: =30
-                            X: =180
-                            Y: =712
-                            ZIndex: =1
-
                         Heading1 As label:
                             Color: =RGBA(40, 40, 40, 1)
                             FillPortions: =1
@@ -632,7 +649,7 @@ TicketPage As screen:
                             HoverColor: =Heading1.Color
                             HoverFill: =Heading1.Fill
                             LayoutMinHeight: =70
-                            LayoutMinWidth: =300
+                            LayoutMinWidth: =100
                             OnSelect: |-
                                 =Set(
                                     varItem,
@@ -660,6 +677,21 @@ TicketPage As screen:
                             Wrap: =false
                             X: =19
                             Y: =8.881784197001252E-16
+                            ZIndex: =1
+
+                        Label12 As label:
+                            FillPortions: =1
+                            Height: =50
+                            LayoutMinHeight: =70
+                            LayoutMinWidth: =80
+                            Size: =20
+                            Text: |-
+                                =Concat(
+                                    ThisItem.HashtagRequest,
+                                    Value,
+                                    ","
+                                )
+                            Width: =560
                             ZIndex: =2
 
                         Heading1_2 As label:
@@ -765,8 +797,9 @@ TicketPage As screen:
                                     PressedColor: =Subtitle1.Color
                                     PressedFill: =Subtitle1.Fill
                                     Size: =22
-                                    Text: |-
+                                    Text: |+
                                         ="Title: "& ThisItem.Title
+                                        
                                     Width: =Parent.Width
                                     Wrap: =false
                                     X: =19
@@ -1265,11 +1298,11 @@ TicketPage As screen:
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
-                            Fill: =RGBA(255, 0, 0, 1)
+                            Fill: =RGBA(54, 176, 75, 1)
                             FillPortions: =1
                             Height: =70
                             HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(255, 0, 0, 1), -20%)
+                            HoverFill: =ColorFade(Self.Fill, -20%)
                             OnSelect: |-
                                 =Set(
                                     Dialogcopy1,
@@ -1288,6 +1321,7 @@ TicketPage As screen:
                                         ReqPermission: TicketsGallery.Selected.ReqPermission,
                                         ReqReason: TicketsGallery.Selected.ReqReason,
                                         ReqDescription: TicketsGallery.Selected.ReqDescription
+                                        
                                     }
                                 );
                                 Set(
@@ -1408,4 +1442,181 @@ TicketPage As screen:
                     Text: ="Please wait a few minutes"
                     Width: =Parent.Width
                     ZIndex: =2
+
+    Dialog_hashtag As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        PaddingBottom: =0.00
+        PaddingLeft: =0.00
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Visible: =DialogHashTags
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Container13_24 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(0, 0, 0, 0.46)
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Container42_22 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                ZIndex: =5
+
+                Container42_23 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =240
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =600
+                    ZIndex: =1
+
+                    Label1_31 As label:
+                        Align: =Align.Center
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =70
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        Size: =25
+                        Text: ="Hash Tags"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    Dropdown_hashtags As combobox:
+                        DisplayFields: =["Value"]
+                        Height: =70
+                        IsSearchable: =false
+                        Items: |-
+                            =Choices([@SP_REQUEST].HashtagRequest)
+                            //Distinct(Ungroup([@SP_REQUEST].HashtagRequest,"Hashtag"),Value)
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =575
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                    Container28_15 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: |
+                            =100
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        RadiusBottomRight: =2
+                        RadiusTopLeft: =2
+                        Width: =Parent.Width
+                        ZIndex: =4
+
+                        Button_OK_25 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            DisplayMode: |
+                                =If(IsBlank(Dropdown_hashtags.Selected.Value),DisplayMode.Disabled,DisplayMode.Edit)
+                            Fill: =RGBA(54, 176, 75, 1)
+                            FillPortions: =1
+                            Height: =70
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(Self.Fill, -20%)
+                            OnSelect: |
+                                =Set(
+                                    HashTags,
+                                    Concat(
+                                        Dropdown_hashtags.SelectedItems,
+                                        Value,
+                                        ","
+                                    )
+                                );
+                                Set(
+                                    DialogHashTags,
+                                    false
+                                );
+                                Reset(Dropdown_hashtags);
+                                If(
+                                    TicketsGallery.AllItemsCount = 0,
+                                    Set(
+                                        visibleticketpage,
+                                        true
+                                    ),
+                                    Set(
+                                        visibleticketpage,
+                                        false
+                                    )
+                                );
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Search"
+                            Width: =180
+                            X: =62
+                            Y: =195
+                            ZIndex: =1
+
+                        Button_Cancel_27 As button:
+                            BorderThickness: =0
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(56, 96, 178, 1)
+                            FillPortions: =1
+                            Height: =70
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            OnSelect: =Set(DialogHashTags,false)
+                            PaddingBottom: =5.00
+                            PaddingLeft: =5.00
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =20
+                            Text: ="Cancel"
+                            Width: =180
+                            X: =184
+                            Y: =195
+                            ZIndex: =2
 

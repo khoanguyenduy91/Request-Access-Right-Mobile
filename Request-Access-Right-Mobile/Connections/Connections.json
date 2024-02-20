@@ -9,7 +9,8 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "222d8e46-6089-4fe7-9811-5981b422ce2a"
+      "222d8e46-6089-4fe7-9811-5981b422ce2a",
+      "5ec44d40-7979-416f-b665-c5c2073b1f2c"
     ],
     "id": "0da19c7c-8702-4cd7-8d3a-595bf73697d5"
   },
@@ -214,28 +215,140 @@
     "dependents": [],
     "id": "5d499331-5ee7-473d-b2f1-f8a46129bb08"
   },
+  "5ec44d40-7979-416f-b665-c5c2073b1f2c": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "0da19c7c-8702-4cd7-8d3a-595bf73697d5": {
+          "value": "shared_office365"
+        },
+        "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0": {
+          "value": "shared_sharepointonline"
+        },
+        "945c11f4-6111-43b9-8225-212d6b947075": {
+          "value": "shared_sharepointonline_1"
+        },
+        "workflowEntityId": {
+          "value": "c6011f6d-f6c3-ee11-9079-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "6b327ffe-7ae5-4d86-9b20-efdf26086e02"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "0da19c7c-8702-4cd7-8d3a-595bf73697d5"
+        },
+        "shared_sharepointonline": {
+          "value": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
+        },
+        "shared_sharepointonline_1": {
+          "value": "945c11f4-6111-43b9-8225-212d6b947075"
+        },
+        "workflowEntityId": {
+          "value": "c6011f6d-f6c3-ee11-9079-6045bd5883aa"
+        },
+        "workflowName": {
+          "value": "6b327ffe-7ae5-4d86-9b20-efdf26086e02"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Flow_new_request_HR"
+    ],
+    "dependencies": {
+      "shared_office365": "0da19c7c-8702-4cd7-8d3a-595bf73697d5",
+      "shared_sharepointonline": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0",
+      "shared_sharepointonline_1": "945c11f4-6111-43b9-8225-212d6b947075"
+    },
+    "dependents": [],
+    "id": "5ec44d40-7979-416f-b665-c5c2073b1f2c"
+  },
   "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0": {
     "connectionRef": {
       "displayName": "SharePoint",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/sharepointonline/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
     },
-    "datasets": {},
+    "datasets": {
+      "https://pizzavietnam.sharepoint.com/sites/TESTSITE": {
+        "dataSources": {
+          "DocumentTypes": {
+            "tableName": "d542bad3-0c07-42c7-ac5a-27c3413c8afb"
+          },
+          "LevelMasters": {
+            "tableName": "c82a161a-a3f9-4a27-bd35-fd52e5a14ac9"
+          },
+          "LevelSettings": {
+            "tableName": "849a4a25-40ed-4c89-a565-09a5662b5794"
+          },
+          "Requests": {
+            "tableName": "3070e19a-0275-454a-8f22-eba6e5ef80d2"
+          },
+          "RequestsDetailHR": {
+            "tableName": "80ed73dc-b98e-46bf-81d2-820917b4531d"
+          },
+          "RouteDetails": {
+            "tableName": "f294c39e-159c-48be-b72d-2f07bf3586bb"
+          },
+          "RouteDetailWaitForSettings": {
+            "tableName": "f3d4b3b0-527a-4d56-92c9-77f5e5952b1b"
+          },
+          "RouteMasters": {
+            "tableName": "a3b86e28-11fb-4e54-9741-54c22d1339a5"
+          },
+          "SubRouteDetails": {
+            "tableName": "8825c13f-575b-4810-9d6a-43fb5d0239b3"
+          },
+          "SubRouteMasters": {
+            "tableName": "875f875a-d988-4e11-b3e5-d3caa3153483"
+          }
+        }
+      }
+    },
     "dataSources": [
       "SP_REQUESTTYPE",
       "SP_REQUESTPROCESS",
       "SP_LEVELAPPROVER",
       "SP_SETTINGLEVELAPPROVER",
       "SP_REQUEST",
-      "SP_SETTINGPROCESS"
+      "SP_SETTINGPROCESS",
+      "DocumentTypes",
+      "SubRouteMasters",
+      "SubRouteDetails",
+      "RouteMasters",
+      "RouteDetailWaitForSettings",
+      "RouteDetails",
+      "Requests",
+      "LevelMasters",
+      "LevelSettings",
+      "RequestsDetailHR"
     ],
     "dependencies": {},
     "dependents": [
       "222d8e46-6089-4fe7-9811-5981b422ce2a",
       "465d216d-3511-4461-a972-be26641a57ea",
-      "ca1abd8f-6195-4d18-9b50-ff3243ca1e68"
+      "ca1abd8f-6195-4d18-9b50-ff3243ca1e68",
+      "5ec44d40-7979-416f-b665-c5c2073b1f2c"
     ],
     "id": "8f3022a1-cd8e-4389-bcff-7f1f86eabcc0"
+  },
+  "945c11f4-6111-43b9-8225-212d6b947075": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1676/1.0.1676.3617/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "5ec44d40-7979-416f-b665-c5c2073b1f2c"
+    ],
+    "id": "945c11f4-6111-43b9-8225-212d6b947075"
   },
   "a6df3a3a-165a-406a-ab1d-befee28f9805": {
     "connectionRef": {
