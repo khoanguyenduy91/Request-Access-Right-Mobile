@@ -1795,7 +1795,7 @@ TicketsDetailPage_Approval As screen:
                 Text: ="Assign"
                 Visible: |-
                     =//If(!IsBlank(LookUp(SP_LEVELAPPROVER;IdUser.Email=User().Email&&Level.Value="Approver 1")); true ; false )
-                    true
+                    false
                 Width: =200
                 ZIndex: =4
 
