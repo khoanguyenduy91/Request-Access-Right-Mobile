@@ -811,12 +811,12 @@ EditTicketPage As screen:
                                     Notify(
                                         "The request has been rejected, please refresh the data!",
                                         NotificationType.Error,
-                                        3000
+                                        7000
                                     ),
                                     Notify(
                                         "The request has been approved, please refresh the data!",
                                         NotificationType.Error,
-                                        3000
+                                        7000
                                     )
                                 )
                             )
@@ -848,12 +848,12 @@ EditTicketPage As screen:
                                     Notify(
                                         "The request has been rejected, please refresh the data!",
                                         NotificationType.Error,
-                                        3000
+                                        7000
                                     ),
                                     Notify(
                                         "The request has been approved, please refresh the data!",
                                         NotificationType.Error,
-                                        3000
+                                        7000
                                     )
                                 )
                             )
@@ -1258,8 +1258,8 @@ EditTicketPage As screen:
                                         );
                                         Notify(
                                             IDitem_edit.nulldepartment,
-                                            NotificationType.Error,
-                                            5000
+                                            NotificationType.Error
+                                            
                                         ),
                                         Navigate(
                                             SuccessScreen,
@@ -1271,12 +1271,12 @@ EditTicketPage As screen:
                                         Notify(
                                             "The request has been rejected, please refresh the data!",
                                             NotificationType.Error,
-                                            3000
+                                            7000
                                         ),
                                         Notify(
                                             "The request has been approved, please refresh the data!",
                                             NotificationType.Error,
-                                            3000
+                                            7000
                                         )
                                     )
                                 );

@@ -417,7 +417,7 @@ TicketsDetail_History_Incharge As screen:
                     Update: =DataCardValue29_3.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue30_3),
+                            IsBlank(DataCardValue30_3.Text),
                             false,
                             true
                         )
@@ -591,7 +591,7 @@ TicketsDetail_History_Incharge As screen:
                     Update: =DataCardValue31_3.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue32_3),
+                            IsBlank(DataCardValue32_3.Text),
                             false,
                             true
                         )
@@ -720,7 +720,7 @@ TicketsDetail_History_Incharge As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33_3.Selected
-                    Visible: =If(IsBlank(DataCardValue34_3),false,true)
+                    Visible: =If(IsBlank(DataCardValue34_3.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -846,7 +846,7 @@ TicketsDetail_History_Incharge As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35_3.Selected
-                    Visible: =If(IsBlank(DataCardValue36_3),false,true)
+                    Visible: =If(IsBlank(DataCardValue36_3.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1142,7 +1142,7 @@ TicketsDetail_History_Incharge As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue64.SelectedItems
-                    Visible: =If(IsBlank(DataCardValue65),false,true)
+                    Visible: =If(IsBlank(DataCardValue65.Text),false,true)
                     Width: =Parent.Width-60
                     X: =0
                     Y: =21

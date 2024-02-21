@@ -1168,8 +1168,7 @@ NewTicketPage As screen:
                                     );
                                     Notify(
                                         IDitem.nulldepartment,
-                                        NotificationType.Error,
-                                        5000
+                                        NotificationType.Error
                                     ),
                                     ClearCollect(
                                         CollectAttachment,

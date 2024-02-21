@@ -432,7 +432,7 @@ TicketsDetailPage_Incharge As screen:
                     Update: =DataCardValue29_2.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue30_2),
+                            IsBlank(DataCardValue30_2.Text),
                             false,
                             true
                         )
@@ -606,7 +606,7 @@ TicketsDetailPage_Incharge As screen:
                     Update: =DataCardValue31_2.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue32_2),
+                            IsBlank(DataCardValue32_2.Text),
                             false,
                             true
                         )
@@ -735,7 +735,7 @@ TicketsDetailPage_Incharge As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33_2.Selected
-                    Visible: =If(IsBlank(DataCardValue34_2),false,true)
+                    Visible: =If(IsBlank(DataCardValue34_2.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -861,7 +861,7 @@ TicketsDetailPage_Incharge As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35_2.Selected
-                    Visible: =If(IsBlank(DataCardValue36_2),false,true)
+                    Visible: =If(IsBlank(DataCardValue36_2.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =16

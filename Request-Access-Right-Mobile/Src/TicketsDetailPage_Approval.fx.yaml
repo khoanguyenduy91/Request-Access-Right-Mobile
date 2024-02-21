@@ -429,7 +429,7 @@ TicketsDetailPage_Approval As screen:
                     Update: =DataCardValue29.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue30),
+                            IsBlank(DataCardValue30.Text),
                             false,
                             true
                         )
@@ -603,7 +603,7 @@ TicketsDetailPage_Approval As screen:
                     Update: =DataCardValue31.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue32),
+                            IsBlank(DataCardValue32.Text),
                             false,
                             true
                         )
@@ -732,7 +732,7 @@ TicketsDetailPage_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue33.Selected
-                    Visible: =If(IsBlank(DataCardValue32),false,true)
+                    Visible: =If(IsBlank(DataCardValue32.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =14
@@ -858,7 +858,7 @@ TicketsDetailPage_Approval As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue35.Selected
-                    Visible: =If(IsBlank(DataCardValue36),false,true)
+                    Visible: =If(IsBlank(DataCardValue36.Text),false,true)
                     Width: =640
                     X: =0
                     Y: =16
@@ -1156,7 +1156,7 @@ TicketsDetailPage_Approval As screen:
                     Update: =DataCardValue76.Selected
                     Visible: |-
                         =If(
-                            IsBlank(DataCardValue76),
+                            IsBlank(DataCardValue76.SelectedItems),
                             false,
                             true
                         )
@@ -2174,7 +2174,7 @@ TicketsDetailPage_Approval As screen:
                             HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
                             OnSelect: |-
                                 =If(
-                                    IsBlank(ComboBox_searchName),
+                                    IsBlank(ComboBox_searchName.SelectedItems),
                                     Notify(
                                         "Please enter the name!",
                                         NotificationType.Error

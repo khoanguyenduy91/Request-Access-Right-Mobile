@@ -1182,8 +1182,7 @@ CopyTicketPage As screen:
                                     );
                                     Notify(
                                         "The system is crashing, please try again later",
-                                        NotificationType.Error,
-                                        5000
+                                        NotificationType.Error
                                     ),
                                     Navigate(
                                         SuccessScreen,

@@ -1,7 +1,7 @@
 {
   "FormatVersion": "0.24",
   "Header": {
-    "DocVersion": "1.336",
+    "DocVersion": "1.337",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.0"
   },
@@ -29,10 +29,11 @@
       "disableruntimepolicies": false,
       "dynamicschema": false,
       "enableappembeddingux": false,
+      "enablechatbotfeature": false,
       "enablecomponentnamemaps": true,
       "enablecomponentscopeoldbehavior": true,
+      "enablecopilotanswercontrol": false,
       "enablecopilotcontrol": false,
-      "enablechatbotfeature": false,
       "enabledataverseoffline": false,
       "enableeditcacherefreshfrequency": false,
       "enableexcelonlinebusinessv2connector": false,
@@ -72,7 +73,7 @@
       "pdffunction": false,
       "powerfxdecimal": false,
       "powerfxv1": false,
-      "primaryoutputpropertycoerciondeprecated": false,
+      "primaryoutputpropertycoerciondeprecated": true,
       "projectionmapping": false,
       "reactformulabar": true,
       "reliableconcurrent": true,
@@ -90,6 +91,7 @@
       "useexperimentalsqlconnector": false,
       "useguiddatatypes": false,
       "usenonblockingonstartrule": true,
+      "userdefinedfunctions": false,
       "webbarcodescanner": false,
       "zeroalltabindexes": false
     },
@@ -110,13 +112,13 @@
     "Id": "92927783-3d5f-4c56-bd01-cc9122e21584",
     "InstrumentationKey": "",
     "ManualOfflineProfileId": "",
-    "Name": "PizzaHut VN Request App",
+    "Name": "[DEV] PizzaHutVN Request App-fixes",
     "OriginatingVersion": "1.160",
     "ParserErrorCount": 0,
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "PizzaHut VN Request App",
+    "AppName": "[DEV] PizzaHutVN Request App-fixes",
     "BackgroundColor": "rgba(255, 255, 255, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "",
@@ -124,7 +126,7 @@
     "PublishDataLocally": false,
     "PublishResourcesLocally": true,
     "PublishTarget": "player",
-    "UserLocale": "vi-VN"
+    "UserLocale": "en-US"
   },
   "ScreenOrder": [
     "HomePage",

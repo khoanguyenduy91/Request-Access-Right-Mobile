@@ -181,8 +181,20 @@ HomePage As screen:
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Visible: |-
-                    =//If(!IsBlank(LookUp(SP_LEVELAPPROVER;IdUser.Email=User().Email&&Or(Level.Value="Approver 1";Level.Value="Approver 2";Level.Value="Approver 3"))); false ; true )
-                    true
+                    =If(
+                        !IsBlank(
+                            LookUp(
+                                SP_LEVELAPPROVER,
+                                IdUser.Email = User().Email && Or(
+                                    Level.Value = "Approver 1",
+                                    Level.Value = "Approver 2",
+                                    Level.Value = "Approver 3"
+                                )
+                            )
+                        ),
+                        false,
+                        true
+                    )
                 Width: =50
                 ZIndex: =4
 
