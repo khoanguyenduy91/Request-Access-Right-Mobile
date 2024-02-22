@@ -98,14 +98,14 @@ HomePage As screen:
                             CollectRequestClosed,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Closed" && 'Created By'.Email = User().Email
+                                Status.Value = "Closed" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestRejected,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                Status.Value = "Rejected" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
@@ -377,7 +377,7 @@ HomePage As screen:
                             PressedColor: =TextBox2_1.Color
                             PressedFill: =TextBox2_1.Fill
                             Size: =18
-                            Text: =If(TextBox2_6.Text="1","New request","New requests")
+                            Text: ="New requests"
                             Width: =Parent.Width
                             X: =81
                             Y: =81
@@ -836,14 +836,14 @@ HomePage As screen:
                             CollectRequestClosed,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Closed" && 'Created By'.Email = User().Email
+                                Status.Value = "Closed" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestRejected,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                Status.Value = "Rejected" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(

@@ -22,14 +22,14 @@ SuccessScreen_Incharge As screen:
                 CollecRequestHistory_Incharge,
                 Filter(
                     CollectionRequestTest,
-                    User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank()
+                    (User().Email in 'Incharge Person'.Email && 'Incharge Person Approved Date' <> Blank())&& isDelete = false
                 )
             ),
             ClearCollect(
                 CollectRequestAssign,
                 Filter(
                     SP_REQUEST,
-                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true  && Status.Value = "Submitted" && isDelete = false
                 )
             )
         )

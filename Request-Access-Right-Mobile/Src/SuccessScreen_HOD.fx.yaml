@@ -18,14 +18,14 @@ SuccessScreen_HOD As screen:
                 CollecRequestHistory_HOD,
                 Filter(
                     SP_REQUEST,
-                    User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    (User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()) && isDelete = false
                 )
             ),
             ClearCollect(
                 CollectRequestAssign,
                 Filter(
                     SP_REQUEST,
-                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "Submitted" && isDelete = false
                 )
             )
         )

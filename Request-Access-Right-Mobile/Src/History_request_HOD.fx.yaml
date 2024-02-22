@@ -74,7 +74,7 @@ History_request_HOD As screen:
                         CollecRequestHistory_HOD,
                         Filter(
                             SP_REQUEST,
-                            User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                            (User().Email = HOD.Email && 'HOD Approved Date' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()) && isDelete = false
                         )
                     );
                     If(

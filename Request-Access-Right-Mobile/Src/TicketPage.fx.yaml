@@ -112,14 +112,14 @@ TicketPage As screen:
                             CollectRequestClosed,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Closed" && 'Created By'.Email = User().Email
+                                Status.Value = "Closed" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestRejected,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                Status.Value = "Rejected" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(

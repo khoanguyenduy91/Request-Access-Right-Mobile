@@ -112,14 +112,14 @@ Request_Assigned As screen:
                             CollectRequestClosed,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Closed" && 'Created By'.Email = User().Email
+                                Status.Value = "Closed" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
                             CollectRequestRejected,
                             Filter(
                                 CollectionRequestTest,
-                                Status.Value = "Rejected" && 'Created By'.Email = User().Email
+                                Status.Value = "Rejected" && 'Created By'.Email = User().Email && isDelete = false
                             )
                         ),
                         ClearCollect(
@@ -164,7 +164,7 @@ Request_Assigned As screen:
                             Col_requestAssign,
                             Filter(
                                 CollectionRequestTest,
-                                'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "Submitted" || 'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "HOD approved"
+                                ('Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "Submitted" || 'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "HOD approved") && isDelete = false
                             )
                         )
                     );

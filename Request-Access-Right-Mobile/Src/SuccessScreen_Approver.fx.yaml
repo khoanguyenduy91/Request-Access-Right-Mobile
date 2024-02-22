@@ -32,35 +32,35 @@ SuccessScreen_Approver As screen:
                 CollecRequestHistory_Approver1,
                 Filter(
                     SP_REQUEST,
-                    User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    (User().Email = 'Approver 1'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()) && isDelete = false
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Approver2,
                 Filter(
                     SP_REQUEST,
-                    User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    (User().Email = 'Approver 2'.Email && 'Approved Date 2' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()) && isDelete = false
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Approver3,
                 Filter(
                     SP_REQUEST,
-                    User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    (User().Email = 'Approver 3'.Email && 'Approved Date 3' <> Blank() && 'ReqType: ID'.Value = "2" || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()) && isDelete = false
                 )
             ),
             ClearCollect(
                 CollecRequestHistory_Assigned,
                 Filter(
                     CollectionRequestTest,
-                    User().Email = 'Assigned User'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()
+                    (User().Email = 'Assigned User'.Email && 'Approved Date 1' <> Blank() || User().Email = 'Rejected By'.Email && 'Rejected Date' <> Blank()) && isDelete = false
                 )
             ),
             ClearCollect(
                 CollectRequestAssign,
                 Filter(
                     SP_REQUEST,
-                    'Assigned User'.Email = User().Email && isAssignedRequest = true && isDelete = false && Status.Value = "Submitted"
+                    'Assigned User'.Email = User().Email && isAssignedRequest = true && Status.Value = "Submitted" && isDelete = false
                 )
             )
         )
