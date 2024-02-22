@@ -232,15 +232,7 @@ History_request_HOD As screen:
                 Items: |-
                     =Sort(
                         Filter(
-                            If(
-                                !IsBlank(
-                                    LookUp(
-                                        SP_REQUEST,
-                                        User().Email = HOD.Email
-                                    )
-                                ),
-                                CollecRequestHistory_HOD
-                            ),
+                            CollecRequestHistory_HOD,
                             Text_search_5.Text in Title || Text_search_5.Text in ID || Text_search_5.Text in ReqType.Value
                         ),
                         Created,

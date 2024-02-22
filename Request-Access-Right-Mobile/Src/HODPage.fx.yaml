@@ -243,15 +243,7 @@ HODPage As screen:
             Items: |-
                 =Sort(
                     Filter(
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    SP_REQUEST,
-                                    User().Email = HOD.Email
-                                )
-                            ),
-                            CollectRequestHOD
-                        ),
+                        CollectRequestHOD,
                         Text_search_2.Text in Title || Text_search_2.Text in ID || Text_search_2.Text in ReqType.Value
                     ),
                     Created,

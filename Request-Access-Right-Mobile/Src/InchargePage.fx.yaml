@@ -241,18 +241,7 @@ InchargePage As screen:
             Items: |-
                 =Sort(
                     Filter(
-                        If(
-                            !IsBlank(
-                                LookUp(
-                                    CollectionRequestTest,
-                                    User().Email in Concat(
-                                        'Incharge Person',
-                                        Email & ";"
-                                    )
-                                )
-                            ),
-                            CollectRequestIncharge
-                        ),
+                        CollectRequestIncharge,
                         Text_search_3.Text in Title || Text_search_3.Text in ID || Text_search_3.Text in ReqType.Value
                     ),
                     Created,
