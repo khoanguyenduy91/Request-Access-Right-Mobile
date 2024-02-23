@@ -2363,7 +2363,7 @@ FormHRpage As screen:
                             Newrecordrequest: Patch(
                                 Requests,
                                 Defaults(Requests),
-                                {DepartmentCode: profileUser.Department},
+                                {DepartmentCode: DataCardValue146.Text},
                                 {
                                     DocumentTypes: {
                                         Id: varDocumenttypeTitle.ID,

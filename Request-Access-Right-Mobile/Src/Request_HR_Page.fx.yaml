@@ -214,13 +214,40 @@ Request_HR_Page As screen:
                         );
                         UpdateContext(
                             {
-                                varLookupRequests: Filter(
-                                    Requests,
-                                    'DocumentTypes: ID'.Value = varLookupLevelsetting.'DocumentTypeId: ID'.Value
+                                varLookupDocumentstype: LookUp(
+                                    DocumentTypes,
+                                    ID = varLookupLevelsetting.'DocumentTypeId: ID'.Id
                                 )
                             }
                         );
-                        
+                        UpdateContext(
+                            {
+                                varLookupRouteDetails: LookUp(
+                                    RouteDetails,
+                                    RouteMasterId.Value = varLookupDocumentstype.RouteMasterId.Value && LevelId.Value = varLookupLevelsetting.LevelId.Value
+                                )
+                            }
+                        );
+                        UpdateContext(
+                            {
+                                varFilterApproveTransaction: Filter(
+                                    ApproveTransaction,
+                                    RouteDetailId = varLookupRouteDetails.RouteDetailId && Status.Value = "In Progress"
+                                )
+                            }
+                        );
+                        ClearCollect(
+                            colRequestsall,
+                            Requests
+                        );
+                        UpdateContext(
+                            {
+                                varLookupRequests: Filter(
+                                    colRequestsall,
+                                    ID in varFilterApproveTransaction.RequestId
+                                )
+                            }
+                        );
                         ClearCollect(
                             colRequestsDetailHR,
                             RequestsDetailHR
@@ -229,7 +256,7 @@ Request_HR_Page As screen:
                             colRequestApprove,
                             Filter(
                                 colRequestsDetailHR,
-                                RequestsId.Value in varLookupRequests.ID && Department = varLookupLevelsetting.'Department Code'
+                                RequestsId.Value in varLookupRequests.ID
                             )
                         )
                     PressedColor: =ColorFade(Self.Color,90%)

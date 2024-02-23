@@ -185,6 +185,28 @@
     "dependents": [],
     "id": "465d216d-3511-4461-a972-be26641a57ea"
   },
+  "4a95874f-5092-434c-a752-a4394620a06f": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1676/1.0.1676.3617/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://pizzavietnam.sharepoint.com/sites/TESTSITE": {
+        "dataSources": {
+          "ApproveTransaction": {
+            "tableName": "942159ef-b087-4dbb-b79b-954cd3a8d689"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "ApproveTransaction"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "4a95874f-5092-434c-a752-a4394620a06f"
+  },
   "5d499331-5ee7-473d-b2f1-f8a46129bb08": {
     "connectionRef": {
       "displayName": "Logic flows",

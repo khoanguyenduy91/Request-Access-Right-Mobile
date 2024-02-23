@@ -182,7 +182,8 @@ HomePage As screen:
                     )
                 PressedColor: =ColorFade(Self.Color,90%)
                 Visible: |-
-                    =If(
+                    =/*
+                    If(
                         !IsBlank(
                             LookUp(
                                 SP_LEVELAPPROVER,
@@ -196,6 +197,8 @@ HomePage As screen:
                         false,
                         true
                     )
+                    */
+                    true
                 Width: =50
                 ZIndex: =4
 

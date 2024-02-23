@@ -87,12 +87,12 @@ Request_HR_detail_Page As screen:
             ZIndex: =2
 
             FormDetail_HR As formViewer:
-                DataSource: =RequestsDetailHR
+                DataSource: =varItemReqHR
                 Item: =varItemReqHR
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 Width: =640
-                ZIndex: =1
+                ZIndex: =2
 
                 Created_DataCard2 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
@@ -1587,6 +1587,48 @@ Request_HR_detail_Page As screen:
                         X: =30
                         Y: =DataCardKey87.Y + DataCardKey87.Height + 5
                         ZIndex: =2
+
+            Button3 As button:
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnSelect: |-
+                    =UpdateContext(
+                        {
+                            varLookupLevelsetting: LookUp(
+                                LevelSettings,
+                                UserName.Email = User().Email
+                            )
+                        }
+                    );
+                    If(
+                        varLookupLevelsetting.Sequence = "1",
+                        Patch(
+                            ApproveTransaction,
+                            LookUp(
+                                ApproveTransaction,
+                                RequestId = Value(varItemReqHR.RequestsId.Value) && CurrentSequence = "1"
+                            ),
+                            {Status: {Value: "Approved"}},
+                            {ApprovedDate: Now()},
+                            //{Comment: User().FullName},
+                            {
+                                ApprovedBy: {
+                                    '@odata.type': User().Email,
+                                    Claims: User().Email,
+                                    Department: "",
+                                    DisplayName: "",
+                                    Email: User().Email,
+                                    JobTitle: "",
+                                    Picture: ""
+                                }
+                            }
+                        )
+                    )
+                Size: =24
+                Text: ="Approve"
+                Width: =280
+                ZIndex: =3
 
         Container11_5 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
