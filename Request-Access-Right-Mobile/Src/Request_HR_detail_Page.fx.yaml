@@ -1607,7 +1607,7 @@ Request_HR_detail_Page As screen:
                             ApproveTransaction,
                             LookUp(
                                 ApproveTransaction,
-                                RequestId = Value(varItemReqHR.RequestsId.Value) && CurrentSequence = "1"
+                                RequestId = varItemReqHR.RequestsId.Id && CurrentSequence = "1"
                             ),
                             {Status: {Value: "Approved"}},
                             {ApprovedDate: Now()},
