@@ -1601,13 +1601,40 @@ Request_HR_detail_Page As screen:
                             )
                         }
                     );
+                    UpdateContext(
+                        {
+                            varLookupApproveTransactionID: LookUp(
+                                ApproveTransaction,
+                                RequestId = varItemReqHR.RequestsId.Id
+                            )
+                        }
+                    );
+                    UpdateContext(
+                        {
+                            varLookupRoudetais1: LookUp(
+                                RouteDetails,
+                                RouteDetailId = varLookupApproveTransactionID.RouteDetailId
+                            )
+                        }
+                    );
+                    UpdateContext(
+                        {
+                            varLookupRoudetais2: LookUp(
+                                RouteDetails,
+                                RouteMasterId.Value = varLookupRoudetais1.RouteMasterId.Value && Sequence = Sum(
+                                    varLookupRoudetais1.Sequence,
+                                    1
+                                )
+                            )
+                        }
+                    );
                     If(
-                        varLookupLevelsetting.Sequence = "1",
+                        varLookupLevelsetting.Sequence = 1,
                         Patch(
                             ApproveTransaction,
                             LookUp(
                                 ApproveTransaction,
-                                RequestId = varItemReqHR.RequestsId.Id && CurrentSequence = "1"
+                                RequestId = varItemReqHR.RequestsId.Id && CurrentSequence = 1
                             ),
                             {Status: {Value: "Approved"}},
                             {ApprovedDate: Now()},
@@ -1623,6 +1650,14 @@ Request_HR_detail_Page As screen:
                                     Picture: ""
                                 }
                             }
+                        );
+                        Patch(
+                            ApproveTransaction,
+                            Defaults(ApproveTransaction),
+                            {RequestId: varLookupApproveTransactionID.RequestId},
+                            {RouteDetailId: varLookupRoudetais2.RouteDetailId},
+                            {CurrentSequence: 2},
+                            {NextSequence: 3}
                         )
                     )
                 Size: =24
