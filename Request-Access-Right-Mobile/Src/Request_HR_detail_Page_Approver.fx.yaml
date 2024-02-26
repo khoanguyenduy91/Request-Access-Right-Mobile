@@ -1612,7 +1612,7 @@ Request_HR_detail_Page_Approver As screen:
                                     ApproveTransaction,
                                     LookUp(
                                         ApproveTransaction,
-                                        RequestId = varItemReqApprover.RequestsId.Id
+                                        RequestId = varItemReqApprover.RequestsId.Id && Status.Value = "In Progress"
                                     ),
                                     {Status: {Value: "Approved"}},
                                     {ApprovedDate: Now()},
@@ -1696,7 +1696,7 @@ Request_HR_detail_Page_Approver As screen:
                                     ApproveTransaction,
                                     LookUp(
                                         ApproveTransaction,
-                                        RequestId = varItemReqApprover.RequestsId.Id
+                                        RequestId = varItemReqApprover.RequestsId.Id && Status.Value = "In Progress"
                                     ),
                                     {Status: {Value: "Rejected"}},
                                     {ApprovedDate: Now()},
