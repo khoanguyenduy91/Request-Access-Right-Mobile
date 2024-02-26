@@ -1647,6 +1647,14 @@ Request_HR_detail_Page_Approver As screen:
                                 )
                             }
                         );
+                        UpdateContext(
+                            {
+                                varLookupDocumentsTypes: LookUp(
+                                    DocumentTypes,
+                                    RouteMasterId.Value = varLookupRoudetaiNext.RouteMasterId.Value
+                                )
+                            }
+                        );
                         Patch(
                             ApproveTransaction,
                             Defaults(ApproveTransaction),
@@ -1659,6 +1667,13 @@ Request_HR_detail_Page_Approver As screen:
                                     1
                                 )
                             }
+                        );
+                        Flow_check_status_HR.Run(
+                            varItemReqApprover.RequestsId.Id,
+                            varLookupDocumentsTypes.ID,
+                            ItemCurrentPatch.NextSequence,
+                            varItemReqApprover.Department,
+                            ItemCurrentPatch.Status.Value
                         );
                         Navigate(
                             Request_HR_Page_Approver,
@@ -1675,26 +1690,37 @@ Request_HR_detail_Page_Approver As screen:
                     LayoutMinHeight: =70
                     LayoutMinWidth: =280
                     OnSelect: |-
-                        =Patch(
-                            ApproveTransaction,
-                            LookUp(
-                                ApproveTransaction,
-                                RequestId = varItemReqApprover.RequestsId.Id
-                            ),
-                            {Status: {Value: "Rejected"}},
-                            {ApprovedDate: Now()},
-                                //{Comment: User().FullName},
+                        =UpdateContext(
                             {
-                                ApprovedBy: {
-                                    '@odata.type': User().Email,
-                                    Claims: User().Email,
-                                    Department: "",
-                                    DisplayName: "",
-                                    Email: User().Email,
-                                    JobTitle: "",
-                                    Picture: ""
-                                }
+                                ItemCurrentreject: Patch(
+                                    ApproveTransaction,
+                                    LookUp(
+                                        ApproveTransaction,
+                                        RequestId = varItemReqApprover.RequestsId.Id
+                                    ),
+                                    {Status: {Value: "Rejected"}},
+                                    {ApprovedDate: Now()},
+                                //{Comment: User().FullName},
+                                    {
+                                        ApprovedBy: {
+                                            '@odata.type': User().Email,
+                                            Claims: User().Email,
+                                            Department: "",
+                                            DisplayName: "",
+                                            Email: User().Email,
+                                            JobTitle: "",
+                                            Picture: ""
+                                        }
+                                    }
+                                )
                             }
+                        );
+                        Flow_check_status_HR.Run(
+                            varItemReqApprover.RequestsId.Id,
+                            0,
+                            0,
+                            varItemReqApprover.Department,
+                            ItemCurrentreject.Status.Value
                         );
                         Navigate(
                             Request_HR_Page_Approver,
