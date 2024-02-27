@@ -7,12 +7,14 @@
       <number name="ManualTriggerInput_number_2_def" />
       <string name="ManualTriggerInput_text_def" />
       <string name="ManualTriggerInput_text_1_def" />
+      <number name="ManualTriggerInput_number_3_def" />
       <object name="ManualTriggerInput">
         <property name="number" type="number" />
         <property name="number_1" type="number" />
         <property name="number_2" type="number" />
         <property name="text" type="string" />
         <property name="text_1" type="string" />
+        <property name="number_3" type="number" />
       </object>
     </jsonTypes>
   </grammars>
@@ -33,13 +35,16 @@
               <doc title="DocumentsTypeID" />
             </param>
             <param style="plain" name="number_2" path="/number_2" type="xs:double" required="true">
-              <doc title="Sequence" />
+              <doc title="CurrentSequence" />
             </param>
             <param style="plain" name="text" path="/text" type="xs:string" required="true">
               <doc title="DepartmentCode" />
             </param>
             <param style="plain" name="text_1" path="/text_1" type="xs:string" required="true">
               <doc title="Status" />
+            </param>
+            <param style="plain" name="number_3" path="/number_3" type="xs:double" required="true">
+              <doc title="NextSequence" />
             </param>
           </representation>
         </request>

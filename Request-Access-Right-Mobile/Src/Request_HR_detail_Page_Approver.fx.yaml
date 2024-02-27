@@ -1651,29 +1651,37 @@ Request_HR_detail_Page_Approver As screen:
                             {
                                 varLookupDocumentsTypes: LookUp(
                                     DocumentTypes,
-                                    RouteMasterId.Value = varLookupRoudetaiNext.RouteMasterId.Value
+                                    RouteMasterId.Value = varLookupRouteDetailCurrent.RouteMasterId.Value
                                 )
                             }
                         );
-                        Patch(
-                            ApproveTransaction,
-                            Defaults(ApproveTransaction),
-                            {RequestId: ItemCurrentPatch.RequestId},
-                            {RouteDetailId: varLookupRoudetaiNext.RouteDetailId},
-                            {CurrentSequence: ItemCurrentPatch.NextSequence},
-                            {
-                                NextSequence: Sum(
-                                    ItemCurrentPatch.NextSequence,
-                                    1
+                        If(
+                            ItemCurrentPatch.NextSequence <> 0,
+                            Patch(
+                                ApproveTransaction,
+                                Defaults(ApproveTransaction),
+                                {RequestId: ItemCurrentPatch.RequestId},
+                                {RouteDetailId: varLookupRoudetaiNext.RouteDetailId},
+                                {CurrentSequence: ItemCurrentPatch.NextSequence},
+                                If(
+                                    ItemCurrentPatch.NextSequence = 3,
+                                    {NextSequence: 0},
+                                    {
+                                        NextSequence: Sum(
+                                            ItemCurrentPatch.NextSequence,
+                                            1
+                                        )
+                                    }
                                 )
-                            }
+                            )
                         );
                         Flow_check_status_HR.Run(
                             varItemReqApprover.RequestsId.Id,
                             varLookupDocumentsTypes.ID,
-                            ItemCurrentPatch.NextSequence,
+                            ItemCurrentPatch.CurrentSequence,
                             varItemReqApprover.Department,
-                            ItemCurrentPatch.Status.Value
+                            ItemCurrentPatch.Status.Value,
+                            ItemCurrentPatch.NextSequence
                         );
                         Navigate(
                             Request_HR_Page_Approver,
@@ -1720,7 +1728,8 @@ Request_HR_detail_Page_Approver As screen:
                             0,
                             0,
                             varItemReqApprover.Department,
-                            ItemCurrentreject.Status.Value
+                            ItemCurrentreject.Status.Value,
+                            0
                         );
                         Navigate(
                             Request_HR_Page_Approver,

@@ -772,7 +772,7 @@ Request_HR_Page_Approver As screen:
                                             RadiusTopRight: =20
                                             Size: =17
                                             Text: =ThisItem.Status.Value
-                                            Width: =If("Approved" in ThisItem.Status.Value,300,180)
+                                            Width: =180
                                             ZIndex: =2
 
                                     Label10_8 As label:
