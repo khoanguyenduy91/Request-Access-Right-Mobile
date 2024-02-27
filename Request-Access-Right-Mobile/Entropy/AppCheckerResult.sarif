@@ -19674,17 +19674,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.profileUser"
+                  "fullyQualifiedName": "App.varApproval"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.profileUser",
+                  "fullyQualifiedName": "App.varApproval",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "profileUser",
+                "member": "varApproval",
                 "module": "App",
                 "type": "App"
               }
@@ -19704,17 +19704,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.varApproval"
+                  "fullyQualifiedName": "App.varReqtypeHR"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.varApproval",
+                  "fullyQualifiedName": "App.varReqtypeHR",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "varApproval",
+                "member": "varReqtypeHR",
                 "module": "App",
                 "type": "App"
               }
@@ -20088,6 +20088,36 @@
           },
           "ruleId": "app-InefficientDelayLoading",
           "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormHRpage.varRequestDetailHR"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormHRpage.varRequestDetailHR",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varRequestDetailHR",
+                "module": "FormHRpage",
+                "type": "FormHRpage"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
         },
         {
           "locations": [

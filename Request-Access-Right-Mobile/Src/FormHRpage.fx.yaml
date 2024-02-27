@@ -2347,16 +2347,13 @@ FormHRpage As screen:
                 HoverBorderColor: =ColorFade(Self.Fill, 20%)
                 HoverColor: =RGBA(0, 0, 0, 1)
                 OnSelect: |-
-                    =Set(
+                    =/*
+                    Set(
                         varDocumenttypeTitle,
                         LookUp(
                             DocumentTypes,
                             Title = varReqtypeHR
                         )
-                    );
-                    Set(
-                        profileUser,
-                        Office365Users.UserProfile(User().EntraObjectId)
                     );
                     UpdateContext(
                         {
@@ -2395,6 +2392,68 @@ FormHRpage As screen:
                         Newrecordrequest.ID,
                         varDocumenttypeTitle.ID,
                         varRequestDetailHR.Department
+                    );
+                    Navigate(
+                        Request_HR_Page,
+                        ScreenTransition.Fade
+                    )
+                    */
+                    If(
+                        DataCardValue151.Value || DataCardValue162.Value = true,
+                        UpdateContext(
+                            {
+                                varDocumentType: LookUp(
+                                    DocumentTypes,
+                                    ApplyFor = "DTS"
+                                )
+                            }
+                        ),
+                        UpdateContext(
+                            {
+                                varDocumentType: LookUp(
+                                    DocumentTypes,
+                                    ApplyFor = "HR"
+                                )
+                            }
+                        )
+                    );
+                    UpdateContext(
+                        {
+                            Newrecordrequest: Patch(
+                                Requests,
+                                Defaults(Requests),
+                                {DepartmentCode: DataCardValue146.Text},
+                                {
+                                    DocumentTypes: {
+                                        Id: varDocumentType.ID,
+                                        Value: varDocumentType.Title
+                                    }
+                                }
+                            )
+                        }
+                    );
+                    SubmitForm(Form_detail_requests);
+                    UpdateContext(
+                        {
+                            varRequestDetailHR: Patch(
+                                RequestsDetailHR,
+                                LookUp(
+                                    RequestsDetailHR,
+                                    ID = Last(RequestsDetailHR).ID
+                                ),
+                                {
+                                    RequestsId: {
+                                        Id: Last(Requests).ID,
+                                        Value: Last(Requests).ID
+                                    }
+                                }
+                            )
+                        }
+                    );
+                    Flow_new_request_HR.Run(
+                        Newrecordrequest.ID,
+                        varDocumentType.ID,
+                        varDocumentType.ApplyFor
                     );
                     Navigate(
                         Request_HR_Page,
