@@ -1641,14 +1641,6 @@ Request_HR_detail_Page_Approver As screen:
                         );
                         UpdateContext(
                             {
-                                varLookupRoudetaiNext: LookUp(
-                                    RouteDetails,
-                                    RouteMasterId.Value = varLookupRouteDetailCurrent.RouteMasterId.Value && Sequence = ItemCurrentPatch.NextSequence
-                                )
-                            }
-                        );
-                        UpdateContext(
-                            {
                                 varLookupDocumentsTypes: LookUp(
                                     DocumentTypes,
                                     RouteMasterId.Value = varLookupRouteDetailCurrent.RouteMasterId.Value
@@ -1657,6 +1649,14 @@ Request_HR_detail_Page_Approver As screen:
                         );
                         If(
                             ItemCurrentPatch.NextSequence <> 0,
+                            UpdateContext(
+                                {
+                                    varLookupRoudetaiNext: LookUp(
+                                        RouteDetails,
+                                        RouteMasterId.Value = varLookupRouteDetailCurrent.RouteMasterId.Value && Sequence = ItemCurrentPatch.NextSequence
+                                    )
+                                }
+                            );
                             Patch(
                                 ApproveTransaction,
                                 Defaults(ApproveTransaction),
@@ -1678,7 +1678,6 @@ Request_HR_detail_Page_Approver As screen:
                         Flow_check_status_HR.Run(
                             varItemReqApprover.RequestsId.Id,
                             varLookupDocumentsTypes.ID,
-                            ItemCurrentPatch.CurrentSequence,
                             varItemReqApprover.Department,
                             ItemCurrentPatch.Status.Value,
                             ItemCurrentPatch.NextSequence
@@ -1725,7 +1724,6 @@ Request_HR_detail_Page_Approver As screen:
                         );
                         Flow_check_status_HR.Run(
                             varItemReqApprover.RequestsId.Id,
-                            0,
                             0,
                             varItemReqApprover.Department,
                             ItemCurrentreject.Status.Value,

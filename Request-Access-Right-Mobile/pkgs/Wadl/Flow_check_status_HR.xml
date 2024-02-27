@@ -4,14 +4,12 @@
     <jsonTypes targetNamespace="https://asia-001.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
       <number name="ManualTriggerInput_number_def" />
       <number name="ManualTriggerInput_number_1_def" />
-      <number name="ManualTriggerInput_number_2_def" />
       <string name="ManualTriggerInput_text_def" />
       <string name="ManualTriggerInput_text_1_def" />
       <number name="ManualTriggerInput_number_3_def" />
       <object name="ManualTriggerInput">
         <property name="number" type="number" />
         <property name="number_1" type="number" />
-        <property name="number_2" type="number" />
         <property name="text" type="string" />
         <property name="text_1" type="string" />
         <property name="number_3" type="number" />
@@ -33,9 +31,6 @@
             </param>
             <param style="plain" name="number_1" path="/number_1" type="xs:double" required="true">
               <doc title="DocumentsTypeID" />
-            </param>
-            <param style="plain" name="number_2" path="/number_2" type="xs:double" required="true">
-              <doc title="CurrentSequence" />
             </param>
             <param style="plain" name="text" path="/text" type="xs:string" required="true">
               <doc title="DepartmentCode" />
