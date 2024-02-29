@@ -1,5 +1,13 @@
 Request_HR_detail_Page As screen:
-    OnVisible: =
+    OnVisible: |
+        =UpdateContext(
+            {
+                varStatus: LookUp(
+                    ApproveTransaction,
+                    RequestId = varItemReqHR.ID && NextSequence = 0
+                ).Status.Value
+            }
+        )
 
     Container10_14 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.ExtraBold
@@ -46,7 +54,8 @@ Request_HR_detail_Page As screen:
                 LayoutMinHeight: =70
                 LayoutMinWidth: =300
                 Size: =28
-                Text: ="Request details of HR" 
+                Text: |
+                    ="Request details of HR" 
                 Width: =560
                 ZIndex: =2
 
@@ -70,7 +79,8 @@ Request_HR_detail_Page As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Trash
                 LayoutMinHeight: =50
-                OnSelect: =
+                OnSelect: |
+                    =Split(Label13.Text,"Status: ")
                 PressedColor: =ColorFade(Self.Color,90%)
                 Width: =50
                 ZIndex: =4
@@ -86,13 +96,64 @@ Request_HR_detail_Page As screen:
             Width: =Parent.Width
             ZIndex: =2
 
+            Container47 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =60
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Label13 As label:
+                    AlignInContainer: =AlignInContainer.Center
+                    Color: =RGBA(101, 128, 187, 1)
+                    Height: =60
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =80
+                    PaddingLeft: =30
+                    PaddingRight: =0
+                    Size: =21
+                    Text: |-
+                        ="Status: "
+                    Width: =130
+                    ZIndex: =1
+
+                Label13_1 As label:
+                    AlignInContainer: =AlignInContainer.Center
+                    Color: |-
+                        =Switch(
+                            Label13_1.Text,
+                            "Rejected",
+                            Color.Red,
+                            "Approved",
+                            Color.Green,
+                            Color.BlueViolet
+                        )
+                    FillPortions: =1
+                    FontWeight: =FontWeight.Bold
+                    Height: =60
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =80
+                    PaddingLeft: =0
+                    Size: =21
+                    Text: |-
+                        =Switch(
+                            varStatus,
+                            Blank(),
+                            "In Progress",
+                            varStatus
+                        )
+                    Width: =Parent.Width
+                    ZIndex: =2
+
             FormDetail_HR As formViewer:
                 DataSource: =RequestsDetailHR
                 Item: =varItemReqHR
                 LayoutMinHeight: =250
                 LayoutMinWidth: =320
                 Width: =640
-                ZIndex: =2
+                ZIndex: =3
 
                 Created_DataCard2 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
